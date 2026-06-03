@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- we first include a file which contains the docinfo element: -->
+<!--   <xi:include href="./docinfo.ptx" /> -->
+
+  <book xml:id="diff-eqs">
+    <title>MA224 Norwich University</title>
+    <subtitle>Differential Equations</subtitle>
+
+    <!-- Include frontmatter -->
+    <xi:include href="./frontmatter.ptx" />
+
+    <!-- Include parts -->
+     <!-- <part xml:id="part-introduction">
+      <title>Introduction to Differential Equations</title>
+     </part> -->
+      
+
+    <!-- Include chapters -->
+    <xi:include href="./ch-introduction.ptx" />
+
+
+    <!-- Include backmatter -->
+<!-- 
+    <xi:include href="./backmatter.xml" />
+ -->
+
+  </book>
+</pretext>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-modeling-diff-eq" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Modeling with Differential Equations</title>
+ <objectives>
+      <ul>
+        <li><p>To understand that a <term>differential equation</term> is an equation relating a function to one or more of its derivatives and that an <term>initial value problem</term> is a differential equation
+          <md>\frac{dx}{dt} = f(t,x),</md>
+        where the <term>initial condition</term>, <m>x(t_0) = x_0</m>, is specified.</p></li>
+
+        <li><p>To understand and be able to apply the three principal steps in modeling any phenomenon with differential equations.
+            <ul>
+            
+                <li><p>Discovering the differential equation or equations that best describe a specified physical situation.</p></li>
+                
+                <li><p>Finding<mdash/>either exactly or approximately<mdash/>the appropriate solution of the equation or equations.</p></li>
+                
+                <li><p>Interpreting the solution in terms of the phenomenon.</p></li>
+                
+            </ul></p></li>
+
+        <li><p>To understand and be able to apply the differential equations that model <term>exponential growth</term> and <term>logistic growth</term>.</p></li>
+
+        <li><p>To understand that some phenomenon are best modeled by higher order differential equations or systems of differential equations.</p></li>
+        
+      </ul>
+
+    </objectives>
+<introduction>
+  <p> If we wish to bring mathematical tools to bear on a problem, we often find that the relationships between the quantities of interest can be expressed as differential equations. 
+    A <term>differential equation</term> is an equation that relates a function to one or more of its derivatives. For example, the equation
+    <md>\frac{dx}{dt} = 3t^2x</md>
+    is a differential equation that relates the function <m>x(t)</m> to its derivative <m>\frac{dx}{dt}</m>. If we specify an initial condition, such as <m>x(0) = 2</m>, then we have an initial value problem.
+    The solution to this initial value problem is the function <m>x(t) = 2  e^{t^3}</m>, which satisfies both the differential equation and the initial condition. We will see how to find this solution in a later section, but for now we will focus on how to model phenomena with differential equations.
+  </p>
+</introduction>
+    <subsection xml:id="subsec-exponential-growth">
+    <title>Exponential Growth and Decay</title>
+    <p>
+      We begin our study of differential equations with a simple example of modeling a phenomenon with a differential equation. Consider the problem of modeling the growth of a population of organisms. 
+      Let <m>P(t)</m> be the population at time <m>t</m>. We might hypothesize that the rate of change of the population is proportional to the population itself, which leads us to the differential equation 
+      <md>
+        \frac{dP}{dt} = k P(t)
+      </md>
+      This is a first-order linear differential equation, and its solution is given by
+      <md>
+        P(t) = P_0 e^{kt}
+      </md>
+      where <m>P_0</m> is the initial population at time <m>t = 0</m>. This 
+      model is known as the <term>exponential growth</term> model, and it 
+      describes a situation where the population grows without bound (if <m>k\gt 0</m>) or 
+      decays to 0 (if <m>k\lt 0</m>) as time 
+      increases. However, in reality, populations cannot grow indefinitely due 
+      to limited resources, so we will need to modify our model to account for 
+      this fact. We will see how to do this in the next section.
+    </p>
+    <sage language="octave">
+      <input>
+        pkg load symbolic
+        syms P(t)
+        k = sym('k')
+        P0 = sym('P0')
+        ode = diff(P,t) == k*P
+        cond = P(0) == P0
+        PSol(t) = dsolve(ode, cond)
+      </input>
+    </sage>
+<figure xml:id="octave-online">
+  <caption>Online Octave compiler</caption>
+  <interactive xml:id="interactive-octave-online" iframe="https://onecompiler.com/embed/octave" width="95%" aspect="15:10"/>
+</figure>
+</subsection>
+</section>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction</title>
+  
+  <introduction>
+    <p> Here, we introduce the notion of what a differential equation is and 
+      give some examples of how to model phenomena with differential equations. </p>
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="sec-modeling-diff-eq.ptx" />
+
+</chapter>
