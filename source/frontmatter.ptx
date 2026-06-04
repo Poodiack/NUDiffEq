@@ -5,9 +5,7 @@ Copyright 2025 Robert D. Poodiack
 **********************************************-->
 
 <frontmatter xml:id="MA224BookFront" xmlns:xi="http://www.w3.org/2001/XInclude">
-	
-	<titlepage>
-	
+	<bibinfo>		
 		<author>
 			<personname>Robert D. Poodiack</personname>
 			<department>Department of Mathematics</department>
@@ -16,13 +14,16 @@ Copyright 2025 Robert D. Poodiack
 		</author>
 		
 		<date><today /></date>		
+	</bibinfo>
+	<titlepage>
+		<titlepage-items />
 	</titlepage>
 	<preface>
-	<p>This book and all related activities emanate from the following works:</p>
-	<ul>
-		<li><p><em>The Ordinary Differential Equations Project</em> by Thomas Judson</p></li>
-		<li><p><em>Elementary Differential Equations</em> by William Trench</p></li>
-	</ul>
+		<p>This book and all related activities emanate from the following works:</p>
+		<ul>
+			<li><p><em>The Ordinary Differential Equations Project</em> by Thomas Judson</p></li>
+			<li><p><em>Elementary Differential Equations</em> by William Trench</p></li>
+		</ul>
 	</preface>
 	
 </frontmatter>
