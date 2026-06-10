@@ -27,33 +27,53 @@
 
     </objectives>
 <introduction>
-  <p> If we wish to bring mathematical tools to bear on a problem, we often find that the relationships between the quantities of interest can be expressed as differential equations. 
-    A <term>differential equation</term> is an equation that relates a function to one or more of its derivatives. For example, the equation
-    <md>\frac{dx}{dt} = 3t^2x</md>
-    is a differential equation that relates the function <m>x(t)</m> to its derivative <m>\frac{dx}{dt}</m>. If we specify an initial condition, such as <m>x(0) = 2</m>, then we have an initial value problem.
-    The solution to this initial value problem is the function <m>x(t) = 2  e^{t^3}</m>, which satisfies both the differential equation and the initial condition. We will see how to find this solution in a later section, but for now we will focus on how to model phenomena with differential equations.
-  </p>
+  <p>We study <term>differential equations</term> because they are the natural language for 
+    describing many phenomena in the physical world. They arise from real-world situations 
+    where rates of change are involved. (In other words, we will be spending time 
+  with <term>applied mathematics</term>.)</p>
+  <p>In first- and second-semester calculus, we learned how to compute derivatives and 
+    integrals. While we sometimes worked with applications (e.g. related rates, optimization), 
+    more often we learned techniques 
+    for differentiating and integrating functions in isolation. This is equivalent 
+  to the part of the movie <em>The Karate Kid</em> where Mr. Miyagi teaches Daniel the fundamentals of karate 
+  by having Daniel paint a fence or apply wax to his car.</p>
+  <p>This course is the Mid-Valley Tournament part of the movie. We will be 
+    applying the techniques we learned in calculus to solve problems in 
+    physics, engineering, and other sciences. Yes, there will be plenty of 
+    instances where we will be learning techniques. But we will also spend 
+    time <em>applying</em> these techniques. Eventually, we will get to the point 
+    where we see a problem and our minds will automatically go "Paint the fence!" 
+    or "Wax on! Wax off!" We will be learning how to 
+    model real-world phenomena with differential equations, and then how to 
+    solve those equations to make predictions about the phenomena.</p>
 </introduction>
-  <subsection xml:id="subsec-exponential-growth">
-    <title>Exponential Growth and Decay</title>
-    <p>
-      We begin our study of differential equations with a simple example of modeling a phenomenon with a differential equation. Consider the problem of modeling the growth of a population of organisms. 
-      Let <m>P(t)</m> be the population at time <m>t</m>. We might hypothesize that the rate of change of the population is proportional to the population itself, which leads us to the differential equation 
-      <md>
-        \frac{dP}{dt} = k P(t)
-      </md>
-      This is a first-order linear differential equation, and its solution is given by
-      <md>
-        P(t) = P_0 e^{kt}
-      </md>
-      where <m>P_0</m> is the population at time <m>t = 0</m>, the <term>initial population</term>. 
-      This model is known as the <term>exponential growth</term> model, and it 
-      describes a situation where the population grows without bound (if <m>k\gt 0</m>) or 
-      decays to 0 (if <m>k\lt 0</m>) as time 
-      increases. However, in reality, populations cannot grow indefinitely due 
-      to limited resources, so we will need to modify our model to account for 
-      this fact. We will see how to do this in the next section.
-    </p>
+<subsection xml:id="subsec-what-is-a-differential-equation">
+  <title>What is a Differential Equation?</title>
+  <p>A <term>differential equation</term> is an equation that relates a 
+    function to one or more of its derivatives. For example, the equation</p>
+  <md>\frac{dx}{dt} = 3t^2</md>
+  <p>is a differential equation that relates the function <m>x(t)</m> to its derivative <m>\frac{dx}{dt}</m>. The equation</p>
+  <md>\frac{dx}{dt} = 2x</md>
+  <p>is a differential equation that relates the function <m>x(t)</m> to its derivative <m>\frac{dx}{dt}</m>. The equation</p>
+  <md>\frac{d^2y}{dt^2} + 5\frac{dy}{dt} + 6y = 0</md>
+  <p>is a differential equation that relates the function <m>y(t)</m> to its 
+    first and second derivatives.</p>
+  <p>Our goal, given a differential equation, is to find a function that 
+    satisfies the equation. If possible, we would like to find <em>all</em> 
+    such functions. One of the lessons we will learn in the course is that this 
+  is not always possible. We will then learn how to find <em>approximate</em> solutions.</p>
+  <p>Here are some examples of differential equations and the contexts in which they arise:</p>
+  <example>
+    <title>Biology</title>
+    <p>In biology, we might model population growth with a differential equation like 
+      <m>\frac{dP}{dt} = kP</m>, where <m>P</m> is the population at time <m>t</m> and 
+      <m>k</m> is the <term>constant of proportionality</term>.</p>
+      <p>This is a fairly simple model of population growth, and it is called 
+        the <term>exponential growth model</term>. It assumes that the population grows at a 
+        rate that is proportional to the current population. This model is not very realistic, 
+        but it is a good starting point for understanding population growth.</p>
+  </example>
+  </subsection>
   <!--  <sage language="octave">
       <input>
         pkg load symbolic
@@ -69,35 +89,5 @@
   <caption>Online Octave compiler</caption>
   <interactive xml:id="interactive-octave-online" iframe="https://onecompiler.com/embed/octave" width="95%" aspect="15:10"/>
 </figure>--> 
-</subsection>
-<subsection xml:id="subsec-What-Is-a-Solution">
-  <title>What Is a Solution?</title>
-  <p>A <term>solution</term> to a differential equation is a function that 
-    satisfies the equation. That is, when we substitute the function and its 
-    derivatives into the differential equation, the equation holds true. </p>
-  <p>When confronted with a differential equation, we often want to find a 
-    solution that satisfies certain initial conditions. For example, if we 
-    have the differential equation</p>
-    <md>
-      \frac{dx}{dt} = 3t^2x
-    </md>
-    <p>and the initial condition <m>x(0) = 2</m>, we want to find a function <m>x(t)</m> such 
-    that when we substitute it into the left-hand side of the equation, we get the same expression as on 
-    the right-hand side, and also satisfies the initial condition at <m>t=0</m>.</p>
-</subsection>
-<subsection xml:id="subsec-Verifying-Solutions">
-  <title>Verifying Solutions</title>
-  <p>Given a differential equation, the immediate question for most of us is ``How do we solve it?'' 
-    We already know from our previous experience in calculus how to solve a differential equation of the form 
-    <m>y' = f(x)</m>. The Fundamental Theorem of Calculus tells us that we undo derivatives through <term>antidifferentiation</term>. 
-    That is, we take an integral to get that</p>
-    <md>y = F(x) + C</md>
-    <p>where <m>F</m> is any antiderivative of <m>f</m> and <m>C</m> is an <term>arbitrary constant</term>. That is, <m>C</m> can be any 
-    real number.</p>
-  <p>The reason, however, why there is an entire course in differential equations is that differential equations don't always have such 
-    nice forms. ``Just integrate'' sounds like a great idea, but it can't always be done and when it can, there's often a lot of preparatory 
-    work involved in getting us to the point where we <em>can</em> use integration.</p>
-  <p>Luckily, if someone <em>proposes</em> a solution, it isn't too difficult to <term>verify</term> the solution. That is, we can quickly 
-      check whether the proposed solution makes our differential equation true or not.</p>
-</subsection>
+
 </section>
