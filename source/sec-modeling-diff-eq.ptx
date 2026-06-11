@@ -51,11 +51,11 @@
   <title>What is a Differential Equation?</title>
   <p>A <term>differential equation</term> is an equation that relates a 
     function to one or more of its derivatives. For example, the equation</p>
-  <md>\frac{dx}{dt} = 3t^2</md>
+  <p><md>\frac{dx}{dt} = 3t^2</md></p>
   <p>is a differential equation that relates the function <m>x(t)</m> to its derivative <m>\frac{dx}{dt}</m>. The equation</p>
-  <md>\frac{dx}{dt} = 2x</md>
+  <p><md>\frac{dx}{dt} = 2x</md></p>
   <p>is a differential equation that relates the function <m>x(t)</m> to its derivative <m>\frac{dx}{dt}</m>. The equation</p>
-  <md>\frac{d^2y}{dt^2} + 5\frac{dy}{dt} + 6y = 0</md>
+  <p><md>\frac{d^2y}{dt^2} + 5\frac{dy}{dt} + 6y = 0</md></p>
   <p>is a differential equation that relates the function <m>y(t)</m> to its 
     first and second derivatives.</p>
   <p>Our goal, given a differential equation, is to find a function that 
@@ -70,9 +70,55 @@
       <m>k</m> is the <term>constant of proportionality</term>.</p>
       <p>This is a fairly simple model of population growth, and it is called 
         the <term>exponential growth model</term>. It assumes that the population grows at a 
-        rate that is proportional to the current population. This model is not very realistic, 
-        but it is a good starting point for understanding population growth.</p>
+        rate that is proportional to the current population. This model does OK over short periods 
+        of time, but it is not very realistic over longer periods of time, since it does not take into account factors such as limited resources, 
+        competition, and predation. However, it is a good starting point for understanding population growth.</p>
+      <p>Other models are more complex.</p>
   </example>
+  <example>
+    <title>Physics</title>
+    <p>It is known in physics that all forces acting on a particular moving 
+      body at time <m>t</m> depend only on the position <m>x(t)</m>, 
+      velocity <m>x'(t)</m>, and 
+      acceleration <m>x''(t)</m> of the body at time <m>t</m>.</p>
+      <p>Newton's second law of motion states that the net force acting on a 
+        body is equal to the mass of the body multiplied by its acceleration. 
+        This can be expressed as a differential equation:</p>
+      <p><md>F(t) = m x''(t)</md></p>
+      <p>where <m>F(t)</m> is the net force acting on the body at time <m>t</m>, 
+        <m>m</m> is the mass of the body, and <m>x''(t)</m> is the acceleration of the body at time <m>t</m>. This means 
+      that we will generally have a differential equation to describe the forces 
+    on an object of the form:</p>
+    <p><md>mx''(t) = f(t, x(t), x'(t))</md></p>
+    <p>where <m>f</m> is some function that describes the forces acting on the 
+      body. An example of such an equation is the <term>spring-mass equation</term>, which has the form:</p>
+    <p><md>mx'' + \beta x' + kx = f(t)</md></p>
+    <p>Here, <m>m</m> is the mass of the object, <m>\beta</m> is the <term>damping 
+      coefficient</term>, <m>k</m> is the <term>spring constant</term>, 
+      and <m>f(t)</m> is an external force applied to the system.</p>
+  </example>
+  <p>We note that differential equations contain derivatives in either Leibniz notation (e.g. <m>\frac{dx}{dt}</m>) or prime notation (e.g. <m>x'</m>). 
+    We will use both notations throughout the course, and we will be comfortable with both. When we use prime notation, we will often write <m>x'</m> for the first derivative 
+    and <m>x''</m> for the second derivative, without explicitly stating the variable of differentiation.</p>
+  <p>Here are some more examples of differential equations:</p>
+  <p><ul>
+    <li><p><m>P'(t)=rP(t)(1-\frac{P(t)}{N})-H</m> is a more sophisticated version
+      of the population growth model we saw earlier. This is a <term>logistic 
+        growth model with harvesting</term>. In this case, <m>r</m> is the 
+        intrinsic growth rate, <m>N</m> is the <term>carrying capacity</term> (the maximum 
+        population size that the environment can sustain), and <m>H</m> is the harvesting rate.</p></li>
+    <li><p><m>\frac{d^2x}{dt^2}+0.9\,\frac{dx}{dt} + 2x=0</m> is an example of the 
+      previously discussed <term>spring-mass equation</term>. We will see plenty of these 
+      later in the course.</p></li>
+    <li><p><m>I''(t) + 4I(t) = \sin(\omega t)</m> is an example of a 
+      <term>RLC circuit equation</term> with alternating current. <m>R</m> is the 
+    resistance, <m>L</m> is the inductance, and <m>C</m> is the capacitance.</p></li>
+    <li><p><m>\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}</m> is an example of the 
+      <term>heat equation</term>, which models the distribution of heat (or variation in temperature) in a given region over time. 
+      Here, <m>u(x,t)</m> is the temperature at position <m>x</m> and time <m>t</m>, and <m>D</m> is the thermal diffusivity.
+    This is an example of a <term>partial differential equation</term>. We will not be 
+  studying these in this class.</p></li>
+    </ul></p>
   </subsection>
   <!--  <sage language="octave">
       <input>
