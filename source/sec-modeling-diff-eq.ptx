@@ -120,20 +120,47 @@
   studying these in this class.</p></li>
     </ul></p>
   </subsection>
-  <!--  <sage language="octave">
-      <input>
-        pkg load symbolic
-        syms P(t)
-        k = sym('k')
-        P0 = sym('P0')
-        ode = diff(P,t) == k*P
-        cond = P(0) == P0
-        PSol(t) = dsolve(ode, cond)
-      </input>
-    </sage>
-<figure xml:id="octave-online">
-  <caption>Online Octave compiler</caption>
-  <interactive xml:id="interactive-octave-online" iframe="https://onecompiler.com/embed/octave" width="95%" aspect="15:10"/>
-</figure>--> 
-
+ <subsection xml:id="subsec-parts-of-a-differential-equation">
+  <title>Parts of a Differential Equation</title>
+  <p>There are several parts to a differential equation:</p>
+  <p><ul>
+    <li><p>The <term>dependent variable</term>, which is the function we are trying to find (e.g., <m>x</m>).</p></li>
+    <li><p>The <term>independent variable</term>, which is the variable with respect to which we are taking derivatives (e.g., <m>t</m>).</p></li>
+    <li><p><term>Parameters</term>, which are constants or functions that appear in the equation but are not derivatives. We 
+      will treat them as constants when we are solving the equation.</p></li>
+    <li><p>The <term>order</term> of the differential equation, which is the highest derivative that appears in the equation.</p></li>
+    <li><p>The <term>right-hand side</term>, which is the function that defines the rate of change of the dependent variable.</p></li>
+  </ul></p>
+  <p>Here are a few examples of how these parts appear in different types of differential equations:</p>
+  <example>
+    <p>Consider the differential equation <m>\frac{dx}{dt} = 3t^2</m>. In this equation:</p>
+    <p><ul>
+      <li><p>The dependent variable is <m>x</m>.</p></li>
+      <li><p>The independent variable is <m>t</m>.</p></li>
+      <li><p>There are no parameters in this equation.</p></li>
+      <li><p>The order of the equation is 1, since the highest derivative is the first derivative.</p></li>
+      <li><p>The right-hand side is the function <m>3t^2</m>.</p></li>
+    </ul></p>
+  </example>
+  <example>
+    <p>Consider the differential equation <m>\frac{d^2y}{dt^2} + 5\frac{dy}{dt} + 6y = 0</m>. In this equation:</p>
+    <p><ul>
+      <li><p>The dependent variable is <m>y</m>.</p></li>
+      <li><p>The independent variable is <m>t</m>.</p></li>
+      <li><p>There are no parameters in this equation.</p></li>
+      <li><p>The order of the equation is 2, since the highest derivative is the second derivative.</p></li>
+      <li><p>The right-hand side is the function <m>0</m>.</p></li>
+    </ul></p>
+  </example>
+  <example>
+    <p>Consider the differential equation <m>P'(t)=rP(t)(1-\frac{P(t)}{N})-H</m>. In this equation:</p>
+    <p><ul>
+      <li><p>The dependent variable is <m>P</m>.</p></li>
+      <li><p>The independent variable is <m>t</m>.</p></li>
+      <li><p>The parameters are <m>r</m>, <m>N</m>, and <m>H</m>.</p></li>
+      <li><p>The order of the equation is 1, since the highest derivative is the first derivative.</p></li>
+      <li><p>The right-hand side is the function <m>rP(t)(1-\frac{P(t)}{N})-H</m>.</p></li>
+    </ul></p>
+  </example>
+</subsection>
 </section>
