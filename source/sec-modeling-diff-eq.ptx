@@ -116,8 +116,8 @@
     <li><p><m>\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}</m> is an example of the 
       <term>heat equation</term>, which models the distribution of heat (or variation in temperature) in a given region over time. 
       Here, <m>u(x,t)</m> is the temperature at position <m>x</m> and time <m>t</m>, and <m>D</m> is the thermal diffusivity.
-    This is an example of a <term>partial differential equation</term>. We will not be 
-  studying these in this class.</p></li>
+    This is an example of a <term>partial differential equation</term>. These types of equations 
+    are studied in more advanced courses.</p></li>
     </ul></p>
   </subsection>
  <subsection xml:id="subsec-parts-of-a-differential-equation">
@@ -129,9 +129,8 @@
     <li><p><term>Parameters</term>, which are constants or functions that appear in the equation but are not derivatives. We 
       will treat them as constants when we are solving the equation.</p></li>
     <li><p>The <term>order</term> of the differential equation, which is the highest derivative that appears in the equation.</p></li>
-    <li><p>The <term>right-hand side</term>, which is the function that defines the rate of change of the dependent variable.</p></li>
   </ul></p>
-  <p>Here are a few examples of how these parts appear in different types of differential equations:</p>
+  <p>Here are several examples of how these parts appear in different types of differential equations:</p>
   <example>
     <p>Consider the differential equation <m>\frac{dx}{dt} = 3t^2</m>. In this equation:</p>
     <p><ul>
@@ -139,17 +138,15 @@
       <li><p>The independent variable is <m>t</m>.</p></li>
       <li><p>There are no parameters in this equation.</p></li>
       <li><p>The order of the equation is 1, since the highest derivative is the first derivative.</p></li>
-      <li><p>The right-hand side is the function <m>3t^2</m>.</p></li>
     </ul></p>
   </example>
   <example>
-    <p>Consider the differential equation <m>\frac{d^2y}{dt^2} + 5\frac{dy}{dt} + 6y = 0</m>. In this equation:</p>
+    <p>Consider the differential equation <m>P'(t) = k P(t)</m>. In this equation:</p>
     <p><ul>
-      <li><p>The dependent variable is <m>y</m>.</p></li>
+      <li><p>The dependent variable is <m>P</m>.</p></li>
       <li><p>The independent variable is <m>t</m>.</p></li>
-      <li><p>There are no parameters in this equation.</p></li>
-      <li><p>The order of the equation is 2, since the highest derivative is the second derivative.</p></li>
-      <li><p>The right-hand side is the function <m>0</m>.</p></li>
+      <li><p>The parameter is <m>k</m>.</p></li>
+      <li><p>The order of the equation is 1, since the highest derivative is the first derivative.</p></li>
     </ul></p>
   </example>
   <example>
@@ -159,8 +156,35 @@
       <li><p>The independent variable is <m>t</m>.</p></li>
       <li><p>The parameters are <m>r</m>, <m>N</m>, and <m>H</m>.</p></li>
       <li><p>The order of the equation is 1, since the highest derivative is the first derivative.</p></li>
-      <li><p>The right-hand side is the function <m>rP(t)(1-\frac{P(t)}{N})-H</m>.</p></li>
     </ul></p>
   </example>
+  <example>
+    <p>Consider the differential equation <m>mx'' + \beta x' + kx = f(t)</m>. In this equation:</p>
+    <p><ul>
+      <li><p>The dependent variable is <m>x</m>.</p></li>
+      <li><p>The independent variable is <m>t</m>.</p></li>
+      <li><p>The parameters are <m>m</m>, <m>\beta</m>, and <m>k</m>.</p></li>
+      <li><p>The order of the equation is 2, since the highest derivative is the second derivative.</p></li>
+    </ul></p>
+  </example>
+  <example>
+    <p>Consider the differential equation <m>I''(t) + 4I(t) = \sin(\omega t)</m>. In this equation:</p>
+    <p><ul>
+      <li><p>The dependent variable is <m>I</m>.</p></li>
+      <li><p>The independent variable is <m>t</m>.</p></li>
+      <li><p>The parameter is <m>\omega</m>.</p></li>
+      <li><p>The order of the equation is 2, since the highest derivative is the second derivative.</p></li>
+    </ul></p>
+  </example>
+  <example>
+    <p>Consider <term>Van de Pol's</term> equation <m>y''(t) - \mu(1 - y^2(t))y'(t) + y(t) = 0  </m>. In this equation:</p>
+    <p><ul>
+      <li><p>The dependent variable is <m>y</m>.</p></li>
+      <li><p>The independent variable is <m>t</m>.</p></li>
+      <li><p>The parameter is <m>\mu</m>.</p></li>
+      <li><p>The order of the equation is 2, since the highest derivative is the second derivative.</p></li>
+    </ul></p>
+  </example>
+ 
 </subsection>
 </section>
