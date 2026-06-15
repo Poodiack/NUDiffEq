@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="sec-modeling-diff-eq" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Modeling with Differential Equations</title>
+<section xml:id="sec-basic-terminology" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Basic Terminology</title>
  <objectives>
       <ul>
         <li><p>To understand that a <term>differential equation</term> is an equation relating a function to one or more of its derivatives and that an <term>initial value problem</term> is a differential equation
@@ -37,7 +37,7 @@
     for differentiating and integrating functions in isolation. This is equivalent 
   to the part of the movie <em>The Karate Kid</em> where Mr. Miyagi teaches Daniel the fundamentals of karate 
   by having Daniel paint a fence or apply wax to his car.</p>
-  <p>This course is the Mid-Valley Tournament part of the movie. We will be 
+  <p>This course is the All-Valley Tournament part of the movie. We will be 
     applying the techniques we learned in calculus to solve problems in 
     physics, engineering, and other sciences. Yes, there will be plenty of 
     instances where we will be learning techniques. But we will also spend 
@@ -186,5 +186,99 @@
     </ul></p>
   </example>
  
+</subsection>
+<subsection xml:id="subsec-solutions-of-differential-equations">
+  <title>Solutions of Differential Equations</title>
+  <p>A <term>solution</term> of a differential equation is a function that 
+    satisfies the equation. For example, the function <m>x(t) = t^3 + C</m> 
+    is a solution of the differential equation <m>\frac{dx}{dt} = 3t^2</m>, 
+    where <m>C</m> is an arbitrary constant. The function 
+    <m>P(t) = P_0 e^{kt}</m> is a solution of the differential equation 
+    <m>P'(t) = kP(t)</m>, where <m>P_0</m> is an arbitrary constant. 
+    The function <m>P(t) = \frac{N}{1 + \left(\frac{N}{P_0} - 1\right)e^{-rt}} - \frac{H}{r}</m> 
+    is a solution of the differential equation <m>P'(t)=rP(t)(1-\frac{P(t)}{N})-H</m>, 
+    where <m>P_0</m> is an arbitrary constant.</p>
+  <p>In general, a solution of a differential equation will contain one or 
+    more arbitrary constants. The number of arbitrary constants in the 
+    solution is equal to the order of the equation. For example, the general 
+    solution of a first-order differential equation will contain one 
+    arbitrary constant, while the general solution of a second-order differential 
+    equation will contain two arbitrary constants.</p>
+  <p>In our earlier calculus experience, we often found a single solution 
+    to a problem. In this course, we will often be interested in finding 
+    the <em>general solution</em> of a differential equation, which contains 
+    all possible solutions. 
+    We will also be interested in finding particular solutions that 
+    satisfy specific <term>initial conditions</term> or <term>boundary conditions</term>.
+  An <term>initial value problem</term> is a differential equation together 
+  with an initial condition. Recall that in our earlier calculus experience, when 
+we would integrate a function, we would include a constant of integration. If we also had 
+an initial condition -- a value of the function at a specific point -- we 
+could determine the value of this constant.</p>
+<p>Similarly, when we solve a differential equation, we often find a general solution that contains arbitrary constants. 
+The initial condition allows us to determine the specific values of these constants, leading to a particular solution. 
+A solution to an initial-value problem must satisfy both the differential 
+equation and the initial condition. In particular, the solution function must 
+be defined on an interval containing the initial point.</p>
+<p>There are also <term>boundary value problems</term>, where we are given 
+  conditions at more than one point. We will not be studying these types of problems in this course, 
+  but they are important in many applications.</p>
+<subsubsection xml:id="subsubsec-Finding-Solutions">
+  <title>Finding Solutions</title>
+  <p>Our goal in this course is to find solutions to differential equations. We will learn various techniques for finding solutions, including both analytical and numerical methods. 
+    <term>Analytical methods</term> involve finding an exact solution in 
+    terms of known functions, while <term>numerical methods</term> involve 
+    approximating the solution using computational algorithms. As we will see, 
+  we cannot always find exact solutions analytically. For example, the differential 
+equation <m>y' = e^{-t^2}</m> does not have an elementary function as its 
+solution because we cannot integrate <m>e^{-t^2}</m>. In such cases, 
+we will rely on numerical or graphical methods to approximate the solution.</p>
+</subsubsection>
+<subsubsection xml:id="subsubsec-Verifying-Solutions">
+  <title>Verifying Solutions</title>
+  <p>While we will be spending most of this course trying to find ways to 
+    solve differential equations, it turns out that <em>verifying</em> that a 
+    given function is a solution of a differential equation is often much 
+    easier than finding the solution in the first place.</p>
+  <p>For example, let's verify that the function <m>P(t) = e^{-2t}</m> is a 
+    solution of the differential equation <m>y''+3y'+2y = 0</m>. To do this,
+  we substitute <m>P</m> and its derivatives into the equation and check if 
+  the equality holds.</p>
+  <p>
+    <md>
+      \begin{aligned}
+        y &amp;= P(t) = e^{-2t} \\
+        y' &amp;= P'(t) = -2e^{-2t} \\ 
+        y'' &amp;= P''(t) = 4e^{-2t}
+      \end{aligned}
+    </md>
+  </p>
+  <p>Substituting these into the left-hand side of the equation gives us:</p>
+  <p>
+    <md>
+      \begin{aligned}
+        y''+3y'+2y &amp;= 4e^{-2t} + 3(-2e^{-2t}) + 2(e^{-2t}) \\
+        &amp;=e^{-2t}(4-6+2) = 0 \quad\checkmark
+      \end{aligned}
+    </md>
+  </p>
+  <p>This works for every possible value of <m>t</m>, so we have verified that 
+    <m>P(t) = e^{-2t}</m> is indeed a solution of the differential equation.</p>
+  <p>However, <m>P</m> is not the only solution of the equation. For example, 
+    the function <m>Q(t) = 3e^{-t}</m> is also a solution since if we 
+    substitute it into the equation for <m>y</m>, we get:</p>
+  <p>
+    <md>
+      \begin{aligned}
+        y''+3y'+2y &amp;= 3e^{-t} + 3(-3e^{-t}) + 2(3e^{-t}) \\
+        &amp;= 3e^{-t} - 9e^{-t} + 6e^{-t} = 0 \quad\checkmark
+      \end{aligned}
+    </md>
+  </p>
+  <p>Therefore, <m>Q(t) = 3e^{-t}</m> is a solution of the differential equation.</p>
+  <p> In fact, 
+    the general solution of the equation is <m>y(t) = C_1 e^{-t} + C_2 e^{-2t}</m>, 
+    where <m>C_1</m> and <m>C_2</m> are arbitrary constants.</p>
+</subsubsection>
 </subsection>
 </section>
