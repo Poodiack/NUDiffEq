@@ -8,20 +8,16 @@
           <md>\frac{dx}{dt} = f(t,x),</md>
         where the <term>initial condition</term>, <m>x(t_0) = x_0</m>, is specified.</p></li>
 
-        <li><p>To understand and be able to apply the three principal steps in modeling any phenomenon with differential equations.
-            <ul>
-            
-                <li><p>Discovering the differential equation or equations that best describe a specified physical situation.</p></li>
-                
-                <li><p>Finding<mdash/>either exactly or approximately<mdash/>the appropriate solution of the equation or equations.</p></li>
-                
-                <li><p>Interpreting the solution in terms of the phenomenon.</p></li>
-                
-            </ul></p></li>
+        <li><p>To understand that the <term>order of a differential equation</term> is 
+          the order of the highest derivative in the equation.</p></li>
 
-        <li><p>To understand and be able to apply the differential equations that model <term>exponential growth</term> and <term>logistic growth</term>.</p></li>
+        <li><p>To understand the major parts of a differential equation: the <term>dependent 
+          variables</term>, the <term>independent variables</term>, and the <term>parameters</term>.
+        </p></li>
 
-        <li><p>To understand that some phenomenon are best modeled by higher order differential equations or systems of differential equations.</p></li>
+        <li><p>To be able to <term>verify a solution</term> for a differential equation; 
+          that is, determine whether a proposed solution to an equation works or not <em> 
+            without actually solving the differential equation</em>.</p></li>
         
       </ul>
 
@@ -209,12 +205,12 @@
     the <em>general solution</em> of a differential equation, which contains 
     all possible solutions. 
     We will also be interested in finding particular solutions that 
-    satisfy specific <term>initial conditions</term> or <term>boundary conditions</term>.
-  An <term>initial value problem</term> is a differential equation together 
+    satisfy specific <term>initial conditions</term> or <term>boundary conditions</term>. 
+    An initial condition is a value of the solution function at a specific point, while a boundary condition is a value of the solution function at more than one point.</p>
+ <p> An <term>initial value problem</term> is a differential equation together 
   with an initial condition. Recall that in our earlier calculus experience, when 
 we would integrate a function, we would include a constant of integration. If we also had 
-an initial condition -- a value of the function at a specific point -- we 
-could determine the value of this constant.</p>
+an initial condition, we could determine the value of this constant.</p>
 <p>Similarly, when we solve a differential equation, we often find a general solution that contains arbitrary constants. 
 The initial condition allows us to determine the specific values of these constants, leading to a particular solution. 
 A solution to an initial-value problem must satisfy both the differential 
@@ -223,6 +219,7 @@ be defined on an interval containing the initial point.</p>
 <p>There are also <term>boundary value problems</term>, where we are given 
   conditions at more than one point. We will not be studying these types of problems in this course, 
   but they are important in many applications.</p>
+  
 <subsubsection xml:id="subsubsec-Finding-Solutions">
   <title>Finding Solutions</title>
   <p>Our goal in this course is to find solutions to differential equations. We will learn various techniques for finding solutions, including both analytical and numerical methods. 
@@ -279,6 +276,32 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
   <p> In fact, 
     the general solution of the equation is <m>y(t) = C_1 e^{-t} + C_2 e^{-2t}</m>, 
     where <m>C_1</m> and <m>C_2</m> are arbitrary constants.</p>
+  <exercise>
+    <statement>
+      <p>
+        Determine whether <m>\phi(t) = (1-t^2)^{1/2}=\sqrt{1-t^2}</m> is a solution to 
+        the differential equation <md>y'=-\frac{t}{y}</md>. If it is, find the largest 
+        set of <m>t</m>-values for which <m>\phi</m> is a valid solution.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We note that the proposed solution <m>\phi(t)=\sqrt{1-t^2}</m> is defined on <m>[-1,1]</m> 
+        and differentiable on <m>(-1,1)</m>. If we set <m>y=\phi</m>, then the chain rule gives us </p>
+        <p><md>
+          \begin{aligned}
+          y' \amp=\tfrac12(1-t^2)^{-1/2}(-2t) \\
+          \amp = -\frac{t}{\sqrt{1-t^2}} \\
+          \amp = -\frac{t}{y}
+          \end{aligned}
+        </md></p>
+      <p>
+        Thus <m>\phi(t)=\sqrt{1-t^2}</m> is a solution of the differential equation 
+        for <m>-1\lt t \lt 1</m>. (There are other solutions that are valid outside 
+        this interval.)
+      </p>
+    </solution>
+  </exercise>
 </subsubsection>
 </subsection>
 </section>
