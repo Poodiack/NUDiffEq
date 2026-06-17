@@ -4,14 +4,14 @@
   <title>Basic Terminology</title>
  <objectives>
       <ul>
-        <li><p>To understand that a <term>differential equation</term> is an equation relating a function to one or more of its derivatives and that an <term>initial value problem</term> is a differential equation
-          <md>\frac{dx}{dt} = f(t,x),</md>
+        <li><p>To understand that a <term>differential equation</term> is an equation relating a 
+        function (say, <m>x(t)</m>) to one or more of its derivatives and that an <term>initial value problem</term> is a differential equation
         where the <term>initial condition</term>, <m>x(t_0) = x_0</m>, is specified.</p></li>
 
         <li><p>To understand that the <term>order of a differential equation</term> is 
           the order of the highest derivative in the equation.</p></li>
 
-        <li><p>To understand the major parts of a differential equation: the <term>dependent 
+        <li><p>To be able to identify the major parts of a differential equation: the <term>dependent 
           variables</term>, the <term>independent variables</term>, and the <term>parameters</term>.
         </p></li>
 
@@ -107,7 +107,7 @@
       previously discussed <term>spring-mass equation</term>. We will see plenty of these 
       later in the course.</p></li>
     <li><p><m>I''(t) + 4I(t) = \sin(\omega t)</m> is an example of a 
-      <term>RLC circuit equation</term> with alternating current. <m>R</m> is the 
+      <term>RLC circuit equation</term> with alternating current. <m>I</m> is the current, <m>R</m> is the 
     resistance, <m>L</m> is the inductance, and <m>C</m> is the capacitance.</p></li>
     <li><p><m>\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}</m> is an example of the 
       <term>heat equation</term>, which models the distribution of heat (or variation in temperature) in a given region over time. 
