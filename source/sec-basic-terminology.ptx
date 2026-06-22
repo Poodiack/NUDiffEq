@@ -123,7 +123,7 @@
     <li><p>The <term>dependent variable</term>, which is the function we are trying to find (e.g., <m>x</m>).</p></li>
     <li><p>The <term>independent variable</term>, which is the variable with respect to which we are taking derivatives (e.g., <m>t</m>).</p></li>
     <li><p><term>Parameters</term>, which are constants or functions that appear in the equation but are not derivatives. We 
-      will treat them as constants when we are solving the equation.</p></li>
+      will treat them as constants when we are solving the equation. (In particular, parameters will show up in the solution.)</p></li>
     <li><p>The <term>order</term> of the differential equation, which is the highest derivative that appears in the equation.</p></li>
   </ul></p>
   <p>Here are several examples of how these parts appear in different types of differential equations:</p>
@@ -304,4 +304,103 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
   </exercise>
 </subsubsection>
 </subsection>
+<worksheet xml:id="ws-basic-terminology">
+  <title>In-Class Worksheet: Basic Terminology</title>
+  <introduction>
+    <p>
+      For each of the following differential equations, identify the dependent variable,
+       independent variable, parameters, and order of the equation.
+    </p>
+  </introduction>
+  <page>
+    <exercise>
+      <statement>
+        <p><md>\frac{dy}{dx}=y^2-x</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>y</m></p>
+        <p>Independent variable: <m>x</m></p>
+        <p>Parameters: none</p>
+        <p>Order: 1</p>
+      </solution>
+    </exercise>
+    <exercise workspace="true">
+      <statement>
+        <p><md>\frac{dP}{dt} = rP(1-\frac{P}{N})</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>P</m></p>
+        <p>Independent variable: <m>t</m></p>
+        <p>Parameters: <m>r, N</m></p>
+        <p>Order: 1</p>
+      </solution>
+    </exercise>
+    <exercise workspace="true">
+      <statement>
+        <p><md>\frac{dP}{dt} = rP(1-\frac{P}{N})-\frac{\beta P^2}{\alpha^2+\gamma P^2}</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>P</m></p>
+        <p>Independent variable: <m>t</m></p>
+        <p>Parameters: <m>r, N, \beta, \alpha, \gamma</m></p>
+        <p>Order: 1</p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p><md>mx''+\beta x'+kx=2t^5, \text{where } m,\beta,k \text{ are constants and $x$ is a function of $t$}</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>x</m></p>
+        <p>Independent variable: <m>t</m></p>
+        <p>Parameters: <m>m, \beta, k</m></p>
+        <p>Order: 2</p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p><md>y'''+2y''+y'+3y = \sin(\omega x) \text{ where } \omega \text{ is a constant and $y$ is a function of $x$}</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>y</m></p>
+        <p>Independent variable: <m>x</m></p>
+        <p>Parameters: <m>\omega</m></p>
+        <p>Order: 3</p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p><md>(ty'(t))'=\alpha e^{-\beta t}</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>y</m></p>
+        <p>Independent variable: <m>t</m></p>
+        <p>Parameters: <m>\alpha, \beta</m></p>
+        <p>Order: 2</p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p><md>\frac{d^2\theta}{dt^2} + \sin(\theta) = 4\cos t</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>\theta</m></p>
+        <p>Independent variable: <m>t</m></p>
+        <p>Parameters: none</p>
+        <p>Order: 2</p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p><md>y''+\varepsilon(y^2-1)y'+y=0, \text{ assuming $y$ is a function of $x$}</md></p>
+      </statement>
+      <solution>
+        <p>Dependent variable: <m>y</m></p>
+        <p>Independent variable: <m>x</m></p>
+        <p>Parameters: <m>\varepsilon</m></p>
+        <p>Order: 2</p>
+      </solution>
+    </exercise>
+  </page>
+</worksheet>
 </section>
