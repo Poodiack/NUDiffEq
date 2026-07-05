@@ -403,4 +403,26 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
     </exercise>
   </page>
 </worksheet>
+<subsection xml:id="subsec-families-of-solutions">
+  <title>Families of Solutions</title>
+  <introduction>
+    <p>
+      In general, a solution of a differential equation will contain one or 
+      more arbitrary constants. The number of arbitrary constants in the 
+      solution is equal to the order of the equation. For example, the general 
+      solution of a first-order differential equation will contain one 
+      arbitrary constant, while the general solution of a second-order differential 
+      equation will contain two arbitrary constants. The general solution of a 
+      first-order equation will be a family of curves parameterized by the arbitrary constant.
+      We call this a <term>one-parameter family of solutions</term>. A second-order 
+      equation will be a family of curves parameterized by two arbitrary constants, called 
+    a <term>two-parameter family of solutions</term>.
+    </p>
+  </introduction>
+  <example>
+    <p>The differential equation $y' = 2x$ has the general solution $y = x^2 + C$, 
+      which is a one-parameter family of solutions. Each value of $C$ gives a different 
+      solution curve.</p>
+  </example>
+</subsection>
 </section>
