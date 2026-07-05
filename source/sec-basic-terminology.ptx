@@ -420,9 +420,13 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
     </p>
   </introduction>
   <example>
-    <p>The differential equation $y' = 2x$ has the general solution $y = x^2 + C$, 
-      which is a one-parameter family of solutions. Each value of $C$ gives a different 
+    <p>The differential equation $y' = 2x$ has the general solution <m>y = x^2 + C</m>, 
+      which is a one-parameter family of solutions. Each value of <m>C</m gives a different 
       solution curve.</p>
+    <figure xml:id="ode-1">
+      <caption>Curves of the one-parameter family of solutions <m>y=x^2+C</m></caption>
+      <image source="./ode1.png" />
+    </figure>
   </example>
 </subsection>
 </section>
