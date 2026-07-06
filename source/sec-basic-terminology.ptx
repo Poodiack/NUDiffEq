@@ -463,8 +463,21 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
       solution curve.</p>
     <figure xml:id="ode-1">
       <caption>Curves of the one-parameter family of solutions <m>y=x^2+C</m></caption>
-      <image source="./ode1.png" />
+      <image source="images/ode1.png" />
     </figure>
+  </example>
+  <example>
+    <p>The differential equation <m>y'=y</m> has the general solution <m>y = Ce^x</m>, which is a one-parameter family of solutions. 
+      Each value of <m>C</m> gives a different solution curve.</p>
+    <figure xml:id="ode-2">
+      <caption>Curves of the one-parameter family of solutions <m>y=Ce^x</m></caption>
+      <image source="images/ode2.png" />
+    </figure>
+  </example>
+  <example>
+    <p>The differential equation <m>y'' + 3y' + 2y = 0</m> has the general solution 
+      <m>y = C_1 e^{-t} + C_2 e^{-2t}</m>, which is a two-parameter family of solutions. 
+      Each pair of values <m>(C_1, C_2)</m> gives a different solution curve.</p>
   </example>
 </subsection>
 </section>
