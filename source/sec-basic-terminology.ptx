@@ -18,6 +18,15 @@
         <li><p>To be able to <term>verify a solution</term> for a differential equation; 
           that is, determine whether a proposed solution to an equation works or not <em> 
             without actually solving the differential equation</em>.</p></li>
+
+        <li><p>To understand that the <term>general solution</term> of a differential 
+          equation is an equation that contains all possible solutions of the 
+          differential equation, and that the <term>particular solution</term> is a 
+          solution that satisfies a specific initial condition.</p></li>
+
+        <li><p>To understand that a <term>family of solutions</term> is a set of 
+          solutions to a differential equation that are parameterized by one or more 
+          arbitrary constants.</p></li>
         
       </ul>
 
@@ -403,6 +412,35 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
     </exercise>
   </page>
 </worksheet>
+<subsection xml:id="subsec-linear-ode">
+  <title>Linear Differential Equations</title>
+  <introduction>
+    <p>
+      A <term>linear differential equation</term> is a differential equation in 
+      which the dependent variable and its derivatives appear to the first power and 
+      are not multiplied together. The dependent variable and its derivatives can be 
+      multiplied by functions of the independent variable, but they cannot be 
+      multiplied by each other or raised to any power other than one. Lastly, the 
+      dependent variable and its derivatives cannot appear inside a function 
+      such as a sine or cosine.
+    </p>
+  </introduction>
+  <example>
+    <p>The equation <m>y'' + 3y' + 2y = 0</m> is a linear differential equation.</p>
+  </example>
+  <example>
+    <p><m>x^3y'' + 2xy' + y = \sin(x)</m> is a linear differential equation. (Here, we assume 
+      that <m>y</m> is a function of <m>x</m>.)</p>
+  </example>
+  <example>
+    <p>The equation <m>y'' + 3y^2 = 0</m> is not a linear differential equation because 
+      the dependent variable <m>y</m> appears to the second power.</p>
+  </example>
+  <example>
+    <p>The equation <m>y'' + 3\sin(y) = 0</m> is not a linear differential equation because 
+      the dependent variable <m>y</m> appears inside the sine function.</p>
+  </example>
+</subsection>
 <subsection xml:id="subsec-families-of-solutions">
   <title>Families of Solutions</title>
   <introduction>
@@ -420,8 +458,8 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
     </p>
   </introduction>
   <example>
-    <p>The differential equation $y' = 2x$ has the general solution <m>y = x^2 + C</m>, 
-      which is a one-parameter family of solutions. Each value of <m>C</m gives a different 
+    <p>The differential equation <m>y' = 2x</m> has the general solution <m>y = x^2 + C</m>, 
+      which is a one-parameter family of solutions. Each value of <m>C</m> gives a different 
       solution curve.</p>
     <figure xml:id="ode-1">
       <caption>Curves of the one-parameter family of solutions <m>y=x^2+C</m></caption>
