@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-basic-terminology" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Basic Terminology</title>
+  <title>Basic Terminology and Concepts</title>
  <objectives>
       <ul>
         <li><p>To understand that a <term>differential equation</term> is an equation relating a 
@@ -480,14 +480,96 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
       Each pair of values <m>(C_1, C_2)</m> gives a different solution curve.</p>
   </example>
   <p>Note that in the above examples, the solution curves do not intersect. This is a 
-    general property of solutions to first-order differential equations. 
-    In fact, we will see later in the course that if a first-order differential 
-    equation satisfies certain conditions, then its solutions will not intersect. Additionally, 
+    general property of solutions to linear first-order differential equations. 
+    Additionally, 
   the collection of all solution curves in the plane will fill up the plane. That is, 
 every point in the plane will belong to a unique solution curve.</p>
 <p>Non-linear differential equations can have solution curves that intersect. 
   For example, the differential equation <m>y' = \frac32 y^{1/3}</m> has the 
   general solution <m>y = \pm(x+C)^{3/2}</m>, which is a one-parameter family of solutions. The 
-  solution curves for this equation intersect at the point <m>(1,0)</m>.</p>
+  solution curves for this equation intersect with the solution curve <m>y=0</m>. (This 
+is problematic because, for instance, the initial condition <m>y(1)=0</m> could 
+correspond to multiple solution curves.)</p>
+  <figure xml:id="ode-3">
+    <caption>Curves of the one-parameter family of solutions <m>y=\pm(x+C)^{3/2}</m></caption>
+    <image source="images/ode3.png" />
+  </figure>
+<p>
+  Linear differential equations have the property that their solution curves do not 
+  intersect, while non-linear differential equations can have solution curves that 
+  intersect. This distinction is important when analyzing the behavior of solutions to 
+  different types of differential equations. In particular, it is important to note 
+  that the uniqueness of solutions to initial value problems is guaranteed for 
+  linear differential equations, while non-linear equations may have multiple 
+  solutions for the same initial condition.
+</p>
+<definition xml:id="def-first-order-ivp">
+  <statement>
+    <p>
+      A first-order differential equation with an initial condition is called a 
+      <term>first-order initial value problem</term> or <term>IVP</term>. The solution 
+      of the IVP is a function that satisfies both the differential equation and the 
+      initial condition, and is called a <term>particular solution</term> of the IVP. 
+    </p>
+  </statement>
+</definition>
+<example>
+  <p>Consider the first-order IVP:</p>
+  <p><md>y' = 2x, \quad y(0) = 1</md></p>
+  <p>The general solution of the differential equation is <m>y = x^2 + C</m>. 
+    To find the particular solution that satisfies the initial condition, we substitute 
+    <m>x=0</m> and <m>y=1</m> into the general solution:</p>
+  <p><md>1 = 0^2 + C \implies C = 1</md></p>
+  <p>Thus, the particular solution of the IVP is <m>y = x^2 + 1</m>.</p>
+</example>
+<example>
+  <p>Consider the first-order IVP:</p>
+  <p><md>y' = y, \quad y(0) = 2</md></p>
+  <p>The general solution of the differential equation is <m>y = Ce^x</m>. 
+    To find the particular solution that satisfies the initial condition, we substitute 
+    <m>x=0</m> and <m>y=2</m> into the general solution:</p>
+  <p><md>2 = Ce^0 \implies C = 2</md></p>
+  <p>Thus, the particular solution of the IVP is <m>y = 2e^x</m>.</p>
+</example>
+<p>
+  We talked above about the fact that solutions for linear first-order initial value 
+  problems are unique. This is a very important property of linear first-order differential equations.
+</p>
+<theorem xml:id="thm-existence-uniqueness">
+  <title>Existence and Uniqueness of Solutions of Linear IVP's</title>
+  <statement>
+    <p>
+      Given an IVP of a <em>linear</em> first-order differential equation, a <em>unique</em> solution 
+      exists on an interval containing the initial point, provided that the coefficient 
+      functions of the dependent variable and its derivative are continuous on that interval.
+    </p>
+  </statement>
+  <proof>
+    <p>
+      The proof of this theorem is beyond the scope of this course, but it is a 
+      fundamental result in the theory of differential equations. The theorem 
+      guarantees that, under the given conditions, there is a unique solution to the 
+      initial value problem in some interval around the initial point. This is 
+      important because it ensures that the behavior of the solution is well-defined 
+      and predictable, which is crucial for applications in science and engineering.
+    </p>
+  </proof>
+</theorem>
+<example>
+  <p>
+    Consider the first-order IVP:</p>
+  <p><md>y' + 2y = 0, \quad y(0) = 3</md></p>
+  <p>The coefficient functions of the dependent variable and its derivative are 
+    continuous on the entire real line. Therefore, by the Existence and Uniqueness 
+    Theorem, there exists a unique solution to this IVP.</p>
+  <p>The unique solution is in fact <m>y=3e^{-2x}</m>, which can be verified by 
+    substituting it into the differential equation and checking that it satisfies the 
+    initial condition. The solution is valid on the entire real line.</p>
+  <figure xml:id="example-ivp-1">
+    <caption>The unique solution to the linear IVP <m>y'+2y=0</m>, <m>y(0)=3</m>.
+    </caption>
+    <image source="images/ivp1.png" />
+  </figure>
+</example>
 </subsection>
 </section>
