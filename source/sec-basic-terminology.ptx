@@ -27,6 +27,15 @@
         <li><p>To understand that a <term>family of solutions</term> is a set of 
           solutions to a differential equation that are parameterized by one or more 
           arbitrary constants.</p></li>
+
+        <li>
+          <p>
+To understand that a <term>linear differential equation</term> is a differential 
+equation in which the dependent variable and its derivatives appear to the first power 
+and are not multiplied together, and that a <term>nonlinear differential equation</term> is a 
+differential equation that is not linear.
+          </p>
+        </li>
         
       </ul>
 
@@ -190,10 +199,19 @@
       <li><p>The order of the equation is 2, since the highest derivative is the second derivative.</p></li>
     </ul></p>
   </example>
- 
+ <p>
+  <em>A note about dependent and independent variables:</em> In many applications, the dependent 
+  variable is a function of time. In these cases, we will often use <m>t</m> as the 
+  independent variable. However, there are also many applications where the dependent 
+  variable is a function of space or some other quantity. In these cases, we will use 
+  a different independent variable (e.g., <m>x</m>, <m>y</m>, or <m>z</m>). The 
+  techniques we learn in this course will apply regardless of the choice of 
+  independent variable.
+ </p>
 </subsection>
 <subsection xml:id="subsec-solutions-of-differential-equations">
   <title>Solutions of Differential Equations</title>
+  <introduction>
   <p>A <term>solution</term> of a differential equation is a function that 
     satisfies the equation. For example, the function <m>x(t) = t^3 + C</m> 
     is a solution of the differential equation <m>\frac{dx}{dt} = 3t^2</m>, 
@@ -228,7 +246,7 @@ be defined on an interval containing the initial point.</p>
 <p>There are also <term>boundary value problems</term>, where we are given 
   conditions at more than one point. We will not be studying these types of problems in this course, 
   but they are important in many applications.</p>
-  
+</introduction>  
 <subsubsection xml:id="subsubsec-Finding-Solutions">
   <title>Finding Solutions</title>
   <p>Our goal in this course is to find solutions to differential equations. We will learn various techniques for finding solutions, including both analytical and numerical methods. 
@@ -414,7 +432,6 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
 </worksheet>
 <subsection xml:id="subsec-linear-ode">
   <title>Linear Differential Equations</title>
-  <introduction>
     <p>
       A <term>linear differential equation</term> is a differential equation in 
       which the dependent variable and its derivatives appear to the first power and 
@@ -424,7 +441,6 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
       dependent variable and its derivatives cannot appear inside a function 
       such as a sine or cosine.
     </p>
-  </introduction>
   <example>
     <p>The equation <m>y'' + 3y' + 2y = 0</m> is a linear differential equation.</p>
   </example>
@@ -443,7 +459,6 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
 </subsection>
 <subsection xml:id="subsec-families-of-solutions">
   <title>Families of Solutions</title>
-  <introduction>
     <p>
       In general, a solution of a differential equation will contain one or 
       more arbitrary constants. The number of arbitrary constants in the 
@@ -456,7 +471,6 @@ we will rely on numerical or graphical methods to approximate the solution.</p>
       equation will be a family of curves parameterized by two arbitrary constants, called 
     a <term>two-parameter family of solutions</term>.
     </p>
-  </introduction>
   <example>
     <p>The differential equation <m>y' = 2x</m> has the general solution <m>y = x^2 + C</m>, 
       which is a one-parameter family of solutions. Each value of <m>C</m> gives a different 
@@ -572,4 +586,99 @@ correspond to multiple solution curves.)</p>
   </figure>
 </example>
 </subsection>
+<exercises xml:id="exercises-basic-terminology">
+  <exercise>
+    <title>Verifying Solutions</title>
+    <introduction>
+      <p>
+        In problems (a)-(d), use differentiation to show that the given function is a
+solution of the equation for all values of the constants.
+      </p>
+    </introduction>
+      <task>
+        <statement>
+          <p>
+            Equation: <m>x'=x-2</m>, Function: <m>x=2+Ce^t</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Equation: <m>\frac{dy}{dx} = 4(x+1)y</m>, Function: <m>y=Ce^{2x^2+4x}</m> 
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Equation: <m>\frac{dy}{dt} = y + t</m>, Function: <m>y = Ce^t-1-t</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Equation: <m>x''+x'=2e^t</m>, Function: <m>x = C_1 \sin(t) + C_2 \cos(t) + e^t</m>
+          </p>
+        </statement>
+      </task>
+  </exercise>
+  <exercise>
+    <title>Initial Value Problems</title>
+    <introduction>
+      <p>In problems (a)-(f), solve the initial value problem and find the particular 
+        solution that satisfies the given initial condition. (That is, find the value(s) 
+        of the arbitrary constant(s) in the family of solutions so that the initial 
+        condition is satisfied.) In each case,
+first show that the family of solutions satisfies the equation for all values of the constants.
+Also state the exact interval in which the particular solution of the initial-value problem
+exists.</p>
+    </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>x' = 2x</m>, <m>x(0) = -1</m>, Family of solutions: <m>x = Ce^{2t}</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>y' = 3y\sin(t)</m>, <m>y(0) = 2</m>, Family of solutions: <m>y = Ce^{-3\cos(t)}</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>y' = 2y + 1</m>, <m>y(0) = 0</m>, Family of solutions: <m>y = Ce^{2t} - \frac12</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>y'=1+y^2</m>, <m>y(0) = 1</m>, Family of solutions: <m>y = \tan(t+C)</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>y'' + 4y' + 4y = 0</m>, <m>y(0) = 2, y'(0) = -1</m>, Family of solutions: 
+            <m>y = (C_1 + C_2 t)e^{-2t}</m>
+          </p>
+        </statement>
+      </task>
+      <task workspace="true">
+        <statement>
+          <p>
+            <m>t^2y'' - 3ty' + 4y = t^2</m>,  
+            <m>y(1) = 1, y'(1) = 0</m>, Family of solutions: <m>y = C_1 t^2 + C_2 t^2 \ln(t) + \frac{t^2}{4}</m>
+          </p>
+        </statement>
+      </task>
+  </exercise>
+</exercises>
 </section>
