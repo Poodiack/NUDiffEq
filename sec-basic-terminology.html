@@ -22,7 +22,7 @@
 <script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
-hasSage: false,
+hasSage: true,
 isReact: false,
 htmlPresentation: false,
 });
@@ -66,7 +66,19 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.846a0d6fafaa99e0.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bbcfc02849ebc023.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-octave' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-octave",
+  "linked": true,
+  "linkKey": "linked-octave",
+  "autoeval": false,
+  "languages": [
+    "octave"
+  ],
+  "evalButtonText": "Evaluate (Octave)"
+});
 </script>
 </head>
 <body class="pretext book ignore-math">
@@ -118,6 +130,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-basic-terminology.html#subsec-linear-ode" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Linear Differential Equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-basic-terminology.html#subsec-families-of-solutions" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Families of Solutions</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-basic-terminology.html#exercises-basic-terminology" class="internal"><span class="codenumber">1.1.7</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-basic-terminology.html#subsec-intro-to-matlab" class="internal"><span class="codenumber">1.1.8</span> <span class="title">Introduction to MATLAB</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-ode.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear Ordinary Differential Equations</span></a></div></li>
@@ -1154,6 +1167,32 @@ y' + 2y = 0, \quad y(0) = 3
 <div class="autopermalink" data-description="Task 1.1.7.2.f"><a href="#exercises-basic-terminology-2-8" title="Copy heading and permalink for Task 1.1.7.2.f" aria-label="Copy heading and permalink for Task 1.1.7.2.f">🔗</a></div>
 </article><div class="autopermalink" data-description="Exercise 1.1.7.2: Initial Value Problems"><a href="#exercises-basic-terminology-2" title="Copy heading and permalink for Exercise 1.1.7.2: Initial Value Problems" aria-label="Copy heading and permalink for Exercise 1.1.7.2: Initial Value Problems">🔗</a></div>
 </article><div class="autopermalink" data-description="Exercises 1.1.7"><a href="#exercises-basic-terminology" title="Copy heading and permalink for Exercises 1.1.7" aria-label="Copy heading and permalink for Exercises 1.1.7">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-intro-to-matlab">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to MATLAB</span>
+</h3>
+<div class="para" id="subsec-intro-to-matlab-2">Technology can prove very useful when studying differential equations. Software packages such Maple, Mathematica, and SageMath each have their advantages and disadvantages. We will use MATLAB, used extensively by engineers, as our choice of software. Norwich has a MATLAB license available. You can access MATLAB through the university’s computing resources, and even use an online version so you don’t have to download anything.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-intro-to-matlab-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-intro-to-matlab-3">For our purposes, MATLAB cells are embedded into the textbook,<details class="ptx-footnote" aria-live="polite" id="subsec-intro-to-matlab-3-1"><summary class="ptx-footnote__number" title="Footnote 1.1.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="subsec-intro-to-matlab-3-1">We are actually embedding a cell that uses Octave, which is a free and open-source alternative to MATLAB. The syntax is the same, so you can use either one.
+</div></details> so there is nothing to install on your computer. Simply, evaluate the cell. You can even change the preloaded commands in the cell if you wish. For example, let us evaluate the derivative of <span class="process-math">\(x^2\cos x.\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-intro-to-matlab-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-intro-to-matlab-4" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">pkg load symbolic
+% Define the symbolic variable
+syms x
+
+% Define the function
+f = x^2 * cos(x);
+
+% Calculate the derivative
+df = diff(f, x);
+
+% Display the result
+disp('The derivative is:');
+disp(df);
+</script></div>
+<div class="autopermalink" data-description="Subsection 1.1.8: Introduction to MATLAB"><a href="#subsec-intro-to-matlab" title="Copy heading and permalink for Subsection 1.1.8: Introduction to MATLAB" aria-label="Copy heading and permalink for Subsection 1.1.8: Introduction to MATLAB">🔗</a></div>
 </section><div class="autopermalink" data-description="Section 1.1: Basic Terminology and Concepts"><a href="#sec-basic-terminology" title="Copy heading and permalink for Section 1.1: Basic Terminology and Concepts" aria-label="Copy heading and permalink for Section 1.1: Basic Terminology and Concepts">🔗</a></div>
 </section>
 </div>
