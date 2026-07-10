@@ -681,4 +681,42 @@ exists.</p>
       </task>
   </exercise>
 </exercises>
+<subsection xml:id="subsec-intro-to-matlab">
+  <title>Introduction to MATLAB</title>
+  <p>Technology can prove very useful when studying differential equations. 
+    Software packages such Maple, Mathematica, and SageMath each have their advantages 
+    and disadvantages. We will use MATLAB, used extensively by engineers, as our choice of software. 
+    Norwich has a MATLAB license available. You can access MATLAB through the university's computing resources, and even 
+  use an online version so you don't have to download anything. </p>
+    <p>For our purposes, MATLAB cells are embedded into the textbook,<fn>We are actually embedding a cell
+      that uses Octave, which is a free and open-source alternative to MATLAB. The syntax is the same, so you can use either one.
+    </fn> so there is 
+      nothing to install on your computer. Simply, evaluate the cell. You can even change the 
+      preloaded commands in the cell if you wish. For example, let us evaluate the derivative 
+      of <m>x^2\cos x.</m></p>
+  <sage language="octave">
+      <input>
+        pkg load symbolic
+        % Define the symbolic variable
+        syms x
+
+        % Define the function
+        f = x^2 * cos(x);
+
+        % Calculate the derivative
+        df = diff(f, x);
+
+        % Display the result
+        disp('The derivative is:');
+        disp(df);
+      </input>
+    </sage>
+    <p>
+      You can certainly use MATLAB to do more than just take derivatives. 
+      You can also use it to solve differential equations, plot solutions, and 
+      perform numerical simulations. As we progress through the course, we will 
+      introduce more MATLAB commands and techniques that will help you analyze and 
+      visualize differential equations effectively.
+    </p>
+    </subsection>
 </section>
