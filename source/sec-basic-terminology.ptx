@@ -712,11 +712,128 @@ exists.</p>
       </input>
     </sage>
     <p>
-      You can certainly use MATLAB to do more than just take derivatives. 
-      You can also use it to solve differential equations, plot solutions, and 
-      perform numerical simulations. As we progress through the course, we will 
+      Note that anything following a percentage sign <c>%</c> is a comment. The output 
+      of the cell shows that the derivative of <m>x^2\cos x</m> is 
+      <m>2x\cos x - x^2\sin x</m>. 
+    </p>
+    <p>
+      You can use MATLAB to take derivatives of more 
+      complicated functions, and it can also be used to solve differential equations, 
+      initial value problems, and plot solutions. For instance, we can use MATLAB to 
+      solve the differential equation <m>P'(t) = kP(t)</m> with the initial condition 
+      <m>P(0) = P_0</m>. The solution is <m>P(t) = P_0 e^{kt}</m>.
+    </p>
+      <sage language="octave">
+      <input>
+        % Comment this line out if using MATLAB, but it is needed for Octave
+        pkg load symbolic
+
+        % Define the symbolic variable and parameters
+        syms P(t)
+        k = sym('k')
+        P0 = sym('P0')
+
+        % Define the differential equation and initial condition
+        ode = diff(P,t) == k*P
+        cond = P(0) == P0
+
+        % Solve the differential equation with the initial condition
+        PSol(t) = dsolve(ode, cond)
+      </input>
+    </sage>
+    <p>
+      We can use MATLAB to plot functions. For example, we can plot the function 
+      as well as its derivative on the same graph. (To accomplish this, we will use 
+      the <c>linspace</c> command to create a range of <m>x</m> values, and then 
+      evaluate the function and its derivative at those values. We will then use the 
+      <c>plot</c> command to create the graph.) Because of the limitations of the 
+      embedded cell, you will need to copy and paste the code into a MATLAB session 
+      to see the graph.
+    </p>
+    <program language="octave">
+        % Define the symbolic variable
+        syms x
+
+        % Define the function
+        f = x^2 * cos(x);
+
+        % Calculate the derivative
+        df = diff(f, x);
+
+        % Create a range of x values for plotting
+        x_vals = linspace(-10, 10, 100);
+
+        % Evaluate the function and its derivative at the x values
+        f_vals = double(subs(f, x, x_vals));
+        df_vals = double(subs(df, x, x_vals));
+
+        % Plot the function and its derivative
+        figure;
+        plot(x_vals, f_vals, 'b', 'LineWidth', 2); % Function in blue
+        hold on;
+        plot(x_vals, df_vals, 'r', 'LineWidth', 2); % Derivative in red
+        hold off;
+
+        % Add labels and legend
+        xlabel('x');
+        ylabel('Function values');
+        title('Function and its Derivative');
+        legend('f(x) = x^2 cos(x)', 'f''(x) = 2x cos(x) - x^2 sin(x)');
+    </program>
+    <p>
+      You should see a graph with the function <m>f(x) = x^2 \cos(x)</m> in blue and 
+      its derivative in red.
+    </p>
+        <image source="images/funcderivativegraph.png" width="60%"/>
+    <p>
+      As we progress through the course, we will 
       introduce more MATLAB commands and techniques that will help you analyze and 
       visualize differential equations effectively.
     </p>
+    <p>
+      Note that the MATLAB commands used in this section are also compatible with 
+      Octave, which is a free and open-source alternative to MATLAB. You can use 
+      either software to perform the calculations and visualizations described here.
+    </p>
+    <p>You will find plenty of resources online to learn more about MATLAB and Octave, 
+      including tutorials, documentation, and forums where you can ask questions and 
+      share knowledge with other users. A good place to start is the official MATLAB 
+      documentation at <url href="https://www.mathworks.com/help/matlab/">https://www.mathworks.com/help/matlab/</url> or the Octave documentation at 
+      <url href="https://octave.org/doc/interpreter/">https://octave.org/doc/interpreter/</url>.</p>
+    <exercises xml:id="exercises-intro-to-matlab">
+      <title>MATLAB Exercises</title>
+      <exercise>
+        <title>MATLAB Practice</title>
+        <introduction>
+          <p>
+            In problems (a)-(c), use MATLAB or Octave to perform the following tasks:
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              Define the function <m>f(x) = x^3 - 2x + 1</m> and compute its derivative. 
+              Plot both the function and its derivative on the same graph for <m>x \in [-3, 3]</m>.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Solve the differential equation <m>\frac{dy}{dt} = y^2 - t</m> using 
+              MATLAB's symbolic solver. Display the general solution.
+            </p>
+          </statement>
+        </task>
+        <task workspace="true">
+          <statement>
+            <p>
+              Use MATLAB to plot the solution of the initial value problem 
+              <m>y' = 2y, \quad y(0) = 1</m> over the interval <m>t \in [0, 5]</m>.
+            </p>
+          </statement>
+        </task>
+      </exercise>
+    </exercises>
     </subsection>
 </section>
