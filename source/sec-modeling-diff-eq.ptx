@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-modeling-diff-eq" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Modeling with Differential Equations</title>
+ <objectives>
+      <ul>
+        <li><p>To understand that a <term>differential equation</term> is an equation relating a 
+        function (say, <m>x(t)</m>) to one or more of its derivatives and that an <term>initial value problem</term> is a differential equation
+        where the <term>initial condition</term>, <m>x(t_0) = x_0</m>, is specified.</p></li>
+
+        <li><p>To understand that the <term>order of a differential equation</term> is 
+          the order of the highest derivative in the equation.</p></li>
+
+        <li><p>To be able to identify the major parts of a differential equation: the <term>dependent 
+          variables</term>, the <term>independent variables</term>, and the <term>parameters</term>.
+        </p></li>
+
+        <li><p>To be able to <term>verify a solution</term> for a differential equation; 
+          that is, determine whether a proposed solution to an equation works or not <em> 
+            without actually solving the differential equation</em>.</p></li>
+        
+      </ul>
+    </objectives>
+<introduction>
+    <p> The subject of differential equations is one of the most interesting and 
+    useful areas of mathematics. We can describe many interesting natural phenomena that
+     involve change using differential equations. In addition, the theory of the subject 
+     has broad and important implications.</p>
+  </introduction>
+  <subsection xml:id="subsec-Physics">
+    <title>Physics</title>
+    <introduction>
+    <p>
+      We model the velocity <m>v(t)</m> of a skydiver falling through the air. 
+      The forces acting on the skydiver are gravity and air resistance. 
+      The force of gravity is constant, but the force of air resistance is 
+      proportional to the velocity of the skydiver. Using Newton's second law, we can 
+      write a differential equation that describes the motion of the skydiver:</p>
+      <p><md>
+        ma(t) = mg-k(v(t))^p,
+      </md></p>
+    <p>
+      where <m>v</m> is the velocity of the skydiver in meters/second, <m>m</m> is the 
+      mass of the skydiver in kilograms, <m>g = 9.8</m> m/s² is the acceleration due to 
+      gravity, <m>k</m> is a constant of proportionality, and <m>p</m> is a positive 
+      exponent usually assumed to be 1. Since <m>a(t) = v'(t)</m>, we can rewrite the 
+      equation as a differential equation in the form
+    </p>
+    <p><md>
+      mv'(t) = mg-k(v(t))^p.
+    </md></p>
+    <p>In the case where <m>p=1</m>, we can solve the differential equation to find the 
+    velocity of the skydiver as a function of time. The solution is</p>
+    <p><md>
+      v(t) = (mg/k)(1-Ce^{(-kt/m)}),
+    </md></p>
+    <p>
+      where <m>C</m> is a constant determined by the initial condition. 
+      This is the best possible outcome because it gives us a formula for the velocity 
+      of the skydiver at any time <m>t</m>.
+    </p>
+    <p>
+      If <m>p\ne 1</m>, the differential equation becomes nonlinear and more complex to solve 
+      analytically. In this case, we can use numerical and graphical methods to approximate the 
+      solution. We will use what is called a <term>slope field</term> to visualize the 
+      solution of the differential equation. A slope field is a graphical 
+      representation of the solutions of a first-order differential equation. 
+      It consists of a grid of points in the plane, with each point having a small 
+      line segment that represents the slope of the solution curve at that point. 
+      By looking at the slope field, we can get an idea of how the solutions behave 
+      without actually solving the differential equation.
+    </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec-Slope-Fields">
+      <title>Slope Fields</title>
+      <p>
+        The idea of a slope field is to visualize the solutions of a first-order 
+        differential equation. If we write a first-order differential equation in the 
+        form <m>y' = f(x,y)</m>, we can draw a line segment at each point <m>(x,y)</m> 
+        in the plane with slope <m>f(x,y)</m>. The line segments give us an idea of the 
+        direction of the solution curves at each point since each line segment is 
+        <em>tangent</em> to the solution curve at that point. By looking at the slope field, we 
+        can get an idea of how the solutions behave without actually solving the 
+        differential equation.
+      </p>
+      <p>For example, consider the differential equation <m>y' = x + y</m>. We can draw 
+      a slope field for this equation by calculating the slope at each point in a grid 
+      of points in the plane. The slope at each point <m>(x,y)</m> is given by the value 
+      of <m>f(x,y) = x + y</m>. By drawing line segments with these slopes at each point, 
+      we can visualize the behavior of the solutions to the differential equation.</p>
+      <p>
+        We can also use slope fields to approximate the solution of a differential equation 
+        given an initial condition. For example, if we have the initial condition <m>y(0) = 1</m>,
+        we can start at the point <m>(0,1)</m> in the slope field and follow the direction of the line segments to approximate the solution curve. 
+        By following the direction of the line segments, we can get an idea of how the solution behaves over time.
+      </p>
+      <p>
+        Below is some MATLAB code that generates a slope field for the differential 
+        equation <m>y' = x + y</m> and plots the solution curve for the initial 
+        conditions <m>y(0) = 1</m> and <m>y(0) = -1</m>.
+      </p>
+      <program language="octave">
+        % 1. Define the grid for the slope field
+        [x, y] = meshgrid(-4:0.4:4, -4:0.4:4);
+
+        % 2. Calculate the slopes (dy/dx) at each point
+        dydx = x + y;
+
+        % 3. Normalize the vectors so they have uniform length
+        L = ones(size(dydx));
+        M = dydx;
+        lengths = sqrt(L.^2 + M.^2);
+        u = L ./ lengths;
+        v = M ./ lengths;
+
+        % 4. Plot the slope field using quiver
+        figure;
+        quiver(x, y, u, v, 0.5, 'Color', 'blue');
+        hold on;
+
+        % 5. Solve the ODE symbolically and plot solution curves
+        syms Y(x)
+        ode = diff(Y,x) == x + Y;
+        % Example 1: Passing through (0, 1)
+        sol1 = dsolve(ode, Y(0) == 1);
+        fplot(sol1, [-4, 4], 'LineWidth', 2, 'Color', 'red');
+
+        % Example 2: Passing through (0, -1)
+        sol2 = dsolve(ode, Y(0) == -1);
+        fplot(sol2, [-4, 4], 'LineWidth', 2, 'Color', 'blue');
+
+        % 6. Format the plot
+        axis([-4, 4, -4, 4]);
+        title('Slope Field and Solution Curves for dy/dx = x+y');
+        xlabel('x');
+        ylabel('y');
+        grid on;
+        hold off;
+
+      </program>
+      <image source="./images/slopefield1.png" width="60%" />
+    </subsubsection>
+  </subsection>
+</section>
