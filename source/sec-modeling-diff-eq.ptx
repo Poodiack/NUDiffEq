@@ -263,10 +263,198 @@ the two families. These were simply plotted with a plot routine by using the for
       ylabel('y');
       title('Orthogonal Trajectories to y = cx^2');
       hold off;
-
     </program>
     <image source="./images/orthotrajectories.png" width="60%">
       <shortdescription>Orthogonal Trajectories to y = cx^2</shortdescription>
+    </image>
+  </subsection>
+  <subsection xml:id="subsec-Engineering">
+    <title>Engineering</title>
+    <p>
+      The current <m>i(t)</m> in amperes in a simple electrical circuit containing a 
+      resistor, an inductor, and a sinusoidal electromotive force can be modeled by 
+      the equation
+    </p>
+    <p>
+      <md>
+        L\,i'(t)+R\,i(t) = p\sin t,
+      </md>
+    </p>
+    <p>
+      where <m>L</m> is the inductance in henrys, <m>R</m> is the resistance in ohms, and 
+      <m>E(t) = p\sin t</m> is a periodic function representing the electromotive force in volts. This 
+      equation is similar to a spring-mass equation (which we will study later in the 
+      course) and is linear in the dependent variable <m>i(t)</m>. 
+      The solution to this equation can be found analytically. The solution will give us the current in the circuit as a function of time, 
+      which is important for understanding the behavior of the circuit under the influence 
+      of the sinusoidal electromotive force. The solution is given by
+    </p>
+    <p>
+      <md>
+        i(t) = Ce^{-(R/L)t} + \frac{p}{R^2+L^2}(R\sin t - L\cos t).
+      </md>
+    </p>
+    <p>Because of our Existence and Uniqueness Theorem, we know that the solution is 
+    unique for a given initial condition. This means that we get a different curve for 
+    each value of <m>C</m>, and the solution curves do not intersect.
+    </p>
+    <p>For the equation with <m>L=1</m> henry, <m>R=0.1</m> ohm, and <m>p=3</m> volts, 
+    the solution curves are shown in the figure below. Each curve corresponds to a 
+    different initial condition, and the curves do not intersect, which is consistent 
+    with the uniqueness of the solution.
+    </p>
+    <program language="octave">
+      % 1. Define the differential equation as an anonymous function
+      f = @(t, y) -0.1*y + 3*sin(t);
+      % We use y to represent the current i(t) for simplicity.
+
+      % 2. Set up the grid for the slope field
+      t_range = 0:1:30;  % Time range (t)
+      y_range = -8:1:8;  % Current range (y)
+      [T, Y] = meshgrid(t_range, y_range);
+
+      % Calculate the slopes (dt = 1, dy = f)
+      dt = ones(size(T));
+      dy = f(T, Y);
+
+      % Normalize vectors so all slope lines are the same length
+      L = sqrt(dt.^2 + dy.^2);
+      dt_norm = dt ./ L;
+      dy_norm = dy ./ L;
+
+      % 3. Plot the slope field
+      figure;
+      quiver(T, Y, dt_norm, dy_norm, 0.5, 'Color', 'blue');
+      hold on;
+
+      % 4. Calculate and plot numerical solution curves using ode45
+      tspan = [0 30];
+      initial_conditions = [-8, -4, 0, 4]; % Different starting currents
+
+      for i = 1:length(initial_conditions)
+          y0 = initial_conditions(i);
+          [t_sol, y_sol] = ode45(f, tspan, y0);
+          plot(t_sol, y_sol, 'LineWidth', 2, 'DisplayName', ['i_0 = ' num2str(y0)]);
+      end
+
+      % 5. Format the graph
+      xlabel('Time (t)');
+      ylabel('Current (i)');
+      title('Slope Field and Solution Curves for i''(t) +0.1i(t)=3 sin(t)');
+      axis([t_range(1) t_range(end) y_range(1) y_range(end)]);
+      legend('Location', 'southeast');
+      grid on;
+      hold off;
+    </program>
+    <image source="./images/engineering.png" width="60%">
+      <shortdescription>Slope Field and Solution Curves for i'(t) +0.1i(t)=3 sin(t)</shortdescription>
+    </image>
+    <p>
+      These curves were
+drawn by a MATLAB program that solves differential equations and plots a slope field
+of tangent vectors to the solution curves. This means that even though an analytic
+formula exists for the solution, so that you could plot the curves with the code above, 
+it is possible to check the solutions using MATLAB or any differential equations program.
+It can be seen, both from the formula for the solution and from the graph itself, that in 
+the limit as <m>t \to \infty</m>, the solution approaches a periodic function with 
+the same period as the electromotive force. This is an example of a 
+<term>steady-state solution</term>, which is a solution that the system approaches as 
+time goes to infinity, regardless of the initial conditions. The function <m>Ce^{-(R/L)t}</m> 
+represents the <term>transient</term> part of the solution, which decays to zero as 
+time increases.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec-Ecology">
+    <title>Ecology</title>
+    <p>
+      In ecology, we can model the population of a species using differential equations. 
+      One common model is the logistic growth model, which describes how a population 
+      grows rapidly at first and then slows down as it approaches a maximum sustainable 
+      population size, known as the carrying capacity. The logistic growth model can be 
+      expressed as a differential equation:
+    </p>
+    <p>
+      <md>
+        P'(t) = rP(t)\left(1-\frac{P(t)}{N}\right).
+      </md>
+    </p>
+    <p>
+      The particular version of the logistic growth model we will consider is the one 
+      that describes the growth of a population of size <m>P(t)</m> at time <m>t</m>, 
+      where <m>r</m> is the <term>intrinsic growth rate</term> and <m>N</m> is the 
+      <term>carrying capacity</term>, the maximum population size that the environment 
+      can sustain. When the size of the population is small compared to the carrying 
+      capacity, the population grows exponentially, following the pattern <m>e^{rt}</m>.
+    </p>
+    <p>This simple version of the logistic growth model can be solved analytically, and 
+    the solution is given by:</p>
+    <p>
+      <md>
+        P(t) = \frac{N}{1 - Ce^{-rt}},
+      </md>
+    </p>
+    <p>
+      This solution 
+      shows that as time increases, the population approaches the carrying capacity 
+      <m>N</m>, and the growth rate slows down. The logistic growth model is widely 
+      used in ecology to study population dynamics and to make predictions about the 
+      future growth of populations under different environmental conditions. 
+      It is also used in other fields, such as epidemiology, to model the spread of 
+      diseases.
+    </p>
+    <p>
+      The graph below shows the solution curves for the logistic growth model with 
+      different initial conditions. The carrying capacity is set to <m>N=100</m>, and 
+      the intrinsic growth rate is set to <m>r=0.2</m>. The solution curves show how 
+      the population grows over time and approaches the carrying capacity, regardless 
+      of the initial population size. (We should say <q><em>positive</em> initial population size</q>; 
+      negative initial population size is not biologically meaningful.) The curves do not intersect, which is consistent 
+      with the uniqueness of the solution.
+    </p>
+    <program language="octave">
+      % 1. Define the differential equation as an anonymous function
+      f = @(t, p) 0.2 .* p .* (1 - p ./ 100);
+
+      % 2. Set up the grid for the slope field
+      t_range = 0:1:30;  % Time range (t)
+      p_range = 0:5:140;  % Population range (p)
+      [T, P] = meshgrid(t_range, p_range);
+
+      % Calculate the slopes (dt = 1, dp = f)
+      dt = ones(size(T));
+      dp = f(T, P);
+
+      % Normalize vectors so all slope lines are the same length
+      L = sqrt(dt.^2 + dp.^2);
+      dt_norm = dt ./ L;
+      dp_norm = dp ./ L;
+
+      % 3. Plot the slope field
+      figure;
+      quiver(T, P, dt_norm, dp_norm, 0.5, 'Color', 'blue');
+      hold on;
+
+      % 4. Calculate and plot numerical solution curves using ode45
+      tspan = [0 30];
+      initial_conditions = [5 10 20 40 70 120 140]; % Different starting populations
+
+      for i = 1:length(initial_conditions)
+          p0 = initial_conditions(i);
+          [t_sol, p_sol] = ode45(f, tspan, p0);
+          plot(t_sol, p_sol, 'LineWidth', 2, 'DisplayName', ['p_0 = ' num2str(p0)]);
+      end
+
+      % 5. Format the graph
+      xlabel('Time (t)');
+      ylabel('Population (p)');
+      title('Slope Field and Solution Curves for P''(t) = 0.2P(1-P/100)');
+      axis([t_range(1) t_range(end) p_range(1) p_range(end)]);
+      legend('Location', 'southeast');
+      grid on;
+      hold off;
+    </program>
+    <image source="./images/ecology.png" width="60%">
+      <shortdescription>Slope Field and Solution Curves for P'(t) = 0.2P(1-P/100)</shortdescription>
     </image>
   </subsection>
 </section>
