@@ -192,6 +192,85 @@
   <image source="./images/slopefield2.png" width="60%">
     <shortdescription>Slope Field and Solution Curves</shortdescription>
   </image>
+  <p>
+    It's clear from the slope field and the solution curves that the velocity of the 
+    skydiver approaches a <term>terminal velocity</term> as time increases. When 
+    <m>p=1</m>, the terminal velocity is <m>v_{terminal} = mg/k</m>. When 
+    <m>p\ne 1</m>, the terminal velocity is given by <m>v_{terminal} = (mg/k)^{1/p}</m>. In this case, the terminal
+  </p>
   </conclusion>
+  </subsection>
+  <subsection xml:id="subsec-Mathematics">
+    <title>Mathematics</title>
+    <p>
+      A problem that arises in several areas of applied mathematics is that of finding 
+      a one-parameter family of curves <m>y=F(x,C)</m> that is <term>orthogonal</term> 
+      to a given family <m>\overline{y} = f(x,c)</m> at each point in the <m>(x,y)</m>-plane.
+    </p>
+    <p>
+      To make the two families of curves orthogonal, at each point their slopes must be 
+      negative reciprocals of each other. This means that at each point <m>(x,y)</m>, 
+      if the slope of <m>\overline{y}(x)</m> is <m>m</m>, the slope of the curve 
+      <m>y(x)</m> must be <m>-1/m</m>.
+    </p>
+    <p>
+      How does this result in a differential equation? As an example let the given set 
+      of curves be the one-parameter family of parabolas <m>\overline{y} = cx^2</m>. 
+      The slope of a curve in this family is <m>m = \overline{y}' = \frac{d}{dx}(cx^2) = 2cx</m>. 
+      From the equation for <m>\overline{y}</m>, we have that <m>c = \overline{y}/x^2</m>, 
+      so <m>m = 2(\overline{y}/x^2)x = 2\overline{y}/x</m>. This means that the curve in 
+      the orthogonal family will have slope <m>-x/2y</m> at the point <m>(x,y)</m>; so 
+      these curves must satisfy the differential equation <m>y'=-x/2y</m>.
+    </p>
+    <p>
+      You will be shown in a later unit that 
+      this is a <q>separable</q> differential equation, and you will be given a method 
+      for obtaining a formula for the solution. For the equation <m>y'=-x/2y</m>, the solution can be written
+as an implicit function of the form <m>y^2 + x^2/2 = C</m>, which can be seen to be a one-parameter family of ellipses. 
+The code below produces a set of solution curves from each of
+the two families. These were simply plotted with a plot routine by using the formulas
+<m>y = cx^2</m> and <m>y^2 + x^2/2 = C</m> with arbitrarily chosen values of the constants <m>c</m> and <m>C</m>.
+    </p>
+    <program language="octave">
+      % Define the x domain
+      x = linspace(-5, 5, 200);
+
+      figure;
+      hold on;
+
+      % 1. Plot the original family of curves: y = c * x^2
+      % (Varying the constant c)
+      for c = -5:1:5
+          y_original = c * x.^2;
+          plot(x, y_original, 'b', 'LineWidth', 1.5);
+      end
+
+      % 2. Plot the orthogonal family of curves: x^2 + 2y^2 = C
+      % (Varying the constant C)
+      C_values = 0.5:2:12.5; 
+      for C = C_values
+          % Limit x to the domain where C - x^2 >= 0
+          x_ellipse = linspace(-sqrt(C), sqrt(C), 200);
+          y_pos = sqrt((C - x_ellipse.^2) / 2);
+          y_neg = -sqrt((C - x_ellipse.^2) / 2);
+
+          % Plot the top and bottom halves of the ellipses
+          plot(x_ellipse, y_pos, 'r--', 'LineWidth', 1.5);
+          plot(x_ellipse, y_neg, 'r--', 'LineWidth', 1.5);
+      end
+
+      % Format the plot for proper scaling and readability
+      axis([-3 3 -3 3]);
+      axis equal;
+      grid on;
+      xlabel('x');
+      ylabel('y');
+      title('Orthogonal Trajectories to y = cx^2');
+      % legend('Original: y = cx^2', 'Orthogonal: x^2 + 2y^2 = C');
+      hold off;
+    </program>
+    <image source="./images/orthotrajectories.png" width="60%">
+      <shortdescription>Orthogonal Trajectories to y = cx^2</shortdescription>
+    </image>
   </subsection>
 </section>
