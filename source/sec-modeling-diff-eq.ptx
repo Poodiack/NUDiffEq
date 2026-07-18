@@ -245,29 +245,25 @@ the two families. These were simply plotted with a plot routine by using the for
           plot(x, y_original, 'b', 'LineWidth', 1.5);
       end
 
-      % 2. Plot the orthogonal family of curves: x^2 + 2y^2 = C
+      % 2. Plot the orthogonal family of curves: x^2/2 + y^2 = C
       % (Varying the constant C)
-      C_values = 0.5:2:12.5; 
+      % C_values = 0.5:2:12.5; 
+      C_values = [1/2 2 9/2 8 25/2];
       for C = C_values
-          % Limit x to the domain where C - x^2 >= 0
-          x_ellipse = linspace(-sqrt(C), sqrt(C), 200);
-          y_pos = sqrt((C - x_ellipse.^2) / 2);
-          y_neg = -sqrt((C - x_ellipse.^2) / 2);
+          f= @(x,y) x.^2/2 + y.^2 - C;
 
-          % Plot the top and bottom halves of the ellipses
-          plot(x_ellipse, y_pos, 'r--', 'LineWidth', 1.5);
-          plot(x_ellipse, y_neg, 'r--', 'LineWidth', 1.5);
+          % Plot the ellipses
+          fimplicit(f, [-5 5 -5 5], 'r--', 'LineWidth',1.5);
       end
 
       % Format the plot for proper scaling and readability
-      axis([-3 3 -3 3]);
-      axis equal;
+      axis([-5 5 -5 5]);
       grid on;
       xlabel('x');
       ylabel('y');
       title('Orthogonal Trajectories to y = cx^2');
-      % legend('Original: y = cx^2', 'Orthogonal: x^2 + 2y^2 = C');
       hold off;
+
     </program>
     <image source="./images/orthotrajectories.png" width="60%">
       <shortdescription>Orthogonal Trajectories to y = cx^2</shortdescription>
