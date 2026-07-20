@@ -457,4 +457,146 @@ time increases.
       <shortdescription>Slope Field and Solution Curves for P'(t) = 0.2P(1-P/100)</shortdescription>
     </image>
   </subsection>
+  <subsection xml:id="subsec-Neurology">
+    <title>Neurology</title>
+    <p>
+      A final example is another application of mathematics to biology, and is 
+      currently of interest to research mathematicians as well as to computational 
+      neuroscientists. The equation <m>x' = -x + S(x-\theta+e(t))</m> is a simplistic 
+      version of an equation representing the activity level of certain nerve cells 
+      in the brain. The function <m>x(t)</m> is the percent of nerve cells that are 
+      active at time <m>t</m>. The function <m>e(t)</m> is an external stimulus, 
+      and <m>\theta</m> is a threshold value. The function <m>S</m> is a sigmoid 
+      function, which is a type of function that has an S-shaped curve, similar to that 
+      of a logistic function. The sigmoid function is often used to model the response 
+      of nerve cells to stimuli, as it captures the idea that the response of the 
+      cells increases rapidly once the stimulus exceeds a certain threshold, and then 
+      levels off as the stimulus continues to increase. The function <m>S</m> is 
+      often chosen to be a logistic function of the form <m>S(z) = \frac{1}{1+Ke^{-z}}</m>, which 
+      varies from 0 to 1 as <m>z</m> varies from negative infinity to positive infinity. 
+      This is a highly nonlinear function, making the differential equation difficult to 
+      solve analytically. (In fact, no exact solution exists.) However, we can numerically 
+      approximate the solution using methods such as Euler's method or Runge-Kutta methods, which 
+      we will study in a later unit. 
+    </p>
+    <p>
+      The graph below shows the solution curves for the differential equation with 
+      different initial conditions. The external stimulus <m>e(t)</m> is set to a 
+      periodic function, <m>-0.3\cos(2\pi t)</m> and the threshold <m>\theta</m> is set to 0.5. 
+      We arbitrarily set <m>K=15</m>.
+    </p>
+    <program language="octave">
+      % Parameters
+      theta = 0.5; % Define your theta parameter here (set to 0.5 as a placeholder)
+      t_span = [0, 3];
+      initial_conditions = [0.05, 0.1, 0.3, 0.48, 0.52, 0.6, 0.7, 0.9, 0.95];
+
+      % Define the ODE system using an anonymous function
+      % S(z) = 1 / (1 + exp(-15 * z))
+      % e(t) = -0.3 * cos(2 * pi * t)
+      f = @(t, x) -x + 1 ./ (1 + exp(-15 * (x - theta - 0.3 * cos(2 * pi * t))));
+
+      %% Step 1: Generate and Plot the Slope Field
+      % Define grid spacing for the slope segments
+      t_vectors = linspace(t_span(1), t_span(2), 25);
+      x_vectors = linspace(-0.1, 1.1, 25); % Adjusted bounds to capture all ICs cleanly
+      [T, X] = meshgrid(t_vectors, x_vectors);
+
+      % Calculate slopes at each grid intersection
+      Slopes = f(T, X);
+
+      % Normalize vectors to ensure uniform length across the field
+      dt = 1 ./ sqrt(1 + Slopes.^2);
+      dx = Slopes ./ sqrt(1 + Slopes.^2);
+
+      figure;
+      % Draw the normalized directional arrows
+      quiver(T, X, dt, dx, 0.4, 'Color', [0.6 0.6 0.6], 'LineWidth', 0.8);
+      hold on;
+
+      %% Step 2: Solve and Plot Each Initial Condition Curve
+      colors = lines(length(initial_conditions)); % Distinguishable color map
+
+      for i = 1:length(initial_conditions)
+          x0 = initial_conditions(i);
+          % Numerically solve the differential equation
+          [t_sol, x_sol] = ode45(f, t_span, x0);
+          
+          % Overlay the trajectory
+          plot(t_sol, x_sol, 'LineWidth', 2, 'Color', colors(i, :));
+      end
+
+      %% Step 3: Format the Visualization
+      xlabel('Time (t)');
+      ylabel('State (x)');
+      title("Slope Field and Solutions for $x' = -x + S(x - \theta + e(t))$", 'Interpreter', 'latex');
+      xlim([t_span(1) - 0.05, t_span(2) + 0.05]);
+      ylim([-0.1, 1.1]);
+      grid on;
+      hold off;
+    </program>
+    <image source="./images/neurology.png" width="60%">
+      <shortdescription>Slope Field and Solutions for $x' = -x + S(x - \theta + e(t))$</shortdescription>
+    </image>
+    <p>
+      Since the cell input function <m>e(t)</m> is periodic, some interesting things 
+      happen. From the graph, it appears that there is at least one oscillatory 
+      solution around the 50% activity level, which means that with an appropriate 
+      initial condition the activity level will oscillate with approximately 
+      half of the cells active and half inactive at any time <m>t\gt 0</m>. 
+      If the initial condition is too small, the activity level will die out and 
+      if it is too large it will approach a state where nearly 100% of the cells will 
+      be active.
+    </p>
+  </subsection>
+  <exercises xml:id="exercises-modeling">
+    <exercise>
+      <title>Physics</title>
+      <introduction>
+        <p>
+          We want to model the velocity of a skydiver falling from a plane. In free 
+          fall, Newton's second law can be used to write mass <m>\times</m> acceleration 
+          <m>={}</m> sum of forces. Since acceleration is the derivative of velocity, that 
+          is, <m>a(t)=v'(t)</m>, this results in the differential equation
+          </p>
+          <p>
+<md>
+mv'(t) = mg-k(v(t))^p,
+</md>
+          </p>
+          <p>
+where <m>v</m> is the velocity in meters/second, <m>m</m> is the mass in kilograms of the falling skydiver, <m>g = 9.8 \text{m}/\text{s}^2</m> is the downward acceleration due to gravity, <m>k</m> is the coefficient
+of friction due to air resistance, and <m>p</m> is an exponent usually assumed to be equal to one.
+</p>
+<p>
+Assuming <m>p=1</m> and <m>g=9.8</m> m/s<m>{}^2</m>, the equation can be solved analytically and has solution </p>
+<p>
+<md>
+  v(t) = \frac{mg}{k} + Ce^{-\frac{k}{m} t}.
+</md>
+</p>
+<p>
+A man drops from a high flying plane and falls for 5 seconds before opening his parachute.  With the parachute 
+closed, <m>\frac{k}{m} = 1</m> sec<m>{}^{-1}</m>.
+        </p>
+      </introduction>
+      <task workspace="true">
+        <statement>
+          <p>
+            Find the man's velocity when he opens his parachute (use the initial 
+            condition <m>v(0)=0</m> to find the value of the constant <m>C</m>).
+          </p>
+        </statement>
+      </task>
+      <task workspace="true">
+        <statement>
+          <p>
+            After the chute opens, what must the value of <m>\frac{k}{m}</m> be to get 
+            his terminal velocity down to 5 mph? (Use 1 m/sec <m>\approx</m> 2.237 mph.)  
+            Assume he has a very long way to fall.
+          </p>
+        </statement>
+      </task>
+    </exercise>
+  </exercises>
 </section>
