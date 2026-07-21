@@ -4,20 +4,17 @@
   <title>Modeling with Differential Equations</title>
  <objectives>
       <ul>
-        <li><p>To understand that a <term>differential equation</term> is an equation relating a 
-        function (say, <m>x(t)</m>) to one or more of its derivatives and that an <term>initial value problem</term> is a differential equation
-        where the <term>initial condition</term>, <m>x(t_0) = x_0</m>, is specified.</p></li>
+        <li><p>To understand that first-order differential equations can be used to 
+        model various real-world phenomena.</p></li>
 
-        <li><p>To understand that the <term>order of a differential equation</term> is 
-          the order of the highest derivative in the equation.</p></li>
-
-        <li><p>To be able to identify the major parts of a differential equation: the <term>dependent 
-          variables</term>, the <term>independent variables</term>, and the <term>parameters</term>.
+        <li><p>To understand that slope fields -- collections of short arrows drawn 
+        tangent to solution curves -- can be used to visualize the solutions 
+        of first-order differential equations.</p></li>
+    
+        <li><p>
+          To understand that some first-order differential equations can be solved 
+          analytically, while others require numerical methods to approximate the solution.
         </p></li>
-
-        <li><p>To be able to <term>verify a solution</term> for a differential equation; 
-          that is, determine whether a proposed solution to an equation works or not <em> 
-            without actually solving the differential equation</em>.</p></li>
         
       </ul>
     </objectives>
@@ -195,8 +192,8 @@
   <p>
     It's clear from the slope field and the solution curves that the velocity of the 
     skydiver approaches a <term>terminal velocity</term> as time increases. When 
-    <m>p=1</m>, the terminal velocity is <m>v_{terminal} = mg/k</m>. When 
-    <m>p\ne 1</m>, the terminal velocity is given by <m>v_{terminal} = (mg/k)^{1/p}</m>. In this case, the terminal
+    <m>p=1</m>, the terminal velocity is <m>v_{\text{terminal}} = mg/k</m>. When 
+    <m>p\ne 1</m>, the terminal velocity is given by <m>v_{\text{terminal}} = (mg/k)^{1/p}</m>.
   </p>
   </conclusion>
   </subsection>
@@ -560,24 +557,24 @@ time increases.
           is, <m>a(t)=v'(t)</m>, this results in the differential equation
           </p>
           <p>
-<md>
-mv'(t) = mg-k(v(t))^p,
-</md>
+          <md>
+          mv'(t) = mg-k(v(t))^p,
+          </md>
           </p>
           <p>
-where <m>v</m> is the velocity in meters/second, <m>m</m> is the mass in kilograms of the falling skydiver, <m>g = 9.8 \text{m}/\text{s}^2</m> is the downward acceleration due to gravity, <m>k</m> is the coefficient
-of friction due to air resistance, and <m>p</m> is an exponent usually assumed to be equal to one.
-</p>
-<p>
-Assuming <m>p=1</m> and <m>g=9.8</m> m/s<m>{}^2</m>, the equation can be solved analytically and has solution </p>
-<p>
-<md>
-  v(t) = \frac{mg}{k} + Ce^{-\frac{k}{m} t}.
-</md>
-</p>
-<p>
-A man drops from a high flying plane and falls for 5 seconds before opening his parachute.  With the parachute 
-closed, <m>\frac{k}{m} = 1</m> sec<m>{}^{-1}</m>.
+          where <m>v</m> is the velocity in meters/second, <m>m</m> is the mass in kilograms of the falling skydiver, <m>g = 9.8 \text{m}/\text{s}^2</m> is the downward acceleration due to gravity, <m>k</m> is the coefficient
+          of friction due to air resistance, and <m>p</m> is an exponent usually assumed to be equal to one.
+          </p>
+          <p>
+          Assuming <m>p=1</m> and <m>g=9.8</m> m/s<m>{}^2</m>, the equation can be solved analytically and has solution </p>
+          <p>
+          <md>
+            v(t) = \frac{mg}{k} + Ce^{-\frac{k}{m} t}.
+          </md>
+          </p>
+          <p>
+          A man drops from a high flying plane and falls for 5 seconds before opening his parachute.  With the parachute 
+          closed, <m>\frac{k}{m} = 1</m> sec<m>{}^{-1}</m>.
         </p>
       </introduction>
       <task workspace="true">
@@ -594,6 +591,37 @@ closed, <m>\frac{k}{m} = 1</m> sec<m>{}^{-1}</m>.
             After the chute opens, what must the value of <m>\frac{k}{m}</m> be to get 
             his terminal velocity down to 5 mph? (Use 1 m/sec <m>\approx</m> 2.237 mph.)  
             Assume he has a very long way to fall.
+          </p>
+        </statement>
+      </task>
+    </exercise>
+    <exercise>
+      <title>Mathematics</title>
+      <introduction>
+        <p>
+          Consider the one-parameter family of parabolas <m>\overline{y} = cx^3</m>. 
+          The slope of a curve in this family is <m>m = \overline{y}' = \frac{d}{dx}(cx^3) = 3cx^2</m>. 
+          From the equation for <m>\overline{y}</m>, we have that <m>c = \overline{y}/x^3</m>, 
+          so <m>m = 3(\overline{y}/x^3)x^2 = 3\overline{y}/x</m>. This means that the curve in 
+          the orthogonal family will have slope <m>-x/3y</m> at the point <m>(x,y)</m>; so 
+          these curves must satisfy the differential equation <m>y'=-x/3y</m>.
+        </p>
+      </introduction>
+      <task workspace="true">
+        <statement>
+          <p>
+            Show that the set of curves <m>x^2+3y^2=C</m> is a one-parameter family 
+            satisfying the differential equation <m>y' = -\frac{x}{3y}</m> in part (a).
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Use MATLAB to sketch the curves <m>y=cx^3</m> for <m>c=\pm 1</m>, <m>c=\pm 
+            2</m> and the curves <m>x^2 + 3y^2 = C</m> for <m>C=1, 2, 3</m>.  If you 
+            make the scales on the <m>x</m> and <m>y</m> axes exactly the same, the c
+            urves should intersect at right angles.
           </p>
         </statement>
       </task>
