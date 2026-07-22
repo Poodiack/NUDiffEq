@@ -69,7 +69,7 @@ eBookConfig.enable_chatcodes =  false;
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
-<body class="pretext book ignore-math">
+<body id="changeme" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
 <div class="heading ptx-banner-heading"><a href="diff-eqs.html"><span class="title">MA224 Norwich University</span> <span class="subtitle">Differential Equations</span></a></div>
 <p class="byline">Robert D. Poodiack</p>
@@ -103,7 +103,7 @@ eBookConfig.enable_chatcodes =  false;
 <label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
 <div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="MA224BookFront.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="MA224BookFront.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-introduction.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -151,7 +151,13 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modeling-diff-eq.html#subsec-Mathematics" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Mathematics</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modeling-diff-eq.html#subsec-Engineering" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Engineering</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modeling-diff-eq.html#subsec-Ecology" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Ecology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modeling-diff-eq.html#subsec-Neurology" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Neurology</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-modeling-diff-eq.html#exercises-modeling" class="internal"><span class="codenumber">1.2.6</span> <span class="title">Exercises</span></a></div></li>
 </ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-geom-analysis.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Geometric Analysis</span></a></div>
+<ul id="ptx-toc-group-sec-geom-analysis" class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom-analysis.html#subsec-More-About-Direction-Fields" class="internal"><span class="codenumber">1.3.1</span> <span class="title">More About Direction (Slope) Fields</span></a></div></li></ul>
 </li>
 </ul>
 </li>
@@ -163,20 +169,23 @@ eBookConfig.enable_chatcodes =  false;
 </h1>
 <div class="para" id="MA224BookFront-3-1">This book and all related activities emanate from the following works:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#MA224BookFront-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<ul class="disc" id="MA224BookFront-3-2">
-<li id="MA224BookFront-3-2-1">
-<div class="para" id="MA224BookFront-3-2-1-1">
-<em class="emphasis">The Ordinary Differential Equations Project</em> by Thomas Judson<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#MA224BookFront-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="MA224BookFront-3-2">
+<ul class="disc" id="MA224BookFront-3-2-1">
+<li id="MA224BookFront-3-2-1-1">
+<div class="para" id="MA224BookFront-3-2-1-1-1">
+<em class="emphasis">The Ordinary Differential Equations Project</em> by Thomas Judson<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#MA224BookFront-3-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#MA224BookFront-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#MA224BookFront-3-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="MA224BookFront-3-2-2">
-<div class="para" id="MA224BookFront-3-2-2-1">
-<em class="emphasis">Elementary Differential Equations</em> by William Trench<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#MA224BookFront-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="MA224BookFront-3-2-1-2">
+<div class="para" id="MA224BookFront-3-2-1-2-1">
+<em class="emphasis">Elementary Differential Equations</em> by William Trench<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#MA224BookFront-3-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#MA224BookFront-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#MA224BookFront-3-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#MA224BookFront-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" aria-hidden="true" data-description="Preface"><a tabindex="-1" href="#MA224BookFront-3" title="Copy heading and permalink for Preface" aria-label="Copy heading and permalink for Preface">🔗</a></div>
 </section>
 </div>
