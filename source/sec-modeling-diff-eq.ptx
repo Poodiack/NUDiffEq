@@ -577,7 +577,7 @@ time increases.
           closed, <m>\frac{k}{m} = 1</m> sec<m>{}^{-1}</m>.
         </p>
       </introduction>
-      <task workspace="true">
+      <task workspace="2in">
         <statement>
           <p>
             Find the man's velocity when he opens his parachute (use the initial 
@@ -585,7 +585,7 @@ time increases.
           </p>
         </statement>
       </task>
-      <task workspace="true">
+      <task workspace="2in">
         <statement>
           <p>
             After the chute opens, what must the value of <m>\frac{k}{m}</m> be to get 
@@ -607,7 +607,7 @@ time increases.
           these curves must satisfy the differential equation <m>y'=-x/3y</m>.
         </p>
       </introduction>
-      <task workspace="true">
+      <task workspace="2in">
         <statement>
           <p>
             Show that the set of curves <m>x^2+3y^2=C</m> is a one-parameter family 
@@ -615,13 +615,54 @@ time increases.
           </p>
         </statement>
       </task>
-      <task>
+      <task workspace="2in">
         <statement>
           <p>
             Use MATLAB to sketch the curves <m>y=cx^3</m> for <m>c=\pm 1</m>, <m>c=\pm 
             2</m> and the curves <m>x^2 + 3y^2 = C</m> for <m>C=1, 2, 3</m>.  If you 
             make the scales on the <m>x</m> and <m>y</m> axes exactly the same, the c
             urves should intersect at right angles.
+          </p>
+        </statement>
+      </task>
+    </exercise>
+    <exercise>
+      <title>Engineering</title>
+      <introduction>
+        <p>
+          The diagram below shows a circuit containing the elements mentioned in our 
+          in-class application; that is, a resistor with <m>R = 3</m> ohms, an inductor 
+          with inductance <m>L=1</m> henry, and a generator producing a periodic 
+          electromotive force of <m>E=10\sin t</m> volts.
+        </p>
+        <figure xml:id="fig-modeling-circuit">
+          <caption>A sample circuit</caption>
+          <image width="60%">
+            <latex-image>
+              \begin{circuitikz} \draw
+              (0,0) to[V, l = $E$] (0,3)
+                    to[resistor, l=$3\,\Omega$] (3,3) -- (3,0)
+                    to[inductor, l=1 H] (0,0)
+              ;
+              \end{circuitikz}
+            </latex-image>            
+          </image>
+        </figure>
+        <p>
+          The current <m>i(t)</m> can be modeled by the equation 
+          <m>i'(t) + 3\,i(t) = 10\sin t</m>.  This equation is linear and the solution 
+          is</p>
+          <p>
+            <md>
+            i(t) = Ce^{-3t} + (3\sin t - \cos t)
+            </md>
+        </p>
+      </introduction>      
+      <task workspace="2in">
+        <statement>
+          <p>
+            The current <m>i(t)</m> will approach a periodic steady state solution as 
+            <m>t\to\infty</m>.  Give the equation for the steady state curve.
           </p>
         </statement>
       </task>

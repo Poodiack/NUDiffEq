@@ -2,7 +2,7 @@
 
 <pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
   <!-- we first include a file which contains the docinfo element: -->
-<!--   <xi:include href="./docinfo.ptx" /> -->
+  <xi:include href="./docinfo.ptx" />
 
   <book xml:id="diff-eqs">
     <title>MA224 Norwich University</title>
@@ -23,7 +23,7 @@
 
     <!-- Include backmatter -->
 <!-- 
-    <xi:include href="./backmatter.xml" />
+    <xi:include href="./backmatter.ptx" />
  -->
 
   </book>
