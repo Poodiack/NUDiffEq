@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-geom-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Geometric Analysis</title>
+ <objectives>
+      <ul>
+        <li><p>To understand that <term>direction fields</term> are a useful way of analyzing a differential equation from a 
+        geometric point of view, especially since not all differential equations can be 
+        solved analytically.</p></li>
+
+        <li><p>To understand that an <term>autonomous equation</term> is a differential 
+        equation of the form <m>y'=f(y)</m> and that phase lines can be used to 
+        analyze autonomous differential equations.</p></li>
+    
+        <li><p>
+          To understand <term>equilibrium solutions</term> to a differential equation 
+          <m>y'=f(y)</m> are those solutions given by <m>f(y)=0</m> for all <m>y</m>. 
+          In particular, an equilibrium solution is either a <term>sink</term>, <term>source</term>, 
+          or <term>node</term>.
+        </p></li>
+        
+      </ul>
+    </objectives>
+  <introduction>
+    <p>
+      If we view the differential equation <m>y'=F(x,y)</m> as a formula for the slope of 
+      a tangent line to a solution curve, we can approximate the graph of a solution curve. 
+      For example, if we consider the equation <m>y'=x+y</m>, then a solution curve will have a 
+      slope of 2 at the point <m>(1,1)</m>. We can use this information to obtain a 
+      geometric description of the solutions to the equation.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec-More-About-Direction-Fields">
+    <title>More About Direction (Slope) Fields</title>
+      <p>
+        Any differential equation
+      </p>
+      <p>
+        <md>
+          \frac{dy}{dx} = F(x,y)
+        </md>
+      </p>
+      <p>
+        can be viewed as a formula for the slope of a function <m>y=y(x)</m>. Geometrically, 
+        the equation tells us that at any point <m>(x_0,y_0)</m>, the slope of a solution 
+        curve is given by <m>F(x_0,y_0)</m>. Suppose that our differential equation is 
+        defined on the rectangle <m>R=\{(x,y) \mid a\le x\le b, c\le y\le d\}</m> in the 
+        <m>(x,y)</m>-plane. Let <m>y(x)</m> be a solution curve for <m>y'=F(x,y)</m> that 
+        passes through the point <m>(x_0,y_0)</m>. Then the differential equation tells us 
+        the slope of this solution curve at <m>(x_0,y_0)</m>. We can indicate this on 
+        the <m>(x,y)</m>-plane by drawing a short line segment at the point <m>(x_0,y_0)</m> with 
+        slope <m>F(x_0,y_0)</m>. Thus we can obtain a <term>direction field</term> or 
+        <term>slope field</term> for the differential equation. A solution curve must be 
+        tangent to its slope field at every point.
+      </p>
+      <p>
+        For example, consider the differential equation <m>y'=y^2/2-x</m>. The slope 
+        field for this equation is given in <xref ref="fig-slope-field-3" /> along with 
+        a few solution curves.
+      </p>
+      <figure xml:id="fig-slope-field-3">
+        <caption>The slope field for <m>y'=y^2/2-x</m></caption>
+        <image source="./images/slopefield3.png" width="80%" />
+      </figure>
+      <p>
+        Although direction fields can be tedious to compute using pencil and paper, we 
+        can easily generate direction fields for any differential equation with the 
+        use of computer software. Most computer algebra systems, including MATLAB, 
+        have facilities for generating and graphing direction fields. For instance, 
+        the following MATLAB code will generate the slope field for <m>y'=y^2/2-x</m>. 
+        While we've already seen some code in the previous section that will generate 
+        solution curves, we will go over the commands to do that thoroughly at the 
+        end of this section.
+      </p>
+      <program language="octave">
+        % 1. Define the differential equation as an anonymous function
+        f = @(x, y) y .^2 ./2 - x;
+
+        % 2. Set up the grid for the slope field
+        x_range = 0:0.5:5; 
+        y_range = -5:1:10;  
+        [X, Y] = meshgrid(x_range, y_range);
+
+        % Calculate the slopes (dx = 1, dy = f)
+        dx = ones(size(X));
+        dy = f(X, Y);
+
+        % Normalize vectors so all slope lines are the same length
+        L = sqrt(dx.^2 + dy.^2);
+        dx_norm = dx ./ L;
+        dy_norm = dy ./ L;
+
+        % 3. Plot the slope field
+        figure;
+        quiver(X, Y, dx_norm, dy_norm, 0.5, 'Color', 'blue');
+        hold on;
+
+        % 4. Format the graph
+        xlabel('x');
+        ylabel('y');
+        title('Slope Field for dy/dx = y^2/2 - x');
+        axis([x_range(1) x_range(end) y_range(1) y_range(end)]);
+        grid on;
+        hold off;
+      </program>
+      <image source="./images/slopefield4.png" width="80%" />
+  </subsection>
+</section>

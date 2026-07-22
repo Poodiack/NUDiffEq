@@ -11,5 +11,6 @@
   <!-- include sections -->
   <xi:include href="sec-basic-terminology.ptx" />
   <xi:include href="sec-modeling-diff-eq.ptx" />
+  <xi:include href="sec-geom-analysis.ptx" />
 
 </chapter>

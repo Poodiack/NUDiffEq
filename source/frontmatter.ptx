@@ -20,10 +20,12 @@ Copyright 2025 Robert D. Poodiack
 	</titlepage>
 	<preface>
 		<p>This book and all related activities emanate from the following works:</p>
+		<p>
 		<ul>
 			<li><p><em>The Ordinary Differential Equations Project</em> by Thomas Judson</p></li>
 			<li><p><em>Elementary Differential Equations</em> by William Trench</p></li>
 		</ul>
+		</p>
 	</preface>
 	
 </frontmatter>

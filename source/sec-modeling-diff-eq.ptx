@@ -658,11 +658,49 @@ time increases.
             </md>
         </p>
       </introduction>      
-      <task workspace="2in">
+      <task workspace="1in">
         <statement>
           <p>
             The current <m>i(t)</m> will approach a periodic steady state solution as 
             <m>t\to\infty</m>.  Give the equation for the steady state curve.
+          </p>
+        </statement>
+      </task>
+      <task workspace="1in">
+        <statement>
+          <p>
+            What initial value <m>i(0)</m> could you use to produce this curve as 
+            the solution to the IVP for this DE?
+          </p>
+        </statement>
+      </task>
+    </exercise>
+    <exercise>
+      <title>Ecology</title>
+      <introduction>
+        <p>
+          A population of ants, initially containing 20 ants, is growing according to 
+          the population growth equation</p>
+          <p><md>
+              P'(t) = 0.5P(t) \left(1-\frac{P(t)}{N}\right),
+          </md></p>
+          <p>with time <m>t</m> measured in days.
+        </p>
+      </introduction>
+      <task workspace="2in">
+        <statement>
+          <p>
+            If the carrying capacity of the area in which they live is 1000, how many 
+            ants will there be one week later?
+          </p>
+        </statement>
+      </task>
+      <task workspace="2in">
+        <statement>
+          <p>
+            If bug spray is used, and it decreases the intrinsic growth rate <m>r</m> 
+            from 0.5 to 0.1, how many ants will you have one week later?  
+            Assume the carrying capacity remains unchanged at 1000 ants.
           </p>
         </statement>
       </task>
