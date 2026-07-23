@@ -104,5 +104,53 @@
         hold off;
       </program>
       <image source="./images/slopefield4.png" width="80%" />
+    <p>
+      There are also several sites online where you can produce sketches of slope 
+      fields quickly and easily (such as <url href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html" visual="slopefields.html"/>.) 
+    </p>
+    <activity>
+      <title>Plotting Slope Fields</title>
+      <introduction>
+        <p>
+          Use MATLAB or the Bluffton University website referenced above to sketch the 
+          requested slope fields
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>y'=y-2x</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>y'=y(1+x)</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dx} +2xy=y</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dx} = 2y(1-y/4)</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>y'=-1-y^4</m>
+          </p>
+        </statement>
+      </task>
+    </activity>
   </subsection>
 </section>
