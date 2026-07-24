@@ -222,5 +222,21 @@
         </p>
       </statement>
     </definition>
+    <p>
+      Since the slopes only depend on <m>y</m>, a slope field for an autonomous equation 
+      <m>y'=F(y)</m> is completely determined once the slopes along any vertical line 
+      <m>x=x_0</m> are plotted. In fact, if <m>F(y)</m> is defined and continuous for 
+      all <m>y</m>, the behavior of the solutions of the equation can be determined from 
+      the slope lines along the <m>y</m>-axis. This leads to the construction of what is 
+      called a <term>phase line</term> for the autonomous differential equation. (See 
+      <xref ref="fig-autonomous-field" />.)
+    </p>
+    <figure xml:id="fig-autonomous-field">
+      <caption>Slope field and phase line for <m>y'=2y(1-y)</m></caption>
+      <sidebyside widths="50% 50%" valigns="bottom bottom">
+        <image source="./images/slopefield5.png" />
+        <image source="./images/phaseline1.png" />
+      </sidebyside>
+    </figure>
   </subsection>
 </section>
