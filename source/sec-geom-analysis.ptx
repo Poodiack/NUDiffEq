@@ -23,6 +23,12 @@
     </objectives>
   <introduction>
     <p>
+      As we've mentioned previously, not all differential equations -- even first-order equations -- 
+      can be solved exactly. Our first goal is always to find a formula for <m>y(x)</m>. But 
+      when we can't, it's nice to have a backup plan. This is where the ability to sketch 
+      a graph of the solution, either by hand or with the help of a computer, can be a lifesaver.
+    </p>
+    <p>
       If we view the differential equation <m>y'=F(x,y)</m> as a formula for the slope of 
       a tangent line to a solution curve, we can approximate the graph of a solution curve. 
       For example, if we consider the equation <m>y'=x+y</m>, then a solution curve will have a 
@@ -106,7 +112,8 @@
       <image source="./images/slopefield4.png" width="80%" />
     <p>
       There are also several sites online where you can produce sketches of slope 
-      fields quickly and easily (such as <url href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html" visual="slopefields.html"/>.) 
+      fields quickly and easily (such as the <url href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html" 
+      visual="Slope Field Grapher at Bluffton University"/>.) 
     </p>
     <activity>
       <title>Plotting Slope Fields</title>
@@ -152,5 +159,68 @@
         </statement>
       </task>
     </activity>
+  </subsection>
+  <subsection xml:id="subsec-autonomous-equations">
+    <title>Autonomous Equations</title>
+      <p>
+        We have seen that first-order differential equations can always be written in 
+        the form
+      </p>
+      <p>
+        <md>
+          \frac{dy}{dx} = F(x,y) \quad \text{or}\quad \frac{dy}{dt} = F(t,y).
+        </md>
+      </p>
+      <p>However, if the function <m>F</m> <em>only</em> depends on <m>y</m> and not on 
+      <m>x</m> (or <m>t</m>), we have a special kind of differential equation.</p>
+      <definition xml:id="def-autonomous-equation">
+        <statement>
+          <p>
+            A first-order differential equation is called <term>autonomous</term> if it 
+            can be written in the form
+          </p>
+          <p>
+            <md>
+              \frac{dy}{dx} = F(y) \quad \text{or} \quad \frac{dy}{dt} = F(y).
+            </md>
+            
+          </p>
+        </statement>
+      </definition>
+      <p>In particular, the rate of change of <m>y</m> depends <em>not</em> on <m>x</m> (or <m>t</m>),
+      but only on <m>y</m>'s current value.
+      </p> 
+    <example>
+      <p>
+        The equation <m>y'=-y</m> is autonomous.
+      </p>
+    </example>
+    <example>
+      <p>
+        The equation <m>y'=y^2</m> is autonomous.
+      </p>
+    </example>
+    <example>
+      <p>
+        The logistic growth equation <m>P'=rP\left(1-\frac{P}{N}\right)</m> is 
+        autonomous because there are no instances of the independent time variable 
+        <m>t</m> on the right-hand side of the equation.
+      </p>
+    </example>
+    <p>
+      First-order autonomous equations are among the easiest to analyze; in fact, their 
+      solutions have fairly limited types of behavior. Suppose that <m>y'=F(y)</m> and that 
+      <m>F(r)=0</m> for some real number <m>r</m>. Then the constant function <m>y(x)\equiv r</m> is 
+      a solution of the differential equation since both <m>F(y)</m> and <m>y'</m> are 
+      identically zero.
+    </p>
+    <definition xml:id="def-equilibrium-solution">
+      <statement>
+        <p>
+          A constant function <m>y(x)\equiv r</m>, such that <m>F(r)=0</m> is called 
+          an <term>equilibrium solution</term> of the autonomous differential equation <m>\frac{dy}{dx} = F(y)</m>.
+        </p>
+      </statement>
+    </definition>
   </subsection>
 </section>
