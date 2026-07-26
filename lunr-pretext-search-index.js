@@ -529,7 +529,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.3",
   "title": "Geometric Analysis",
-  "body": " Geometric Analysis    To understand that direction fields are a useful way of analyzing a differential equation from a geometric point of view, especially since not all differential equations can be solved analytically.  To understand that an autonomous equation is a differential equation of the form and that phase lines can be used to analyze autonomous differential equations.  To understand equilibrium solutions to a differential equation are those solutions given by for all . In particular, an equilibrium solution is either a sink , source , or node .     If we view the differential equation as a formula for the slope of a tangent line to a solution curve, we can approximate the graph of a solution curve. For example, if we consider the equation , then a solution curve will have a slope of 2 at the point . We can use this information to obtain a geometric description of the solutions to the equation.    More About Direction (Slope) Fields  Any differential equation     can be viewed as a formula for the slope of a function . Geometrically, the equation tells us that at any point , the slope of a solution curve is given by . Suppose that our differential equation is defined on the rectangle in the -plane. Let be a solution curve for that passes through the point . Then the differential equation tells us the slope of this solution curve at . We can indicate this on the -plane by drawing a short line segment at the point with slope . Thus we can obtain a direction field or slope field for the differential equation. A solution curve must be tangent to its slope field at every point.  For example, consider the differential equation . The slope field for this equation is given in along with a few solution curves.   The slope field for    Although direction fields can be tedious to compute using pencil and paper, we can easily generate direction fields for any differential equation with the use of computer software. Most computer algebra systems, including MATLAB, have facilities for generating and graphing direction fields. For instance, the following MATLAB code will generate the slope field for . While we've already seen some code in the previous section that will generate solution curves, we will go over the commands to do that thoroughly at the end of this section.  % 1. Define the differential equation as an anonymous function f = @(x, y) y .^2 .\/2 - x; % 2. Set up the grid for the slope field x_range = 0:0.5:5; y_range = -5:1:10; [X, Y] = meshgrid(x_range, y_range); % Calculate the slopes (dx = 1, dy = f) dx = ones(size(X)); dy = f(X, Y); % Normalize vectors so all slope lines are the same length L = sqrt(dx.^2 + dy.^2); dx_norm = dx .\/ L; dy_norm = dy .\/ L; % 3. Plot the slope field figure; quiver(X, Y, dx_norm, dy_norm, 0.5, 'Color', 'blue'); hold on; % 4. Format the graph xlabel('x'); ylabel('y'); title('Slope Field for dy\/dx = y^2\/2 - x'); axis([x_range(1) x_range(end) y_range(1) y_range(end)]); grid on; hold off;    "
+  "body": " Geometric Analysis    To understand that direction fields are a useful way of analyzing a differential equation from a geometric point of view, especially since not all differential equations can be solved analytically.  To understand that an autonomous equation is a differential equation of the form and that phase lines can be used to analyze autonomous differential equations.  To understand equilibrium solutions to a differential equation are those solutions given by for all . In particular, an equilibrium solution is either a sink , source , or node .     As we've mentioned previously, not all differential equations -- even first-order equations -- can be solved exactly. Our first goal is always to find a formula for . But when we can't, it's nice to have a backup plan. This is where the ability to sketch a graph of the solution, either by hand or with the help of a computer, can be a lifesaver.  If we view the differential equation as a formula for the slope of a tangent line to a solution curve, we can approximate the graph of a solution curve. For example, if we consider the equation , then a solution curve will have a slope of 2 at the point . We can use this information to obtain a geometric description of the solutions to the equation.    More About Direction (Slope) Fields  Any differential equation     can be viewed as a formula for the slope of a function . Geometrically, the equation tells us that at any point , the slope of a solution curve is given by . Suppose that our differential equation is defined on the rectangle in the -plane. Let be a solution curve for that passes through the point . Then the differential equation tells us the slope of this solution curve at . We can indicate this on the -plane by drawing a short line segment at the point with slope . Thus we can obtain a direction field or slope field for the differential equation. A solution curve must be tangent to its slope field at every point.  For example, consider the differential equation . The slope field for this equation is given in along with a few solution curves.   The slope field for    Although direction fields can be tedious to compute using pencil and paper, we can easily generate direction fields for any differential equation with the use of computer software. Most computer algebra systems, including MATLAB, have facilities for generating and graphing direction fields. For instance, the following MATLAB code will generate the slope field for . While we've already seen some code in the previous section that will generate solution curves, we will go over the commands to do that thoroughly at the end of this section.  % 1. Define the differential equation as an anonymous function f = @(x, y) y .^2 .\/2 - x; % 2. Set up the grid for the slope field x_range = 0:0.5:5; y_range = -5:1:10; [X, Y] = meshgrid(x_range, y_range); % Calculate the slopes (dx = 1, dy = f) dx = ones(size(X)); dy = f(X, Y); % Normalize vectors so all slope lines are the same length L = sqrt(dx.^2 + dy.^2); dx_norm = dx .\/ L; dy_norm = dy .\/ L; % 3. Plot the slope field figure; quiver(X, Y, dx_norm, dy_norm, 0.5, 'Color', 'blue'); hold on; % 4. Format the graph xlabel('x'); ylabel('y'); title('Slope Field for dy\/dx = y^2\/2 - x'); axis([x_range(1) x_range(end) y_range(1) y_range(end)]); grid on; hold off;   There are also several sites online where you can produce sketches of slope fields quickly and easily (such as the .)   Plotting Slope Fields   Use MATLAB or the Bluffton University website referenced above to sketch the requested slope fields                                         Autonomous Equations  We have seen that first-order differential equations can always be written in the form     However, if the function  only depends on and not on (or ), we have a special kind of differential equation.    A first-order differential equation is called autonomous if it can be written in the form       In particular, the rate of change of depends not on (or ), but only on 's current value.   The equation is autonomous.    The equation is autonomous.    The logistic growth equation is autonomous because there are no instances of the independent time variable on the right-hand side of the equation.   First-order autonomous equations are among the easiest to analyze; in fact, their solutions have fairly limited types of behavior. Suppose that and that for some real number . Then the constant function is a solution of the differential equation since both and are identically zero.    A constant function , such that is called an equilibrium solution of the autonomous differential equation .    Since the slopes only depend on , a slope field for an autonomous equation is completely determined once the slopes along any vertical line are plotted. In fact, if is defined and continuous for all , the behavior of the solutions of the equation can be determined from the slope lines along the -axis. This leads to the construction of what is called a phase line for the autonomous differential equation. (See .)   Slope field for    A phase line gives us a one-dimensional picture of our solutions' increase or decrease. To produce a phase line, we can use the same techniques we used back in first-semester calculus to draw the intervals of increase and decrease for a function .   To draw a phase line for the equation     Find all real numbers such that , and label these values on a vertical -axis. These points represent the equilibrium solutions. We assume first that the function has finitely many zeros; if not, a phase line can always be drawn using a finite interval on the -axis.    For each interval pick any value in the interval and determine whether is positive or negative. Draw an arrow on the axis, in the given interval, pointing up if is positive and pointing down if is negative. Note that if is a continuous function, it will have constant sign between any two zeros.      A solution with initial value satisfying is monotonically increasing if the arrow points up or monotonically decreasing if the arrow is pointing down. If satisfies the conditions of the Existence and Uniqueness Theorem, then the solution must remain bounded between the two equilibrium values, since they are solutions and solutions cannot intersect.   Drawing a Phase Line  We will draw a phase line for the autonomous equation . We first find the equilibrium solutions by setting the right-hand side of the equation to zero. This quickly yields the two solutions and . These are shown plotted on the phase line in .  These two points split the phase line into three intervals: and . All we need to do is examine one point in each interval in order to draw the arrows correctly on the phase line.  For the interval , we can pick, say, and then the right-hand side of the differential equation becomes     so we draw an upward pointing arrow on the phase line below . We interpret this as follows: suppose have the initial condition with our differential equation. The solution curve through this point must have a positive slope, but it can never cross the equilibrium solution . (Why not?) Therefore, it must increase monotonically and approach as a horizontal asymptote as .  For the interval , we can choose and quickly get that so we draw a downward pointing arrow on the interval . This means that a solution curve with must be monotonically decreasing and bounded between -2 and 1. Therefore it must approach -2 asymptotically as .  Lastly, for the interval , we can choose and obtain . This means that we draw an upward pointing arrow above 2 on the phase line, meaning that any solution curve with initial condition will increase monotonically. Whether it exists for all or has a vertical asymptote at some positive value of cannot be determined geometrically.   Phase Line for      The phase line contains almost all of the information needed to construct the graphs of solutions shown in . It does not contain information on how fast the curves approach their asymptotes, or where the curves have inflection points, however. This information, which does depend on , is lost in going to the phase line representation, but note that we did not need to solve the differential equation analytically in order to draw the phase line.   Slope field for      "
 },
 {
   "id": "sec-geom-analysis-2",
@@ -557,6 +557,96 @@ var ptx_lunr_docs = [
   "number": "1.3.1",
   "title": "",
   "body": " The slope field for   "
+},
+{
+  "id": "subsec-More-About-Direction-Fields-11",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-More-About-Direction-Fields-11",
+  "type": "Activity",
+  "number": "1.3.1",
+  "title": "Plotting Slope Fields.",
+  "body": " Plotting Slope Fields   Use MATLAB or the Bluffton University website referenced above to sketch the requested slope fields                                      "
+},
+{
+  "id": "def-autonomous-equation",
+  "level": "2",
+  "url": "sec-geom-analysis.html#def-autonomous-equation",
+  "type": "Definition",
+  "number": "1.3.2",
+  "title": "",
+  "body": "  A first-order differential equation is called autonomous if it can be written in the form      "
+},
+{
+  "id": "subsec-autonomous-equations-7",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-autonomous-equations-7",
+  "type": "Example",
+  "number": "1.3.3",
+  "title": "",
+  "body": " The equation is autonomous.  "
+},
+{
+  "id": "subsec-autonomous-equations-8",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-autonomous-equations-8",
+  "type": "Example",
+  "number": "1.3.4",
+  "title": "",
+  "body": " The equation is autonomous.  "
+},
+{
+  "id": "subsec-autonomous-equations-9",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-autonomous-equations-9",
+  "type": "Example",
+  "number": "1.3.5",
+  "title": "",
+  "body": " The logistic growth equation is autonomous because there are no instances of the independent time variable on the right-hand side of the equation.  "
+},
+{
+  "id": "def-equilibrium-solution",
+  "level": "2",
+  "url": "sec-geom-analysis.html#def-equilibrium-solution",
+  "type": "Definition",
+  "number": "1.3.6",
+  "title": "",
+  "body": "  A constant function , such that is called an equilibrium solution of the autonomous differential equation .   "
+},
+{
+  "id": "subsec-autonomous-equations-12",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-autonomous-equations-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "phase line "
+},
+{
+  "id": "fig-autonomous-field",
+  "level": "2",
+  "url": "sec-geom-analysis.html#fig-autonomous-field",
+  "type": "Figure",
+  "number": "1.3.7",
+  "title": "",
+  "body": " Slope field for   "
+},
+{
+  "id": "subsec-autonomous-equations-15",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-autonomous-equations-15",
+  "type": "Note",
+  "number": "1.3.8",
+  "title": "To draw a phase line for the equation <span class=\"process-math\">\\(y'=F(y)\\)<\/span>.",
+  "body": " To draw a phase line for the equation     Find all real numbers such that , and label these values on a vertical -axis. These points represent the equilibrium solutions. We assume first that the function has finitely many zeros; if not, a phase line can always be drawn using a finite interval on the -axis.    For each interval pick any value in the interval and determine whether is positive or negative. Draw an arrow on the axis, in the given interval, pointing up if is positive and pointing down if is negative. Note that if is a continuous function, it will have constant sign between any two zeros.     "
+},
+{
+  "id": "subsec-autonomous-equations-17",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-autonomous-equations-17",
+  "type": "Example",
+  "number": "1.3.9",
+  "title": "Drawing a Phase Line.",
+  "body": " Drawing a Phase Line  We will draw a phase line for the autonomous equation . We first find the equilibrium solutions by setting the right-hand side of the equation to zero. This quickly yields the two solutions and . These are shown plotted on the phase line in .  These two points split the phase line into three intervals: and . All we need to do is examine one point in each interval in order to draw the arrows correctly on the phase line.  For the interval , we can pick, say, and then the right-hand side of the differential equation becomes     so we draw an upward pointing arrow on the phase line below . We interpret this as follows: suppose have the initial condition with our differential equation. The solution curve through this point must have a positive slope, but it can never cross the equilibrium solution . (Why not?) Therefore, it must increase monotonically and approach as a horizontal asymptote as .  For the interval , we can choose and quickly get that so we draw a downward pointing arrow on the interval . This means that a solution curve with must be monotonically decreasing and bounded between -2 and 1. Therefore it must approach -2 asymptotically as .  Lastly, for the interval , we can choose and obtain . This means that we draw an upward pointing arrow above 2 on the phase line, meaning that any solution curve with initial condition will increase monotonically. Whether it exists for all or has a vertical asymptote at some positive value of cannot be determined geometrically.   Phase Line for      The phase line contains almost all of the information needed to construct the graphs of solutions shown in . It does not contain information on how fast the curves approach their asymptotes, or where the curves have inflection points, however. This information, which does depend on , is lost in going to the phase line representation, but note that we did not need to solve the differential equation analytically in order to draw the phase line.   Slope field for    "
 }
 ]
 
