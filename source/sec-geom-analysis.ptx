@@ -274,7 +274,7 @@
     </p>
     <figure xml:id="fig-phase-line-1">
       <caption>Phase Line for <m>y'=0.5(y-1)(y-2)</m></caption>
-      <image width="80%">
+      <image>
         <latex-image>
           \begin{tikzpicture}[scale=1.2]
             % Draw the main vertical phase line
