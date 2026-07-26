@@ -238,5 +238,67 @@
         <image source="./images/phaseline1.png" />
       </sidebyside>
     </figure>
+    <p>
+      A phase line gives us a one-dimensional picture of our solutions' increase or 
+      decrease. To produce a phase line, we can use the same techniques we used back 
+      in first-semester calculus to draw the intervals of increase and decrease for a 
+      function <m>F</m>.
+    </p>
+    <note>
+      <title>To draw a phase line for the equation <m>y'=F(y)</m></title>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Find all real numbers <m>r_1\lt r_2\lt \cdots</m> such that <m>F(r_i)=0</m>, 
+              and label these values on a vertical <m>y</m>-axis. These points represent the 
+              equilibrium solutions. We assume first that the function <m>F</m> has finitely 
+              many zeros; if not, a phase line can always be drawn using a finite interval on 
+              the <m>y</m>-axis.
+            </p>
+          </li>
+          <li>
+            <p>
+              For each interval <m>(-\infty, r_1), (r_1,r_2), \dots</m> pick any value <m>y=\overline{y}</m> 
+              in the interval and determine whether <m>F(\overline{y})</m> is positive or negative. 
+              Draw an arrow on the axis, in the given interval, pointing up if <m>F(\overline{y})</m> 
+              is positive and pointing down if <m>F(\overline{y})</m> is negative. Note that if 
+              <m>F</m> is a continuous function, it will have constant sign between any two zeros.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </note>
+    <p>
+      Here is a phase line for the equation <m>y'=0.5(y-1)(y+2)</m>
+    </p>
+    <figure xml:id="fig-phase-line-1">
+      <caption>Phase Line for <m>y'=0.5(y-1)(y-2)</m></caption>
+      <image width="80%">
+        <latex-image>
+          \begin{tikzpicture}[scale=1.2]
+            % Draw the main vertical phase line
+            \draw[thick, ->] (0,-3.5) -- (0,2.5) node[above] {$y$};
+
+            % Equilibrium points (y = 1 is stable/filled, y = -2 is unstable/unfilled)
+            \filldraw[fill=black] (0,1) circle (2.5pt) node[right=4pt] {$1$ (stable)};
+            \filldraw[fill=white, thick] (0,-2) circle (2.5pt) node[right=4pt] {$-2$ (unstable)};
+
+            % Direction arrows based on the sign of y' = 0.5(y-1)(y+2)
+            % For y &gt; 1 (e.g., y=2): y' &gt; 0 (pointing up)
+            \draw[very thick, ->] (0,1.7) -- (0,1.8);
+            
+            % For -2 &lt; y &lt; 1 (e.g., y=0): y' &lt; 0 (pointing down)
+            \draw[very thick, ->] (0,-0.4) -- (0,-0.5);
+            
+            % For y &lt; t' -2 (e.g., y=-3): y' &gt; 0 (pointing up)
+            \draw[very thick, ->] (0,-2.7) -- (0,-2.6);
+
+            % Optional label for the line
+            \node[left=8pt] at (0, -0.5) {Phase Line};
+          \end{tikzpicture}
+        </latex-image>        
+      </image>
+    </figure>
   </subsection>
 </section>
