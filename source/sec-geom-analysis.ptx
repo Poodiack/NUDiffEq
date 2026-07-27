@@ -325,7 +325,7 @@
         determined geometrically.
       </p>
       <figure xml:id="fig-phase-line-1">
-      <caption>Phase Line for <m>y'=0.5(y-1)(y-2)</m></caption>
+      <caption>Phase Line for <m>y'=0.5(y-1)(y+2)</m></caption>
       <image width="60%">
         <latex-image>
           \begin{tikzpicture}[scale=0.5]
@@ -363,6 +363,185 @@
       <image source="./images/slopefield6.png" width="80%" />        
     </figure>
     </example>
-    
+    <exercise>
+      <statement>
+        <p>
+          Draw a phase line for the autonomous first-order equation <m>y'=2y(1-y)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We set the right-hand side of the equation to 0 and solve: 
+          <m>2y(1-y)=0 \Longrightarrow y\equiv 0 \text{ or } y\equiv 1</m>. 
+          So we put points on our phase line at 0 and at 1. This splits our 
+          line into three intervals: <m>(-\infty,0), (0, 1)</m> and <m>(1,\infty)</m>.
+        </p>
+        <p>
+          On the interval <m>(-\infty,0)</m>, we can choose <m>y=-1</m>. When 
+          we substitute this into the right-hand side of our equation, we get
+        </p>
+        <p>
+          <md>
+            2y(1-y) = 2(-1)(1-(-1)) = 2(-1)(2) = -4 \lt 0.
+          </md>
+        </p>
+        <p>
+          and we draw a downward pointing arrow below 0.
+        </p>
+        <p>
+          In the interval <m>(0,1)</m>, there's no getting around fractions. 
+        So we choose the easiest one to work with: <m>y=\frac12</m>. This gives 
+        us:
+        </p>
+        <p>
+          <md>
+            2y(1-y) = 2(\tfrac12)(1-\tfrac12) = 2(\tfrac12)(\tfrac12) = \tfrac12 \gt 0.
+          </md>
+          We then draw an upward pointing arrow on the phase line between 0 
+          and 1.
+        </p>
+        <p>
+          Lastly, on the interval <m>(1,\infty)</m>, we can choose an integer 
+          again: <m>y=2</m>. This leads to
+        </p>
+        <p>
+          <md>
+            2y(1-y) = 2(2)(1-2) = 2(2)(-1)=-4\lt 0.
+          </md>
+          So we draw a downward pointing arrow above 1 on the phase line.
+        </p>
+        <p>
+          The final product should resemble the following:
+        </p>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}[scale=0.5]
+              % Draw the main vertical phase line
+              \draw[thick, ->] (0,-1.5) -- (0,2.5) node[above] {$y$};
+
+              % Equilibrium points (y = 0 is unstable/unfilled, y = 1 is stable/filled)
+              \filldraw[fill=black] (0,1) circle (2.5pt) node[right=4pt] {$1$};
+              \filldraw[fill=white, thick] (0,0) circle (2.5pt) node[right=4pt] {$0$};
+
+              % Direction arrows based on the sign of y' = 2y(1-y)
+              % For y &gt; 1 (e.g., y=2): y' &lt; 0 (pointing down)
+              \draw[very thick, ->] (0,1.5) -- (0,1.4);
+              
+              % For 0 &lt; y &lt; 1 (e.g., y=1/2): y' &gt; 0 (pointing up)
+              \draw[very thick, ->] (0,0.5) -- (0, 0.6);
+              
+              % For y &lt; 0 (e.g., y=-1): y' &lt; 0 (down)
+              \draw[very thick, ->] (0,-0.6) -- (0,-0.7);
+            \end{tikzpicture}
+          </latex-image>        
+        </image>
+      </solution>
+    </exercise>
+  </subsection>
+  <subsection xml:id="subsec-Stability-of-Equilibrium-Solutions">
+    <title>Stability of Equilibrium Solutions</title>
+    <p>
+      We know that equilibrium solutions of autonomous equations are <em>constant</em> 
+      solutions; their graphs are horizontal lines in the plane. But what happens if 
+      our initial conditions are not on the equilibrium line, but just really close?
+    </p>
+    <p>
+      We can see in <xref ref="fig-slope-field-6" /> that if solutions start 
+      initially close enough to the equilibrium solution <m>y\equiv -2</m>, they will tend toward it 
+      as <m>x\to\infty</m>. On the phase line (<xref ref="fig-phase-line-1" />), 
+      we can see that the arrows on either side of <m>-2</m> point toward 
+      <m>-2</m>. An equilibrium solution of this type is called a <term>sink</term> and 
+      is said to be a <term>stable equilibrium</term>.
+    </p>
+    <p>
+      On the other hand, solutions starting close to <m>y=1</m> all tend to 
+      move away from this solution as <m>x</m> increases. The phase line has 
+      arrows both pointing away from 1. An equilibrium solution of this type 
+      is said to be a <term>source</term> and is called an <term>unstable 
+      equilibrium</term>.
+    </p>
+    <p>
+      It is possible to have an equilibrium point on the phase line where an 
+      arrow on one side points toward the equilibrium and an arrow on the other 
+      side points away. Such an equilibrium is called a <term>node</term>. It is 
+      <term>semi-stable</term> in the sense that if a solution starts on one 
+      side of the equilibrium, it will tend towards it and if it starts on the 
+      other side, it will move away as <m>x\to\infty</m>.
+    </p>
+    <example>
+      <title>Drawing a phase line</title>
+      <statement>
+        <p>
+          Draw a phase line for the equation
+        </p>
+        <p>
+          <md>
+            y'=y(y+1)^2 (y-3) = F(y)
+          </md>
+          and label each equilibrium point as a sink, source, or node.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The equilibrium solutions are the zeros of <m>F(y)</m>, namely 
+          0, -1, and 3. These are plotted out in the phase line below.
+        </p>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}[scale=0.5]
+              % Draw the main vertical phase line
+              \draw[thick, ->] (0,-2.5) -- (0,4.5) node[above] {$y$};
+
+              % Equilibrium points (y = 0 is stable/filled, y = -1 is semi-stable/gray)
+              % (y = 3 is unstable/unfilled)
+              \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {$0$ (sink)};
+              \filldraw[fill=white, thick] (0,3) circle (2.5pt) node[right=4pt] {$3$ (source)};
+              \filldraw[fill=gray, thick] (0,-1) circle (2.5pt) node[right=4pt] {$-1$ (node)};
+
+              % Direction arrows based on the sign of y' = y(y+1)^2(y-3)
+              % For y &lt; -1 (e.g., y=-2): y' &gt; 0 (pointing up)
+              \draw[very thick, ->] (0,-1.5) -- (0,-1.4);
+              
+              % For -1 &lt; y &lt; 0 (e.g., y=-1/2): y' &gt; 0 (pointing up)
+              \draw[very thick, ->] (0,-0.5) -- (0, -0.4);
+              
+              % For 0 &lt; y &lt; 3 (e.g., y=1): y' &lt; 0 (pointing down)
+              \draw[very thick, ->] (0,1.6) -- (0, 1.5);
+              
+              % For y &gt; 3 (e.g., y=4): y' &gt; 0 (pointing up)
+              \draw[very thick, ->] (0,3.75) -- (0,3.85);
+            \end{tikzpicture}
+          </latex-image>        
+        </image>
+        <p>
+          We could certainly do the same analysis we did before, interval by 
+          interval, to get the arrows to point the correct way. Another way 
+          which we learned in first-semester calculus would be to graph 
+          <m>F(y)</m> and see where it is positive or negative. (See 
+          <xref ref="fig-deriv-graph" />.)
+        </p>
+        <figure xml:id="fig-deriv-graph">
+          <caption>Graph of the slope function <m>F(y)</m></caption>
+          <image source="./images/derivgraph1.png" />
+        </figure>
+        <p>
+          It is important to realize that this graph <em>is not the graph 
+          of the solution curves</em>. We only use this graph to determine 
+          whether the arrow between two equilibria points up or down. We 
+          can see that <m>F(y)</m> is positive between all pairs of 
+          equilibrium points except 0 and 3; therefore, all of the arrows 
+          point up except the one between 0 and 3. 
+        </p>
+        <p>
+        Once the arrows are drawn, it is easy to see that -1 is a node, 
+        0 is a sink, and 3 is a source. Some solutions of this equation 
+        are shown in <xref ref="fig-slopefield-7" />.
+        </p>
+        <figure xml:id="fig-slopefield-7">
+          <caption><m>y'=y(y+1)^2(y-3)</m></caption>
+          <image source="./images/slopefield7.png" />
+        </figure>
+      </solution>
+    </example>
   </subsection>
 </section>
