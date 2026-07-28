@@ -543,5 +543,113 @@
         </figure>
       </solution>
     </example>
+    <activity>
+      <title>Autonomous Equations and Phase Lines</title>
+        <introduction>
+          <p>
+            For each of the differential equations below, draw the phase 
+            line and classify each equilibrium solution as a sink, a source, 
+            or a node.
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              <m>y'=y(y-2)(y+3)</m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>y'=y^2(y-2)(y+3)</m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>y'=\cos y</m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>y'=\cos^2 y</m>
+            </p>
+          </statement>
+        </task>
+      <conclusion>
+        <p>
+          In each case comment on anything that you notice about the phase 
+          line and the equilibrium solutions.
+        </p>
+      </conclusion>
+    </activity>
   </subsection>
+  <exercises xml:id="exercises-geom-analysis">
+    <title>Exercises</title>
+    
+    <exercisegroup cols="2" xml:id="plot-dir-fields-by-hand">
+      <title>Plotting Direction Fields by Hand</title>
+      <introduction>
+        <p>
+          For each of the differential equations in <xref ref="plot-dir-fields-by-hand" />, 
+          plot the direction field on the integer coordinates <m>(x,y)</m> of 
+          the rectangle <m>-2 \lt x \lt 2</m> and <m>-2 \lt y \lt 2</m> by 
+          drawing a short line of the appropriate slope.
+        </p>
+      </introduction>
+    
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=x+y</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=xy</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=x^2+y^2</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=x+\tan y</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=(x+y)/(x^2+y^2)</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=y-x+1</m>
+          </p>
+        </statement>
+      </exercise>
+    
+    </exercisegroup>
+  </exercises>
 </section>
