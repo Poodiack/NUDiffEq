@@ -651,5 +651,77 @@
       </exercise>
     
     </exercisegroup>
+
+    <exercise>
+      <statement>
+        <p>
+          Use MATLAB to plot the slope fields for the differential equations in 
+          <xref ref="plot-dir-fields-by-hand" />.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercisegroup cols="2" xml:id="equil-solns-phase-lines">
+      <title>Equilibrium Solutions and Phase Lines</title>
+      
+      
+      <introduction>
+        <p>
+          Find the equilibrium solutions for each of the differential equations 
+          in <xref ref="equil-solns-phase-lines" />. Draw the phase line for 
+          each equation and classify each equilibrium solution as a sink, a 
+          source, or a node.
+        </p>
+      </introduction>
+    
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=2y-5</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dt} = (y-1)(y+2)</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dx} = (y^2-1)(y-2)</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dx} = \sin 2y</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=(y^2+1)(y-1)</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=y^2+y+1</m>
+          </p>
+        </statement>
+      </exercise>
+    
+    </exercisegroup>
   </exercises>
 </section>
