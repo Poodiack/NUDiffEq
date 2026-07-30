@@ -723,5 +723,101 @@
       </exercise>
     
     </exercisegroup>
+
+    <exercisegroup xml:id="sketch-solns-hand">
+      <title>Sketching Solutions by Hand</title>
+      
+      
+      <introduction>
+        <p>
+          Each of the differential equations in <xref ref="sketch-solns-hand" /> 
+          has several initial conditions specified. Sketch the solution curves 
+          that satisfy the initial conditions. Sketch your solutions for each 
+          equation on the same pair of axes.
+        </p>
+      </introduction>
+    
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=2y-5, y(0)=4, y(0)=2, y(0)=0</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dt} = (y-1)(y+2), y(0)=2, y(0)=1, y(0)=0</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dx} = (y^2-1)(y-2), y(0)=1, y(0)=0, y(0)=-1</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>\dfrac{dy}{dx} = \sin 2y, y(0)=2, y(0)=1, y(0)=0</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=(y^2+1)(y-1), y(0)=2, y(0)=1, y(0)=0</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            <m>y'=y^2+y+1, y(0)=1, y(0)=0, y(0)=-1</m>
+          </p>
+        </statement>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercisegroup cols="2" xml:id="phase-line-deriv-graph">
+      <title>Phase Lines from Graphs of the Derivative</title>
+      
+      
+      <introduction>
+        <p>
+          Consider the differential equation <m>y'=F(y)</m>, where the graph 
+          of <m>F(y)</m> is given in <xref ref="phase-line-deriv-graph" />. 
+          Draw the phase line for each equation and classify each equilibrium 
+          solution as a sink, a source, or a node.
+        </p>
+      </introduction>
+    
+      <exercise>
+        <statement>
+            <image source="./images/derivgraph2.png" width="80%" />
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+            <image source="./images/derivgraph3.png" width="80%" />
+        </statement>
+      </exercise>
+    
+    </exercisegroup>
   </exercises>
+  <subsection xml:id="subsec-slope-fields-MATLAB">
+    <title>Plotting Slope Fields with MATLAB</title>
+    <p>
+      
+    </p>
+  </subsection>
 </section>
