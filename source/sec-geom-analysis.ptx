@@ -18,9 +18,8 @@
           In particular, an equilibrium solution is either a <term>sink</term>, <term>source</term>, 
           or <term>node</term>.
         </p></li>
-        
       </ul>
-    </objectives>
+  </objectives>
   <introduction>
     <p>
       As we've mentioned previously, not all differential equations -- even first-order equations -- 
@@ -972,6 +971,177 @@
         See <url href="https://www.mathworks.com/help/symbolic/solve-a-single-differential-equation.html" 
         visual="the Solving Differential Equations page at Mathworks" />.
       </p>
+      <exercises>
+        <title>MATLAB Exercises</title>
+        <exercise>
+          <introduction>
+          <p>
+            Suppose that the population <m>p</m> of a trout pond can be accurately 
+            modeled by the logistic equation
+          </p>
+          <p>
+            <md>
+              \frac{dp}{dt} = 0.4p\left(1-\frac{p}{500}\right).
+            </md>
+          </p>
+          </introduction>
+          <task>
+            <statement>
+              <p>
+                Plot the direction field for this equation using MATLAB.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Plot the graphs of two or three representative solutions 
+                to this equation on the direction field.
+              </p>
+            </statement>
+          </task>
+        </exercise>
+      </exercises>
     </subsubsection>
   </subsection>
+  <worksheet xml:id="ws-slope-fields">
+    <title>In-Class Work on Phase Lines and Slope Fields</title>
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            To understand how to draw a solution curve on a slope field given 
+            an initial condition.
+          </p>
+        </li>
+        <li>
+          <p>
+            Given an autonomous first-order differential equation, be able to 
+            sketch a phase line and label equilibrium solutions as a sink, source, 
+            or node.
+          </p>
+        </li>
+      </ul>
+    </objectives>
+    <introduction>
+      <p>
+        If we have a slope field in hand for a differential equation, it is 
+        important to be able to draw a reasonable approximation to a solution 
+        curve that passes through a given point.
+      </p>
+    </introduction>
+    <page>
+        <p>
+            Given each direction field shown below, draw a solution curve 
+            that fulfills the given initial condition (that is, a solution 
+            curve that passes through the given point).
+          </p>
+      <exercise>
+        <introduction>
+          <p>
+            <m>
+              \dfrac{dy}{dx} = x^2-y^2
+            </m>
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(-2)=1
+              </m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(3)=0
+              </m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(0)=2
+              </m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(0)=0
+              </m>
+            </p>
+          </statement>
+        </task>
+      </exercise>
+      <image source="./images/slopefield10.png" width="80%" />
+    </page>
+    <page>
+      <exercise>
+        <introduction>
+          <p>
+            <m>
+              \dfrac{dy}{dx} = 1-xy
+            </m>
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(0)=0
+              </m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(-1)=0
+              </m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(2)=2
+              </m>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>
+                y(0)=-4
+              </m>
+            </p>
+          </statement>
+        </task>
+      </exercise>
+      <image source="./images/slopefield11.png" width="80%" />
+    </page>
+    <page>
+      <p>
+        Draw a phase line for the given autonomous differential equation and 
+        label each equilibrium solution as a sink, source, or node.
+      </p>
+      <exercise workspace="3in">
+        <p><m>y'=y(1-y/4)</m></p> 
+      </exercise>
+      <exercise workspace="3in">
+        <p><m>y'=(y^2-1)(y+2)^2</m></p> 
+      </exercise>
+    </page>
+  </worksheet>
 </section>

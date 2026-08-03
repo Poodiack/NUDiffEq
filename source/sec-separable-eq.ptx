@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-separable-eq" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Separable Differential Equations</title>
+    <objectives>
+        <ul>
+            <li>
+                <p>
+                    To recall that a <term>first-order differential equation</term> is 
+                    one that can be written in the form
+                </p>
+                <p>
+                    <md>
+                        \frac{dy}{dx} = F(x,y)
+                    </md>
+                </p>
+            </li>
+            <li>
+                <p>
+                    To understand that a differential equation is <term>separable</term> if 
+                    it can be written in the form
+                </p>
+                <p>
+                    <md>
+                        \frac{dy}{dx} = g(x)h(y)
+                    </md>
+                </p>
+                <p>
+                    and by rewriting the equation in the form
+                </p>
+                <p>
+                    <md>
+                        N(y)\,dy = M(x)\,dx
+                    </md>
+                </p>
+                <p>
+                    the equation can be solved by integrating both sides.
+                </p>
+            </li>
+        </ul>
+    </objectives>
+    
+    <introduction>
+        <p>
+            We are now in a place where we can begin actually solving some 
+            first-order linear differential equations. That is, we're going to 
+            begin to learn how to find an <em>actual formula</em> for a solution to the 
+            equation, not just approximate it. We also will look at when 
+            we can do this because, as we've noted before, we cannot always.
+        </p>
+        <p>
+            We've seen that we can always write a first-order linear differential 
+            equation in the form
+        </p>
+        <p>
+            <md>
+                \frac{dy}{dx} = F(x,y)
+            </md>
+        </p>
+        <p>
+            for some function <m>F</m>. There are a couple of special cases 
+            of this format where we can actually get a solution.
+        </p>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        The right-hand side function <m>F(x,y)=g(x)</m>; that 
+                        is, there's only <m>x</m>'s on the right-hand side, no 
+                        <m>y</m>'s. Then we can <q>multiply</q> both sides of 
+                        the equation by <m>dx</m><fn>We continue the custom from 
+                        first-semester calculus that <m>dy/dx</m> is not a fraction, 
+                        though we treat it like one from then on.</fn> to get
+                    </p>
+                    <p>
+                        <md>
+                            \frac{dy}{dx} = g(x) \Longrightarrow dy = g(x)\,dx.
+                        </md>
+                    </p>
+                    <p>
+                        We then integrate both sides to get
+                    </p>
+                    <p>
+                        <md>
+                            y=\int g(x)\,dx
+                        </md>
+                    </p>
+                    <p>or <m>y=G(x) + C</m>, where <m>G</m> is any antiderivative 
+                    of <m>g</m>.</p> 
+                </li>
+                <li>
+                    <p>
+                        The right-hand side function is <m>F(x,y) = h(y)</m>; that 
+                        is, there's only <m>y</m>'s on the right-hand side, no 
+                        <m>x</m>'s. In this case, we have an autonomous equation and 
+                        we could use the methods of the previous section (phase lines, 
+                        slope fields) to find good approximations to a solution.
+                    </p>
+                </li>
+            </ol>
+        </p>
+        <p>
+            The issue comes when we do have both <m>x</m>'s and <m>y</m>'s 
+            on that right-hand side. The good news is that there are instances 
+            where we can fully solve the differential equation. We will explore 
+            these instances here and in the next few sections.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec-separable-diff-eq">
+        <title>Separable Differential Equations</title>
+        <p>
+            If we can write the right-hand side function <m>F(x,y)</m> as the 
+            product of a function of just <m>x</m> times a function of just <m>y</m>, then our 
+            differential equation can be solved.
+        </p>
+        <definition xml:id="def-separable-diff-eq">
+            <statement>
+                <p>
+                    A first-order linear differential equation is called 
+                    <term>separable</term> if it can be written in the form
+                </p>
+                <p>
+                    <md>
+                        \frac{dy}{dx} = g(x)h(y)
+                    </md>
+                </p>
+            </statement>
+        </definition>
+        <example>
+            <p>
+                The equation <m>y'=xy+2y</m> is separable because we can 
+                write it as <m>y'=y(x+2)</m> with <m>g(x)=x+2</m> and 
+                <m>h(y) = y</m>.
+            </p>
+        </example>
+        <example>
+            <p>
+                The equation <m>y'=y+\cos x</m> is <em>not</em> separable 
+                because it cannot be factored into the product of a function 
+                of just <m>x</m> and a function of just <m>y</m>.
+            </p>
+        </example>
+    </subsection>
+</section>
