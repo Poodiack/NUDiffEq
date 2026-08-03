@@ -816,8 +816,162 @@
   </exercises>
   <subsection xml:id="subsec-slope-fields-MATLAB">
     <title>Plotting Slope Fields with MATLAB</title>
-    <p>
-      
+    <subsubsection xml:id="subsubsec-Plotting-Slope-Fields">
+      <title>Plotting Slope Fields</title>
+      <p>
+        As we've seen, a slope field for a differential equation <m>y=F(x,y)</m> 
+        is comprised of lots of arrows. An arrow at a point <m>(x_0,y_0)</m> is 
+        drawn with slope <m>F(x_0,y_0)</m>. Computer algebra systems such as 
+        MATLAB or Octave are useful for drawing slope fields because they will 
+        draw tens or hundreds of arrows without complaint.
+      </p>
+      <p>
+        In weaponry, a group of arrows is called a <term>quiver</term>, and so 
+        MATLAB uses the <c>quiver</c> command to draw an entire set of arrows 
+        for a slope field. Let us plot the direction field for the differential 
+        equation <m>y'=y^2/2-x</m>.
+      </p>
+      <program language="octave">
+        % Define the differential equation function: y' = y^2/2 - x
+        f = @(x, y) (y.^2)/2 - x;
+
+        % 1. Create the grid for the slope field
+        x_vec = 0:0.5:5; 
+        y_vec = -5:1:10;
+        [X, Y] = meshgrid(x_vec, y_vec);
+
+        % 2. Calculate slopes and normalize vectors for uniform arrow length
+        S = f(X, Y);
+        L = sqrt(1 + S.^2);
+        U = 1 ./ L;
+        V = S ./ L;
+
+        % 3. Plot the slope field
+        figure;
+        quiver(X, Y, U, V, 0.4, 'Color', [0.5 0.5 0.5]);
+        hold on;
+
+        % 4. Polish the plot layout
+        xlabel('x');
+        ylabel('y');
+        title("Slope Field and Solutions for y' = y^2/2 - x");
+        axis([0 5 -5 10]);
+        grid on;
+        hold off;
+      </program>
+      <image source="./images/slopefield8.png" width="80%" />
+      <p>
+      Let's discuss the MATLAB code. (We won't do this <em>too</em> often.) The first thing to know is that 
+      MATLAB deals mainly with lists of numbers. So in the first line, 
+      where we define the function <c>f</c>, we use the <c>.</c> before the 
+      exponent to tell MATLAB to take a list <c>y</c> and square each element 
+      of it.
     </p>
+    <p>
+      Next, we make the lists of values <c>x</c> and <c>y</c> which will 
+      make up the coordinates where we will plot the arrows for the slope 
+      field. We have <c>x</c> go from 0 to 5 in increments of 0.5, and <c>y</c> 
+      go from -5 to 10 in increments of 1. The <c>meshgrid</c> command combines 
+      the <c>x</c> and <c>y</c> lists into a matrix of coordinates <c>[X,Y]</c>. 
+    </p>
+    <p>
+      We then form a matrix <c>S</c> of the values of the slope functions at 
+      each value <c>[X,Y]</c>. Some of these numbers will be small; others will 
+      be large. This would mean the arrows in the slope field would be all 
+      different sizes. Therefore, we <em>normalize</em> the lengths of the arrows by 
+      computing their magnitudes <c>L</c>, then dividing the components of the slope 
+      by the magnitudes.
+    </p>
+    <p>
+      At last, we draw the slope field. The <c>figure</c> command opens up 
+      the graph window in MATLAB. (Always start drawing a graph with that 
+      command.) We then use the <c>quiver</c> command to draw the slope field. 
+      The command draws an arrow at the point <c>(X,Y)</c> of length 
+      <c>U</c> in the <m>x</m>-direction and length <c>V</c> in the <m>y</m>-
+      direction. We then ask MATLAB to reduce each arrow to 0.4 of its computed 
+      length so that the arrows don't crash into each other. (Change that 0.4 to 
+      0 to see what happens.) We then use the <c>hold on</c> so that we can add 
+      on to the graph. Without it, MATLAB would erase what we have already if we 
+      continue to use graphing commands.
+    </p>
+    <p>
+      We do the final polishing of the graph; that is, we make it look nice by 
+      adding in axis labels, a title, set the axes for the graph, and put in 
+      a background grid.
+    </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec-Plotting-Solutions">
+      <title>Plotting Solutions</title>
+      <p>
+        Now let us find a numerical solution to the equation using the command 
+        <c>ode45</c>. This involves 4th- and 5th-order Runge-Kutta methods and 
+        returns a numerical solution (a table of values). We can add the code 
+        for this into our previous program to produce the slope field along with 
+        a few solutions.
+      </p>
+      <program language="octave">
+        % Define the differential equation function: y' = y^2/2 - x
+        f = @(x, y) (y.^2)/2 - x;
+
+        % 1. Create the grid for the slope field
+        x_vec = -3:0.5:5; 
+        y_vec = -5:1:10;
+        [X, Y] = meshgrid(x_vec, y_vec);
+
+        % 2. Calculate slopes and normalize vectors for uniform arrow length
+        S = f(X, Y);
+        L = sqrt(1 + S.^2);
+        U = 1 ./ L;
+        V = S ./ L;
+
+        % 3. Plot the slope field
+        figure;
+        quiver(X, Y, U, V, 0.4, 'Color', [0.5 0.5 0.5]);
+        hold on;
+
+        % 4. Solve and plot curves for each initial condition
+        init_conds = [-1/4, 1/2, 3/2];
+        x_span = [0, 5]; % Forward integration span
+
+        % Colors for each trajectory
+        colors = ['r', 'g', 'b'];
+
+        for i = 1:length(init_conds)
+            y0 = init_conds(i);
+
+            % Forward integration from x = 0 to x = 5
+            [xf, yf] = ode45(f, [0, 5], y0);
+
+            % Backward integration from x = 0 to x = -3 (to show full curve)
+            [xb, yb] = ode45(f, [0, -3], y0);
+
+            % Combine and sort trajectories so they plot cleanly
+            x_total = [flipud(xb); xf];
+            y_total = [flipud(yb); yf];
+
+            % Plot the trajectory line
+            plot(x_total, y_total, colors(i), 'LineWidth', 2, ...
+                'DisplayName', sprintf('y(0) = %.1f', y0));
+
+            % Mark the initial condition point
+            plot(0, y0, [colors(i) 'o'], 'MarkerFaceColor', colors(i), 'HandleVisibility', 'off');
+        end
+
+        % 5. Polish the plot layout
+        xlabel('x');
+        ylabel('y');
+        title("Slope Field and Solutions for y' = y^2/2 - x");
+        axis([-3 5 -5 10]);
+        grid on;
+        legend('Slope Field', 'Location', 'best');
+        hold off;
+      </program>
+      <image source="./images/slopefield9.png" width="80%" />
+      <p>
+        There are other commands to solve differential equations in MATLAB (<em>e.g.</em>, <c>dsolve</c>). 
+        See <url href="https://www.mathworks.com/help/symbolic/solve-a-single-differential-equation.html" 
+        visual="the Solving Differential Equations page at Mathworks" />.
+      </p>
+    </subsubsection>
   </subsection>
 </section>
