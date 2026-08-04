@@ -529,7 +529,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.3",
   "title": "Geometric Analysis",
-  "body": " Geometric Analysis    To understand that direction fields are a useful way of analyzing a differential equation from a geometric point of view, especially since not all differential equations can be solved analytically.  To understand that an autonomous equation is a differential equation of the form and that phase lines can be used to analyze autonomous differential equations.  To understand equilibrium solutions to a differential equation are those solutions given by for all . In particular, an equilibrium solution is either a sink , source , or node .     As we've mentioned previously, not all differential equations -- even first-order equations -- can be solved exactly. Our first goal is always to find a formula for . But when we can't, it's nice to have a backup plan. This is where the ability to sketch a graph of the solution, either by hand or with the help of a computer, can be a lifesaver.  If we view the differential equation as a formula for the slope of a tangent line to a solution curve, we can approximate the graph of a solution curve. For example, if we consider the equation , then a solution curve will have a slope of 2 at the point . We can use this information to obtain a geometric description of the solutions to the equation.    More About Direction (Slope) Fields  Any differential equation     can be viewed as a formula for the slope of a function . Geometrically, the equation tells us that at any point , the slope of a solution curve is given by . Suppose that our differential equation is defined on the rectangle in the -plane. Let be a solution curve for that passes through the point . Then the differential equation tells us the slope of this solution curve at . We can indicate this on the -plane by drawing a short line segment at the point with slope . Thus we can obtain a direction field or slope field for the differential equation. A solution curve must be tangent to its slope field at every point.  For example, consider the differential equation . The slope field for this equation is given in along with a few solution curves.   The slope field for    Although direction fields can be tedious to compute using pencil and paper, we can easily generate direction fields for any differential equation with the use of computer software. Most computer algebra systems, including MATLAB, have facilities for generating and graphing direction fields. For instance, the following MATLAB code will generate the slope field for . While we've already seen some code in the previous section that will generate solution curves, we will go over the commands to do that thoroughly at the end of this section.  % 1. Define the differential equation as an anonymous function f = @(x, y) y .^2 .\/2 - x; % 2. Set up the grid for the slope field x_range = 0:0.5:5; y_range = -5:1:10; [X, Y] = meshgrid(x_range, y_range); % Calculate the slopes (dx = 1, dy = f) dx = ones(size(X)); dy = f(X, Y); % Normalize vectors so all slope lines are the same length L = sqrt(dx.^2 + dy.^2); dx_norm = dx .\/ L; dy_norm = dy .\/ L; % 3. Plot the slope field figure; quiver(X, Y, dx_norm, dy_norm, 0.5, 'Color', 'blue'); hold on; % 4. Format the graph xlabel('x'); ylabel('y'); title('Slope Field for dy\/dx = y^2\/2 - x'); axis([x_range(1) x_range(end) y_range(1) y_range(end)]); grid on; hold off;   There are also several sites online where you can produce sketches of slope fields quickly and easily (such as the .)   Plotting Slope Fields   Use MATLAB or the Bluffton University website referenced above to sketch the requested slope fields                                         Autonomous Equations  We have seen that first-order differential equations can always be written in the form     However, if the function  only depends on and not on (or ), we have a special kind of differential equation.    A first-order differential equation is called autonomous if it can be written in the form       In particular, the rate of change of depends not on (or ), but only on 's current value.   The equation is autonomous.    The equation is autonomous.    The logistic growth equation is autonomous because there are no instances of the independent time variable on the right-hand side of the equation.   First-order autonomous equations are among the easiest to analyze; in fact, their solutions have fairly limited types of behavior. Suppose that and that for some real number . Then the constant function is a solution of the differential equation since both and are identically zero.    A constant function , such that is called an equilibrium solution of the autonomous differential equation .    Since the slopes only depend on , a slope field for an autonomous equation is completely determined once the slopes along any vertical line are plotted. In fact, if is defined and continuous for all , the behavior of the solutions of the equation can be determined from the slope lines along the -axis. This leads to the construction of what is called a phase line for the autonomous differential equation. (See .)   Slope field for    A phase line gives us a one-dimensional picture of our solutions' increase or decrease. To produce a phase line, we can use the same techniques we used back in first-semester calculus to draw the intervals of increase and decrease for a function .   To draw a phase line for the equation     Find all real numbers such that , and label these values on a vertical -axis. These points represent the equilibrium solutions. We assume first that the function has finitely many zeros; if not, a phase line can always be drawn using a finite interval on the -axis.    For each interval pick any value in the interval and determine whether is positive or negative. Draw an arrow on the axis, in the given interval, pointing up if is positive and pointing down if is negative. Note that if is a continuous function, it will have constant sign between any two zeros.      A solution with initial value satisfying is monotonically increasing if the arrow points up or monotonically decreasing if the arrow is pointing down. If satisfies the conditions of the Existence and Uniqueness Theorem, then the solution must remain bounded between the two equilibrium values, since they are solutions and solutions cannot intersect.   Drawing a Phase Line  We will draw a phase line for the autonomous equation . We first find the equilibrium solutions by setting the right-hand side of the equation to zero. This quickly yields the two solutions and . These are shown plotted on the phase line in .  These two points split the phase line into three intervals: and . All we need to do is examine one point in each interval in order to draw the arrows correctly on the phase line.  For the interval , we can pick, say, and then the right-hand side of the differential equation becomes     so we draw an upward pointing arrow on the phase line below . We interpret this as follows: suppose have the initial condition with our differential equation. The solution curve through this point must have a positive slope, but it can never cross the equilibrium solution . (Why not?) Therefore, it must increase monotonically and approach as a horizontal asymptote as .  For the interval , we can choose and quickly get that so we draw a downward pointing arrow on the interval . This means that a solution curve with must be monotonically decreasing and bounded between -2 and 1. Therefore it must approach -2 asymptotically as .  Lastly, for the interval , we can choose and obtain . This means that we draw an upward pointing arrow above 2 on the phase line, meaning that any solution curve with initial condition will increase monotonically. Whether it exists for all or has a vertical asymptote at some positive value of cannot be determined geometrically.   Phase Line for      The phase line contains almost all of the information needed to construct the graphs of solutions shown in . It does not contain information on how fast the curves approach their asymptotes, or where the curves have inflection points, however. This information, which does depend on , is lost in going to the phase line representation, but note that we did not need to solve the differential equation analytically in order to draw the phase line.   Slope field for       Draw a phase line for the autonomous first-order equation .    We set the right-hand side of the equation to 0 and solve: . So we put points on our phase line at 0 and at 1. This splits our line into three intervals: and .  On the interval , we can choose . When we substitute this into the right-hand side of our equation, we get     and we draw a downward pointing arrow below 0.  In the interval , there's no getting around fractions. So we choose the easiest one to work with: . This gives us:   We then draw an upward pointing arrow on the phase line between 0 and 1.  Lastly, on the interval , we can choose an integer again: . This leads to   So we draw a downward pointing arrow above 1 on the phase line.  The final product should resemble the following:         Stability of Equilibrium Solutions  We know that equilibrium solutions of autonomous equations are constant solutions; their graphs are horizontal lines in the plane. But what happens if our initial conditions are not on the equilibrium line, but just really close?  We can see in that if solutions start initially close enough to the equilibrium solution , they will tend toward it as . On the phase line ( ), we can see that the arrows on either side of point toward . An equilibrium solution of this type is called a sink and is said to be a stable equilibrium .  On the other hand, solutions starting close to all tend to move away from this solution as increases. The phase line has arrows both pointing away from 1. An equilibrium solution of this type is said to be a source and is called an unstable equilibrium .  It is possible to have an equilibrium point on the phase line where an arrow on one side points toward the equilibrium and an arrow on the other side points away. Such an equilibrium is called a node . It is semi-stable in the sense that if a solution starts on one side of the equilibrium, it will tend towards it and if it starts on the other side, it will move away as .   Drawing a phase line   Draw a phase line for the equation   and label each equilibrium point as a sink, source, or node.    The equilibrium solutions are the zeros of , namely 0, -1, and 3. These are plotted out in the phase line below.     We could certainly do the same analysis we did before, interval by interval, to get the arrows to point the correct way. Another way which we learned in first-semester calculus would be to graph and see where it is positive or negative. (See .)   Graph of the slope function    It is important to realize that this graph is not the graph of the solution curves . We only use this graph to determine whether the arrow between two equilibria points up or down. We can see that is positive between all pairs of equilibrium points except 0 and 3; therefore, all of the arrows point up except the one between 0 and 3.  Once the arrows are drawn, it is easy to see that -1 is a node, 0 is a sink, and 3 is a source. Some solutions of this equation are shown in .         "
+  "body": " Geometric Analysis    To understand that direction fields are a useful way of analyzing a differential equation from a geometric point of view, especially since not all differential equations can be solved analytically.  To understand that an autonomous equation is a differential equation of the form and that phase lines can be used to analyze autonomous differential equations.  To understand equilibrium solutions to a differential equation are those solutions given by for all . In particular, an equilibrium solution is either a sink , source , or node .     As we've mentioned previously, not all differential equations -- even first-order equations -- can be solved exactly. Our first goal is always to find a formula for . But when we can't, it's nice to have a backup plan. This is where the ability to sketch a graph of the solution, either by hand or with the help of a computer, can be a lifesaver.  If we view the differential equation as a formula for the slope of a tangent line to a solution curve, we can approximate the graph of a solution curve. For example, if we consider the equation , then a solution curve will have a slope of 2 at the point . We can use this information to obtain a geometric description of the solutions to the equation.    More About Direction (Slope) Fields  Any differential equation     can be viewed as a formula for the slope of a function . Geometrically, the equation tells us that at any point , the slope of a solution curve is given by . Suppose that our differential equation is defined on the rectangle in the -plane. Let be a solution curve for that passes through the point . Then the differential equation tells us the slope of this solution curve at . We can indicate this on the -plane by drawing a short line segment at the point with slope . Thus we can obtain a direction field or slope field for the differential equation. A solution curve must be tangent to its slope field at every point.  For example, consider the differential equation . The slope field for this equation is given in along with a few solution curves.   The slope field for    Although direction fields can be tedious to compute using pencil and paper, we can easily generate direction fields for any differential equation with the use of computer software. Most computer algebra systems, including MATLAB, have facilities for generating and graphing direction fields. For instance, the following MATLAB code will generate the slope field for . While we've already seen some code in the previous section that will generate solution curves, we will go over the commands to do that thoroughly at the end of this section.  % 1. Define the differential equation as an anonymous function f = @(x, y) y .^2 .\/2 - x; % 2. Set up the grid for the slope field x_range = 0:0.5:5; y_range = -5:1:10; [X, Y] = meshgrid(x_range, y_range); % Calculate the slopes (dx = 1, dy = f) dx = ones(size(X)); dy = f(X, Y); % Normalize vectors so all slope lines are the same length L = sqrt(dx.^2 + dy.^2); dx_norm = dx .\/ L; dy_norm = dy .\/ L; % 3. Plot the slope field figure; quiver(X, Y, dx_norm, dy_norm, 0.5, 'Color', 'blue'); hold on; % 4. Format the graph xlabel('x'); ylabel('y'); title('Slope Field for dy\/dx = y^2\/2 - x'); axis([x_range(1) x_range(end) y_range(1) y_range(end)]); grid on; hold off;   There are also several sites online where you can produce sketches of slope fields quickly and easily (such as the .)   Plotting Slope Fields   Use MATLAB or the Bluffton University website referenced above to sketch the requested slope fields                                         Autonomous Equations  We have seen that first-order differential equations can always be written in the form     However, if the function  only depends on and not on (or ), we have a special kind of differential equation.    A first-order differential equation is called autonomous if it can be written in the form       In particular, the rate of change of depends not on (or ), but only on 's current value.   The equation is autonomous.    The equation is autonomous.    The logistic growth equation is autonomous because there are no instances of the independent time variable on the right-hand side of the equation.   First-order autonomous equations are among the easiest to analyze; in fact, their solutions have fairly limited types of behavior. Suppose that and that for some real number . Then the constant function is a solution of the differential equation since both and are identically zero.    A constant function , such that is called an equilibrium solution of the autonomous differential equation .    Since the slopes only depend on , a slope field for an autonomous equation is completely determined once the slopes along any vertical line are plotted. In fact, if is defined and continuous for all , the behavior of the solutions of the equation can be determined from the slope lines along the -axis. This leads to the construction of what is called a phase line for the autonomous differential equation. (See .)   Slope field for    A phase line gives us a one-dimensional picture of our solutions' increase or decrease. To produce a phase line, we can use the same techniques we used back in first-semester calculus to draw the intervals of increase and decrease for a function .   To draw a phase line for the equation     Find all real numbers such that , and label these values on a vertical -axis. These points represent the equilibrium solutions. We assume first that the function has finitely many zeros; if not, a phase line can always be drawn using a finite interval on the -axis.    For each interval pick any value in the interval and determine whether is positive or negative. Draw an arrow on the axis, in the given interval, pointing up if is positive and pointing down if is negative. Note that if is a continuous function, it will have constant sign between any two zeros.      A solution with initial value satisfying is monotonically increasing if the arrow points up or monotonically decreasing if the arrow is pointing down. If satisfies the conditions of the Existence and Uniqueness Theorem, then the solution must remain bounded between the two equilibrium values, since they are solutions and solutions cannot intersect.   Drawing a Phase Line  We will draw a phase line for the autonomous equation . We first find the equilibrium solutions by setting the right-hand side of the equation to zero. This quickly yields the two solutions and . These are shown plotted on the phase line in .  These two points split the phase line into three intervals: and . All we need to do is examine one point in each interval in order to draw the arrows correctly on the phase line.  For the interval , we can pick, say, and then the right-hand side of the differential equation becomes     so we draw an upward pointing arrow on the phase line below . We interpret this as follows: suppose have the initial condition with our differential equation. The solution curve through this point must have a positive slope, but it can never cross the equilibrium solution . (Why not?) Therefore, it must increase monotonically and approach as a horizontal asymptote as .  For the interval , we can choose and quickly get that so we draw a downward pointing arrow on the interval . This means that a solution curve with must be monotonically decreasing and bounded between -2 and 1. Therefore it must approach -2 asymptotically as .  Lastly, for the interval , we can choose and obtain . This means that we draw an upward pointing arrow above 2 on the phase line, meaning that any solution curve with initial condition will increase monotonically. Whether it exists for all or has a vertical asymptote at some positive value of cannot be determined geometrically.   Phase Line for      The phase line contains almost all of the information needed to construct the graphs of solutions shown in . It does not contain information on how fast the curves approach their asymptotes, or where the curves have inflection points, however. This information, which does depend on , is lost in going to the phase line representation, but note that we did not need to solve the differential equation analytically in order to draw the phase line.   Slope field for       Draw a phase line for the autonomous first-order equation .    We set the right-hand side of the equation to 0 and solve: . So we put points on our phase line at 0 and at 1. This splits our line into three intervals: and .  On the interval , we can choose . When we substitute this into the right-hand side of our equation, we get     and we draw a downward pointing arrow below 0.  In the interval , there's no getting around fractions. So we choose the easiest one to work with: . This gives us:   We then draw an upward pointing arrow on the phase line between 0 and 1.  Lastly, on the interval , we can choose an integer again: . This leads to   So we draw a downward pointing arrow above 1 on the phase line.  The final product should resemble the following:         Stability of Equilibrium Solutions  We know that equilibrium solutions of autonomous equations are constant solutions; their graphs are horizontal lines in the plane. But what happens if our initial conditions are not on the equilibrium line, but just really close?  We can see in that if solutions start initially close enough to the equilibrium solution , they will tend toward it as . On the phase line ( ), we can see that the arrows on either side of point toward . An equilibrium solution of this type is called a sink and is said to be a stable equilibrium .  On the other hand, solutions starting close to all tend to move away from this solution as increases. The phase line has arrows both pointing away from 1. An equilibrium solution of this type is said to be a source and is called an unstable equilibrium .  It is possible to have an equilibrium point on the phase line where an arrow on one side points toward the equilibrium and an arrow on the other side points away. Such an equilibrium is called a node . It is semi-stable in the sense that if a solution starts on one side of the equilibrium, it will tend towards it and if it starts on the other side, it will move away as .   Drawing a phase line   Draw a phase line for the equation   and label each equilibrium point as a sink, source, or node.    The equilibrium solutions are the zeros of , namely 0, -1, and 3. These are plotted out in the phase line below.     We could certainly do the same analysis we did before, interval by interval, to get the arrows to point the correct way. Another way which we learned in first-semester calculus would be to graph and see where it is positive or negative. (See .)   Graph of the slope function    It is important to realize that this graph is not the graph of the solution curves . We only use this graph to determine whether the arrow between two equilibria points up or down. We can see that is positive between all pairs of equilibrium points except 0 and 3; therefore, all of the arrows point up except the one between 0 and 3.  Once the arrows are drawn, it is easy to see that -1 is a node, 0 is a sink, and 3 is a source. Some solutions of this equation are shown in .         Autonomous Equations and Phase Lines   For each of the differential equations below, draw the phase line and classify each equilibrium solution as a sink, a source, or a node.                                In each case comment on anything that you notice about the phase line and the equilibrium solutions.      Exercises   Plotting Direction Fields by Hand   For each of the differential equations in , plot the direction field on the integer coordinates of the rectangle and by drawing a short line of the appropriate slope.                                                Use MATLAB to plot the slope fields for the differential equations in .     Equilibrium Solutions and Phase Lines   Find the equilibrium solutions for each of the differential equations in . Draw the phase line for each equation and classify each equilibrium solution as a sink, a source, or a node.                                               Sketching Solutions by Hand   Each of the differential equations in has several initial conditions specified. Sketch the solution curves that satisfy the initial conditions. Sketch your solutions for each equation on the same pair of axes.                                               Phase Lines from Graphs of the Derivative   Consider the differential equation , where the graph of is given in . Draw the phase line for each equation and classify each equilibrium solution as a sink, a source, or a node.                Plotting Slope Fields with MATLAB   Plotting Slope Fields  As we've seen, a slope field for a differential equation is comprised of lots of arrows. An arrow at a point is drawn with slope . Computer algebra systems such as MATLAB or Octave are useful for drawing slope fields because they will draw tens or hundreds of arrows without complaint.  In weaponry, a group of arrows is called a quiver , and so MATLAB uses the quiver command to draw an entire set of arrows for a slope field. Let us plot the direction field for the differential equation .  % Define the differential equation function: y' = y^2\/2 - x f = @(x, y) (y.^2)\/2 - x; % 1. Create the grid for the slope field x_vec = 0:0.5:5; y_vec = -5:1:10; [X, Y] = meshgrid(x_vec, y_vec); % 2. Calculate slopes and normalize vectors for uniform arrow length S = f(X, Y); L = sqrt(1 + S.^2); U = 1 .\/ L; V = S .\/ L; % 3. Plot the slope field figure; quiver(X, Y, U, V, 0.4, 'Color', [0.5 0.5 0.5]); hold on; % 4. Polish the plot layout xlabel('x'); ylabel('y'); title(\"Slope Field and Solutions for y' = y^2\/2 - x\"); axis([0 5 -5 10]); grid on; hold off;   Let's discuss the MATLAB code. (We won't do this too often.) The first thing to know is that MATLAB deals mainly with lists of numbers. So in the first line, where we define the function f , we use the . before the exponent to tell MATLAB to take a list y and square each element of it.  Next, we make the lists of values x and y which will make up the coordinates where we will plot the arrows for the slope field. We have x go from 0 to 5 in increments of 0.5, and y go from -5 to 10 in increments of 1. The meshgrid command combines the x and y lists into a matrix of coordinates [X,Y] .  We then form a matrix S of the values of the slope functions at each value [X,Y] . Some of these numbers will be small; others will be large. This would mean the arrows in the slope field would be all different sizes. Therefore, we normalize the lengths of the arrows by computing their magnitudes L , then dividing the components of the slope by the magnitudes.  At last, we draw the slope field. The figure command opens up the graph window in MATLAB. (Always start drawing a graph with that command.) We then use the quiver command to draw the slope field. The command draws an arrow at the point (X,Y) of length U in the -direction and length V in the - direction. We then ask MATLAB to reduce each arrow to 0.4 of its computed length so that the arrows don't crash into each other. (Change that 0.4 to 0 to see what happens.) We then use the hold on so that we can add on to the graph. Without it, MATLAB would erase what we have already if we continue to use graphing commands.  We do the final polishing of the graph; that is, we make it look nice by adding in axis labels, a title, set the axes for the graph, and put in a background grid.    Plotting Solutions  Now let us find a numerical solution to the equation using the command ode45 . This involves 4th- and 5th-order Runge-Kutta methods and returns a numerical solution (a table of values). We can add the code for this into our previous program to produce the slope field along with a few solutions.  % Define the differential equation function: y' = y^2\/2 - x f = @(x, y) (y.^2)\/2 - x; % 1. Create the grid for the slope field x_vec = -3:0.5:5; y_vec = -5:1:10; [X, Y] = meshgrid(x_vec, y_vec); % 2. Calculate slopes and normalize vectors for uniform arrow length S = f(X, Y); L = sqrt(1 + S.^2); U = 1 .\/ L; V = S .\/ L; % 3. Plot the slope field figure; quiver(X, Y, U, V, 0.4, 'Color', [0.5 0.5 0.5]); hold on; % 4. Solve and plot curves for each initial condition init_conds = [-1\/4, 1\/2, 3\/2]; x_span = [0, 5]; % Forward integration span % Colors for each trajectory colors = ['r', 'g', 'b']; for i = 1:length(init_conds) y0 = init_conds(i); % Forward integration from x = 0 to x = 5 [xf, yf] = ode45(f, [0, 5], y0); % Backward integration from x = 0 to x = -3 (to show full curve) [xb, yb] = ode45(f, [0, -3], y0); % Combine and sort trajectories so they plot cleanly x_total = [flipud(xb); xf]; y_total = [flipud(yb); yf]; % Plot the trajectory line plot(x_total, y_total, colors(i), 'LineWidth', 2, ... 'DisplayName', sprintf('y(0) = %.1f', y0)); % Mark the initial condition point plot(0, y0, [colors(i) 'o'], 'MarkerFaceColor', colors(i), 'HandleVisibility', 'off'); end % 5. Polish the plot layout xlabel('x'); ylabel('y'); title(\"Slope Field and Solutions for y' = y^2\/2 - x\"); axis([-3 5 -5 10]); grid on; legend('Slope Field', 'Location', 'best'); hold off;   There are other commands to solve differential equations in MATLAB ( e.g. , dsolve ). See .   MATLAB Exercises    Suppose that the population of a trout pond can be accurately modeled by the logistic equation        Plot the direction field for this equation using MATLAB.      Plot the graphs of two or three representative solutions to this equation on the direction field.         In-Class Work on Phase Lines and Slope Fields     To understand how to draw a solution curve on a slope field given an initial condition.    Given an autonomous first-order differential equation, be able to sketch a phase line and label equilibrium solutions as a sink, source, or node.      If we have a slope field in hand for a differential equation, it is important to be able to draw a reasonable approximation to a solution curve that passes through a given point.    Given each direction field shown below, draw a solution curve that fulfills the given initial condition (that is, a solution curve that passes through the given point).                                                                              Draw a phase line for the given autonomous differential equation and label each equilibrium solution as a sink, source, or node.          "
 },
 {
   "id": "sec-geom-analysis-2",
@@ -692,6 +692,348 @@ var ptx_lunr_docs = [
   "number": "1.3.13",
   "title": "Drawing a phase line.",
   "body": " Drawing a phase line   Draw a phase line for the equation   and label each equilibrium point as a sink, source, or node.    The equilibrium solutions are the zeros of , namely 0, -1, and 3. These are plotted out in the phase line below.     We could certainly do the same analysis we did before, interval by interval, to get the arrows to point the correct way. Another way which we learned in first-semester calculus would be to graph and see where it is positive or negative. (See .)   Graph of the slope function    It is important to realize that this graph is not the graph of the solution curves . We only use this graph to determine whether the arrow between two equilibria points up or down. We can see that is positive between all pairs of equilibrium points except 0 and 3; therefore, all of the arrows point up except the one between 0 and 3.  Once the arrows are drawn, it is easy to see that -1 is a node, 0 is a sink, and 3 is a source. Some solutions of this equation are shown in .       "
+},
+{
+  "id": "subsec-Stability-of-Equilibrium-Solutions-7",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsec-Stability-of-Equilibrium-Solutions-7",
+  "type": "Activity",
+  "number": "1.3.2",
+  "title": "Autonomous Equations and Phase Lines.",
+  "body": " Autonomous Equations and Phase Lines   For each of the differential equations below, draw the phase line and classify each equilibrium solution as a sink, a source, or a node.                                In each case comment on anything that you notice about the phase line and the equilibrium solutions.   "
+},
+{
+  "id": "plot-dir-fields-by-hand-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#plot-dir-fields-by-hand-3",
+  "type": "Exercise",
+  "number": "1.3.4.1",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "plot-dir-fields-by-hand-4",
+  "level": "2",
+  "url": "sec-geom-analysis.html#plot-dir-fields-by-hand-4",
+  "type": "Exercise",
+  "number": "1.3.4.2",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "plot-dir-fields-by-hand-5",
+  "level": "2",
+  "url": "sec-geom-analysis.html#plot-dir-fields-by-hand-5",
+  "type": "Exercise",
+  "number": "1.3.4.3",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "plot-dir-fields-by-hand-6",
+  "level": "2",
+  "url": "sec-geom-analysis.html#plot-dir-fields-by-hand-6",
+  "type": "Exercise",
+  "number": "1.3.4.4",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "plot-dir-fields-by-hand-7",
+  "level": "2",
+  "url": "sec-geom-analysis.html#plot-dir-fields-by-hand-7",
+  "type": "Exercise",
+  "number": "1.3.4.5",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "plot-dir-fields-by-hand-8",
+  "level": "2",
+  "url": "sec-geom-analysis.html#plot-dir-fields-by-hand-8",
+  "type": "Exercise",
+  "number": "1.3.4.6",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "exercises-geom-analysis-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#exercises-geom-analysis-3",
+  "type": "Exercise",
+  "number": "1.3.4.7",
+  "title": "",
+  "body": "  Use MATLAB to plot the slope fields for the differential equations in .   "
+},
+{
+  "id": "equil-solns-phase-lines-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#equil-solns-phase-lines-3",
+  "type": "Exercise",
+  "number": "1.3.4.8",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "equil-solns-phase-lines-4",
+  "level": "2",
+  "url": "sec-geom-analysis.html#equil-solns-phase-lines-4",
+  "type": "Exercise",
+  "number": "1.3.4.9",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "equil-solns-phase-lines-5",
+  "level": "2",
+  "url": "sec-geom-analysis.html#equil-solns-phase-lines-5",
+  "type": "Exercise",
+  "number": "1.3.4.10",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "equil-solns-phase-lines-6",
+  "level": "2",
+  "url": "sec-geom-analysis.html#equil-solns-phase-lines-6",
+  "type": "Exercise",
+  "number": "1.3.4.11",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "equil-solns-phase-lines-7",
+  "level": "2",
+  "url": "sec-geom-analysis.html#equil-solns-phase-lines-7",
+  "type": "Exercise",
+  "number": "1.3.4.12",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "equil-solns-phase-lines-8",
+  "level": "2",
+  "url": "sec-geom-analysis.html#equil-solns-phase-lines-8",
+  "type": "Exercise",
+  "number": "1.3.4.13",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sketch-solns-hand-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#sketch-solns-hand-3",
+  "type": "Exercise",
+  "number": "1.3.4.14",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sketch-solns-hand-4",
+  "level": "2",
+  "url": "sec-geom-analysis.html#sketch-solns-hand-4",
+  "type": "Exercise",
+  "number": "1.3.4.15",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sketch-solns-hand-5",
+  "level": "2",
+  "url": "sec-geom-analysis.html#sketch-solns-hand-5",
+  "type": "Exercise",
+  "number": "1.3.4.16",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sketch-solns-hand-6",
+  "level": "2",
+  "url": "sec-geom-analysis.html#sketch-solns-hand-6",
+  "type": "Exercise",
+  "number": "1.3.4.17",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sketch-solns-hand-7",
+  "level": "2",
+  "url": "sec-geom-analysis.html#sketch-solns-hand-7",
+  "type": "Exercise",
+  "number": "1.3.4.18",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sketch-solns-hand-8",
+  "level": "2",
+  "url": "sec-geom-analysis.html#sketch-solns-hand-8",
+  "type": "Exercise",
+  "number": "1.3.4.19",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "phase-line-deriv-graph-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#phase-line-deriv-graph-3",
+  "type": "Exercise",
+  "number": "1.3.4.20",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "phase-line-deriv-graph-4",
+  "level": "2",
+  "url": "sec-geom-analysis.html#phase-line-deriv-graph-4",
+  "type": "Exercise",
+  "number": "1.3.4.21",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "subsubsec-Plotting-Slope-Fields-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsubsec-Plotting-Slope-Fields-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "quiver "
+},
+{
+  "id": "subsubsec-Plotting-Solutions-6-2",
+  "level": "2",
+  "url": "sec-geom-analysis.html#subsubsec-Plotting-Solutions-6-2",
+  "type": "Exercise",
+  "number": "1.3.5.2.1",
+  "title": "",
+  "body": "  Suppose that the population of a trout pond can be accurately modeled by the logistic equation        Plot the direction field for this equation using MATLAB.      Plot the graphs of two or three representative solutions to this equation on the direction field.    "
+},
+{
+  "id": "ws-slope-fields-2",
+  "level": "2",
+  "url": "sec-geom-analysis.html#ws-slope-fields-2",
+  "type": "Objectives",
+  "number": "1.3.6",
+  "title": "",
+  "body": "   To understand how to draw a solution curve on a slope field given an initial condition.    Given an autonomous first-order differential equation, be able to sketch a phase line and label equilibrium solutions as a sink, source, or node.    "
+},
+{
+  "id": "ws-slope-fields-4-2",
+  "level": "2",
+  "url": "sec-geom-analysis.html#ws-slope-fields-4-2",
+  "type": "Worksheet Exercise",
+  "number": "1.3.6.1",
+  "title": "",
+  "body": "                                  "
+},
+{
+  "id": "ws-slope-fields-5-1",
+  "level": "2",
+  "url": "sec-geom-analysis.html#ws-slope-fields-5-1",
+  "type": "Worksheet Exercise",
+  "number": "1.3.6.2",
+  "title": "",
+  "body": "                                  "
+},
+{
+  "id": "ws-slope-fields-6-2",
+  "level": "2",
+  "url": "sec-geom-analysis.html#ws-slope-fields-6-2",
+  "type": "Worksheet Exercise",
+  "number": "1.3.6.3",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-slope-fields-6-3",
+  "level": "2",
+  "url": "sec-geom-analysis.html#ws-slope-fields-6-3",
+  "type": "Worksheet Exercise",
+  "number": "1.3.6.4",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "sec-separable-eq",
+  "level": "1",
+  "url": "sec-separable-eq.html",
+  "type": "Section",
+  "number": "1.4",
+  "title": "Separable Differential Equations",
+  "body": " Separable Differential Equations     To recall that a first-order differential equation is one that can be written in the form       To understand that a differential equation is separable if it can be written in the form     and by rewriting the equation in the form     the equation can be solved by integrating both sides.      We are now in a place where we can begin actually solving some first-order linear differential equations. That is, we're going to begin to learn how to find an actual formula for a solution to the equation, not just approximate it. We also will look at when we can do this because, as we've noted before, we cannot always.  We've seen that we can always write a first-order linear differential equation in the form     for some function . There are a couple of special cases of this format where we can actually get a solution.     The right-hand side function ; that is, there's only 's on the right-hand side, no 's. Then we can multiply both sides of the equation by We continue the custom from first-semester calculus that is not a fraction, though we treat it like one from then on. to get     We then integrate both sides to get     or , where is any antiderivative of .    The right-hand side function is ; that is, there's only 's on the right-hand side, no 's. In this case, we have an autonomous equation and we could use the methods of the previous section (phase lines, slope fields) to find good approximations to a solution.     The issue comes when we do have both 's and 's on that right-hand side. The good news is that there are instances where we can fully solve the differential equation. We will explore these instances here and in the next few sections.    Separable Differential Equations  If we can write the right-hand side function as the product of a function of just times a function of just , then our differential equation often can be solved.    A first-order linear differential equation is called separable if it can be written in the form        The equation is separable because we can write it as with and .    The equation is not separable because it cannot be factored into the product of a function of just and a function of just .    The equation is separable with and . This equation is also autonomous. In fact, all autonomous equations are also separable .    The equation is separable. (It falls into our first special case above. Any equation where the right-hand side only has one variable is separable. )  We can in fact solve this particular equation:   Whether we can solve this type of differential equation (or an autonomous equation) depends on the integrability of the right-hand side. For instance, the differential equation is separable. However, has no antiderivative. If we had an initial-value problem that involved this equation, we would have to approximate the integral of using numerical methods.   When we have a separable equation, we can mostly solve it using the separate and integrate method. We first separate the variables -- all the terms with 's in them go to the left side, and all the terms with 's in them go the the right side. We then integrate both sides (assuming we can do so) which leads to an implicit solution of the equation. That is, we obtain an equation which gives the relationship between and . In many cases, we can solve this equation for . If we can, we have an explicit solution , an actual formula for the dependent variable in terms of the independent variable . Obtaining an explicit solution is always the goal, though it's not always possible.   Suppose that we wish to solve the differential equation . This equation is separable with and . (It doesn't matter where we put the minus sign since we can move it as needed.) We first rewrite the left-hand side in Leibniz notation:     We then separate the variables, moving the pieces to the left and the pieces to the right, remembering that the differentials and  must be in the numerators of any fractions that result . Thus we divide both sides by and multiply both sides by .   We rewrite this in the forms: We can now integrate both sides with respect to the separate variables to get This last equation is an implicit solution to our differential equation. Notice that we put a single constant of integration on the right-hand side . In this case, we can get an explicit solution by taking the reciprocal of both sides.    Note in the last step that we must take the reciprocal of the entire right- hand side at once. The answer is not  . Not at all.     "
+},
+{
+  "id": "sec-separable-eq-2",
+  "level": "2",
+  "url": "sec-separable-eq.html#sec-separable-eq-2",
+  "type": "Objectives",
+  "number": "1.4",
+  "title": "",
+  "body": "   To recall that a first-order differential equation is one that can be written in the form       To understand that a differential equation is separable if it can be written in the form     and by rewriting the equation in the form     the equation can be solved by integrating both sides.    "
+},
+{
+  "id": "def-separable-diff-eq",
+  "level": "2",
+  "url": "sec-separable-eq.html#def-separable-diff-eq",
+  "type": "Definition",
+  "number": "1.4.1",
+  "title": "",
+  "body": "  A first-order linear differential equation is called separable if it can be written in the form      "
+},
+{
+  "id": "subsec-separable-diff-eq-4",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-4",
+  "type": "Example",
+  "number": "1.4.2",
+  "title": "",
+  "body": " The equation is separable because we can write it as with and .  "
+},
+{
+  "id": "subsec-separable-diff-eq-5",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-5",
+  "type": "Example",
+  "number": "1.4.3",
+  "title": "",
+  "body": " The equation is not separable because it cannot be factored into the product of a function of just and a function of just .  "
+},
+{
+  "id": "subsec-separable-diff-eq-6",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-6",
+  "type": "Example",
+  "number": "1.4.4",
+  "title": "",
+  "body": " The equation is separable with and . This equation is also autonomous. In fact, all autonomous equations are also separable .  "
+},
+{
+  "id": "subsec-separable-diff-eq-7",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-7",
+  "type": "Example",
+  "number": "1.4.5",
+  "title": "",
+  "body": " The equation is separable. (It falls into our first special case above. Any equation where the right-hand side only has one variable is separable. )  We can in fact solve this particular equation:   Whether we can solve this type of differential equation (or an autonomous equation) depends on the integrability of the right-hand side. For instance, the differential equation is separable. However, has no antiderivative. If we had an initial-value problem that involved this equation, we would have to approximate the integral of using numerical methods.  "
+},
+{
+  "id": "subsec-separable-diff-eq-8",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "separate and integrate implicit solution explicit solution "
+},
+{
+  "id": "subsec-separable-diff-eq-9",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-9",
+  "type": "Example",
+  "number": "1.4.6",
+  "title": "",
+  "body": " Suppose that we wish to solve the differential equation . This equation is separable with and . (It doesn't matter where we put the minus sign since we can move it as needed.) We first rewrite the left-hand side in Leibniz notation:     We then separate the variables, moving the pieces to the left and the pieces to the right, remembering that the differentials and  must be in the numerators of any fractions that result . Thus we divide both sides by and multiply both sides by .   We rewrite this in the forms: We can now integrate both sides with respect to the separate variables to get This last equation is an implicit solution to our differential equation. Notice that we put a single constant of integration on the right-hand side . In this case, we can get an explicit solution by taking the reciprocal of both sides.    Note in the last step that we must take the reciprocal of the entire right- hand side at once. The answer is not  . Not at all.   "
 }
 ]
 
