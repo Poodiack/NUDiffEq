@@ -111,7 +111,7 @@
         <p>
             If we can write the right-hand side function <m>F(x,y)</m> as the 
             product of a function of just <m>x</m> times a function of just <m>y</m>, then our 
-            differential equation can be solved.
+            differential equation often can be solved.
         </p>
         <definition xml:id="def-separable-diff-eq">
             <statement>
@@ -139,6 +139,103 @@
                 because it cannot be factored into the product of a function 
                 of just <m>x</m> and a function of just <m>y</m>.
             </p>
+        </example>
+        <example>
+            <p>
+                The equation <m>y'=y^2+y+3</m> is separable with <m>g(x)=1</m> 
+                and <m>h(y)=y^2+y+3</m>. This equation is also autonomous. In 
+                fact, <alert>all autonomous equations are also separable</alert>.
+            </p>
+        </example>
+        <example>
+            <p>
+                The equation <m>y'=x+1</m> is separable. (It falls into our 
+                first special case above. <em>Any equation where the 
+                right-hand side only has one variable is separable.</em>)
+            </p>
+            <p>
+                We can in fact solve this particular equation:
+            </p>
+            <p>
+                <md>
+                    y = \int (x+1)\,dx = \frac{x^2}{2} + x + C
+                </md>
+                Whether we can solve this type of differential equation (or 
+                an autonomous equation) depends on the integrability of the 
+                right-hand side. For instance, the differential equation 
+                <m>y'=e^{x^2}</m> is separable. However, <m>e^{x^2}</m> has 
+                no antiderivative. If we had an initial-value problem that 
+                involved this equation, we would have to approximate the 
+                integral of <m>e^{x^2}</m> using numerical methods.
+            </p>
+        </example>
+        <p>
+            When we have a separable equation, we can mostly solve it using 
+            the <term><q>separate and integrate</q></term> method. We first 
+            <em>separate the variables</em> -- all the terms with <m>y</m>'s 
+            in them go to the left side, and all the terms with <m>x</m>'s 
+            in them go the the right side. We then <em>integrate</em> both sides 
+            (assuming we can do so) which leads to an <term>implicit solution</term> 
+            of the equation. That is, we obtain an equation which gives the 
+            relationship between <m>x</m> and <m>y</m>. In many cases, we can 
+            solve this equation for <m>y</m>. If we can, we have an <term>explicit 
+            solution</term>, an actual formula for the dependent variable <m>y</m> 
+            in terms of the independent variable <m>x</m>. Obtaining an explicit 
+            solution is always the goal, though it's not always possible.
+        </p>
+        <example>
+            <p>
+                Suppose that we wish to solve the differential equation 
+                <m>y'=-xy^2</m>. This equation is separable with <m>g(x)
+                = x</m> and <m>h(y)=-y^2</m>. (It doesn't matter where we 
+                put the minus sign since we can move it as needed.) We first 
+                rewrite the left-hand side in Leibniz notation:
+            </p>
+            <p>
+                <md>
+                    \frac{dy}{dx} = -xy^2.
+                </md>
+                
+            </p>
+            <p>
+                We then separate the variables, moving the <m>y</m> pieces 
+                to the left and the <m>x</m> pieces to the right, remembering 
+                that the differentials <m>dx</m> and <m>dy</m> <em>must be 
+                in the numerators of any fractions that result</em>. Thus we 
+                divide both sides by <m>-y^2</m> and multiply both sides by 
+                <m>dx</m>.
+            </p>
+            <p>
+                <md>
+                   - \frac{dy}{y^2} = x\,dx
+                </md>
+                We rewrite this in the forms:
+                <md>
+                   <mrow> -\frac1{y^2}\,dy \amp = x\,dx</mrow>  
+                   <mrow> -y^{-2}\,dy\amp = x\,dx </mrow>
+                </md>
+                We can now integrate both sides with respect to the separate 
+                variables to get
+                <md>
+                    <mrow>-\frac{y^{-1}}{-1} \amp = \frac{x^2}{2} + C</mrow>
+                    <mrow>\frac1{y} \amp = \frac{x^2}{2} + C</mrow>
+                </md>
+                This last equation is an <em>implicit solution</em> to our 
+                differential equation. <alert>Notice that we put a single constant 
+                of integration on the right-hand side</alert>. In this case, we can 
+                get an <em>explicit solution</em> by taking the reciprocal 
+                of both sides.
+                <md>
+                    \boxed{y = \frac1{\frac{x^2}{2}+C}}
+                </md>
+            </p>
+            <aside>
+                <p>
+                    Note in the last step that we must take the reciprocal of the entire right-
+                    hand side at once. The answer is <em>not</em> 
+                    <m>y=\frac2{x^2} + \frac1{C}</m>. Not at all.
+                </p>
+            </aside>
         </example>
     </subsection>
 </section>
