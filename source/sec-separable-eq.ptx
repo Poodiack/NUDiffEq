@@ -236,6 +236,84 @@
                     <m>y=\frac2{x^2} + \frac1{C}</m>. Not at all.
                 </p>
             </aside>
+            <p>
+                The MATLAB commands to solve this equation are below.
+            </p>
+            <sage language="octave">
+                <input>
+                    % Comment out the command below if  
+                    % running this in MATLAB
+                    pkg load symbolic
+
+                    % 1. Define symbolic variables
+                    syms y(x)
+
+                    % 2. Define the differential equation
+                    ode = diff(y,x) == -x * y^2;
+
+                    % 3. Find the general solution
+                    ySol_general = dsolve(ode);
+                    disp('General Solution:');
+                    disp(ySol_general);
+                </input>
+                </sage>
+                <p>
+                    Is MATLAB wrong? Or is its answer an alternate form for 
+                    what we computed?
+                </p>
         </example>
+        <example>
+            <p>
+                Suppose we wish to solve the differential equation 
+                <m>y'=x(y+1)</m>. This equation is separable with <m>g(x)=x</m> 
+                and <m>h(y) = y+1</m>. Following the method of the previous 
+                example, we will <em>separate the variables</em> and then 
+                <em>integrate</em> both sides.
+            </p>
+            <p>
+                <md>
+                    <mrow>\frac{dy}{dx} \amp =x(y+1)</mrow>
+                    <mrow>\frac{dy}{y+1} \amp = x\,dx </mrow>
+                    <mrow>\int \frac1{y+1}\,dy \amp = \int x\,dx </mrow>
+                </md>
+                This leads to the implicit solution
+                <md>
+                    \ln |y+1| = \frac{x^2}{2} + C.
+                </md>
+                We can actually solve this to get an explicit formula for 
+                <m>y</m>. We first take <m>e</m> to both sides to get
+                <md>
+                    <mrow> e^{\ln |y+1|} \amp = e^{x^2/2+C}</mrow>
+                    <mrow>|y+1| \amp = e^{x^2/2}\cdot e^C</mrow>
+                    <mrow>y+1 \amp = \pm e^C\cdot e^{x^2/2}.</mrow>
+                </md>
+                Since <m>e</m> is constant and <m>C</m> is constant, 
+                <m>e^C</m> is constant. To make things a little easier 
+                to read, let's set <m>A = \pm e^C</m>. Then we have
+                <md>
+                    <mrow>y+1 \amp = Ae^{x^2/2}</mrow>
+                    <mrow>y \amp = Ae^{x^2/2} - 1,</mrow>
+                </md>
+                where <m>A</m> can be any real number except 0. (Why?) However, 
+                we note that if <m>A</m> were 0, our solution would become 
+                <m>y=-1</m> which is also a solution of the original differential 
+                equation. So we go ahead and allow <m>A=0</m>, and this means that 
+                our complete solution is
+                <md>
+                    \boxed{y=Ae^{x^2/2}-1 \text{ where $A$ is any real number.}}
+                </md>
+                
+            </p>
+        </example>
+        <p>
+            What happened at the end of the last example? When we separated the 
+            variables, we divided by <m>y+1</m>. Since we're not allowed to 
+            divide by 0, this implies that <m>y</m> is not allowed to be <m>-1</m>. 
+            In other words, we dropped <m>-1</m> as a possible solution. However, 
+            we are duty bound before declaring victory over a problem to check 
+            <q>thrown away</q> solutions in the original differential equation to 
+            make sure we have a complete answer. <em>This is something you should 
+            always do as you finish up solving a differential equation</em>.
+        </p>
     </subsection>
 </section>
