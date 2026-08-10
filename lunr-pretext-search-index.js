@@ -563,7 +563,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-More-About-Direction-Fields-11",
   "type": "Activity",
-  "number": "1.3.1",
+  "number": "1.3.2",
   "title": "Plotting Slope Fields.",
   "body": " Plotting Slope Fields   Use MATLAB or the Bluffton University website referenced above to sketch the requested slope fields                                      "
 },
@@ -572,7 +572,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#def-autonomous-equation",
   "type": "Definition",
-  "number": "1.3.2",
+  "number": "1.3.3",
   "title": "",
   "body": "  A first-order differential equation is called autonomous if it can be written in the form      "
 },
@@ -581,7 +581,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-autonomous-equations-7",
   "type": "Example",
-  "number": "1.3.3",
+  "number": "1.3.4",
   "title": "",
   "body": " The equation is autonomous.  "
 },
@@ -590,7 +590,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-autonomous-equations-8",
   "type": "Example",
-  "number": "1.3.4",
+  "number": "1.3.5",
   "title": "",
   "body": " The equation is autonomous.  "
 },
@@ -599,7 +599,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-autonomous-equations-9",
   "type": "Example",
-  "number": "1.3.5",
+  "number": "1.3.6",
   "title": "",
   "body": " The logistic growth equation is autonomous because there are no instances of the independent time variable on the right-hand side of the equation.  "
 },
@@ -608,7 +608,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#def-equilibrium-solution",
   "type": "Definition",
-  "number": "1.3.6",
+  "number": "1.3.7",
   "title": "",
   "body": "  A constant function , such that is called an equilibrium solution of the autonomous differential equation .   "
 },
@@ -626,7 +626,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#fig-autonomous-field",
   "type": "Figure",
-  "number": "1.3.7",
+  "number": "1.3.8",
   "title": "",
   "body": " Slope field for   "
 },
@@ -635,7 +635,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-autonomous-equations-15",
   "type": "Note",
-  "number": "1.3.8",
+  "number": "1.3.9",
   "title": "To draw a phase line for the equation <span class=\"process-math\">\\(y'=F(y)\\)<\/span>.",
   "body": " To draw a phase line for the equation     Find all real numbers such that , and label these values on a vertical -axis. These points represent the equilibrium solutions. We assume first that the function has finitely many zeros; if not, a phase line can always be drawn using a finite interval on the -axis.    For each interval pick any value in the interval and determine whether is positive or negative. Draw an arrow on the axis, in the given interval, pointing up if is positive and pointing down if is negative. Note that if is a continuous function, it will have constant sign between any two zeros.     "
 },
@@ -644,7 +644,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-autonomous-equations-17",
   "type": "Example",
-  "number": "1.3.9",
+  "number": "1.3.10",
   "title": "Drawing a Phase Line.",
   "body": " Drawing a Phase Line  We will draw a phase line for the autonomous equation . We first find the equilibrium solutions by setting the right-hand side of the equation to zero. This quickly yields the two solutions and . These are shown plotted on the phase line in .  These two points split the phase line into three intervals: and . All we need to do is examine one point in each interval in order to draw the arrows correctly on the phase line.  For the interval , we can pick, say, and then the right-hand side of the differential equation becomes     so we draw an upward pointing arrow on the phase line below . We interpret this as follows: suppose have the initial condition with our differential equation. The solution curve through this point must have a positive slope, but it can never cross the equilibrium solution . (Why not?) Therefore, it must increase monotonically and approach as a horizontal asymptote as .  For the interval , we can choose and quickly get that so we draw a downward pointing arrow on the interval . This means that a solution curve with must be monotonically decreasing and bounded between -2 and 1. Therefore it must approach -2 asymptotically as .  Lastly, for the interval , we can choose and obtain . This means that we draw an upward pointing arrow above 2 on the phase line, meaning that any solution curve with initial condition will increase monotonically. Whether it exists for all or has a vertical asymptote at some positive value of cannot be determined geometrically.   Phase Line for      The phase line contains almost all of the information needed to construct the graphs of solutions shown in . It does not contain information on how fast the curves approach their asymptotes, or where the curves have inflection points, however. This information, which does depend on , is lost in going to the phase line representation, but note that we did not need to solve the differential equation analytically in order to draw the phase line.   Slope field for    "
 },
@@ -653,7 +653,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-autonomous-equations-18",
   "type": "Checkpoint",
-  "number": "1.3.12",
+  "number": "1.3.13",
   "title": "",
   "body": "  Draw a phase line for the autonomous first-order equation .    We set the right-hand side of the equation to 0 and solve: . So we put points on our phase line at 0 and at 1. This splits our line into three intervals: and .  On the interval , we can choose . When we substitute this into the right-hand side of our equation, we get     and we draw a downward pointing arrow below 0.  In the interval , there's no getting around fractions. So we choose the easiest one to work with: . This gives us:   We then draw an upward pointing arrow on the phase line between 0 and 1.  Lastly, on the interval , we can choose an integer again: . This leads to   So we draw a downward pointing arrow above 1 on the phase line.  The final product should resemble the following:      "
 },
@@ -689,7 +689,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-Stability-of-Equilibrium-Solutions-6",
   "type": "Example",
-  "number": "1.3.13",
+  "number": "1.3.14",
   "title": "Drawing a phase line.",
   "body": " Drawing a phase line   Draw a phase line for the equation   and label each equilibrium point as a sink, source, or node.    The equilibrium solutions are the zeros of , namely 0, -1, and 3. These are plotted out in the phase line below.     We could certainly do the same analysis we did before, interval by interval, to get the arrows to point the correct way. Another way which we learned in first-semester calculus would be to graph and see where it is positive or negative. (See .)   Graph of the slope function    It is important to realize that this graph is not the graph of the solution curves . We only use this graph to determine whether the arrow between two equilibria points up or down. We can see that is positive between all pairs of equilibrium points except 0 and 3; therefore, all of the arrows point up except the one between 0 and 3.  Once the arrows are drawn, it is easy to see that -1 is a node, 0 is a sink, and 3 is a source. Some solutions of this equation are shown in .       "
 },
@@ -698,7 +698,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-geom-analysis.html#subsec-Stability-of-Equilibrium-Solutions-7",
   "type": "Activity",
-  "number": "1.3.2",
+  "number": "1.3.17",
   "title": "Autonomous Equations and Phase Lines.",
   "body": " Autonomous Equations and Phase Lines   For each of the differential equations below, draw the phase line and classify each equilibrium solution as a sink, a source, or a node.                                In each case comment on anything that you notice about the phase line and the equilibrium solutions.   "
 },
@@ -961,7 +961,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Separable Differential Equations",
-  "body": " Separable Differential Equations     To recall that a first-order differential equation is one that can be written in the form       To understand that a differential equation is separable if it can be written in the form     and by rewriting the equation in the form     the equation can be solved by integrating both sides.      We are now in a place where we can begin actually solving some first-order linear differential equations. That is, we're going to begin to learn how to find an actual formula for a solution to the equation, not just approximate it. We also will look at when we can do this because, as we've noted before, we cannot always.  We've seen that we can always write a first-order linear differential equation in the form     for some function . There are a couple of special cases of this format where we can actually get a solution.     The right-hand side function ; that is, there's only 's on the right-hand side, no 's. Then we can multiply both sides of the equation by We continue the custom from first-semester calculus that is not a fraction, though we treat it like one from then on. to get     We then integrate both sides to get     or , where is any antiderivative of .    The right-hand side function is ; that is, there's only 's on the right-hand side, no 's. In this case, we have an autonomous equation and we could use the methods of the previous section (phase lines, slope fields) to find good approximations to a solution.     The issue comes when we do have both 's and 's on that right-hand side. The good news is that there are instances where we can fully solve the differential equation. We will explore these instances here and in the next few sections.    Separable Differential Equations  If we can write the right-hand side function as the product of a function of just times a function of just , then our differential equation often can be solved.    A first-order linear differential equation is called separable if it can be written in the form        The equation is separable because we can write it as with and .    The equation is not separable because it cannot be factored into the product of a function of just and a function of just .    The equation is separable with and . This equation is also autonomous. In fact, all autonomous equations are also separable .    The equation is separable. (It falls into our first special case above. Any equation where the right-hand side only has one variable is separable. )  We can in fact solve this particular equation:   Whether we can solve this type of differential equation (or an autonomous equation) depends on the integrability of the right-hand side. For instance, the differential equation is separable. However, has no antiderivative. If we had an initial-value problem that involved this equation, we would have to approximate the integral of using numerical methods.   When we have a separable equation, we can mostly solve it using the separate and integrate method. We first separate the variables -- all the terms with 's in them go to the left side, and all the terms with 's in them go the the right side. We then integrate both sides (assuming we can do so) which leads to an implicit solution of the equation. That is, we obtain an equation which gives the relationship between and . In many cases, we can solve this equation for . If we can, we have an explicit solution , an actual formula for the dependent variable in terms of the independent variable . Obtaining an explicit solution is always the goal, though it's not always possible.   Suppose that we wish to solve the differential equation . This equation is separable with and . (It doesn't matter where we put the minus sign since we can move it as needed.) We first rewrite the left-hand side in Leibniz notation:     We then separate the variables, moving the pieces to the left and the pieces to the right, remembering that the differentials and  must be in the numerators of any fractions that result . Thus we divide both sides by and multiply both sides by .   We rewrite this in the forms: We can now integrate both sides with respect to the separate variables to get This last equation is an implicit solution to our differential equation. Notice that we put a single constant of integration on the right-hand side . In this case, we can get an explicit solution by taking the reciprocal of both sides.    Note in the last step that we must take the reciprocal of the entire right- hand side at once. The answer is not  . Not at all.     "
+  "body": " Separable Differential Equations     To recall that a first-order differential equation is one that can be written in the form       To understand that a differential equation is separable if it can be written in the form     and by rewriting the equation in the form     the equation can be solved by integrating both sides.      We are now in a place where we can begin actually solving some first-order linear differential equations. That is, we're going to begin to learn how to find an actual formula for a solution to the equation, not just approximate it. We also will look at when we can do this because, as we've noted before, we cannot always.  We've seen that we can always write a first-order linear differential equation in the form     for some function . There are a couple of special cases of this format where we can actually get a solution.     The right-hand side function ; that is, there's only 's on the right-hand side, no 's. Then we can multiply both sides of the equation by We continue the custom from first-semester calculus that is not a fraction, though we treat it like one from then on. to get     We then integrate both sides to get     or , where is any antiderivative of .    The right-hand side function is ; that is, there's only 's on the right-hand side, no 's. In this case, we have an autonomous equation and we could use the methods of the previous section (phase lines, slope fields) to find good approximations to a solution.     The issue comes when we do have both 's and 's on that right-hand side. The good news is that there are instances where we can fully solve the differential equation. We will explore these instances here and in the next few sections.    Separable Differential Equations  If we can write the right-hand side function as the product of a function of just times a function of just , then our differential equation often can be solved.    A first-order linear differential equation is called separable if it can be written in the form        The equation is separable because we can write it as with and .    The equation is not separable because it cannot be factored into the product of a function of just and a function of just .    The equation is separable with and . This equation is also autonomous. In fact, all autonomous equations are also separable .    The equation is separable. (It falls into our first special case above. Any equation where the right-hand side only has one variable is separable. )  We can in fact solve this particular equation:   Whether we can solve this type of differential equation (or an autonomous equation) depends on the integrability of the right-hand side. For instance, the differential equation is separable. However, has no antiderivative. If we had an initial-value problem that involved this equation, we would have to approximate the integral of using numerical methods.   When we have a separable equation, we can mostly solve it using the separate and integrate method. We first separate the variables -- all the terms with 's in them go to the left side, and all the terms with 's in them go the the right side. We then integrate both sides (assuming we can do so) which leads to an implicit solution of the equation. That is, we obtain an equation which gives the relationship between and . In many cases, we can solve this equation for . If we can, we have an explicit solution , an actual formula for the dependent variable in terms of the independent variable . Obtaining an explicit solution is always the goal, though it's not always possible.   Suppose that we wish to solve the differential equation . This equation is separable with and . (It doesn't matter where we put the minus sign since we can move it as needed.) We first rewrite the left-hand side in Leibniz notation:     We then separate the variables, moving the pieces to the left and the pieces to the right, remembering that the differentials and  must be in the numerators of any fractions that result . Thus we divide both sides by and multiply both sides by .   We rewrite this in the forms: We can now integrate both sides with respect to the separate variables to get This last equation is an implicit solution to our differential equation. Notice that we put a single constant of integration on the right-hand side . In this case, we can get an explicit solution by taking the reciprocal of both sides.    Note in the last step that we must take the reciprocal of the entire right- hand side at once. The answer is not  . Not at all.   The MATLAB commands to solve this equation are below.   Is MATLAB wrong? Or is its answer an alternate form for what we computed?    Suppose we wish to solve the differential equation . This equation is separable with and . Following the method of the previous example, we will separate the variables and then integrate both sides.   This leads to the implicit solution We can actually solve this to get an explicit formula for . We first take to both sides to get Since is constant and is constant, is constant. To make things a little easier to read, let's set . Then we have where can be any real number except 0. (Why?) However, we note that if were 0, our solution would become which is also a solution of the original differential equation. So we go ahead and allow , and this means that our complete solution is    What happened at the end of the last example? When we separated the variables, we divided by . Since we're not allowed to divide by 0, this implies that is not allowed to be . In other words, we dropped as a possible solution. However, we are duty bound before declaring victory over a problem to check thrown away solutions in the original differential equation to make sure we have a complete answer. This is something you should always do as you finish up solving a differential equation .    In-Class Work on Separable Equations     To be able to determine whether a given first-order differential equation is separable or not.    To be able to solve separable first-order equations by separating variables and integrating.      Methods of solution for differential equations are very different for different types of equations. It is therefore important that we're able to recognize, for instance, when a differential equation is separable or not.    Determine whether the following differential equations are separable or not.                Rewrite the following separable equations in the form and then solve them using the method of separation of variables. (That is, get all the 's on the left, all the 's' on the right, and then integrate both sides.)               Initial-Value Problems   Suppose we wish to solve the initial-value problem We first separate the variables and write We then integrate both sides to get Using the initial condition (which we read as when , ), we can determine the value of . Since is positive, we choose the positive square root above. Thus the particular solution is     "
 },
 {
   "id": "sec-separable-eq-2",
@@ -1033,7 +1033,88 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "1.4.6",
   "title": "",
-  "body": " Suppose that we wish to solve the differential equation . This equation is separable with and . (It doesn't matter where we put the minus sign since we can move it as needed.) We first rewrite the left-hand side in Leibniz notation:     We then separate the variables, moving the pieces to the left and the pieces to the right, remembering that the differentials and  must be in the numerators of any fractions that result . Thus we divide both sides by and multiply both sides by .   We rewrite this in the forms: We can now integrate both sides with respect to the separate variables to get This last equation is an implicit solution to our differential equation. Notice that we put a single constant of integration on the right-hand side . In this case, we can get an explicit solution by taking the reciprocal of both sides.    Note in the last step that we must take the reciprocal of the entire right- hand side at once. The answer is not  . Not at all.   "
+  "body": " Suppose that we wish to solve the differential equation . This equation is separable with and . (It doesn't matter where we put the minus sign since we can move it as needed.) We first rewrite the left-hand side in Leibniz notation:     We then separate the variables, moving the pieces to the left and the pieces to the right, remembering that the differentials and  must be in the numerators of any fractions that result . Thus we divide both sides by and multiply both sides by .   We rewrite this in the forms: We can now integrate both sides with respect to the separate variables to get This last equation is an implicit solution to our differential equation. Notice that we put a single constant of integration on the right-hand side . In this case, we can get an explicit solution by taking the reciprocal of both sides.    Note in the last step that we must take the reciprocal of the entire right- hand side at once. The answer is not  . Not at all.   The MATLAB commands to solve this equation are below.   Is MATLAB wrong? Or is its answer an alternate form for what we computed?  "
+},
+{
+  "id": "subsec-separable-diff-eq-10",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-separable-diff-eq-10",
+  "type": "Example",
+  "number": "1.4.7",
+  "title": "",
+  "body": " Suppose we wish to solve the differential equation . This equation is separable with and . Following the method of the previous example, we will separate the variables and then integrate both sides.   This leads to the implicit solution We can actually solve this to get an explicit formula for . We first take to both sides to get Since is constant and is constant, is constant. To make things a little easier to read, let's set . Then we have where can be any real number except 0. (Why?) However, we note that if were 0, our solution would become which is also a solution of the original differential equation. So we go ahead and allow , and this means that our complete solution is   "
+},
+{
+  "id": "ws-separable-eqns-2",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-2",
+  "type": "Objectives",
+  "number": "1.4.2",
+  "title": "",
+  "body": "   To be able to determine whether a given first-order differential equation is separable or not.    To be able to solve separable first-order equations by separating variables and integrating.    "
+},
+{
+  "id": "ws-separable-eqns-4-2",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-4-2",
+  "type": "Worksheet Exercise",
+  "number": "1.4.2.1",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-separable-eqns-4-3",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-4-3",
+  "type": "Worksheet Exercise",
+  "number": "1.4.2.2",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-separable-eqns-4-4",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-4-4",
+  "type": "Worksheet Exercise",
+  "number": "1.4.2.3",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-separable-eqns-4-5",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-4-5",
+  "type": "Worksheet Exercise",
+  "number": "1.4.2.4",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-separable-eqns-4-7",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-4-7",
+  "type": "Worksheet Exercise",
+  "number": "1.4.2.5",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-separable-eqns-4-8",
+  "level": "2",
+  "url": "sec-separable-eq.html#ws-separable-eqns-4-8",
+  "type": "Worksheet Exercise",
+  "number": "1.4.2.6",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "subsec-init-value-probs-2",
+  "level": "2",
+  "url": "sec-separable-eq.html#subsec-init-value-probs-2",
+  "type": "Example",
+  "number": "1.4.8",
+  "title": "",
+  "body": " Suppose we wish to solve the initial-value problem We first separate the variables and write We then integrate both sides to get Using the initial condition (which we read as when , ), we can determine the value of . Since is positive, we choose the positive square root above. Thus the particular solution is   "
 }
 ]
 
