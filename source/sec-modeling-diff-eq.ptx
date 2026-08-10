@@ -365,9 +365,9 @@ time increases.
     <title>Ecology</title>
     <p>
       In ecology, we can model the population of a species using differential equations. 
-      One common model is the logistic growth model, which describes how a population 
+      One common model is the <term>logistic growth model</term>, which describes how a population 
       grows rapidly at first and then slows down as it approaches a maximum sustainable 
-      population size, known as the carrying capacity. The logistic growth model can be 
+      population size, known as the <term>carrying capacity</term>. The logistic growth model can be 
       expressed as a differential equation:
     </p>
     <p>

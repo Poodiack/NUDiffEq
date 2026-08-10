@@ -493,9 +493,9 @@
 
               % Equilibrium points (y = 0 is stable/filled, y = -1 is semi-stable/gray)
               % (y = 3 is unstable/unfilled)
-              \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {$0$ (sink)};
-              \filldraw[fill=white, thick] (0,3) circle (2.5pt) node[right=4pt] {$3$ (source)};
-              \filldraw[fill=gray, thick] (0,-1) circle (2.5pt) node[right=4pt] {$-1$ (node)};
+              \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {\small $0$ (sink)};
+              \filldraw[fill=white, thick] (0,3) circle (2.5pt) node[right=4pt] {\small $3$ (source)};
+              \filldraw[fill=gray, thick] (0,-1) circle (2.5pt) node[right=4pt] {\small $-1$ (node)};
 
               % Direction arrows based on the sign of y' = y(y+1)^2(y-3)
               % For y &lt; -1 (e.g., y=-2): y' &gt; 0 (pointing up)
