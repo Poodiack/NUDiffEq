@@ -316,4 +316,107 @@
             always do as you finish up solving a differential equation</em>.
         </p>
     </subsection>
+    <worksheet xml:id="ws-separable-eqns">
+        <title>In-Class Work on Separable Equations</title>
+        <objectives>
+            <ul>
+                <li>
+                    <p>
+                        To be able to determine whether a given first-order 
+                        differential equation is separable or not.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        To be able to solve separable first-order equations by 
+                        separating variables and integrating.
+                    </p>
+                </li>
+            </ul>
+        </objectives>
+        <introduction>
+            <p>
+                Methods of solution for differential equations are very different 
+                for different types of equations. It is therefore important that 
+                we're able to recognize, for instance, when a differential equation 
+                is separable or not.
+            </p>
+        </introduction>
+        <page>
+            <p>
+                Determine whether the following differential equations are 
+                separable or not.
+            </p>
+            <exercise>
+                <p><m>y'+2y=e^{-x}</m></p>
+            </exercise>
+            <exercise>
+                <p><m>y'+2y=1</m></p>
+            </exercise>
+            <exercise>
+                <p><m>y'=\frac{y+1}{x+1}</m></p>
+            </exercise>
+            <exercise>
+                <p>
+                    <m>y'=\frac{\sin x}{\cos y}</m>
+                </p>
+            </exercise>
+            <p>
+                Rewrite the following separable equations in the form
+                <md>
+                    \frac{dy}{dx} = g(x)h(y)
+                </md>
+                and then solve them using the method of separation of 
+                variables. (That is, get all the <m>y</m>'s on
+                the left, all the <m>x</m>'s' on the right, and then 
+                integrate both sides.)
+            </p>
+            <exercise workspace="2in">
+                <p>
+                    <m>y'=\frac{y}{x}</m>
+                </p>
+            </exercise>
+            <exercise workspace="2in">
+                <p>
+                    <m>yy'=1+2x+3x^2</m>
+                </p>
+            </exercise>
+        </page>
+    </worksheet>
+    <subsection xml:id="subsec-init-value-probs">
+        <title>Initial-Value Problems</title>
+        <example>
+            <p>
+                Suppose we wish to solve the initial-value problem
+                <md>
+                    y'=\frac{x}{y}, \quad y(0)=1
+                </md>
+                We first separate the variables and write
+                <md>
+                    <mrow>\frac{dy}{dx} \amp = \frac{x}{y} </mrow>
+                    <mrow>y\,dy \amp = x\,dx </mrow>
+                </md>
+                We then integrate both sides to get
+                <md>
+                    <mrow>\int y\,dy \amp = \int x\,dx </mrow>
+                    <mrow>\frac{y^2}{2} \amp = \frac{x^2}{2} + C </mrow>
+                    <mrow>y^2  \amp = x^2 + 2C</mrow>
+                    <mrow>y \amp = \pm\sqrt{x^2+2C} </mrow>
+                </md>
+                Using the initial condition <m>y(0)=1</m> (which we read as 
+                <q>when <m>x=0</m>, <m>y=1</m></q>), we can determine the value 
+                of <m>C</m>. Since <m>y</m> is positive, we choose the positive 
+                square root above.
+                <md>
+                    <mrow>1 \amp =\sqrt{0^2+2C}</mrow>
+                    <mrow>1 \amp =\sqrt{2C} \Longrightarrow 1=2C \Longrightarrow C = \tfrac12</mrow>
+                </md>
+                Thus the <term>particular solution</term> is
+                <md>
+                    y = \sqrt{x^2 + 2(\tfrac12)} \Longrightarrow \boxed{y=\sqrt{x^2+1}}
+                </md>
+                
+            </p>
+        </example>
+    </subsection>
 </section>

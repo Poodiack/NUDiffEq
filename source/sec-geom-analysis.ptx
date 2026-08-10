@@ -332,8 +332,8 @@
             \draw[thick, ->] (0,-3.5) -- (0,2.5) node[above] {$y$};
 
             % Equilibrium points (y = 1 is stable/filled, y = -2 is unstable/unfilled)
-            \filldraw[fill=black] (0,1) circle (2.5pt) node[right=4pt] {$1$ (stable)};
-            \filldraw[fill=white, thick] (0,-2) circle (2.5pt) node[right=4pt] {$-2$ (unstable)};
+            \filldraw[fill=black] (0,1) circle (2.5pt) node[right=4pt] {$1$};
+            \filldraw[fill=white, thick] (0,-2) circle (2.5pt) node[right=4pt] {$-2$};
 
             % Direction arrows based on the sign of y' = 0.5(y-1)(y+2)
             % For y &gt; 1 (e.g., y=2): y' &gt; 0 (pointing up)
