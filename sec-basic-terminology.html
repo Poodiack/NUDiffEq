@@ -206,6 +206,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-separable-eq.html#ws-separable-eqns" class="internal"><span class="codenumber">1.4.2</span> <span class="title">In-Class Work on Separable Equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-init-value-probs" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Initial-Value Problems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-Newtons-Law" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-mixing-problem" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Mixing Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-retirement" class="internal"><span class="codenumber">1.4.6</span> <span class="title">A Retirement Model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-What-Can-Go-Wrong" class="internal"><span class="codenumber">1.4.7</span> <span class="title">What Can Go Wrong</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1248,11 +1251,14 @@ y' + 2y = 0, \quad y(0) = 3
 </h2>
 <div class="para" id="subsec-intro-to-matlab-2">Technology can prove very useful when studying differential equations. Software packages such Maple, Mathematica, and SageMath each have their advantages and disadvantages. We will use MATLAB, used extensively by engineers, as our choice of software. Norwich has a MATLAB license available. You can access MATLAB through the university’s computing resources, and even use an online version so you don’t have to download anything.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-intro-to-matlab-3">For our purposes, MATLAB cells are embedded into the textbook,<details class="ptx-footnote" aria-live="polite" id="subsec-intro-to-matlab-3-1"><summary class="ptx-footnote__number" title="Footnote 1.1.1"><sup> 1 </sup></summary>
+<div class="para" id="subsec-intro-to-matlab-3">For our purposes, some MATLAB cells are embedded into the textbook,<details class="ptx-footnote" aria-live="polite" id="subsec-intro-to-matlab-3-1"><summary class="ptx-footnote__number" title="Footnote 1.1.1"><sup> 1 </sup></summary>
 <div class="ptx-footnote__contents" id="subsec-intro-to-matlab-3-1">We are actually embedding a cell that uses Octave, which is a free and open-source alternative to MATLAB. The syntax is the same, so you can use either one.
 </div></details> so there is nothing to install on your computer. Simply, evaluate the cell. You can even change the preloaded commands in the cell if you wish. For example, let us evaluate the derivative of <span class="process-math">\(x^2\cos x.\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="subsec-intro-to-matlab-4" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">pkg load symbolic
+<div id="subsec-intro-to-matlab-4" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this line out if using MATLAB,
+% though it is needed in Octave
+pkg load symbolic
+
 % Define the symbolic variable
 syms x
 
@@ -1270,7 +1276,8 @@ disp(df);
 </div>
 <div class="para" id="subsec-intro-to-matlab-6">You can use MATLAB to take derivatives of more complicated functions, and it can also be used to solve differential equations, initial value problems, and plot solutions. For instance, we can use MATLAB to solve the differential equation <span class="process-math">\(P'(t) = kP(t)\)</span> with the initial condition <span class="process-math">\(P(0) = P_0\text{.}\)</span> The solution is <span class="process-math">\(P(t) = P_0 e^{kt}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="subsec-intro-to-matlab-7" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this line out if using MATLAB, but it is needed for Octave
+<div id="subsec-intro-to-matlab-7" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this line out if using MATLAB, 
+% but it is needed for Octave
 pkg load symbolic
 
 % Define the symbolic variable and parameters
@@ -1285,7 +1292,9 @@ cond = P(0) == P0
 % Solve the differential equation with the initial condition
 PSol(t) = dsolve(ode, cond)
 </script></div>
-<div class="para" id="subsec-intro-to-matlab-8">We can use MATLAB to plot functions. For example, we can plot the function as well as its derivative on the same graph. (To accomplish this, we will use the <code class="code-inline tex2jax_ignore">linspace</code> command to create a range of <span class="process-math">\(x\)</span> values, and then evaluate the function and its derivative at those values. We will then use the <code class="code-inline tex2jax_ignore">plot</code> command to create the graph.) Because of the limitations of the embedded cell, you will need to copy and paste the code into a MATLAB session to see the graph.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-intro-to-matlab-8">We can use MATLAB to plot functions. For example, we can plot the function as well as its derivative on the same graph. (To accomplish this, we will use the <code class="code-inline tex2jax_ignore">linspace</code> command to create a range of <span class="process-math">\(x\)</span> values, and then evaluate the function and its derivative at those values. We will then use the <code class="code-inline tex2jax_ignore">plot</code> command to create the graph.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-intro-to-matlab-9">The executable embedded cells we included above have a limitation: we cannot include any commands for graphing. When we want to show you commands for graphing, we will include a non-executable cell with the proper commands, whose code you will need to copy and paste into a MATLAB session. (There’s a small “copy” icon in the upper right-hand corner of the cell.) We’ll usually put a copy of the resulting graph in as a figure below the code.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="code-box"><pre class="program clipboardable"><code class="language-matlab">% Define the symbolic variable
 syms x
@@ -1297,6 +1306,8 @@ f = x^2 * cos(x);
 df = diff(f, x);
 
 % Create a range of x values for plotting
+% In this case, we grab 100 evenly spaced values
+% from -10 to 10
 x_vals = linspace(-10, 10, 100);
 
 % Evaluate the function and its derivative at the x values
@@ -1316,14 +1327,14 @@ ylabel('Function values');
 title('Function and its Derivative');
 legend('f(x) = x^2 cos(x)', 'f''(x) = 2x cos(x) - x^2 sin(x)');
 </code></pre></div>
-<div class="para" id="subsec-intro-to-matlab-10">You should see a graph with the function <span class="process-math">\(f(x) = x^2 \cos(x)\)</span> in blue and its derivative in red.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-intro-to-matlab-11">You should see a graph with the function <span class="process-math">\(f(x) = x^2 \cos(x)\)</span> in blue and its derivative in red.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/images/funcderivativegraph.png" class="contained"></div>
-<div class="para" id="subsec-intro-to-matlab-12">As we progress through the course, we will introduce more MATLAB commands and techniques that will help you analyze and visualize differential equations effectively.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/funcderivativegraph.png" class="contained"></div>
+<div class="para" id="subsec-intro-to-matlab-13">As we progress through the course, we will introduce more MATLAB commands and techniques that will help you analyze and visualize differential equations effectively.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-intro-to-matlab-13">Note that the MATLAB commands used in this section are also compatible with Octave, which is a free and open-source alternative to MATLAB. You can use either software to perform the calculations and visualizations described here.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-intro-to-matlab-14">Note that the MATLAB commands used in this section are also compatible with Octave, which is a free and open-source alternative to MATLAB. You can use either software to perform the calculations and visualizations described here.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-intro-to-matlab-14">You will find plenty of resources online to learn more about MATLAB and Octave, including tutorials, documentation, and forums where you can ask questions and share knowledge with other users. A good place to start is the official MATLAB documentation at <a class="external" href="https://www.mathworks.com/help/matlab/" target="_blank">https://www.mathworks.com/help/matlab/</a> or the Octave documentation at <a class="external" href="https://octave.org/doc/interpreter/" target="_blank">https://octave.org/doc/interpreter/</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-intro-to-matlab-15">You will find plenty of resources online to learn more about MATLAB and Octave, including tutorials, documentation, and forums where you can ask questions and share knowledge with other users. A good place to start is the official MATLAB documentation at <a class="external" href="https://www.mathworks.com/help/matlab/" target="_blank">https://www.mathworks.com/help/matlab/</a> or the Octave documentation at <a class="external" href="https://octave.org/doc/interpreter/" target="_blank">https://octave.org/doc/interpreter/</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-intro-to-matlab-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <section class="exercises" id="exercises-intro-to-matlab">
 <h3 class="heading hide-type">

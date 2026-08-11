@@ -206,6 +206,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-separable-eq.html#ws-separable-eqns" class="internal"><span class="codenumber">1.4.2</span> <span class="title">In-Class Work on Separable Equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-init-value-probs" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Initial-Value Problems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-Newtons-Law" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-mixing-problem" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Mixing Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-retirement" class="internal"><span class="codenumber">1.4.6</span> <span class="title">A Retirement Model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-What-Can-Go-Wrong" class="internal"><span class="codenumber">1.4.7</span> <span class="title">What Can Go Wrong</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -923,38 +926,530 @@ C \amp =9.
 </div>
 <div class="para logical" id="subsec-Newtons-Law-4">
 <div class="para">Suppose that the temperature of the surrounding environment is <span class="process-math">\(70^\circ\)</span>F, and we know from experience that a body under these conditions cools off approximately <span class="process-math">\(2^\circ\)</span>F during the first hour after death. In order to determine a formula for the time of death, we must solve the initial-value problem</div>
-<div class="displaymath process-math" id="subsec-Newtons-Law-4-3">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-3">
 \begin{equation*}
 \frac{dT}{dt} = k(T-70), \quad T(0)=98.6,
 \end{equation*}
 </div>
 <div class="para">where <span class="process-math">\(T(1) = 96.6\text{.}\)</span> If we rewrite the equation</div>
-<div class="displaymath process-math" id="subsec-Newtons-Law-4-5">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-5">
 \begin{equation*}
 \frac{dT}{dt} = k(T-70)
 \end{equation*}
 </div>
 <div class="para">as</div>
-<div class="displaymath process-math" id="subsec-Newtons-Law-4-6">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-6">
 \begin{equation*}
 \frac1{T-70}\,dT = k\,dt,
 \end{equation*}
 </div>
 <div class="para">we see that the equation is separable. Integrating both sides, we obtain <span class="process-math">\(\ln |T-70| = kt + C\text{.}\)</span> Since we are assuming that <span class="process-math">\(T\gt 70\text{,}\)</span> we can remove the absolute values and write</div>
-<div class="displaymath process-math" id="subsec-Newtons-Law-4-9">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-9">
 \begin{equation*}
 \ln(T-70) = kt + C \Longrightarrow T-70 = e^{kt+C} = e^{kt}e^C.
 \end{equation*}
 </div>
 <div class="para">Letting <span class="process-math">\(A=e^C\text{,}\)</span> the solution becomes</div>
-<div class="displaymath process-math" id="subsec-Newtons-Law-4-11">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-11">
 \begin{equation*}
 T(t) = Ae^{kt} + 70.
 \end{equation*}
 </div>
+<div class="para">The initial condition <span class="process-math">\(T(0)=98.6\)</span> leads to <span class="process-math">\(A=28.6\text{.}\)</span> Thus,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-14">
+\begin{equation*}
+T(t) = 28.6e^{kt} + 70.
+\end{equation*}
+</div>
+<div class="para">Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-15">
+\begin{equation*}
+96.6 = T(1) = 28.6e^{k\cdot 1} + 70,
+\end{equation*}
+</div>
+<div class="para">we can solve for <span class="process-math">\(k\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-17">
+\begin{equation*}
+k = \ln\left(\frac{26.6}{28.6}\right) \approx -0.0725
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-newton-graph.html" id="subsec-Newtons-Law-4-18">
+\begin{equation*}
+T(t) = 28.6e^{-0.0725t}+70.
+\end{equation*}
+</div>
+<div class="para">The graph of the temperature <span class="process-math">\(T\)</span> seems appropriate to our model <a href="sec-separable-eq.html#fig-newton-graph" class="xref" data-knowl="./knowl/xref/fig-newton-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.12">Figure 1.4.12</a>.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.4: Newton’s Law of Cooling"><a tabindex="-1" href="#subsec-Newtons-Law" title="Copy heading and permalink for Subsection 1.4.4: Newton’s Law of Cooling" aria-label="Copy heading and permalink for Subsection 1.4.4: Newton’s Law of Cooling">🔗</a></div>
+<figure class="figure figure-like" id="fig-newton-graph"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/./images/newtongraph.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Newton’s law of cooling<div class="autopermalink" aria-hidden="true" data-description="Figure 1.4.12"><a tabindex="-1" href="#fig-newton-graph" title="Copy heading and permalink for Figure 1.4.12" aria-label="Copy heading and permalink for Figure 1.4.12">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-Newtons-Law-6">Let’s solve our differential equation using MATLAB.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-Newtons-Law-7" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this command out if using
+% MATLAB directly
+pkg load symbolic
+
+% Define the symbolic variables
+syms T(t)
+k = sym('k')
+
+% Define the differential equation
+ode = diff(T, t) == k*(T-70);
+
+% Solve the differential equation
+TSol(t) = dsolve(ode);
+
+% Display the solution
+disp('The analytical solution is:')
+disp(TSol(t))
+</script></div>
+<div class="para" id="subsec-Newtons-Law-8">We can than use MATLAB to graph the solution. Here is the code we used to generate <a href="sec-separable-eq.html#fig-newton-graph" class="xref" data-knowl="./knowl/xref/fig-newton-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.12">Figure 1.4.12</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code class="language-matlab">% Define the time range from 0 to 50 with 1000 data points
+t = linspace(0, 50, 1000);
+
+% Calculate the function values
+T = 28.6 * exp(-0.0725 * t) + 70;
+
+% Create the plot
+figure;
+plot(t, T, 'b-', 'LineWidth', 2);
+
+% Add labels, title, and grid
+xlabel('Time ($t$)', 'Interpreter','latex');
+ylabel('$T(t)$','Interpreter','latex');
+title('Graph of T(t) = 28.6 \cdot e^{-0.0725 \cdot t} + 70');
+grid on;
+</code></pre></div>
+<article class="activity project-like" id="subsec-Newtons-Law-10"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Coffee Temperature.</span>
+</h3>
+<div class="introduction" id="subsec-Newtons-Law-10-2">
+<div class="para" id="subsec-Newtons-Law-10-2-1">The brewing temperature of the water used is very important. It should be between <span class="process-math">\(195^\circ\)</span>F and <span class="process-math">\(205^\circ\)</span>F. The closer to <span class="process-math">\(205^\circ\)</span>F the better. Boiling water (<span class="process-math">\(212^\circ\)</span>F) should never be used, as it will burn the coffee. Water that is less than <span class="process-math">\(195^\circ\)</span>F will not extract properly. On the other hand, coffee that has a temperature of <span class="process-math">\(205^\circ\)</span>F is too hot to drink.<details class="ptx-footnote" aria-live="polite" id="subsec-Newtons-Law-10-2-1-7"><summary class="ptx-footnote__number" title="Footnote 1.4.2"><sup> 2 </sup></summary>
+<div class="ptx-footnote__contents" id="subsec-Newtons-Law-10-2-1-7">Google the famous MacDonald’s lawsuit.
+</div></details>  Coffee is best when it is served at a temperature of <span class="process-math">\(140^\circ\)</span>F to <span class="process-math">\(155^\circ\)</span>F (the Goldilocks range).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="firstlook02-task-coffee"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="firstlook02-task-coffee-1-1">Suppose coffee is initially brewed at <span class="process-math">\(205^\circ\)</span>F.  If room temperature is <span class="process-math">\(70^\circ\)</span>F, set up an initial value problem to model the temperature of the coffee at time <span class="process-math">\(t\text{,}\)</span> where <span class="process-math">\(t\)</span> is the time in minutes after brewing has finished.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#firstlook02-task-coffee-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.13.a"><a tabindex="-1" href="#firstlook02-task-coffee" title="Copy heading and permalink for Task 1.4.13.a" aria-label="Copy heading and permalink for Task 1.4.13.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-Newtons-Law-10-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="subsec-Newtons-Law-10-4-1-1">Solve the initial value problem from <a href="sec-separable-eq.html#firstlook02-task-coffee" class="xref" data-knowl="./knowl/xref/firstlook02-task-coffee.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.4.13.a">Task 1.4.13.a</a><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-10-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.13.b"><a tabindex="-1" href="#subsec-Newtons-Law-10-4" title="Copy heading and permalink for Task 1.4.13.b" aria-label="Copy heading and permalink for Task 1.4.13.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-Newtons-Law-10-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="subsec-Newtons-Law-10-5-1-1">If the temperature of the coffee drops from <span class="process-math">\(205^\circ\)</span>F to <span class="process-math">\(200^\circ\)</span>F in the first two minutes after brewing, how long before the coffee reaches a temperature of <span class="process-math">\(155^\circ\)</span>F?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-10-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.13.c"><a tabindex="-1" href="#subsec-Newtons-Law-10-5" title="Copy heading and permalink for Task 1.4.13.c" aria-label="Copy heading and permalink for Task 1.4.13.c">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 1.4.13: Coffee Temperature"><a tabindex="-1" href="#subsec-Newtons-Law-10" title="Copy heading and permalink for Activity 1.4.13: Coffee Temperature" aria-label="Copy heading and permalink for Activity 1.4.13: Coffee Temperature">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.4: Newton’s Law of Cooling"><a tabindex="-1" href="#subsec-Newtons-Law" title="Copy heading and permalink for Subsection 1.4.4: Newton’s Law of Cooling" aria-label="Copy heading and permalink for Subsection 1.4.4: Newton’s Law of Cooling">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-mixing-problem">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mixing Problems</span>
+</h2>
+<div class="para" id="subsec-mixing-problem-2">There is a large class of problems in modeling known as <dfn class="terminology">mixing problems</dfn>. These problems refer to situations where two or more substances are mixed together in a container or containers.  For example, we might wish to model how chemicals are mixed together in a refinery, how pollutants are mixed together in a pond or a lake, how ingredients are mixed together when brewing beer, or even how various greenhouse gases mix together across different layers of the atmosphere.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-mixing-problem-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-mixing-problem-3-1">Suppose that we have a large tank containing 1000 gallons of pure water and that water containing 0.5 pounds of salt per gallon flows into the tank at a rate of 10 gallons per minute.  If the tank is also draining at a rate of 10 gallons per minute, the water level in the tank will remain constant.  We will assume that the water in the tank is constantly stirred so that the mixture of salt and water is uniform in the tank.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-mixing-problem-3-2">
+<div class="para">We can model the amount of salt in the tank using differential equations. If <span class="process-math">\(x(t)\)</span> is the amount of salt in the tank at time <span class="process-math">\(t\text{,}\)</span> then the rate at which the salt is changing in the tank is the difference between the rate at which salt is flowing into the tank and the rate at which it is leaving the tank, or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="firstlook02-equation-mixing-problem">
+\begin{equation}
+\frac{dx}{dt} = \text{rate in} - \text{rate out}.\tag{1.4.1}
+\end{equation}
+</div>
+<div class="para">Of course, the salt flows into the tank at the rate of <span class="process-math">\(10 \cdot 0.5 = 5\)</span> pounds of salt per minute. However, the rate at which the salt leaves the tank depends on <span class="process-math">\(x(t)\text{,}\)</span> the amount salt in the tank at time <span class="process-math">\(t\text{.}\)</span>  At time <span class="process-math">\(t\text{,}\)</span> there is <span class="process-math">\(x(t)/1000\)</span> pounds of salt in one gallon. Therefore, salt flows out of the tank at a rate of <span class="process-math">\(10x(t)/1000 = x(t)/100\)</span> pounds per minute. Equation <a href="sec-separable-eq.html#firstlook02-equation-mixing-problem" class="xref" data-knowl="./knowl/xref/firstlook02-equation-mixing-problem.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.1">(1.4.1)</a> now becomes</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="subsec-mixing-problem-3-2-12">
+\begin{align*}
+\frac{dx}{dt} \amp = 5 - \frac{x}{100}\\
+x(0) \amp = 0.
+\end{align*}
+</div>
+<div class="para">This equation is separable,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="subsec-mixing-problem-3-2-13">
+\begin{equation*}
+\frac{dx}{500 - x} = \frac{dt}{100}.
+\end{equation*}
+</div>
+<div class="para">Integrating both sides of the equation, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="subsec-mixing-problem-3-2-14">
+\begin{equation*}
+-\ln|500 - x| = \frac{t}{100} + k
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="subsec-mixing-problem-3-2-15">
+\begin{equation*}
+\ln|500 - x| = - \frac{t}{100} - k.
+\end{equation*}
+</div>
+<div class="para">Consequently,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="subsec-mixing-problem-3-2-16">
+\begin{equation*}
+500 - x = C e^{-0.01t},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(C = e^{-k}\text{.}\)</span>  From our initial condition, we can quickly determine that <span class="process-math">\(C = 500\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook02-equation-mixing-problem.html" id="subsec-mixing-problem-3-2-19">
+\begin{equation*}
+x(t) = 500 - 500 e^{-0.01t}
+\end{equation*}
+</div>
+<div class="para">models the amount of salt in the tank at time <span class="process-math">\(t\text{.}\)</span> Notice that <span class="process-math">\(x(t)\to 500\)</span> as <span class="process-math">\(t \to \infty\text{,}\)</span> as expected.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.14"><a tabindex="-1" href="#subsec-mixing-problem-3" title="Copy heading and permalink for Example 1.4.14" aria-label="Copy heading and permalink for Example 1.4.14">🔗</a></div>
+</article></details>
+<article class="activity project-like" id="subsec-mixing-problem-4"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Brewery Problem.</span>
+</h3>
+<div class="introduction" id="subsec-mixing-problem-4-2">
+<div class="para" id="subsec-mixing-problem-4-2-1">The vast majority of beers from around the world have alcohol contents of 4 to 6 percent alcohol by volume (for example, Heineken Lager Beer has a 5 percent alcohol content).  Suppose a local brewery has produced two beers with different alcohol contents, one 4 percent and one 7 percent. The master brewer would like to add some of the 7 percent beer to the 4 percent beer to obtain a beer with 5 percent alcohol.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="firstlook02-task-beer"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="firstlook02-task-beer-1-1">A vat contains 500 gallons of 4% alcohol (by volume). Beer with 7% alcohol is pumped into the tank at a rate of 5 gallons per minute. Beer is also pumped out of the vat at a rate of 5 gallons per minute, so there is always 500 gallons in the tank.  Set up an initial value problem to model the percentage of alcohol in the vat at time <span class="process-math">\(t\text{,}\)</span> where <span class="process-math">\(t\)</span> is the elapsed time in minutes.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#firstlook02-task-beer-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.15.a"><a tabindex="-1" href="#firstlook02-task-beer" title="Copy heading and permalink for Task 1.4.15.a" aria-label="Copy heading and permalink for Task 1.4.15.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-mixing-problem-4-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="subsec-mixing-problem-4-4-1-1">Solve the initial value problem from <a href="sec-separable-eq.html#firstlook02-task-beer" class="xref" data-knowl="./knowl/xref/firstlook02-task-beer.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.4.15.a">Task 1.4.15.a</a><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-4-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.15.b"><a tabindex="-1" href="#subsec-mixing-problem-4-4" title="Copy heading and permalink for Task 1.4.15.b" aria-label="Copy heading and permalink for Task 1.4.15.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-mixing-problem-4-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="subsec-mixing-problem-4-5-1-1">What is the percentage of alcohol in the vat after one hour?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.15.c"><a tabindex="-1" href="#subsec-mixing-problem-4-5" title="Copy heading and permalink for Task 1.4.15.c" aria-label="Copy heading and permalink for Task 1.4.15.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-mixing-problem-4-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="subsec-mixing-problem-4-6-1-1">At what time will the beer reach 5% alcohol?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-mixing-problem-4-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.15.d"><a tabindex="-1" href="#subsec-mixing-problem-4-6" title="Copy heading and permalink for Task 1.4.15.d" aria-label="Copy heading and permalink for Task 1.4.15.d">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 1.4.15: A Brewery Problem"><a tabindex="-1" href="#subsec-mixing-problem-4" title="Copy heading and permalink for Activity 1.4.15: A Brewery Problem" aria-label="Copy heading and permalink for Activity 1.4.15: A Brewery Problem">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.5: Mixing Problems"><a tabindex="-1" href="#subsec-mixing-problem" title="Copy heading and permalink for Subsection 1.4.5: Mixing Problems" aria-label="Copy heading and permalink for Subsection 1.4.5: Mixing Problems">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-retirement">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Retirement Model</span>
+</h2>
+<div class="para logical" id="subsec-retirement-2">
+<div class="para">Differential equations have many applications in economics and finance. For example, Dr. J., a college professor, wisely started saving for his retirement as soon as he entered the workforce, and he now has $500,000 in a retirement account earning an interest of 5% compounded continuously. The initial value problem,</div>
+<div class="displaymath process-math" id="subsec-retirement-2-3">
+\begin{equation*}
+\frac{dP}{dt}= 0.05 P, \qquad P(0) = 500
+\end{equation*}
+</div>
+<div class="para">provides a nice model of Dr. P.’s investment, where <span class="process-math">\(P(t)\)</span> is the amount in thousands of dollars in the fund at time <span class="process-math">\(t\text{.}\)</span> The solution to our initial value problem is</div>
+<div class="displaymath process-math" id="subsec-retirement-2-7">
+\begin{equation*}
+P(t) = 500e^{0.05t}.
+\end{equation*}
+</div>
+<div class="para">If Dr. P. plans to retire in 10 years, he can expect a nest egg of <span class="process-math">\(P(10) \approx 824.360635350064\)</span> or about $824,360.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-retirement-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-retirement-3">
+<div class="para">Of course, Dr. P. still plans to make contributions to his retirement fund during his next ten years of employment.  His annual contribution will be $5,000, which his employer will generously match. If we assume that these contributions will spread out evenly over the course of the year, we can incorporate this information into our original initial value problem,</div>
+<div class="displaymath process-math" id="subsec-retirement-3-2">
+\begin{equation*}
+\frac{dP}{dt} = 0.05 P + 10, \qquad P(0) = 500
+\end{equation*}
+</div>
+<div class="para">This differential equation is separable, so we have</div>
+<div class="displaymath process-math" id="subsec-retirement-3-3">
+\begin{equation*}
+\int \frac{dP}{0.05P + 10} = \int dt.
+\end{equation*}
+</div>
+<div class="para">Integrating both sides of this equation, we have</div>
+<div class="displaymath process-math" id="subsec-retirement-3-4">
+\begin{equation*}
+20\ln|0.05P + 10| = t + k,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(k\)</span> is an arbitrary constant. Since <span class="process-math">\(0.05P + 10 \gt 0\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="subsec-retirement-3-7">
+\begin{equation*}
+20\ln(0.05P + 10) = t + k.
+\end{equation*}
+</div>
+<div class="para">This last equation is equivalent to</div>
+<div class="displaymath process-math" id="subsec-retirement-3-8">
+\begin{equation*}
+0.05P + 10 = e^{0.05(t + k)} = e^{0.05t} e^{0.05k}.
+\end{equation*}
+</div>
+<div class="para">If we let <span class="process-math">\(C = e^{0.05k}\)</span> and solve for <span class="process-math">\(P\text{,}\)</span> we obtain</div>
+<div class="displaymath process-math" id="subsec-retirement-3-11">
+\begin{equation*}
+P = 20 C e^{0.05t} - 200.
+\end{equation*}
+</div>
+<div class="para">Using our initial condition,</div>
+<div class="displaymath process-math" id="subsec-retirement-3-12">
+\begin{equation*}
+500 = P(0) = 20 C e^{0.05 \cdot 0} - 200 = 20 C - 200,
+\end{equation*}
+</div>
+<div class="para">we have <span class="process-math">\(C = 35\text{.}\)</span>  Thus, the solution that we seek is</div>
+<div class="displaymath process-math" id="subsec-retirement-3-14">
+\begin{equation*}
+P(t) = 700e^{0.05t} - 200.
+\end{equation*}
+</div>
+<div class="para">Dr. P.’s nest egg is now <span class="process-math">\(P(10) \approx 954.104889490090\)</span> or about $954,105.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-retirement-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-retirement-4">
+<div class="para">Once Dr. P. retires, he will need to begin withdrawing money from his account.  He estimates that he will need to withdraw $60,000 a year for living expenses if he wishes to travel and enjoy his golden years. Of course, whatever remains in his account at any given time will still collect interest. We describe Dr. P.’s retirement situation with the initial value problem,</div>
+<div class="displaymath process-math" id="subsec-retirement-4-3">
+\begin{align*}
+\frac{dP}{dt} \amp = \begin{cases}  0.05 P + 10, \amp t \leq 10 \\ 0.05 P - 60, \amp t \gt 10 \end{cases}\\
+P(0) \amp = 500.
+\end{align*}
+</div>
+<div class="para">If <span class="process-math">\(P = 954\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="subsec-retirement-4-5">
+\begin{equation*}
+\frac{dP}{dt} = 0.05 P - 60 \approx -12.3 \lt 0.
+\end{equation*}
+</div>
+<div class="para">Hence, the rate of withdrawal exceeds the rate at which Dr. P.’s account is earning interest.  Eventually, Dr. P.’s retirement fund will disappear. This may pose a problem, if Dr. P. plans to retire early and live a long life.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-retirement-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-retirement-5">
+<div class="para">Again, the differential equation <span class="process-math">\(dP/dt = 0.05 P - 60\)</span> is separable, and we have</div>
+<div class="displaymath process-math" id="subsec-retirement-5-2">
+\begin{equation*}
+\int \frac{dP}{0.05P - 60} = \int dt.
+\end{equation*}
+</div>
+<div class="para">Integrating both sides of this equation yields</div>
+<div class="displaymath process-math" id="subsec-retirement-5-3">
+\begin{equation*}
+20\ln|0.05P - 60| = t + k.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(0.05 P - 60 \lt 0\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-retirement-5-5">
+\begin{equation*}
+|0.05P - 60| = 60 - 0.05P,
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="subsec-retirement-5-6">
+\begin{equation*}
+20\ln(60 - 0.05P) = t + k.
+\end{equation*}
+</div>
+<div class="para">Consequently,</div>
+<div class="displaymath process-math" id="subsec-retirement-5-7">
+\begin{equation*}
+60 - 0.05P = e^{(t + k)/20},
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="subsec-retirement-5-8">
+\begin{equation*}
+P = 1200 - C e^{0.05t},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(C = 20e^{k/20}\text{.}\)</span> Now, we can apply our initial condition <span class="process-math">\(P(10) = 954\)</span> to determine that <span class="process-math">\(C \approx 149.21\text{.}\)</span> Therefore,</div>
+<div class="displaymath process-math" id="subsec-retirement-5-12">
+\begin{equation*}
+P = 1200 - 149.21 e^{0.05t}
+\end{equation*}
+</div>
+<div class="para">describes how much money Dr. P. has after he retires (<span class="process-math">\(t \geq 10\)</span>).</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-retirement-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-retirement-6">
+<div class="para">If Dr. P. wants to know how long his retirement fund will last, he must solve the equation</div>
+<div class="displaymath process-math" id="subsec-retirement-6-2">
+\begin{equation*}
+1200 - 149.21 e^{0.05t} = 0.
+\end{equation*}
+</div>
+<div class="para">In this case,</div>
+<div class="displaymath process-math" id="subsec-retirement-6-3">
+\begin{equation*}
+t = 20 \ln\left( \frac{1200}{149.21} \right) \approx 41.7.
+\end{equation*}
+</div>
+<div class="para">This means that if Dr. P. retires in 10 years at the age of 70, he can expect his retirement to last until he is 110!</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-retirement-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="activity project-like" id="subsec-retirement-7"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Sports Contract.</span>
+</h3>
+<div class="introduction" id="subsec-retirement-7-2">
+<div class="para" id="subsec-retirement-7-2-1">In December 2023, Shohei Ohtani announced he was signing with the Los Angeles Dodgers. The contract terms were staggering: 10 years and $700 million. To date, this was the largest contract in sports history, eclipsing Lionel Messi’s $673 million contract with FC Barcelona. Ohtani will receive $20 million of his $700 million contract with the Los Angeles Dodgers over the next 10 years or $2 million each year.  The $680 million remaining will be paid out at $68 million a year over the following 10 years. Clearly, the Los Angeles Dodgers do not have to pay out the entire $700 million at the signing of the contract.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-retirement-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="firstlook02-task-otani"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="firstlook02-task-otani-1-1">How much is Ohtani’s contract worth in December 2023? You may assume that the interest rate over the next 20 years will be 6% (adjusted for inflation).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#firstlook02-task-otani-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.16.a"><a tabindex="-1" href="#firstlook02-task-otani" title="Copy heading and permalink for Task 1.4.16.a" aria-label="Copy heading and permalink for Task 1.4.16.a">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 1.4.16: A Sports Contract"><a tabindex="-1" href="#subsec-retirement-7" title="Copy heading and permalink for Activity 1.4.16: A Sports Contract" aria-label="Copy heading and permalink for Activity 1.4.16: A Sports Contract">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.6: A Retirement Model"><a tabindex="-1" href="#subsec-retirement" title="Copy heading and permalink for Subsection 1.4.6: A Retirement Model" aria-label="Copy heading and permalink for Subsection 1.4.6: A Retirement Model">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-What-Can-Go-Wrong">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What Can Go Wrong</span>
+</h2>
+<div class="para" id="subsec-What-Can-Go-Wrong-2">Not all separable first-order equations can be solved analytically. Even if we can, it may be impossible to find an explicit solution.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-What-Can-Go-Wrong-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">No Explicit Solution.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-What-Can-Go-Wrong-3-2">
+<div class="para">Consider the equation</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-3-2-1">
+\begin{equation*}
+\frac{dy}{dx} = \frac{y(1 + y^2)}{y^2 + y + 1}.
+\end{equation*}
+</div>
+<div class="para">This equation can be rewritten in the form</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-3-2-2">
+\begin{equation*}
+\left( \frac{1}{1+ y^2} + \frac{1}{y} \right) \, dy = dx
+\end{equation*}
+</div>
+<div class="para">(Use partial fractions.) Integrating both sides of the equation, we have</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-3-2-3">
+\begin{equation*}
+\arctan y + \ln|y| = x + C.
+\end{equation*}
+</div>
+<div class="para">However, we have no method of solving this last equation explicitly for <span class="process-math">\(y\text{.}\)</span>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.17: No Explicit Solution"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-3" title="Copy heading and permalink for Example 1.4.17: No Explicit Solution" aria-label="Copy heading and permalink for Example 1.4.17: No Explicit Solution">🔗</a></div>
+</article></details>
+<details id="subsec-What-Can-Go-Wrong-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Un-integrable functions.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-What-Can-Go-Wrong-4-2">
+<div class="para">Consider the equation</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-4-2-1">
+\begin{equation*}
+y'=xe^{-y^2}.
+\end{equation*}
+</div>
+<div class="para">This equation is separable since we can rewrite it in the form</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-4-2-2">
+\begin{equation*}
+e^{y^2}\,dy = x\,dx.
+\end{equation*}
+</div>
+<div class="para">Although the Fundamental Theorem of Calculus guarantees that every continuous function has an antiderivative, we cannot find an antiderivative for the function <span class="process-math">\(e^{y^2}\)</span> in terms of elementary functions. Thus, we are forced to write our solution as</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-4-2-4">
+\begin{equation*}
+\int_0^y e^{s^2} \, ds = \frac{1}{2} x^2 + C.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.18: Un-integrable functions"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-4" title="Copy heading and permalink for Example 1.4.18: Un-integrable functions" aria-label="Copy heading and permalink for Example 1.4.18: Un-integrable functions">🔗</a></div>
+</article></details>
+<details id="subsec-What-Can-Go-Wrong-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Non-linear equations.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-What-Can-Go-Wrong-5-2">
+<div class="para">Even if we have a separable differential equation, we are not guaranteed a unique solution. Consider the initial value problem <span class="process-math">\(y' = y^{1/3}\)</span> with <span class="process-math">\(y(0) = 0\)</span> and <span class="process-math">\(x \geq 0\text{.}\)</span> Separating the variables,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-5-2-4">
+\begin{equation*}
+y^{-1/3} \, dy = dx.
+\end{equation*}
+</div>
+<div class="para">Thus,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-5-2-5">
+\begin{equation*}
+\frac{3}{2} y^{2/3} = x + C
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-5-2-6">
+\begin{equation*}
+y = \left( \frac{2}{3} ( x + C)\right)^{3/2}.
+\end{equation*}
+</div>
+<div class="para">If <span class="process-math">\(C = 0\text{,}\)</span> the initial condition is satisfied and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-5-2-8">
+\begin{equation*}
+y = \left(  \frac{2}{3} x \right)^{3/2}
+\end{equation*}
+</div>
+<div class="para">is a solution for <span class="process-math">\(x \geq 0\text{.}\)</span> However, we can find at least two additional solutions for <span class="process-math">\(x \geq 0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-5-2-11">
+\begin{align*}
+y &amp; = - \left( \frac{2}{3} x \right)^{3/2},\\
+y &amp; \equiv  0.
+\end{align*}
+</div>
+<div class="para">This does not violate <a href="sec-basic-terminology.html#thm-existence-uniqueness" class="xref" data-knowl="./knowl/xref/thm-existence-uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.23: Existence and Uniqueness of Solutions of Linear IVP’s">Theorem 1.1.23</a> because this differential equation is non-linear.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.19: Non-linear equations"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-5" title="Copy heading and permalink for Example 1.4.19: Non-linear equations" aria-label="Copy heading and permalink for Example 1.4.19: Non-linear equations">🔗</a></div>
+</article></details>
+<details id="subsec-What-Can-Go-Wrong-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Different Intervals, Different Solutions.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-What-Can-Go-Wrong-6-2">
+<div class="para">Suppose that <span class="process-math">\(y' = y^2\)</span> with <span class="process-math">\(y(0) = 1\text{.}\)</span> Separating the variables,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-6-2-3">
+\begin{equation*}
+\frac{1}{y^2} \, dy = dx,
+\end{equation*}
+</div>
+<div class="para">we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-6-2-4">
+\begin{equation*}
+y = - \frac{1}{x + C}.
+\end{equation*}
+</div>
+<div class="para">Using the initial condition to solve for <span class="process-math">\(C\text{,}\)</span> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-existence-uniqueness.html" id="subsec-What-Can-Go-Wrong-6-2-6">
+\begin{equation*}
+y = \frac{1}{1-x}.
+\end{equation*}
+</div>
+<div class="para">This function has a vertical asymptote at <span class="process-math">\(x=1\text{.}\)</span> Because we have an initial condition at 0, by <a href="sec-basic-terminology.html#thm-existence-uniqueness" class="xref" data-knowl="./knowl/xref/thm-existence-uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.23: Existence and Uniqueness of Solutions of Linear IVP’s">Theorem 1.1.23</a>, this solution is valid on all of <span class="process-math">\((-\infty, 1)\text{.}\)</span>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-What-Can-Go-Wrong-6-3">
+<div class="para">On the other hand, suppose instead that <span class="process-math">\(y(0) = -1\text{.}\)</span> Then the solution is</div>
+<div class="displaymath process-math" id="subsec-What-Can-Go-Wrong-6-3-2">
+\begin{equation*}
+y = - \frac{1}{x + 1},
+\end{equation*}
+</div>
+<div class="para">and this solution is valid on <span class="process-math">\((-1, \infty)\text{.}\)</span>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.20: Different Intervals, Different Solutions"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong-6" title="Copy heading and permalink for Example 1.4.20: Different Intervals, Different Solutions" aria-label="Copy heading and permalink for Example 1.4.20: Different Intervals, Different Solutions">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.7: What Can Go Wrong"><a tabindex="-1" href="#subsec-What-Can-Go-Wrong" title="Copy heading and permalink for Subsection 1.4.7: What Can Go Wrong" aria-label="Copy heading and permalink for Subsection 1.4.7: What Can Go Wrong">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 1.4: Separable Differential Equations"><a tabindex="-1" href="#sec-separable-eq" title="Copy heading and permalink for Section 1.4: Separable Differential Equations" aria-label="Copy heading and permalink for Section 1.4: Separable Differential Equations">🔗</a></div>
 </section>
 </div>
