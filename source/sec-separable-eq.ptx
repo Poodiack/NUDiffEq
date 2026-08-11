@@ -748,7 +748,344 @@
             <md>
                 T(t) = Ae^{kt} + 70.
             </md>
+            The initial condition <m>T(0)=98.6</m> leads to <m>A=28.6</m>. Thus,
+            <md>
+                T(t) = 28.6e^{kt} + 70.
+            </md>
+            Since
+            <md>
+                96.6 = T(1) = 28.6e^{k\cdot 1} + 70,
+            </md>
+            we can solve for <m>k</m>.
+            <md>
+                k = \ln\left(\frac{26.6}{28.6}\right) \approx -0.0725
+            </md>
+            and
+            <md>
+                T(t) = 28.6e^{-0.0725t}+70.
+            </md>
             
+            The graph of the temperature <m>T</m> seems appropriate to our model 
+            <xref ref="fig-newton-graph" />.
         </p>
+        <figure xml:id="fig-newton-graph">
+            <caption>Newton's law of cooling</caption>
+            <image source="./images/newtongraph.png" width="80%" />
+        </figure>
+        <p>
+            Let's solve our differential equation using MATLAB.
+        </p>
+        <sage language="octave">
+            <input>
+                % Comment this command out if using
+                % MATLAB directly
+                pkg load symbolic
+
+                % Define the symbolic variables
+                syms T(t)
+                k = sym('k')
+
+                % Define the differential equation
+                ode = diff(T, t) == k*(T-70);
+
+                % Solve the differential equation
+                TSol(t) = dsolve(ode);
+
+                % Display the solution
+                disp('The analytical solution is:')
+                disp(TSol(t))
+            </input>
+        </sage>
+        <p>
+            We can than use MATLAB to graph the solution. Here is the code 
+            we used to generate <xref ref="fig-newton-graph" />.
+        </p>
+        <program language="octave">
+            % Define the time range from 0 to 50 with 1000 data points
+            t = linspace(0, 50, 1000);
+
+            % Calculate the function values
+            T = 28.6 * exp(-0.0725 * t) + 70;
+
+            % Create the plot
+            figure;
+            plot(t, T, 'b-', 'LineWidth', 2);
+
+            % Add labels, title, and grid
+            xlabel('Time ($t$)', 'Interpreter','latex');
+            ylabel('$T(t)$','Interpreter','latex');
+            title('Graph of T(t) = 28.6 \cdot e^{-0.0725 \cdot t} + 70');
+            grid on;
+        </program>
+        <activity>
+            <title>Coffee Temperature</title>
+
+            <introduction>
+                <p>The brewing temperature of the water used is very important. It should be between <m>195^\circ</m>F and <m>205^\circ</m>F. The closer to <m>205^\circ</m>F the better. Boiling water (<m>212^\circ</m>F) should never be used, as it will burn the coffee. Water that is less than <m>195^\circ</m>F will not extract properly. On the other hand, coffee that has a temperature of <m>205^\circ</m>F is too hot to drink.<fn>Google the famous MacDonald's lawsuit.</fn>  Coffee is best when it is served at a temperature of <m>140^\circ</m>F to <m>155^\circ</m>F (the Goldilocks range).</p>
+            </introduction>
+              <task xml:id="firstlook02-task-coffee">
+                <statement>
+                    <p>Suppose coffee is initially brewed at <m>205^\circ</m>F.  If room temperature is <m>70^\circ</m>F, set up an initial value problem to model the temperature of the coffee at time <m>t</m>, where <m>t</m> is the time in minutes after brewing has finished.</p>
+                </statement>
+            </task>
+           <task>
+                <statement>
+                    <p>Solve the initial value problem from <xref ref="firstlook02-task-coffee" /></p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>If the temperature of the coffee drops from <m>205^\circ</m>F to <m>200^\circ</m>F in the first two minutes after brewing, how long before the coffee reaches a temperature of <m>155^\circ</m>F?</p>
+                </statement>
+            </task>
+        </activity>
+    </subsection>
+    <subsection xml:id="subsec-mixing-problem">
+
+        <title>Mixing Problems</title>
+    
+        <p>There is a large class of problems in modeling known as <term>mixing problems</term><idx>mixing problems</idx>. These problems refer to situations where two or more substances are mixed together in a container or containers.  For example, we might wish to model how chemicals are mixed together in a refinery, how pollutants are mixed together in a pond or a lake, how ingredients are mixed together when brewing beer, or even how various greenhouse gases mix together across different layers of the atmosphere.</p>
+
+        <example>
+            <p>Suppose that we have a large tank containing 1000 gallons of pure water and that water containing 0.5 pounds of salt per gallon flows into the tank at a rate of 10 gallons per minute.  If the tank is also draining at a rate of 10 gallons per minute, the water level in the tank will remain constant.  We will assume that the water in the tank is constantly stirred so that the mixture of salt and water is uniform in the tank.</p>
+
+            <p>We can model the amount of salt in the tank using differential equations. If <m>x(t)</m> is the amount of salt in the tank at time <m>t</m>, then the rate at which the salt is changing in the tank is the difference between the rate at which salt is flowing into the tank and the rate at which it is leaving the tank, or
+                <md number="yes" xml:id="firstlook02-equation-mixing-problem">\frac{dx}{dt} = \text{rate in} - \text{rate out}.</md>
+            Of course, the salt flows into the tank at the rate of <m>10 \cdot 0.5 = 5</m> pounds of salt per minute. However, the rate at which the salt leaves the tank depends on <m>x(t)</m>, the amount salt in the tank at time <m>t</m>.  At time <m>t</m>, there is <m>x(t)/1000</m> pounds of salt in one gallon. Therefore, salt flows out of the tank at a rate of <m>10x(t)/1000 = x(t)/100</m> pounds per minute. Equation<nbsp /><xref ref="firstlook02-equation-mixing-problem" /> now becomes
+                <md>
+                    <mrow>\frac{dx}{dt} \amp = 5 - \frac{x}{100}</mrow>
+                    <mrow>x(0) \amp = 0.</mrow>
+                </md>
+            This equation is separable,
+                <md>\frac{dx}{500 - x} = \frac{dt}{100}.</md>
+            Integrating both sides of the equation, we have
+                <md>-\ln|500 - x| = \frac{t}{100} + k</md>
+            or
+                <md>\ln|500 - x| = - \frac{t}{100} - k.</md>
+            Consequently,
+                <md>500 - x = C e^{-0.01t},</md>
+            where <m>C = e^{-k}</m>.  From our initial condition, we can quickly determine that <m>C = 500</m> and 
+                <md>x(t) = 500 - 500 e^{-0.01t}</md>
+            models the amount of salt in the tank at time <m>t</m>. Notice that <m>x(t)\to 500</m> as <m>t \to \infty</m>, as expected.</p>
+        </example>
+
+        <activity>
+            <title>A Brewery Problem</title>
+
+            <introduction>
+                <p>The vast majority of beers from around the world have alcohol contents of 4 to 6 percent alcohol by volume (for example, Heineken Lager Beer has a 5 percent alcohol content).  Suppose a local brewery has produced two beers with different alcohol contents, one 4 percent and one 7 percent. The master brewer would like to add some of the 7 percent beer to the 4 percent beer to obtain a beer with 5 percent alcohol.</p>
+            </introduction>
+              <task xml:id="firstlook02-task-beer">
+                <statement>
+                    <p>A vat contains 500 gallons of 4% alcohol (by volume). Beer with 7% alcohol is pumped into the tank at a rate of 5 gallons per minute. Beer is also pumped out of the vat at a rate of 5 gallons per minute, so there is always 500 gallons in the tank.  Set up an initial value problem to model the percentage of alcohol in the vat at time <m>t</m>, where <m>t</m> is the elapsed time in minutes.</p>
+                </statement>
+            </task>
+           <task>
+                <statement>
+                    <p>Solve the initial value problem from <xref ref="firstlook02-task-beer" /></p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>What is the percentage of alcohol in the vat after one hour?</p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>At what time will the beer reach 5% alcohol?</p>
+                </statement>
+            </task>
+        </activity>
+        
+    </subsection>
+    <subsection xml:id="subsec-retirement">
+        <title>A Retirement Model</title>
+
+        <p>Differential equations have many applications in economics and finance. For example, Dr.<nbsp />J., a college professor, wisely started saving for his retirement as soon as he entered the workforce, and he now has $500,000 in a retirement account earning an interest of 5% compounded continuously.<idx>retirement model</idx> The initial value problem,
+            <md>
+                \frac{dP}{dt}= 0.05 P, \qquad P(0) = 500
+            </md>
+        provides a nice model of Dr.<nbsp />P.'s investment, where <m>P(t)</m> 
+        is the amount in thousands of dollars in the fund at time <m>t</m>. 
+        The solution to our initial value problem is
+            <md>P(t) = 500e^{0.05t}.</md>
+        If Dr.<nbsp />P. plans to retire in 10 years, he can expect a nest 
+        egg of <m>P(10) \approx 824.360635350064</m> or about $824,360.</p>
+
+        <p>Of course, Dr.<nbsp />P. still plans to make contributions to his 
+        retirement fund during his next ten years of employment.  His annual 
+        contribution will be $5,000, which his employer will generously match. 
+        If we assume that these contributions will spread out evenly over the 
+        course of the year, we can incorporate this information into our 
+        original initial value problem,
+            <md>
+                \frac{dP}{dt} = 0.05 P + 10, \qquad P(0) = 500
+            </md>
+        This differential equation is separable, so we have
+            <md>\int \frac{dP}{0.05P + 10} = \int dt.</md>
+        Integrating both sides of this equation, we have
+            <md>20\ln|0.05P + 10| = t + k,</md>
+        where <m>k</m> is an arbitrary constant. Since <m>0.05P + 10 \gt 0</m>, 
+        we have
+            <md>20\ln(0.05P + 10) = t + k.</md>
+        This last equation is equivalent to
+            <md>0.05P + 10 = e^{0.05(t + k)} = e^{0.05t} e^{0.05k}.</md>
+        If we let <m>C = e^{0.05k}</m> and solve for <m>P</m>, we obtain
+            <md>P = 20 C e^{0.05t} - 200.</md>
+        Using our initial condition,
+            <md>500 = P(0) = 20 C e^{0.05 \cdot 0} - 200 = 20 C - 200,</md>
+        we have <m>C = 35</m>.  Thus, the solution that we seek is
+            <md>P(t) = 700e^{0.05t} - 200.</md>
+        Dr.<nbsp />P.'s nest egg is now <m>P(10) \approx 954.104889490090</m> or 
+        about $954,105.</p>
+
+        <p>Once Dr.<nbsp />P. retires, he will need to begin withdrawing money 
+        from his account.  He estimates that he will need to withdraw $60,000 a 
+        year for living expenses if he wishes to travel and enjoy his golden 
+        years. Of course, whatever remains in his account at any given time will 
+        still collect interest. We describe Dr.<nbsp />P.'s retirement situation 
+        with the initial value problem,
+            <md>
+                <mrow>\frac{dP}{dt} \amp = \begin{cases}  0.05 P + 10, \amp t \leq 10 \\ 0.05 P - 60, \amp t \gt 10 \end{cases}</mrow>
+                <mrow>P(0) \amp = 500.</mrow>
+            </md>
+        If <m>P = 954</m>, then
+            <md>\frac{dP}{dt} = 0.05 P - 60 \approx -12.3 \lt 0.</md>
+        Hence, the rate of withdrawal exceeds the rate at which Dr.<nbsp />P.'s 
+        account is earning interest.  Eventually, Dr. P.'s retirement fund will 
+        disappear. This may pose a problem, if Dr. P. plans to retire early and 
+        live a long life.</p>
+
+        <p>Again, the differential equation <m>dP/dt = 0.05 P - 60</m> is 
+        separable, and we have
+            <md>\int \frac{dP}{0.05P - 60} = \int dt.</md>
+        Integrating both sides of this equation yields
+            <md>20\ln|0.05P - 60| = t + k.</md>
+        Since <m>0.05 P - 60 \lt 0</m>,
+            <md>|0.05P - 60| = 60 - 0.05P,</md>
+        and
+            <md>20\ln(60 - 0.05P) = t + k.</md>
+        Consequently,
+            <md>60 - 0.05P = e^{(t + k)/20},</md>
+        or
+            <md>P = 1200 - C e^{0.05t},</md>
+        where <m>C = 20e^{k/20}</m>. Now, we can apply our initial condition 
+        <m>P(10) = 954</m> to determine that <m>C \approx 149.21</m>. 
+        Therefore,
+            <md>P = 1200 - 149.21 e^{0.05t}</md>
+        describes how much money Dr.<nbsp />P. has after he retires (<m>t \geq 10</m>).</p>
+
+        <p>If Dr.<nbsp />P. wants to know how long his retirement fund will last, 
+        he must solve the equation
+        <md>1200 - 149.21 e^{0.05t} = 0.</md>
+        In this case, 
+            <md>t = 20 \ln\left( \frac{1200}{149.21} \right) \approx 41.7.</md>
+        This means that if Dr.<nbsp />P. retires in 10 years at the age of 70, he can expect his 
+        retirement to last until he is 110!</p>
+
+        <activity>
+            <title>A Sports Contract</title>
+
+            <introduction>
+                <p>In December 2023, Shohei Ohtani announced he was signing 
+                with the Los Angeles Dodgers. The contract terms were 
+                staggering: 10 years and $700 million. To date, this was 
+                the largest contract in sports history, eclipsing 
+                Lionel Messi's $673 million contract with FC Barcelona.  
+                Ohtani will receive $20 million of his $700 million contract 
+                with the Los Angeles Dodgers over the next 10 years or 
+                $2 million each year.  The $680 million remaining will be 
+                paid out at $68 million a year over the following 10 years.  
+                Clearly, the Los Angeles Dodgers do not have to pay out the 
+                entire $700 million at the signing of the contract.</p>
+            </introduction>
+              <task xml:id="firstlook02-task-otani">
+                <statement>
+                    <p>How much is Ohtani's contract worth in December 2023?  
+                    You may assume that the interest rate over the next 20 years will be 
+                    6% (adjusted for inflation).</p>
+                </statement>
+            </task>
+        </activity>
+    </subsection>
+    <subsection xml:id="subsec-What-Can-Go-Wrong">
+        <title>What Can Go Wrong</title>
+        <p>
+            Not all separable first-order equations can be solved analytically. 
+            Even if we can, it may be impossible to find an explicit solution.
+        </p>
+        <example>
+            <title>No Explicit Solution</title>
+            <p>
+                Consider the equation
+                <md>\frac{dy}{dx} = \frac{y(1 + y^2)}{y^2 + y + 1}.</md>
+            This equation can be rewritten in the form
+                <md>\left( \frac{1}{1+ y^2} + \frac{1}{y} \right) \, dy = dx</md>
+            (Use partial fractions.) Integrating both sides of the equation, we have
+                <md>\arctan y + \ln|y| = x + C.</md>
+            However, we have no method of solving this last equation explicitly for <m>y</m>.
+            </p>
+        </example>
+        <example>
+            <title>Un-integrable functions</title>
+            <p>
+                Consider the equation
+                <md>
+                    y'=xe^{-y^2}.
+                </md>
+                This equation is separable since we can rewrite it in the form
+                <md>
+                    e^{y^2}\,dy = x\,dx.
+                </md>
+                Although the Fundamental Theorem of Calculus guarantees 
+                that every continuous function has an antiderivative, 
+                we cannot find an antiderivative for the function 
+                <m>e^{y^2}</m> in terms of elementary functions. Thus, we 
+                are forced to write our solution as
+                <md>
+                    \int_0^y e^{s^2} \, ds = \frac{1}{2} x^2 + C.
+                </md>
+                
+            </p>            
+        </example>
+        <example>
+            <title>Non-linear equations</title>
+            <p>Even if we have a separable differential equation, we are 
+            not guaranteed a unique solution. Consider the initial value 
+            problem <m>y' = y^{1/3}</m> with <m>y(0) = 0</m> and <m>x \geq 0</m>. 
+            Separating the variables,
+                <md>y^{-1/3} \, dy = dx.</md>
+            Thus,
+                <md>\frac{3}{2} y^{2/3} = x + C</md>
+            or
+                <md>y = \left( \frac{2}{3} ( x + C)\right)^{3/2}.</md>
+            If <m>C = 0</m>, the initial condition is satisfied and
+                <md>y = \left(  \frac{2}{3} x \right)^{3/2}</md>
+            is a solution for <m>x \geq 0</m>. However, we can find at least two 
+            additional solutions for <m>x \geq 0</m>:
+                <md>
+                    <mrow>y &amp; = - \left( \frac{2}{3} x \right)^{3/2},</mrow>
+                    <mrow>y &amp; \equiv  0.</mrow>
+                </md>
+                This does not violate <xref ref="thm-existence-uniqueness" /> 
+                because this differential equation is non-linear.</p>
+        </example>
+        <example>
+            <title>Different Intervals, Different Solutions</title>
+            <p>Suppose that <m>y' = y^2</m> with <m>y(0) = 1</m>. 
+            Separating the variables,
+                <md>\frac{1}{y^2} \, dy = dx,</md>
+            we see that
+                <md>y = - \frac{1}{x + C}.</md>
+            Using the initial condition to solve for <m>C</m>, we get
+                <md>y = \frac{1}{1-x}.</md>
+            This function has a vertical asymptote at <m>x=1</m>. Because 
+            we have an initial condition at 0, by <xref ref="thm-existence-uniqueness" />, 
+            this solution is valid on all of <m>(-\infty, 1)</m>.</p>
+            <p>On the other hand, suppose instead that 
+            <m>y(0) = -1</m>. Then the solution is
+                <md>y = - \frac{1}{x + 1},</md>
+            and this solution is valid on <m>(-1, \infty)</m>.</p>
+        </example>
     </subsection>
 </section>

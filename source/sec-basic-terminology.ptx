@@ -688,7 +688,7 @@ exists.</p>
     and disadvantages. We will use MATLAB, used extensively by engineers, as our choice of software. 
     Norwich has a MATLAB license available. You can access MATLAB through the university's computing resources, and even 
   use an online version so you don't have to download anything. </p>
-    <p>For our purposes, MATLAB cells are embedded into the textbook,<fn>We are actually embedding a cell
+    <p>For our purposes, some MATLAB cells are embedded into the textbook,<fn>We are actually embedding a cell
       that uses Octave, which is a free and open-source alternative to MATLAB. The syntax is the same, so you can use either one.
     </fn> so there is 
       nothing to install on your computer. Simply, evaluate the cell. You can even change the 
@@ -696,7 +696,10 @@ exists.</p>
       of <m>x^2\cos x.</m></p>
   <sage language="octave">
       <input>
+        % Comment this line out if using MATLAB,
+        % though it is needed in Octave
         pkg load symbolic
+
         % Define the symbolic variable
         syms x
 
@@ -725,7 +728,8 @@ exists.</p>
     </p>
       <sage language="octave">
       <input>
-        % Comment this line out if using MATLAB, but it is needed for Octave
+        % Comment this line out if using MATLAB, 
+        % but it is needed for Octave
         pkg load symbolic
 
         % Define the symbolic variable and parameters
@@ -746,9 +750,16 @@ exists.</p>
       as well as its derivative on the same graph. (To accomplish this, we will use 
       the <c>linspace</c> command to create a range of <m>x</m> values, and then 
       evaluate the function and its derivative at those values. We will then use the 
-      <c>plot</c> command to create the graph.) Because of the limitations of the 
-      embedded cell, you will need to copy and paste the code into a MATLAB session 
-      to see the graph.
+      <c>plot</c> command to create the graph.) 
+      </p>
+      <p>
+      The executable embedded cells we included above have a limitation: we 
+      cannot include any commands for graphing. When we want to show you 
+      commands for graphing, we will include a non-executable cell with 
+      the proper commands, whose code you will need to copy and paste into a 
+      MATLAB session. (There's a small <q>copy</q> icon in the upper right-hand 
+      corner of the cell.) We'll usually put a copy of the resulting graph in 
+      as a figure below the code.
     </p>
     <program language="octave">
         % Define the symbolic variable
@@ -761,6 +772,8 @@ exists.</p>
         df = diff(f, x);
 
         % Create a range of x values for plotting
+        % In this case, we grab 100 evenly spaced values
+        % from -10 to 10
         x_vals = linspace(-10, 10, 100);
 
         % Evaluate the function and its derivative at the x values
@@ -784,7 +797,7 @@ exists.</p>
       You should see a graph with the function <m>f(x) = x^2 \cos(x)</m> in blue and 
       its derivative in red.
     </p>
-        <image source="images/funcderivativegraph.png" width="60%"/>
+        <image source="images/funcderivativegraph.png" width="80%"/>
     <p>
       As we progress through the course, we will 
       introduce more MATLAB commands and techniques that will help you analyze and 
