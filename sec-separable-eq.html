@@ -205,6 +205,7 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-separable-diff-eq" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Separable Differential Equations</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-separable-eq.html#ws-separable-eqns" class="internal"><span class="codenumber">1.4.2</span> <span class="title">In-Class Work on Separable Equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-init-value-probs" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Initial-Value Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-separable-eq.html#subsec-Newtons-Law" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -516,9 +517,26 @@ y \amp = Ae^{x^2/2} - 1,
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-separable-diff-eq-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
+<div class="para" id="subsec-separable-diff-eq-10-3">The MATLAB commands to solve the equation are below.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-separable-diff-eq-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-separable-diff-eq-10-4" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment out the command below if  
+% running this in MATLAB
+pkg load symbolic
+
+% 1. Define symbolic variables
+syms y(x)
+
+% 2. Define the differential equation
+ode = diff(y,x) == x * (y+1);
+
+% 3. Find the general solution
+ySol_general = dsolve(ode);
+disp('General Solution:');
+disp(ySol_general);
+</script></div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.4.7"><a tabindex="-1" href="#subsec-separable-diff-eq-10" title="Copy heading and permalink for Example 1.4.7" aria-label="Copy heading and permalink for Example 1.4.7">🔗</a></div>
 </article></details>
-<div class="para" id="subsec-separable-diff-eq-11">What happened at the end of the last example? When we separated the variables, we divided by <span class="process-math">\(y+1\text{.}\)</span> Since we’re not allowed to divide by 0, this implies that <span class="process-math">\(y\)</span> is not allowed to be <span class="process-math">\(-1\text{.}\)</span> In other words, we dropped <span class="process-math">\(-1\)</span> as a possible solution. However, we are duty bound before declaring victory over a problem to check “thrown away” solutions in the original differential equation to make sure we have a complete answer. <em class="emphasis">This is something you should always do as you finish up solving a differential equation</em>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-separable-diff-eq-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-separable-diff-eq-11">What happened toward the end of the last example with the allowable values of <span class="process-math">\(A\text{?}\)</span> When we separated the variables, we divided by <span class="process-math">\(y+1\text{.}\)</span> Since we’re not allowed to divide by 0, this implies that <span class="process-math">\(y\)</span> is not allowed to be <span class="process-math">\(-1\text{.}\)</span> In other words, we dropped <span class="process-math">\(-1\)</span> as a possible solution. However, we are duty bound before declaring victory over a problem to check “thrown away” solutions in the original differential equation to make sure we have a complete answer. <em class="emphasis">This is something you should always do as you finish up solving a differential equation</em>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-separable-diff-eq-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.1: Separable Differential Equations"><a tabindex="-1" href="#subsec-separable-diff-eq" title="Copy heading and permalink for Subsection 1.4.1: Separable Differential Equations" aria-label="Copy heading and permalink for Subsection 1.4.1: Separable Differential Equations">🔗</a></div>
 </section>
@@ -542,7 +560,7 @@ y \amp = Ae^{x^2/2} - 1,
 <div class="autopermalink" aria-hidden="true" data-description="Objectives 1.4.2"><a tabindex="-1" href="#ws-separable-eqns-2" title="Copy heading and permalink for Objectives 1.4.2" aria-label="Copy heading and permalink for Objectives 1.4.2">🔗</a></div>
 </article>
 <section class="introduction" id="ws-separable-eqns-3">
-<div class="para" id="ws-separable-eqns-3-1">Methods of solution for differential equations are very different for different types of equations. It is therefore important that we’re able to recognize, for instance, when a differential equation is separable or not.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-separable-eqns-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ws-separable-eqns-3-1">Methods of solution for differential equations are very different for the various types of equations we will encounter. It is therefore important that we’re able to recognize, for instance, when a differential equation is separable or not.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-separable-eqns-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section><section class="onepage" id="ws-separable-eqns-4">
 <div class="para" id="ws-separable-eqns-4-1">Determine whether the following differential equations are separable or not.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-separable-eqns-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -577,7 +595,7 @@ y \amp = Ae^{x^2/2} - 1,
 \frac{dy}{dx} = g(x)h(y)
 \end{equation*}
 </div>
-<div class="para">and then solve them using the method of separation of variables. (That is, get all the <span class="process-math">\(y\)</span>’s on the left, all the <span class="process-math">\(x\)</span>’s’ on the right, and then integrate both sides.)</div>
+<div class="para">and then solve them using the method of separation of variables. (That is, get all the <span class="process-math">\(y\)</span>’s on the left, all the <span class="process-math">\(x\)</span>’s on the right, and then integrate both sides.)</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-separable-eqns-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="ws-separable-eqns-4-7"><h3 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
@@ -599,26 +617,28 @@ y \amp = Ae^{x^2/2} - 1,
 <h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Initial-Value Problems</span>
 </h2>
-<details id="subsec-init-value-probs-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<div class="para" id="subsec-init-value-probs-2">We can solve separable initial-value problems -- separable differential equations paired with an initial condition -- using the same method. In the end, the initial condition allows us to fill in the value of the arbitrary constant.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-init-value-probs-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3></summary>
 <article class="example example-like knowl__content">
-<div class="para logical" id="subsec-init-value-probs-2-1">
+<div class="para logical" id="subsec-init-value-probs-3-1">
 <div class="para">Suppose we wish to solve the initial-value problem</div>
-<div class="displaymath process-math" id="subsec-init-value-probs-2-1-1">
+<div class="displaymath process-math" id="subsec-init-value-probs-3-1-1">
 \begin{equation*}
 y'=\frac{x}{y}, \quad y(0)=1
 \end{equation*}
 </div>
 <div class="para">We first separate the variables and write</div>
-<div class="displaymath process-math" id="subsec-init-value-probs-2-1-2">
+<div class="displaymath process-math" id="subsec-init-value-probs-3-1-2">
 \begin{align*}
 \frac{dy}{dx} \amp = \frac{x}{y} \\
 y\,dy \amp = x\,dx 
 \end{align*}
 </div>
 <div class="para">We then integrate both sides to get</div>
-<div class="displaymath process-math" id="subsec-init-value-probs-2-1-3">
+<div class="displaymath process-math" id="subsec-init-value-probs-3-1-3">
 \begin{align*}
 \int y\,dy \amp = \int x\,dx \\
 \frac{y^2}{2} \amp = \frac{x^2}{2} + C \\
@@ -627,22 +647,314 @@ y \amp = \pm\sqrt{x^2+2C}
 \end{align*}
 </div>
 <div class="para">Using the initial condition <span class="process-math">\(y(0)=1\)</span> (which we read as “when <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y=1\)</span>”), we can determine the value of <span class="process-math">\(C\text{.}\)</span> Since <span class="process-math">\(y\)</span> is positive, we choose the positive square root above.</div>
-<div class="displaymath process-math" id="subsec-init-value-probs-2-1-8">
+<div class="displaymath process-math" id="subsec-init-value-probs-3-1-8">
 \begin{align*}
 1 \amp =\sqrt{0^2+2C}\\
 1 \amp =\sqrt{2C} \Longrightarrow 1=2C \Longrightarrow C = \tfrac12
 \end{align*}
 </div>
 <div class="para">Thus the <dfn class="terminology">particular solution</dfn> is</div>
-<div class="displaymath process-math" id="subsec-init-value-probs-2-1-10">
+<div class="displaymath process-math" id="subsec-init-value-probs-3-1-10">
 \begin{equation*}
 y = \sqrt{x^2 + 2(\tfrac12)} \Longrightarrow \boxed{y=\sqrt{x^2+1}}
 \end{equation*}
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.8"><a tabindex="-1" href="#subsec-init-value-probs-2" title="Copy heading and permalink for Example 1.4.8" aria-label="Copy heading and permalink for Example 1.4.8">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.3: Initial-Value Problems"><a tabindex="-1" href="#subsec-init-value-probs" title="Copy heading and permalink for Subsection 1.4.3: Initial-Value Problems" aria-label="Copy heading and permalink for Subsection 1.4.3: Initial-Value Problems">🔗</a></div>
+<div class="para" id="subsec-init-value-probs-3-2">The MATLAB commands for solving this differential equation are below.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-init-value-probs-3-3" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this command out if using
+% MATLAB directly
+pkg load symbolic
+
+% Define the symbolic variables
+syms y(x)
+
+% Define the differential equation
+ode = diff(y, x) == x/y;
+
+% Define the initial condition
+cond = y(0) == 1;
+
+% Solve the differential equation
+ySol(x) = dsolve(ode, cond);
+
+% Display the solution
+disp('The analytical solution is:')
+disp(ySol(x))
+</script></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.8"><a tabindex="-1" href="#subsec-init-value-probs-3" title="Copy heading and permalink for Example 1.4.8" aria-label="Copy heading and permalink for Example 1.4.8">🔗</a></div>
+</article></details>
+<div class="para logical" id="subsec-init-value-probs-4">
+<div class="para">If we ask MATLAB to solve a differential equation it cannot solve analytically, it will return an error message. For instance, MATLAB cannot solve the initial-value problem</div>
+<div class="displaymath process-math" id="subsec-init-value-probs-4-1">
+\begin{equation*}
+\frac{dy}{dx} = \sin(xy), \qquad y(0)=1
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-init-value-probs-5" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this command out if using
+% MATLAB directly
+pkg load symbolic
+
+% Define the symbolic variables
+syms y(x)
+
+% Define the differential equation
+ode = diff(y, x) == sin(x*y);
+
+% Define the initial condition
+cond = y(0) == 1;
+
+% Solve the differential equation
+ySol(x) = dsolve(ode, cond);
+
+% Display the solution
+disp('The analytical solution is:')
+disp(ySol(x))
+</script></div>
+<details id="subsec-init-value-probs-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-init-value-probs-6-1">
+<div class="para">Consider the initial-value problem</div>
+<div class="displaymath process-math" id="subsec-init-value-probs-6-1-1">
+\begin{equation*}
+\frac{dy}{dx} = \frac{x}{y-x^2 y}, \qquad y(0)=4.
+\end{equation*}
+</div>
+<div class="para">This equation is separable and so we first separate the variables.</div>
+<div class="displaymath process-math" id="subsec-init-value-probs-6-1-2">
+\begin{align*}
+\frac{dy}{dx} \amp = \frac{x}{y(1-x^2)} \\
+y\,dy \amp = \frac{x}{1-x^2}\,dx 
+\end{align*}
+</div>
+<div class="para">We can now integrate both sides of this equation and obtain</div>
+<div class="displaymath process-math" id="subsec-init-value-probs-6-1-3">
+\begin{align*}
+\frac{y^2}2 \amp = -\frac12 \ln|1-x^2| + C \\
+y^2 \amp = -\ln|1-x^2| + C_1, 
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(C_1\)</span> equals <span class="process-math">\(2C\text{.}\)</span> The initial condition tells us that when <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(y=4\text{.}\)</span> This gives us</div>
+<div class="displaymath process-math" id="subsec-init-value-probs-6-1-8">
+\begin{align*}
+4^2 \amp = -\ln|1-0^2| + C_1 \\
+16 \amp =0+C_1 \Longrightarrow C_1 = 16
+\end{align*}
+</div>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="subsec-init-value-probs-6-1-9">
+\begin{equation*}
+y^2 = 16-\ln|1-x^2| \Longrightarrow \boxed{y=\sqrt{16-\ln|1-x^2|}}
+\end{equation*}
+</div>
+<div class="para">Notice that this solution does not make sense for all values of <span class="process-math">\(x\text{.}\)</span> In fact, the solution is defined only for <span class="process-math">\(-1\lt x\lt 1\text{,}\)</span> if we require our solution to be continuous. Let’s see what MATLAB has to say on the matter.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-init-value-probs-6-2" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment this command out if using
+% MATLAB directly
+pkg load symbolic
+
+% Define the symbolic variables
+syms y(x)
+
+% Define the differential equation
+ode = diff(y, x) == x/(y-x^2*y);
+
+% Define the initial condition
+cond = y(0) == 4;
+
+% Solve the differential equation
+ySol(x) = dsolve(ode, cond);
+
+% Display the solution
+disp('The analytical solution is:')
+disp(ySol(x))
+</script></div>
+<div class="para" id="subsec-init-value-probs-6-3">MATLAB does return a solution even if it looks a bit different than the one that we arrived at above. Notice that we have an imaginary term in our solution, where <span class="process-math">\(i^2=-1\text{.}\)</span> We will examine the role of complex numbers and how useful they are in the study of ordinary differential equations in a later chapter, but for the moment complex numbers will just muddy the situation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.9"><a tabindex="-1" href="#subsec-init-value-probs-6" title="Copy heading and permalink for Example 1.4.9" aria-label="Copy heading and permalink for Example 1.4.9">🔗</a></div>
+</article></details>
+<details id="ex-logistic-growth" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Logistic Growth.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-logistic-growth-2">
+<div class="para">The logistic growth model we saw in <a href="sec-modeling-diff-eq.html#subsec-Ecology" class="internal" title="Subsection 1.2.4: Ecology">Subsection 1.2.4</a> qualifies as a separable equation (as well as a homogeneous one). Here’s an initial-value problem we can solve using our “separate and integrate” method:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-3">
+\begin{equation*}
+\frac{dP}{dt} = rP\left(1-\frac{P}{1000}\right), \qquad P(0) = 100.
+\end{equation*}
+</div>
+<div class="para">Our starting population is 100 and the carrying capacity for the environment we are modeling is 1000. We first separate the variables. Since <span class="process-math">\(P\)</span> is the dependent variable, we get all the <span class="process-math">\(P\)</span>’s on the left-hand side, and all the <span class="process-math">\(t\)</span>’s (the independent variables) on the right-hand side.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-7">
+\begin{equation*}
+\frac{dP}{P(1-P/1000)} = r\,dt \Longrightarrow \int \frac1{P(1-P/1000)}\,dP = \int r\,dt.
+\end{equation*}
+</div>
+<div class="para">To compute the integral on the left, we can use partial fractions to write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-8">
+\begin{align*}
+\frac1{P(1-P/1000)} \amp = \frac{A}{P}+\frac{B}{1-P/1000}\\
+\amp = \frac{A(1-P/1000)+BP}{P(1-P/1000)}
+\end{align*}
+</div>
+<div class="para">Equating the numerators of the first and last fractions there (which have the same denominators), we arrive at</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-9">
+\begin{equation*}
+1 = A\left(1-\frac{P}{1000}\right)+BP
+\end{equation*}
+</div>
+<div class="para">Grouping by powers of <span class="process-math">\(P\)</span> on each side of the equation, we get the system of equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-11">
+\begin{equation*}
+\left.\begin{gathered}
+1 = A \\
+0 = -\frac{A}{1000} + B 
+\end{gathered}\right\} \Longrightarrow \left\{\begin{gathered}
+A = 1 \\
+B = \frac1{1000}
+\end{gathered}\right.
+\end{equation*}
+</div>
+<div class="para">Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-12">
+\begin{equation*}
+\frac{1}{P(1-P/1000)} = \frac1{P} + \frac{1/1000}{1-P/1000} = \frac1{P} + \frac1{1000-P}.
+\end{equation*}
+</div>
+<div class="para">Coming back to our integrals, we now have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-13">
+\begin{gather*}
+\int\left(\frac1{P}+\frac1{1000-P}\right)\,dP = \int r\,dt\\
+\ln |P| - \ln |1000-P| = rt + K
+\end{gather*}
+</div>
+<div class="para">To solve for <span class="process-math">\(P\text{,}\)</span> we exponentiate both sides and use properties of exponentials and logarithms to write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-15">
+\begin{gather*}
+e^{\ln |P| - \ln |1000-P|} = e^{rt+K}\\
+\frac{e^{ln|P|}}{e^{\ln|1000-P|}} = e^{rt}e^K\\
+\frac{|P|}{|1000-P|} = K_1e^{rt}, 
+\end{gather*}
+</div>
+<div class="para">where <span class="process-math">\(K_1=e^K\text{.}\)</span> Since <span class="process-math">\(0\lt P\lt 1000\text{,}\)</span> we can remove the absolute values on the left-hand side.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-18">
+\begin{gather*}
+\frac{P}{1000-P} = K_1 e^{rt}\\
+P = 1000 K_1 e^{rt} - PK_1 e^{rt}\\
+P + PK_1 e^{rt} = 1000K_1 e^{rt}\\
+P(1+K_1e^{rt}) = 1000K_1 e^{rt}\\
+P = \frac{1000K_1e^{rt}}{1+K_1e^{rt}}\\
+P = \frac{1000}{Ce^{-rt} + 1},
+\end{gather*}
+</div>
+<div class="para">where <span class="process-math">\(C = 1/K_1\text{.}\)</span> If we substitute in our initial condition <span class="process-math">\(P(0) = 100\text{,}\)</span> we find that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/subsec-Ecology.html" id="ex-logistic-growth-2-21">
+\begin{align*}
+100  \amp =\frac{1000}{Ce^0 + 1}\\
+100 \amp = \frac{1000}{C+1}\\
+C+1 \amp = \frac{1000}{100} = 10\\
+C \amp =9.
+\end{align*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-logistic-growth-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.10: Logistic Growth"><a tabindex="-1" href="#ex-logistic-growth" title="Copy heading and permalink for Example 1.4.10: Logistic Growth" aria-label="Copy heading and permalink for Example 1.4.10: Logistic Growth">🔗</a></div>
+</article></details>
+<article class="activity project-like" id="subsec-init-value-probs-8"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving Separable Differential Equations.</span>
+</h3>
+<div class="introduction" id="subsec-init-value-probs-8-2">
+<div class="para" id="subsec-init-value-probs-8-2-1">Solve each of the following differential equations using the separation of variables technique.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="subsec-init-value-probs-8-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="subsec-init-value-probs-8-3-1-1">
+<span class="process-math">\(dy/dx=y/x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-8-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.11.a"><a tabindex="-1" href="#subsec-init-value-probs-8-3" title="Copy heading and permalink for Task 1.4.11.a" aria-label="Copy heading and permalink for Task 1.4.11.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-init-value-probs-8-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="subsec-init-value-probs-8-4-1-1">
+<span class="process-math">\((x^2+1)y'=xy\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-8-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.11.b"><a tabindex="-1" href="#subsec-init-value-probs-8-4" title="Copy heading and permalink for Task 1.4.11.b" aria-label="Copy heading and permalink for Task 1.4.11.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-init-value-probs-8-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="subsec-init-value-probs-8-5-1-1">
+<span class="process-math">\(dx/dt=e^x\sqrt{t}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-8-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.11.c"><a tabindex="-1" href="#subsec-init-value-probs-8-5" title="Copy heading and permalink for Task 1.4.11.c" aria-label="Copy heading and permalink for Task 1.4.11.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-init-value-probs-8-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="subsec-init-value-probs-8-6-1-1">
+<span class="process-math">\(\dfrac{dx}{dt}=\dfrac{\sec^2 t+2t}{2x},\quad x(0)=-2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-8-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.11.d"><a tabindex="-1" href="#subsec-init-value-probs-8-6" title="Copy heading and permalink for Task 1.4.11.d" aria-label="Copy heading and permalink for Task 1.4.11.d">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-init-value-probs-8-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="subsec-init-value-probs-8-7-1-1">
+<span class="process-math">\(\dfrac{dy}{dx}=\sqrt{xy}, \quad y(1)=3\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-init-value-probs-8-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.4.11.e"><a tabindex="-1" href="#subsec-init-value-probs-8-7" title="Copy heading and permalink for Task 1.4.11.e" aria-label="Copy heading and permalink for Task 1.4.11.e">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 1.4.11: Solving Separable Differential Equations"><a tabindex="-1" href="#subsec-init-value-probs-8" title="Copy heading and permalink for Activity 1.4.11: Solving Separable Differential Equations" aria-label="Copy heading and permalink for Activity 1.4.11: Solving Separable Differential Equations">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.3: Initial-Value Problems"><a tabindex="-1" href="#subsec-init-value-probs" title="Copy heading and permalink for Subsection 1.4.3: Initial-Value Problems" aria-label="Copy heading and permalink for Subsection 1.4.3: Initial-Value Problems">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-Newtons-Law">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Newton’s Law of Cooling</span>
+</h2>
+<div class="para" id="subsec-Newtons-Law-2">Separable equations arise in a wide range of application problems. One does not have to watch too many crime dramas to realize that the time of death of a murder victim is an important question in many criminal investigations. How does a forensic scientist or a medical examiner determine the time of death? Human beings have a temperature of <span class="process-math">\(98.6^\circ\)</span>F. If the surrounding temperature is cooler, then the body will cool down after death. Eventually, the temperature of the body will match the temperature of the environment. We should not expect the body to cool at a constant rate either. Think of how a hot cup of coffee or tea cools. The liquid will cool quite quickly during the first few minutes but will remain relatively warm for quite a long period.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Newtons-Law-3">
+<div class="para">The answer to our forensic question can be found by using <dfn class="terminology">Newton’s law of cooling</dfn>, which tells us that the rate of change of the temperature of an object is proportional to the difference between the temperature of the object and the temperature of the surrounding medium. Newton’s law of cooling can be easily stated as a differential equation,</div>
+<div class="displaymath process-math" id="subsec-Newtons-Law-3-2">
+\begin{equation*}
+\frac{dT}{dt} = k(T-T_m),
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(T\)</span> is the temperature of the object, <span class="process-math">\(T_m\)</span> is the temperature of the surrounding medium, and <span class="process-math">\(k\)</span> is the proportionality constant.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Newtons-Law-4">
+<div class="para">Suppose that the temperature of the surrounding environment is <span class="process-math">\(70^\circ\)</span>F, and we know from experience that a body under these conditions cools off approximately <span class="process-math">\(2^\circ\)</span>F during the first hour after death. In order to determine a formula for the time of death, we must solve the initial-value problem</div>
+<div class="displaymath process-math" id="subsec-Newtons-Law-4-3">
+\begin{equation*}
+\frac{dT}{dt} = k(T-70), \quad T(0)=98.6,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(T(1) = 96.6\text{.}\)</span> If we rewrite the equation</div>
+<div class="displaymath process-math" id="subsec-Newtons-Law-4-5">
+\begin{equation*}
+\frac{dT}{dt} = k(T-70)
+\end{equation*}
+</div>
+<div class="para">as</div>
+<div class="displaymath process-math" id="subsec-Newtons-Law-4-6">
+\begin{equation*}
+\frac1{T-70}\,dT = k\,dt,
+\end{equation*}
+</div>
+<div class="para">we see that the equation is separable. Integrating both sides, we obtain <span class="process-math">\(\ln |T-70| = kt + C\text{.}\)</span> Since we are assuming that <span class="process-math">\(T\gt 70\text{,}\)</span> we can remove the absolute values and write</div>
+<div class="displaymath process-math" id="subsec-Newtons-Law-4-9">
+\begin{equation*}
+\ln(T-70) = kt + C \Longrightarrow T-70 = e^{kt+C} = e^{kt}e^C.
+\end{equation*}
+</div>
+<div class="para">Letting <span class="process-math">\(A=e^C\text{,}\)</span> the solution becomes</div>
+<div class="displaymath process-math" id="subsec-Newtons-Law-4-11">
+\begin{equation*}
+T(t) = Ae^{kt} + 70.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-Newtons-Law-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.4: Newton’s Law of Cooling"><a tabindex="-1" href="#subsec-Newtons-Law" title="Copy heading and permalink for Subsection 1.4.4: Newton’s Law of Cooling" aria-label="Copy heading and permalink for Subsection 1.4.4: Newton’s Law of Cooling">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 1.4: Separable Differential Equations"><a tabindex="-1" href="#sec-separable-eq" title="Copy heading and permalink for Section 1.4: Separable Differential Equations" aria-label="Copy heading and permalink for Section 1.4: Separable Differential Equations">🔗</a></div>
 </section>
 </div>
