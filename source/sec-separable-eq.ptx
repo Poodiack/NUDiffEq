@@ -390,7 +390,7 @@
                 </md>
                 and then solve them using the method of separation of 
                 variables. (That is, get all the <m>y</m>'s on
-                the left, all the <m>x</m>'s' on the right, and then 
+                the left, all the <m>x</m>'s on the right, and then 
                 integrate both sides.)
             </p>
             <exercise workspace="2in">
