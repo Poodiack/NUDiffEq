@@ -322,11 +322,50 @@
                         <md>
                             \boxed{y = e^x\cdot\frac{x^2}{2} + Ce^x}.
                         </md>
-                        
+                        We can use MATLAB to check our answer.
                     </p>
+                    <sage language="octave">
+                        <input>
+                            % Comment out the first command if you
+                            % copy and paste this into MATLAB
+                            pkg load symbolic
 
+                            syms y(x)
+                            de = diff(y,x) - y==x*e^x;
+                            ySol(x) = dsolve(de);
+                            disp(ySol(x))
+                        </input>
+                    </sage>
                 </statement>
             </example>
+        </subsubsection>
+        <subsubsection xml:id="subsubsec-gen-formula">
+            <title>A General Formula</title>
+            <p>
+                We can actually derive a formula for solving the first-order 
+                linear differential equation <xref ref="eq-first-linear-2" />
+                <md>
+                    y'+p(x)y=f(x).
+                </md>
+                Suppose we have found our integrating factor <m>\mu(x)=\int p(x)\,dx</m>. As before, 
+                we multiply <xref ref="eq-first-linear-2" /> by <m>\mu(x)</m>:
+                <md>
+                    \mu(x)\left(y'+p(x)y\right) = \mu(x)f(x).
+                </md>
+                We can now solve the equation by integrating both sides with respect to 
+                <m>x</m>.
+                <md>
+                    <mrow>\frac{d}{dx}(\mu(x)y) = \mu(x)f(x)</mrow>
+                    <mrow>\int \frac{d}{dx}(\mu(x) y)\,dx = \int \mu(x) f(x)\,dx</mrow>
+                    <mrow>\mu(x)y = \int\mu(x) f(x)\,dx + C </mrow>
+                </md>
+                Dividing the final expression by <m>\mu(x)</m> gives the 
+                explicit solution
+                <md>
+                    \boxed{y=\frac1{\mu(x)}\left[\int mu(x) f(x)\,dx + C\right]}.
+                </md>
+            </p>
+            
         </subsubsection>
     </subsection>
 </section>
