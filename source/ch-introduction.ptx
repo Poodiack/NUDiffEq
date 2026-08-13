@@ -13,5 +13,6 @@
   <xi:include href="sec-modeling-diff-eq.ptx" />
   <xi:include href="sec-geom-analysis.ptx" />
   <xi:include href="sec-separable-eq.ptx" />
+  <xi:include href="sec-linear-eq.ptx" />
 
 </chapter>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-linear-eq" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>First-Order Linear Equations</title>
+
+    <objectives>
+        <ul>
+             <li><p>To understand that any <term>first-order linear differential equation</term>
+                <md>y' + p(x) y = g(x)</md>
+            can be solved by multiplying each side of the equation by an <term>integrating factor</term>.</p></li>
+
+            <li><p>To understand the existence and uniqueness of solutions to first-order initial value problems.</p></li>
+        </ul>
+    </objectives>
+    
+</section>

@@ -901,7 +901,11 @@
     <subsection xml:id="subsec-retirement">
         <title>A Retirement Model</title>
 
-        <p>Differential equations have many applications in economics and finance. For example, Dr.<nbsp />J., a college professor, wisely started saving for his retirement as soon as he entered the workforce, and he now has $500,000 in a retirement account earning an interest of 5% compounded continuously.<idx>retirement model</idx> The initial value problem,
+        <p>Differential equations have many applications in economics and 
+        finance. For example, Dr.<nbsp />P., a college professor, wisely 
+        started saving for his retirement as soon as he entered the 
+        workforce, and he now has $500,000 in a retirement account earning 
+        an interest of 5% compounded continuously. The initial value problem,
             <md>
                 \frac{dP}{dt}= 0.05 P, \qquad P(0) = 500
             </md>
@@ -980,8 +984,8 @@
         <md>1200 - 149.21 e^{0.05t} = 0.</md>
         In this case, 
             <md>t = 20 \ln\left( \frac{1200}{149.21} \right) \approx 41.7.</md>
-        This means that if Dr.<nbsp />P. retires in 10 years at the age of 70, he can expect his 
-        retirement to last until he is 110!</p>
+        This means that if Dr.<nbsp />P. retires in 10 years at the early age of 55, 
+        he can expect his retirement to last into his mid-90s.</p>
 
         <activity>
             <title>A Sports Contract</title>
@@ -1087,5 +1091,343 @@
                 <md>y = - \frac{1}{x + 1},</md>
             and this solution is valid on <m>(-1, \infty)</m>.</p>
         </example>
+    </subsection>
+    <exercises xml:id="exercises-separable-eqns">
+        <title>Exercises</title>
+        <exercisegroup cols="2" xml:id="exgroup-find-solutions">
+            <title>Finding General Solutions</title>
+            
+            
+            <introduction>
+                <p>
+                   Find the general solution for each equation in 
+                   <xref ref="exgroup-find-solutions" />.
+                </p>
+            </introduction>
+        
+            <exercise>
+                <statement>
+                    <p>
+                        <m>x\,dx - y^2\,dy = 0</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dy}{dx} = \dfrac{y}{x}</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>(x^2+1)\,dx + (y^2+y)\,dy = 0</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dy}{dx} = y^2-6y+14</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>y' = \dfrac{x^2}{y(2 + x^3)}</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>\dfrac{dy}{dx} = \dfrac{\sin x}{y}</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>xy' = \sqrt{1 - y^2}</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>\dfrac{dy}{dt} = \dfrac{4t - t^3}{4 + y^3}</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>y' = \dfrac{1}{xy + 2x + y + 2}</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>\dfrac{dx}{dt} = xe^t + 3e^t + x + 3</m></p>
+                </statement>
+            </exercise>
+        
+        </exercisegroup>
+        
+        <exercisegroup cols="2" xml:id="exgroup-solving-ivps">
+            <title>Solving Initial Value Problems</title>
+            
+            
+            <introduction>
+                <p>
+                    Solve the initial value problems in 
+                    <xref ref="exgroup-solving-ivps" />.
+                </p>
+            </introduction>
+        
+            <exercise>
+                <statement>
+                    <p>
+                        <m>x\,dx - y^2\,dy = 0</m>, <m>y(0)=1</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dy}{dx} = \dfrac{y}{x}</m>, <m>y(1)=-2</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>(x^2+1)\,dx + (y^2+y)\,dy = 0</m>, <m>y(0)=-1</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dy}{dx} = y^2-6y+14</m>, <m>y(0)=3</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>y' = \dfrac{x^2}{y(2 + x^3)}</m>, <m>y(0)=-2</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>\dfrac{dy}{dx} = \dfrac{\sin x}{y}</m>, <m>y(0)=2</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>xy' = \sqrt{1 - y^2}</m>, <m>y(1)=0</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>\dfrac{dy}{dt} = \dfrac{4t - t^3}{4 + y^3}</m>, <m>y(0)=1</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>y' = \dfrac{1}{xy + 2x + y + 2}</m>, <m>y(0)=-3</m></p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p><m>\dfrac{dx}{dt} = xe^t + 3e^t + x + 3</m>, <m>x(0)=0</m></p>
+                </statement>
+            </exercise>
+        
+        </exercisegroup>
+        <exercise>
+            <p>
+                Use MATLAB to solve the initial value problems in 
+                <xref ref="exgroup-solving-ivps" />.
+            </p>
+        </exercise>
+        <exercise>
+            <title>Homogeneous Equations</title>
+            <statement>
+                <p>A first-order differential equation, <m>y' = f(x, y)</m>, is <em>homogeneous</em> if <m>f(x, y) = f(tx, ty)</m>.
+                    <ol>
+
+                        <li><p>Show that the equation
+                            <md>\frac{dy}{dx} = \frac{x^2 + y^2}{2xy}</md>
+                        is homogeneous.</p></li>
+
+                        <li><p>Let <m>y = xv</m> and show that the equation in part (a) can be written as
+                            <md>v + x\frac{dv}{dx} = \frac{x^2 + v^2 x^2}{2v x^2}.</md>
+                        Use the fact that this new equation is separable to solve for <m>y</m>.</p></li>
+
+                        <li><p>Show that any homogeneous equation <m>y' = f(x, y)</m> can be transformed into a separable differential equation by making the substitution <m>y = vx</m>.</p></li>
+
+                        <li><p>A function <m>f</m> is said to homogeneous of degree <m>n</m> if <m>f(t x, t y)= t^n f(x, y)</m> for <m>n = 1, 2, \ldots</m>. Show that differential equation
+                            <md>P(x, y)\,dx + Q(x, y) \,dy = 0,</md>
+                        where <m>P</m> and <m>Q</m> are both homogeneous of degree <m>n</m>, 
+                        can be transformed into a separable differential equation using the substitution <m>y = vx</m>.</p></li>
+
+                        <li><p>Solve the differential equation
+                            <md>x^2 y' = 2 y^2 - x^2.</md></p></li>
+
+
+                        <li><p>Solve the differential equation
+                            <md>y' = \frac{2y^4 + x^4}{xy^3}.</md></p></li>
+
+                    </ol></p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Mr.<nbsp/>Ratchett, an elderly American, was found 
+                murdered in his train compartment on the Orient Express at 
+                7 AM. When his body was discovered, the famous detective 
+                Hercule Poirot noted that Ratchett had a body temperature 
+                of <m>28^\circ</m> C. The body had cooled to a temperature 
+                of <m>27^\circ</m> C one hour later. If the normal 
+                temperature of a human being is <m>37^\circ</m> C and the 
+                air temperature in the train is <m>22^\circ</m> C , 
+                estimate the time of Ratchett's death using Newton's Law of 
+                Cooling.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>You are starting a new position, and your employer has a 
+                generous retirement plan.  If you put $500 a month into a 
+                401(k) plan, your employer will match your contributions.  
+                    <ol>
+                        <li><p>Assuming that you are 25 years old and plan to 
+                        retire at age 65, how large can you expect your 
+                        401(k) pension to be when you retire?  Assume that 
+                        your 401(k) plan will collect interest at a rate of 
+                        5%.</p></li>
+
+                        <li><p>If you begin withdrawing $60,000 every year 
+                        at age 65, how long will your retirement fund last?</p></li>
+                    </ol>
+
+                    </p>
+            </statement>
+        </exercise>
+    </exercises>
+    <subsection xml:id="subsec-">
+        <title>MATLAB -- Quick Start Guide to Solving Ordinary Differential
+        Equations</title>
+        <p>
+            MATLAB (and Octave) has powerful algorithms for finding exact 
+            and numerical solutions of differential equations. In addition, 
+            we can plot solutions and direction fields. Although some 
+            differential equations have an exact solution and can be 
+            solved using analytic techniques with calculus, many 
+            differential equations can only be solved using numerical 
+            techniques. This should not be too surprising if we consider 
+            how we solve polynomials. It is quite easy to find the roots 
+            of any equation of the form <m>ax^2 + bx + c = 0</m> by either 
+            factoring or using the quadratic equation, but solving an 
+            equation such as 
+            <md>5x^7 - 6x^4 +3x^3 -23 x^2 +3x -17 = 0</md>
+            is a much more difficult problem.  Unlike the situation for 
+            quadratic equations, there does not exist a general formula for 
+            solving seventh degree equations. We can even encounter 
+            difficulties when using a numerical method such as the 
+            Newton-Raphson algorithm.
+        </p>
+        <p>
+            In general, MATLAB needs three things to solve a differential 
+            equation.
+            <ul>
+                <li>
+                    <p>
+                        An abstract function
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A differential equation
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A MATLAB command to solve the equation.
+                    </p>
+                </li>
+            </ul>
+        </p>
+        <p>
+            Suppose we wish to solve the equation
+            <md>
+                \frac{dy}{dx} = x+y.
+            </md>
+            We can use the following sequence of MATLAB commands.
+        </p>
+        <sage language="octave">
+            <input>
+                % Comment this first line out if 
+                % using in MATLAB itself. (It *is*
+                % needed for Octave, though.)
+                pkg load symbolic
+
+                syms y(x)
+                eqn = diff(y,x) == x + y;
+                ySol(x) = dsolve(eqn);
+                disp(ySol(x));
+            </input>
+        </sage>
+        <p>
+            The first command loads in the ability for Octave to deal 
+            with abstract functions (but you should comment it out if you 
+            copy and paste the code into MATLAB). The second command defines 
+            the abstract function. The third describes the actual differential 
+            equation. Finally, we use the MATLAB command <c>dsolve</c> to find 
+            the actual solution.
+        </p>
+        <sage language="octave">
+            <input>
+                % Comment this first line out if 
+                % using in MATLAB itself. (It *is*
+                % needed for Octave, though.)
+                pkg load symbolic
+
+                syms y(x)
+                eqn = diff(y,x) == x + y;
+                cond = y(0) == 1;
+                ySol(x) = dsolve(eqn, cond);
+                disp(ySol(x));  
+            </input>
+        </sage>
+        <p>
+            We can also specify an initial condition for our differential 
+            equation, say, <m>y(0)=1</m>.
+        </p>
+        <sage language="octave">
+            <input>
+                % Comment this first line out if 
+                % using in MATLAB itself. (It *is*
+                % needed for Octave, though.)
+                pkg load symbolic
+
+                syms y(x)
+                eqn = diff(y,x) == x + y;
+                cond = y(0) == 1;
+                ySol(x) = dsolve(eqn, cond);
+                disp(ySol(x));
+            </input>
+        </sage>
     </subsection>
 </section>
