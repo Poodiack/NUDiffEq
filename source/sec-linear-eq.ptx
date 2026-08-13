@@ -6,11 +6,327 @@
     <objectives>
         <ul>
              <li><p>To understand that any <term>first-order linear differential equation</term>
-                <md>y' + p(x) y = g(x)</md>
+                <md>y' + p(x) y = f(x)</md>
             can be solved by multiplying each side of the equation by an <term>integrating factor</term>.</p></li>
 
             <li><p>To understand the existence and uniqueness of solutions to first-order initial value problems.</p></li>
         </ul>
     </objectives>
-    
+    <introduction>
+        <p>
+            We recall that a first-order differential equation is <term>linear</term> 
+            if the dependent variable (let's use <m>y</m> here) and its derivatives 
+            appear only to the first power, not multiplied by each other, and not 
+            buried within a function (no <m>e^y</m>'s, for instance). In particular, 
+            we will say that a first-order differential equation is linear if we can 
+            write it in the form
+            <md number="yes" xml:id="eq-first-linear-1">
+                a_1(x)y'(x) + a_0(x) y(x) = b(x)
+            </md>
+            for some functions <m>a_1, a_0</m> and <m>b</m>. Our goal, as it always is 
+            when we start out, is to solve this equation <em>explicitly</em> for 
+            <m>y(x)</m>. In particular, we must have that <m>a_1(x)\ne 0</m> in some 
+            interval. Assuming that it is, we can divide <xref ref="eq-first-linear-1" /> 
+            through by <m>a_1(x)</m> and we get our <term>standard form</term><fn>By <em>standard form</em>,
+            we mean a form which we use to check the type of a differential equation. So if we want 
+            to check if a given differential equation is a linear, first-order equation, we try 
+            to put it into the standard form and match up the parts.</fn> for 
+            a first-order linear differential equation:
+            <md number="yes" xml:id="eq-first-linear-2">
+                \boxed{y' +p(x)y = f(x)}
+            </md>
+            (We have suppressed the <q>of <m>x</m></q>'s on the <m>y</m>.)
+        </p>
+        <p>We call the equation <term>homogeneous</term> if the function on 
+        the right-hand side <m>f(x)=0</m>.</p>
+        <example>
+            <title>Is it linear?</title>
+            <statement>
+                <p>
+                    The equation <m>y'=-3y+\sin x</m> is linear. We can reorganize 
+                    the equation into the standard form <m>y'+3y=\sin x</m> and then 
+                    we can see that <m>p(x) = 3</m> and <m>f(x) = \sin x</m>.
+                </p>
+            </statement>
+        </example>
+        <example>
+            <title>Is it linear?</title>
+            <statement>
+                <p>
+                   The equation <m>y'=y\sin x + x^3</m> is linear. We can 
+                   reorganize the equation into standard form and obtain 
+                   <m>y'-(\sin x)y = x^3</m>. We then have that <m>p(x) = 
+                   -\sin y</m> and <m>f(x) = x^3</m>. 
+                </p>
+            </statement>
+        </example>
+        <example>
+            <title>Is it linear?</title>
+            <statement>
+                <p>
+                    The equation <m>4y'+e^y x = 0</m> is <em>not linear</em>. 
+                    Although we can rewrite the equation in the form <m>y' + \frac{x}4 e^y = 0</m>, 
+                    the dependent variable <m>y</m> is bound up in an 
+                    exponential (<m>e^y</m>).
+                </p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Is it linear?</title>
+            <statement>
+                <p>
+                    The equation <m>yy'=2x</m> is <em>not linear</em> because 
+                    the dependent variable <m>y</m> and its derivative <m>y'</m> 
+                    are multiplied together.
+                </p>
+            </statement>
+            
+        </example>
+    </introduction>
+    <subsection xml:id="subsec-solve-linear-1">
+        <title>Solving First-Order Linear Differential Equations</title>
+        <introduction>
+            <p>
+                We can solve many first-order linear differential equations 
+                explicitly. In fact, we can get a general method for doing 
+                so by first attacking the special case of when our equation 
+                is homogeneous. 
+            </p>
+        </introduction>
+        <subsubsection xml:id="subsubsec-homogeneous-linear-1">
+            <title>The Homogeneous Case</title>
+            <p>
+                Remember that a first-order linear differential equation is 
+                homogeneous if, when it's written in standard form, the right-hand 
+                side is 0. That is, we can write the equation <xref ref="eq-first-linear-2" /> 
+                in the form
+                <md>
+                    y'+ p(x) y = 0.
+                </md>
+                We now make the following
+            </p>
+                <claim xml:id="claim-homogeneous-separable">
+                    <statement>
+                        <p>
+                            If our first-order linear differential equation is 
+                            homogeneous, then it is separable.
+                        </p>
+                    </statement>
+                </claim>
+                <p>
+                    We can see this by simply rewriting the differential equation 
+                    as 
+                    <md>y'=-p(x) y \quad\text{or}\quad \frac{dy}{dx} = -p(x) y.</md>
+                    Thus we can use the methods of <xref ref="sec-separable-eq" /> to 
+                    solve. That is, we can separate and integrate:
+                    <md>
+                        <mrow>\frac{dy}{y} \amp = -p(x)\,dx</mrow>
+                        <mrow>\int\frac1{y}\,dy \amp = -\int p(x)\,dx</mrow>
+                        <mrow>\ln |y| \amp = -\int p(x)\,dx</mrow>
+                    </md>
+                    This means that the <term>general solution of the homogeneous equation</term> 
+                    can be written as
+                    <md number="yes" xml:id="eq-lin-homogeneous-sol">
+                        y = e^{-\int p(x)\,dx}
+                    </md>
+                </p>
+                <example>
+                        <p>
+                            Suppose we wish to solve the homogeneous first-order linear 
+                            differential equation (that's a mouthful!)
+                            <md>
+                                y'+(\cos x)y = 0.
+                            </md>
+                            We have that <m>p(x)=\cos x</m>. Therefore, by 
+                            <xref ref="eq-lin-homogeneous-sol" />, we have 
+                            that
+                            <md>
+                                <mrow>y \amp = e^{-\int \cos x\,dx} </mrow>
+                                <mrow> \amp =e^{-\sin x + C}</mrow>
+                                <mrow> \amp = e^C\cdot e^{-\sin x}.</mrow>
+                            </md>
+                            Setting <m>A=e^C</m>m we see that the general 
+                            solution is
+                            <md>
+                                y = Ae^{-\sin x},
+                            </md>
+                            where <m>A\ne 0</m>. However, we note that if <m>A=0</m>, 
+                            this would make <m>y=0</m> which is a solution to the 
+                            original differential equation. So we can let <m>A</m> be any real 
+                            number.
+                        </p>
+                        <p>
+                            One thing we haven't done much of is to check our solutions. It's a 
+                            good habit to have. We 
+                            do this by computing the derivative of <m>y</m> and then substituting 
+                            our answer <m>y</m> and its derivative <m>y'</m> into the original 
+                            differential equation. If <m>y=Ae^{-\sin x}</m>, we use the chain rule 
+                            to compute
+                            <md>
+                                y' = Ae^{-\sin x}\cdot\frac{d}{dx}(-\sin x) = -A\cos x e^{-\sin x}
+                            </md>
+                            and so
+                            <md>
+                                y' + (\cos x)y = -A\cos x\, e^{-\sin x} + (\cos x)Ae^{-\sin x} \equiv 0,
+                            </md>
+                            as expected.
+                        </p>
+                </example>
+        </subsubsection>
+        <subsubsection xml:id="subsubsec-nonhomogeneous-linear-1">
+            <title>The Non-homogeneous Case</title>
+            <p>
+                Now we examine the case where the right-hand side of our 
+                first-order linear differential equation is <em>not</em> zero; 
+                that is <m>f(x)\ne 0</m>. In this case, we will employ a trick. 
+                We will multiply both sides of our differential equation by a 
+                positive function <m>\mu(x)</m> so that the left-hand side is a 
+                <em>perfect product rule derivative</em>.
+            </p>
+            <remark>
+                <title>Product Rule</title>
+                <p>The derivative of the product of two differentiable functions, 
+                <m>f(x)</m> and <m>g(x)</m> is given by
+                <md>
+                    \frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + f'(x)g(x)
+                </md>
+                </p> 
+            </remark>
+            <example xml:id="example-linear-1">
+                <title>What we're trying to do here</title>
+                <p>
+                    Let us walk through an example to illustrate the technique 
+                    that we're going to use here.
+                </p>
+                <p>
+                    Suppose we wish to solve the non-homogeneous first-order 
+                    linear differential equation
+                    <md>
+                        y' + 2y = xe^{-2x}.
+                    </md>
+                    This is linear with <m>p(x) = 2</m> and <m>f(x) = xe^{-2x}</m>. 
+                    (This equation is <em>not separable</em> though.) We will multiply 
+                    the entire equation by the function <m>\mu(x)=e^{2x}</m>. (For now, 
+                    don't worry about where our choice for <m>\mu</m> came from.) We then 
+                    get
+                    <md>
+                        <mrow>y' + 2y = xe^{-2x} </mrow>
+                        <mrow>e^{2x}(y'+2y) = e^{2x}(xe^{-2x}) </mrow>
+                        <mrow>e^{2x}y' + 2e^{2x}y = x, </mrow>
+                    </md>
+                    since <m>e^{-2x} = \frac1{e^{2x}}</m>. If we look at the left-hand side 
+                    now, we note that it is the derivative of the product <m>e^{2x}y</m>. (Check 
+                    this using implicit differentiation!) Therefore, we arrive at the equation
+                    <md>
+                        \frac{d}{dx}(e^{2x}y) = x
+                    </md>
+                    We now <em>integrate both sides with respect to <m>x</m></em> (the 
+                    independent variable). On the left-hand side, we take advantage of the 
+                    Fundamental Theorem of Calculus to note that the integral of a derivative 
+                    gives us back the original function. Therefore, we have
+                    <md>
+                        <mrow> \int \frac{d}{dx}(e^{2x}y)\,dx = \int x\,dx </mrow>
+                        <mrow> e^{2x} y = \frac{x^2}{2} + C,</mrow>
+                    </md>
+                    where, as before, we agree to move all the arbitrary constants of integration 
+                    to the end of the right-hand side and combine them into one big <q>C</q>. 
+                    We can now solve for <m>y</m> by multiplying both sides by <m>e^{-2x}</m> (or 
+                    dividing both sides by <m>e^{2x}</m> if you prefer) to get
+                    <md>
+                        \boxed{y = e^{-2x}\cdot\frac{x^2}{2} + Ce^{-2x}}.
+                    </md>  
+                </p>
+            </example>
+            <p>
+                The example showed the technique we will use to solve 
+                non-homogeneous first-order linear equations, but left 
+                one burning question: <em>How did we pick the function 
+                <m>\mu(x)</m> that we multiplied the entire equation by?
+                </em>. The function <m>\mu</m> is called an <term>integrating 
+                factor</term>. The idea is that multiplying the entire 
+                equation through by <m>\mu</m> should give us a perfect 
+                product rule derivative on the left-hand side.
+            </p>
+            <p>
+                Fortunately, we can find a formula for this integrating 
+                factor. The left-hand side of our differential equation here, 
+                recall, has form <m>y' + p(x)y</m>. When we multiply through 
+                by the integrating factor <m>\mu</m>, we obtain
+                <md>
+                    \mu(x)\left(y' + p(x)y\right) = \mu\, y' + (\mu \,p)y.
+                </md>
+                We want <m>\mu \,y' + (\mu\, p)y = \frac{d}{dx}(\mu \,y)</m>. By the 
+                product rule, though, we know that <m>\frac{d}{dx}(\mu \,y) = 
+                \mu\,y' + \mu'\,y</m>. So we need
+                <md>
+                    <mrow>\mu \,y' + (\mu\,p)y = \mu\,y' + \mu'\,y</mrow>
+                    <mrow>(\mu\, p)y = \mu'\,y</mrow>
+                    <mrow>\mu\,p = \mu' \Longrightarrow \mu' - p\,\mu = 0.</mrow>
+                </md>
+                This last differential equation is first-order, linear, and homogeneous. So 
+                we can use the method of <xref ref="subsubsec-homogeneous-linear-1" /> to 
+                solve the equation and get that the formula for the integrating factor is
+                <md>
+                    \boxed{\mu(x) = e^{\int p(x)\,dx}}.
+                </md>
+            </p>
+            <remark>
+                <p>
+                    You may be thinking, <q>Is there a typo? Didn't we 
+                    drop a minus sign up in the exponent there?</q> The answer 
+                    is <em>NO</em>. Because the differential equation for <m>\mu</m> had 
+                    a minus sign before the <m>p</m>, this extra minus sign multiplies 
+                    the minus sign in our homogeneous solution and cancels it out.
+                </p>
+            </remark>
+            <p>
+                In particular, multiplying through by the integrating factor 
+                <m>\mu</m> should make the left-hand side of the differential 
+                equation into the derivative of the product <m>\mu\,y</m>.
+            </p>
+            <example>
+                <statement>
+                    <p>
+                        Consider the differential equation
+                        <md>
+                            y'-y = xe^x.
+                        </md>
+                        This equation is linear with <m>p(x)=-1</m> and 
+                        <m>f(x) = xe^x</m>. We first find the integrating 
+                        factor <m>\mu(x)</m>:
+                        <md>
+                            \mu(x) = e^{\int p(x)\,dx} = e^{(-1)\,dx} = e^{-x}.
+                        </md>
+                        (You may be wondering where the <m>{}+C</m> is. For an integrating 
+                        factor, we just need one solution that works, not all of them. So 
+                        we make life easier by agreeing to pick the one with <m>C=0</m>.)
+                    </p>
+                     <p>
+                        We now multiply our differential equation through by
+                        our integrating factor <m>\mu(x) = e^{-x}</m>.
+                        <md>
+                            <mrow>y'-y = xe^x</mrow>
+                            <mrow>e^{-x}(y'-y) = e^{-x}(xe^x)</mrow>
+                            <mrow>e^{-x}y' - e^{-x}y = x</mrow>
+                        </md>
+                        We can now see that the left-hand side is the 
+                        derivative of <m>\mu\,y = e^{-x} y</m>. We thus write
+                        <md>
+                            <mrow>\frac{d}{dx}(e^{-x}y) = x</mrow>
+                            <mrow>\int \frac{d}{dx}(e^{-x}y)\,dx = \int x\,dx</mrow>
+                            <mrow>e^{-x}y = \frac{x^2}{2}+C</mrow>
+                        </md>
+                        We now solve for <m>y</m> by multiplying through by 
+                        <m>e^x</m> and we find that
+                        <md>
+                            \boxed{y = e^x\cdot\frac{x^2}{2} + Ce^x}.
+                        </md>
+                        
+                    </p>
+
+                </statement>
+            </example>
+        </subsubsection>
+    </subsection>
 </section>
