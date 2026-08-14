@@ -331,7 +331,8 @@
                             pkg load symbolic
 
                             syms y(x)
-                            de = diff(y,x) - y==x*e^x;
+
+                            de = diff(y,x) - y == x*e^x;
                             ySol(x) = dsolve(de);
                             disp(ySol(x))
                         </input>
@@ -361,11 +362,128 @@
                 </md>
                 Dividing the final expression by <m>\mu(x)</m> gives the 
                 explicit solution
-                <md>
-                    \boxed{y=\frac1{\mu(x)}\left[\int mu(x) f(x)\,dx + C\right]}.
+                <md number="yes" xml:id="eq-linear-solution">
+                    \boxed{y=\frac1{\mu(x)}\left[\int \mu(x) f(x)\,dx + C\right]}.
                 </md>
+                The equation <xref ref="eq-linear-solution" /> is important 
+                theoretically as the <term>general solution of the first-order 
+                linear differential equation</term>, we in no way are telling 
+                you to memorize it. Just follow the steps from the examples 
+                in this section.
             </p>
-            
         </subsubsection>
+        <conclusion>
+            <p>
+                Let us now solve an initial value problem.
+            </p>
+        <example>
+            <title>Solving an Initial Value Problem</title>
+            <statement>
+                <p>
+                    Solve the initial value problem
+                    <md number="yes" xml:id="eq-linear-ivp">
+                        xy'+y=\cos x, \quad y(1)=2.
+                    </md>
+                    Also, determine the behavior of the solution as <m>x\to\infty</m>, both by 
+                    looking at the formula for the solution and by using a slope field.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We first put <xref ref="eq-linear-ivp" /> by dividing through 
+                    by <m>x</m>.
+                    <md>
+                        y'+\frac1{x}\cdot y = \frac{\cos x}{x}.
+                    </md>
+                    In doing this, we assume that <m>x\ne 0</m>. We have that 
+                    <m>p(x)=1/x</m> and <m>f(x) = (\cos x)/x</m>. Our integrating 
+                    factor is
+                    <md>
+                        \mu(x) = e^{\int p(x)\,dx} = e^{\int \frac1{x}\,dx} = e^{\ln x} = x.
+                    </md>
+                    (Remember that we can pick the simplest antiderivative of <m>p(x)</m>.) 
+                    We multiply our equation by <m>x</m> which leads to
+                    <md>
+                        \int (xy'+y)\,dx \equiv \int \frac{d}{dx}(xy)\,dx = \int \cos x\,dx.
+                    </md>
+                    This implies that <m>xy = \sin x + C</m>. Solving explicitly for <m>y</m> 
+                    yields
+                    <md>
+                        y = \frac{\sin x+C}{x}, \quad x\ne 0.
+                    </md>
+                    The initial condition tells us that when <m>x=1</m>, <m>y=2</m>. Substituting 
+                    this in above leads to
+                    <md>2 = \frac{\sin 1 + C}{1} \Longrightarrow C = 2-\sin 1</md>
+                    and the particular solution is
+                    <md>
+                        \boxed{y=\frac{\sin x + 2 -\sin 1}{x}}.
+                    </md>
+                    From this formula, we see that <m>y\to 0</m> as <m>x\to\infty</m>. At <m>x=0</m>, <m>y</m> 
+                    has a vertical asymptote.
+                </p>
+                <p>We can use MATLAB to draw the slope field as well as the particular solution. 
+                To use the algorithm we used in earlier sections, we have to solve our differential 
+                equation for <m>y'</m>:
+                    <md>
+                        y' = \frac{\cos x - y}{x}.
+                    </md>
+                    </p> 
+                <program language="octave">
+                    % 1. Define the grid for the slope field
+                    % Avoid x = 0 to prevent division by zero in the ODE
+                    x_vals = linspace(0.1, 5, 25); 
+                    y_vals = linspace(-2, 5, 25);
+                    [X, Y] = meshgrid(x_vals, y_vals);
+
+                    % 2. Calculate the slope (dy/dx) at each grid point
+                    % Using the rearranged ODE: y' = (cos(x) - y) / x
+                    S = (cos(X) - Y) ./ X;
+
+                    % 3. Normalize the vector components to maintain uniform segment lengths
+                    L = sqrt(1 + S.^2);
+                    U = 1 ./ L;
+                    V = S ./ L;
+
+                    % 4. Create the plot window and draw the slope field
+                    figure;
+                    % Adjust the 0.5 scale factor to match your preference for segment length
+                    quiver(X, Y, U, V, 0.5, 'Color', [0.5, 0.5, 0.5], 'LineWidth', 1);
+                    hold on;
+
+                    % 5. Define the ODE function handle for numerical integration
+                    dydx = @(x, y) (cos(x) - y) / x;
+
+                    % 6. Solve the ODE numerically through the point (1,2)
+                    x_span = [1, 5]; % Forward integration path
+                    y0 = 2;          % Initial condition at x = 1
+                    [x_sol_fwd, y_sol_fwd] = ode45(dydx, x_span, y0);
+                    
+                    x_span_bwd = [1, 0.1]; % Backward integration path toward x = 0
+                    [x_sol_bwd, y_sol_bwd] = ode45(dydx, x_span_bwd, y0);
+
+                    % Combine forward and backward results for a smooth, unbroken line
+                    x_sol = [flipud(x_sol_bwd); x_sol_fwd];
+                    y_sol = [flipud(y_sol_bwd); y_sol_fwd];
+
+                    % 7. Plot the solution curve and the initial point
+                    plot(x_sol, y_sol, 'r-', 'LineWidth', 2.5); % Solution curve in red
+                    plot(1, 2, 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8); % Target point in blue
+
+                    % 8. Annotations and Layout Adjustments
+                    title('Slope Field and Solution Curve for $x y'' + y = \cos(x)$', 'Interpreter', 'latex', 'FontSize', 14);
+                    xlabel('$x$', 'Interpreter', 'latex', 'FontSize', 12);
+                    ylabel('$y$', 'Interpreter', 'latex', 'FontSize', 12);
+                    axis([0 5 -2 5]);
+                    grid on;
+                    legend('Slope Field', 'Solution Curve through (1,2)', 'Point (1,2)', 'Location', 'northeast');
+                    hold off;
+                </program>
+                <figure xml:id="fig-slope-field-12">
+                    <caption><m>xy'+y=\cos x</m></caption>
+                    <image source="./images/slopefield12.png" width="80%" />
+                </figure>
+            </solution>
+        </example>
+        </conclusion>
     </subsection>
 </section>
