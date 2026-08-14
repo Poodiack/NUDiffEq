@@ -1474,7 +1474,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.5",
   "title": "First-Order Linear Equations",
-  "body": " First-Order Linear Equations    To understand that any first-order linear differential equation  can be solved by multiplying each side of the equation by an integrating factor .  To understand the existence and uniqueness of solutions to first-order initial value problems.     We recall that a first-order differential equation is linear if the dependent variable (let's use here) and its derivatives appear only to the first power, not multiplied by each other, and not buried within a function (no 's, for instance). In particular, we will say that a first-order differential equation is linear if we can write it in the form for some functions and . Our goal, as it always is when we start out, is to solve this equation explicitly for . In particular, we must have that in some interval. Assuming that it is, we can divide through by and we get our standard form By standard form , we mean a form which we use to check the type of a differential equation. So if we want to check if a given differential equation is a linear, first-order equation, we try to put it into the standard form and match up the parts. for a first-order linear differential equation: (We have suppressed the of 's on the .)  We call the equation homogeneous if the function on the right-hand side .   Is it linear?   The equation is linear. We can reorganize the equation into the standard form and then we can see that and .     Is it linear?   The equation is linear. We can reorganize the equation into standard form and obtain . We then have that and .     Is it linear?   The equation is not linear . Although we can rewrite the equation in the form , the dependent variable is bound up in an exponential ( ).     Is it linear?   The equation is not linear because the dependent variable and its derivative are multiplied together.      Solving First-Order Linear Differential Equations   We can solve many first-order linear differential equations explicitly. In fact, we can get a general method for doing so by first attacking the special case of when our equation is homogeneous.    The Homogeneous Case  Remember that a first-order linear differential equation is homogeneous if, when it's written in standard form, the right-hand side is 0. That is, we can write the equation in the form We now make the following    If our first-order linear differential equation is homogeneous, then it is separable.    We can see this by simply rewriting the differential equation as Thus we can use the methods of to solve. That is, we can separate and integrate: This means that the general solution of the homogeneous equation can be written as    Suppose we wish to solve the homogeneous first-order linear differential equation (that's a mouthful!) We have that . Therefore, by , we have that Setting m we see that the general solution is where . However, we note that if , this would make which is a solution to the original differential equation. So we can let be any real number.  One thing we haven't done much of is to check our solutions. It's a good habit to have. We do this by computing the derivative of and then substituting our answer and its derivative into the original differential equation. If , we use the chain rule to compute and so as expected.     The Non-homogeneous Case  Now we examine the case where the right-hand side of our first-order linear differential equation is not zero; that is . In this case, we will employ a trick. We will multiply both sides of our differential equation by a positive function so that the left-hand side is a perfect product rule derivative .   Product Rule  The derivative of the product of two differentiable functions, and is given by     What we're trying to do here  Let us walk through an example to illustrate the technique that we're going to use here.  Suppose we wish to solve the non-homogeneous first-order linear differential equation This is linear with and . (This equation is not separable though.) We will multiply the entire equation by the function . (For now, don't worry about where our choice for came from.) We then get since . If we look at the left-hand side now, we note that it is the derivative of the product . (Check this using implicit differentiation!) Therefore, we arrive at the equation We now integrate both sides with respect to (the independent variable). On the left-hand side, we take advantage of the Fundamental Theorem of Calculus to note that the integral of a derivative gives us back the original function. Therefore, we have where, as before, we agree to move all the arbitrary constants of integration to the end of the right-hand side and combine them into one big C . We can now solve for by multiplying both sides by (or dividing both sides by if you prefer) to get    The example showed the technique we will use to solve non-homogeneous first-order linear equations, but left one burning question: How did we pick the function that we multiplied the entire equation by? . The function is called an integrating factor . The idea is that multiplying the entire equation through by should give us a perfect product rule derivative on the left-hand side.  Fortunately, we can find a formula for this integrating factor. The left-hand side of our differential equation here, recall, has form . When we multiply through by the integrating factor , we obtain We want . By the product rule, though, we know that . So we need This last differential equation is first-order, linear, and homogeneous. So we can use the method of to solve the equation and get that the formula for the integrating factor is    You may be thinking, Is there a typo? Didn't we drop a minus sign up in the exponent there? The answer is NO . Because the differential equation for had a minus sign before the , this extra minus sign multiplies the minus sign in our homogeneous solution and cancels it out.   In particular, multiplying through by the integrating factor should make the left-hand side of the differential equation into the derivative of the product .    Consider the differential equation This equation is linear with and . We first find the integrating factor : (You may be wondering where the is. For an integrating factor, we just need one solution that works, not all of them. So we make life easier by agreeing to pick the one with .)  We now multiply our differential equation through by our integrating factor . We can now see that the left-hand side is the derivative of . We thus write We now solve for by multiplying through by and we find that We can use MATLAB to check our answer.       A General Formula  We can actually derive a formula for solving the first-order linear differential equation  Suppose we have found our integrating factor . As before, we multiply by : We can now solve the equation by integrating both sides with respect to . Dividing the final expression by gives the explicit solution The equation is important theoretically as the general solution of the first-order linear differential equation , we in no way are telling you to memorize it. Just follow the steps from the examples in this section.    Let us now solve an initial value problem.   Solving an Initial Value Problem   Solve the initial value problem Also, determine the behavior of the solution as , both by looking at the formula for the solution and by using a slope field.    We first put by dividing through by . In doing this, we assume that . We have that and . Our integrating factor is (Remember that we can pick the simplest antiderivative of .) We multiply our equation by which leads to This implies that . Solving explicitly for yields The initial condition tells us that when , . Substituting this in above leads to and the particular solution is From this formula, we see that as . At , has a vertical asymptote.  We can use MATLAB to draw the slope field as well as the particular solution. To use the algorithm we used in earlier sections, we have to solve our differential equation for :   % 1. Define the grid for the slope field % Avoid x = 0 to prevent division by zero in the ODE x_vals = linspace(0.1, 5, 25); y_vals = linspace(-2, 5, 25); [X, Y] = meshgrid(x_vals, y_vals); % 2. Calculate the slope (dy\/dx) at each grid point % Using the rearranged ODE: y' = (cos(x) - y) \/ x S = (cos(X) - Y) .\/ X; % 3. Normalize the vector components to maintain uniform segment lengths L = sqrt(1 + S.^2); U = 1 .\/ L; V = S .\/ L; % 4. Create the plot window and draw the slope field figure; % Adjust the 0.5 scale factor to match your preference for segment length quiver(X, Y, U, V, 0.5, 'Color', [0.5, 0.5, 0.5], 'LineWidth', 1); hold on; % 5. Define the ODE function handle for numerical integration dydx = @(x, y) (cos(x) - y) \/ x; % 6. Solve the ODE numerically through the point (1,2) x_span = [1, 5]; % Forward integration path y0 = 2; % Initial condition at x = 1 [x_sol_fwd, y_sol_fwd] = ode45(dydx, x_span, y0); x_span_bwd = [1, 0.1]; % Backward integration path toward x = 0 [x_sol_bwd, y_sol_bwd] = ode45(dydx, x_span_bwd, y0); % Combine forward and backward results for a smooth, unbroken line x_sol = [flipud(x_sol_bwd); x_sol_fwd]; y_sol = [flipud(y_sol_bwd); y_sol_fwd]; % 7. Plot the solution curve and the initial point plot(x_sol, y_sol, 'r-', 'LineWidth', 2.5); % Solution curve in red plot(1, 2, 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8); % Target point in blue % 8. Annotations and Layout Adjustments title('Slope Field and Solution Curve for $x y'' + y = \\cos(x)$', 'Interpreter', 'latex', 'FontSize', 14); xlabel('$x$', 'Interpreter', 'latex', 'FontSize', 12); ylabel('$y$', 'Interpreter', 'latex', 'FontSize', 12); axis([0 5 -2 5]); grid on; legend('Slope Field', 'Solution Curve through (1,2)', 'Point (1,2)', 'Location', 'northeast'); hold off;          "
+  "body": " First-Order Linear Equations    To understand that any first-order linear differential equation  can be solved by multiplying each side of the equation by an integrating factor .  To understand the existence and uniqueness of solutions to first-order initial value problems.     We recall that a first-order differential equation is linear if the dependent variable (let's use here) and its derivatives appear only to the first power, not multiplied by each other, and not buried within a function (no 's, for instance). In particular, we will say that a first-order differential equation is linear if we can write it in the form for some functions and . Our goal, as it always is when we start out, is to solve this equation explicitly for . In particular, we must have that in some interval. Assuming that it is, we can divide through by and we get our standard form By standard form , we mean a form which we use to check the type of a differential equation. So if we want to check if a given differential equation is a linear, first-order equation, we try to put it into the standard form and match up the parts. for a first-order linear differential equation: (We have suppressed the of 's on the .)  We call the equation homogeneous if the function on the right-hand side .   Is it linear?   The equation is linear. We can reorganize the equation into the standard form and then we can see that and .     Is it linear?   The equation is linear. We can reorganize the equation into standard form and obtain . We then have that and .     Is it linear?   The equation is not linear . Although we can rewrite the equation in the form , the dependent variable is bound up in an exponential ( ).     Is it linear?   The equation is not linear because the dependent variable and its derivative are multiplied together.      Solving First-Order Linear Differential Equations   We can solve many first-order linear differential equations explicitly. In fact, we can get a general method for doing so by first attacking the special case of when our equation is homogeneous.    The Homogeneous Case  Remember that a first-order linear differential equation is homogeneous if, when it's written in standard form, the right-hand side is 0. That is, we can write the equation in the form We now make the following    If our first-order linear differential equation is homogeneous, then it is separable.    We can see this by simply rewriting the differential equation as Thus we can use the methods of to solve. That is, we can separate and integrate: This means that the general solution of the homogeneous equation can be written as    Suppose we wish to solve the homogeneous first-order linear differential equation (that's a mouthful!) We have that . Therefore, by , we have that Setting m we see that the general solution is where . However, we note that if , this would make which is a solution to the original differential equation. So we can let be any real number.  One thing we haven't done much of is to check our solutions. It's a good habit to have. We do this by computing the derivative of and then substituting our answer and its derivative into the original differential equation. If , we use the chain rule to compute and so as expected.     The Non-homogeneous Case  Now we examine the case where the right-hand side of our first-order linear differential equation is not zero; that is . In this case, we will employ a trick. We will multiply both sides of our differential equation by a positive function so that the left-hand side is a perfect product rule derivative .   Product Rule  The derivative of the product of two differentiable functions, and is given by     What we're trying to do here  Let us walk through an example to illustrate the technique that we're going to use here.  Suppose we wish to solve the non-homogeneous first-order linear differential equation This is linear with and . (This equation is not separable though.) We will multiply the entire equation by the function . (For now, don't worry about where our choice for came from.) We then get since . If we look at the left-hand side now, we note that it is the derivative of the product . (Check this using implicit differentiation!) Therefore, we arrive at the equation We now integrate both sides with respect to (the independent variable). On the left-hand side, we take advantage of the Fundamental Theorem of Calculus to note that the integral of a derivative gives us back the original function. Therefore, we have where, as before, we agree to move all the arbitrary constants of integration to the end of the right-hand side and combine them into one big C . We can now solve for by multiplying both sides by (or dividing both sides by if you prefer) to get    The example showed the technique we will use to solve non-homogeneous first-order linear equations, but left one burning question: How did we pick the function that we multiplied the entire equation by? . The function is called an integrating factor . The idea is that multiplying the entire equation through by should give us a perfect product rule derivative on the left-hand side.  Fortunately, we can find a formula for this integrating factor. The left-hand side of our differential equation here, recall, has form . When we multiply through by the integrating factor , we obtain We want . By the product rule, though, we know that . So we need This last differential equation is first-order, linear, and homogeneous. So we can use the method of to solve the equation and get that the formula for the integrating factor is    You may be thinking, Is there a typo? Didn't we drop a minus sign up in the exponent there? The answer is NO . Because the differential equation for had a minus sign before the , this extra minus sign multiplies the minus sign in our homogeneous solution and cancels it out.   In particular, multiplying through by the integrating factor should make the left-hand side of the differential equation into the derivative of the product .    Consider the differential equation This equation is linear with and . We first find the integrating factor : (You may be wondering where the is. For an integrating factor, we just need one solution that works, not all of them. So we make life easier by agreeing to pick the one with .)  We now multiply our differential equation through by our integrating factor . We can now see that the left-hand side is the derivative of . We thus write We now solve for by multiplying through by and we find that We can use MATLAB to check our answer.       A General Formula  We can actually derive a formula for solving the first-order linear differential equation  Suppose we have found our integrating factor . As before, we multiply by : We can now solve the equation by integrating both sides with respect to . Dividing the final expression by gives the explicit solution A comforting aspect of this is that if we have an initial value problem of this type -- in other words, if we are also given an initial condition -- a unique solution (with uniquely determined, that is) exists in a rectangle containing the point .  Though is important theoretically as the general solution of the first-order linear differential equation , we in no way are telling you to memorize it. Just follow the steps from the examples in this section.    Let us now solve an initial value problem.   Solving an Initial Value Problem   Solve the initial value problem Also, determine the behavior of the solution as , both by looking at the formula for the solution and by using a slope field.    We first put by dividing through by . In doing this, we assume that . We have that and . Our integrating factor is (Remember that we can pick the simplest antiderivative of .) We multiply our equation by which leads to This implies that . Solving explicitly for yields The initial condition tells us that when , . Substituting this in above leads to and the particular solution is From this formula, we see that as . At , has a vertical asymptote.  We can use MATLAB to draw the slope field as well as the particular solution. To use the algorithm we used in earlier sections, we have to solve our differential equation for :   % 1. Define the grid for the slope field % Avoid x = 0 to prevent division by zero in the ODE x_vals = linspace(0.1, 5, 25); y_vals = linspace(-2, 5, 25); [X, Y] = meshgrid(x_vals, y_vals); % 2. Calculate the slope (dy\/dx) at each grid point % Using the rearranged ODE: y' = (cos(x) - y) \/ x S = (cos(X) - Y) .\/ X; % 3. Normalize the vector components to maintain uniform segment lengths L = sqrt(1 + S.^2); U = 1 .\/ L; V = S .\/ L; % 4. Create the plot window and draw the slope field figure; % Adjust the 0.5 scale factor to match your preference for segment length quiver(X, Y, U, V, 0.5, 'Color', [0.5, 0.5, 0.5], 'LineWidth', 1); hold on; % 5. Define the ODE function handle for numerical integration dydx = @(x, y) (cos(x) - y) \/ x; % 6. Solve the ODE numerically through the point (1,2) x_span = [1, 5]; % Forward integration path y0 = 2; % Initial condition at x = 1 [x_sol_fwd, y_sol_fwd] = ode45(dydx, x_span, y0); x_span_bwd = [1, 0.1]; % Backward integration path toward x = 0 [x_sol_bwd, y_sol_bwd] = ode45(dydx, x_span_bwd, y0); % Combine forward and backward results for a smooth, unbroken line x_sol = [flipud(x_sol_bwd); x_sol_fwd]; y_sol = [flipud(y_sol_bwd); y_sol_fwd]; % 7. Plot the solution curve and the initial point plot(x_sol, y_sol, 'r-', 'LineWidth', 2.5); % Solution curve in red plot(1, 2, 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8); % Target point in blue % 8. Annotations and Layout Adjustments title('Slope Field and Solution Curve for $x y'' + y = \\cos(x)$', 'Interpreter', 'latex', 'FontSize', 14); xlabel('$x$', 'Interpreter', 'latex', 'FontSize', 12); ylabel('$y$', 'Interpreter', 'latex', 'FontSize', 12); axis([0 5 -2 5]); grid on; legend('Slope Field', 'Solution Curve through (1,2)', 'Point (1,2)', 'Location', 'northeast'); hold off;           In-Class Work: Practice with Linear Equations    State whether the given differential equation is linear, separable, both, or neither.                                              In the following exercises, use the method for linear equations to find an explicit solution to the equation and describe what happens to the solution as . (Use MATLAB to draw slope fields as necessary.)      This equation is also separable.         Solve the initial value problems:          Application: Mixing Problems  Many applications involve the mixing of two or more substances together. We can model, for instance, how petroleum products are mixed together in a refinery, how various ingredients are mixed together in a brewery, or how greenhouse gases move across various layers of the earth's atmosphere.   Suppose that a 100-gallon tank initially contains 50 gallons of salt water containing five pounds of salt. A brine mixture containing one pound of salt per gallon flows into the top of the tank at a rate of 5 gallons per minute. A well mixed solution leaves the tank at rate of 4 gallons per minute. We wish to know how much salt is in the tank, when the tank is full.  To construct our model, we will let be the time (measured in minutes) and set up a differential equation that will measure how fast the amount of salt at time , , is changing. We have the initial condition , and where is the volume at time . The expression is the amount of salt in one gallon (the concentration of salt) at time . We have , since the tank starts with 50 gallons and five gallons are pumped into the tank per minute while four gallons leave the tank during the same time interval. (In other words, the liquid in the tank increases by one gallon every minute.) Thus, our differential equation becomes Our equation is linear since we can rewrite it as  An integrating factor for this differential equation is Therefore, if we multiply both sides of equation by , we get We can now apply the product rule to obtain Integrating both sides and simplifying gives us Our initial condition, tells us that and Thus, when the tank is full, and the amount of salt in the tank is pounds. We can use MATLAB to easily check the solution of our initial value problem.     A Mixing Problem   Suppose that a tank contains 1000 gallons of a solution consisting of 200 pounds of salt dissolved in water. Pure water is pumped into the tank at a rate of 6 gallons per minute. At the same time, the tank is drained at the same rate. Assume that the brine mixture is kept well stirred.     Set up an initial value problem to model the amount of salt in the tank at time .      How long will it take until there is only 20 pounds of salt left in the tank?       Financial Models  There are a number of problems in finance that can be modeled using differential equations. Let be the balance of an account at time and suppose that the account pays interest at a rate of percent per year compounded continuously. Suppose that we also allow withdrawals of dollars per year. The net increase in the balance between times and can now be described as Thus,  We can solve the equation by multiplying both sides of the equation by the integrating factor to obtain Integrating both sides of this equation, we have or If we know the initial balance in the account, say , we can determine . That is, or Thus, the solution to our initial value problem is   Suppose that your parents have established a money market account with a balance of $50,000 that they will use to help you pay for your college education. The account receives an average annual interest of 4%. You estimate that your tuition, room and board, and other college expenses to be $20,000 per year.  We model this financial situation with the differential equation Rewriting the differential equation as , our integrating factor becomes , and Thus, The solution to this initial value problem is  Your parents have been quite generous but have told you that you must be responsible for the balance of the cost of your education.    Paying for College   Suppose that new parents want to start a college fund for their child. They are willing to invest $2000 per year at a rate of 4%.     Find an initial value problem that models the parents' investment.      How much will be in the college fund when their child turns 18?      What would they need to invest per year to have $80,000 in the college fund when their child turns 18?        Finding General Solutions   Find the general solution for each equation in . Some of the equations may be separable.                                                                            Solving Initial Value Problems   Solve the initial value problems in .      ,        ,        ,        ,        ,        ,             ,           ,        ,           ,           A 600-liter tank initially contains 200 liters of water containing 10 kilograms of salt. Supposed that water containing 0.1 kilograms of salt per liter flows into the top of the tank at a rate of 10 liters per minute. The water in the tank is kept well mixed, and 5 liters per minute are removed from the bottom of the tank. How much salt is in the tank when the tank is full?    If is the amount of salt in the tank at time , we know that . The volume of the tank is . We can model the amount of salt in the tank at time with a differential equation, The resulting equation is a first order linear differential equation. An integrating factor for this equation is given by Multiplying both sides of the differential equation by , we have Integrating both sides of this equation, we obtain Using the initial condition , we can determine that or The tank is full at time , and the tank contains kilograms of salt when the tank is full.      A manager in a communications company contributes $2400 per year into her retirement fund by making many small deposits throughout the year. The fund grows at a rate of 3.5% per year compounded continuously. After 35 years, she retires and begins withdrawing from the retirement fund at a rate of $3500 per month. If she does not make any deposits after she retires, how long will her retirement fund last?    Divide the problem into two smaller problems one that deals with the situation before retirement and one that deals with the problem after retirement.     Exact Differential Equations   A first-order differential equation, , is exact if there exists a function such that   If and and have continuous first-order partial derivatives on some rectangle in the -plane, then prove that is exact if and only if  Show that the differential equation is exact.  Solve the differential equation .  In general, the differential equation is not exact. However, we can sometimes transform this equation into an exact equation by multiplying the equation by an integrating factor   Show that is integrating factor for .  Show that is integrating factor for .  Show that is integrating factor for .  Show that is integrating factor for .   Solve the differential equation .     For (e), rewrite the equation as and consider the integrating factor .     "
 },
 {
   "id": "sec-linear-eq-2",
@@ -1612,9 +1612,9 @@ var ptx_lunr_docs = [
   "body": "  Consider the differential equation This equation is linear with and . We first find the integrating factor : (You may be wondering where the is. For an integrating factor, we just need one solution that works, not all of them. So we make life easier by agreeing to pick the one with .)  We now multiply our differential equation through by our integrating factor . We can now see that the left-hand side is the derivative of . We thus write We now solve for by multiplying through by and we find that We can use MATLAB to check our answer.    "
 },
 {
-  "id": "subsubsec-gen-formula-2",
+  "id": "subsubsec-gen-formula-3",
   "level": "2",
-  "url": "sec-linear-eq.html#subsubsec-gen-formula-2",
+  "url": "sec-linear-eq.html#subsubsec-gen-formula-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1628,6 +1628,312 @@ var ptx_lunr_docs = [
   "number": "1.5.11",
   "title": "Solving an Initial Value Problem.",
   "body": " Solving an Initial Value Problem   Solve the initial value problem Also, determine the behavior of the solution as , both by looking at the formula for the solution and by using a slope field.    We first put by dividing through by . In doing this, we assume that . We have that and . Our integrating factor is (Remember that we can pick the simplest antiderivative of .) We multiply our equation by which leads to This implies that . Solving explicitly for yields The initial condition tells us that when , . Substituting this in above leads to and the particular solution is From this formula, we see that as . At , has a vertical asymptote.  We can use MATLAB to draw the slope field as well as the particular solution. To use the algorithm we used in earlier sections, we have to solve our differential equation for :   % 1. Define the grid for the slope field % Avoid x = 0 to prevent division by zero in the ODE x_vals = linspace(0.1, 5, 25); y_vals = linspace(-2, 5, 25); [X, Y] = meshgrid(x_vals, y_vals); % 2. Calculate the slope (dy\/dx) at each grid point % Using the rearranged ODE: y' = (cos(x) - y) \/ x S = (cos(X) - Y) .\/ X; % 3. Normalize the vector components to maintain uniform segment lengths L = sqrt(1 + S.^2); U = 1 .\/ L; V = S .\/ L; % 4. Create the plot window and draw the slope field figure; % Adjust the 0.5 scale factor to match your preference for segment length quiver(X, Y, U, V, 0.5, 'Color', [0.5, 0.5, 0.5], 'LineWidth', 1); hold on; % 5. Define the ODE function handle for numerical integration dydx = @(x, y) (cos(x) - y) \/ x; % 6. Solve the ODE numerically through the point (1,2) x_span = [1, 5]; % Forward integration path y0 = 2; % Initial condition at x = 1 [x_sol_fwd, y_sol_fwd] = ode45(dydx, x_span, y0); x_span_bwd = [1, 0.1]; % Backward integration path toward x = 0 [x_sol_bwd, y_sol_bwd] = ode45(dydx, x_span_bwd, y0); % Combine forward and backward results for a smooth, unbroken line x_sol = [flipud(x_sol_bwd); x_sol_fwd]; y_sol = [flipud(y_sol_bwd); y_sol_fwd]; % 7. Plot the solution curve and the initial point plot(x_sol, y_sol, 'r-', 'LineWidth', 2.5); % Solution curve in red plot(1, 2, 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8); % Target point in blue % 8. Annotations and Layout Adjustments title('Slope Field and Solution Curve for $x y'' + y = \\cos(x)$', 'Interpreter', 'latex', 'FontSize', 14); xlabel('$x$', 'Interpreter', 'latex', 'FontSize', 12); ylabel('$y$', 'Interpreter', 'latex', 'FontSize', 12); axis([0 5 -2 5]); grid on; legend('Slope Field', 'Solution Curve through (1,2)', 'Point (1,2)', 'Location', 'northeast'); hold off;       "
+},
+{
+  "id": "ws-linear-eqs-2",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-2",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.1",
+  "title": "",
+  "body": "  State whether the given differential equation is linear, separable, both, or neither.                                             "
+},
+{
+  "id": "ws-linear-eqs-4",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-4",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.2",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-linear-eqs-5",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-5",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.3",
+  "title": "",
+  "body": " This equation is also separable.  "
+},
+{
+  "id": "ws-linear-eqs-6",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-6",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.4",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-linear-eqs-7",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-7",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.5",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-linear-eqs-9",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-9",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.6",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "ws-linear-eqs-10",
+  "level": "2",
+  "url": "sec-linear-eq.html#ws-linear-eqs-10",
+  "type": "Worksheet Exercise",
+  "number": "1.5.2.7",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-app-mixing-probs-3",
+  "level": "2",
+  "url": "sec-linear-eq.html#subsec-app-mixing-probs-3",
+  "type": "Example",
+  "number": "1.5.13",
+  "title": "",
+  "body": " Suppose that a 100-gallon tank initially contains 50 gallons of salt water containing five pounds of salt. A brine mixture containing one pound of salt per gallon flows into the top of the tank at a rate of 5 gallons per minute. A well mixed solution leaves the tank at rate of 4 gallons per minute. We wish to know how much salt is in the tank, when the tank is full.  To construct our model, we will let be the time (measured in minutes) and set up a differential equation that will measure how fast the amount of salt at time , , is changing. We have the initial condition , and where is the volume at time . The expression is the amount of salt in one gallon (the concentration of salt) at time . We have , since the tank starts with 50 gallons and five gallons are pumped into the tank per minute while four gallons leave the tank during the same time interval. (In other words, the liquid in the tank increases by one gallon every minute.) Thus, our differential equation becomes Our equation is linear since we can rewrite it as  An integrating factor for this differential equation is Therefore, if we multiply both sides of equation by , we get We can now apply the product rule to obtain Integrating both sides and simplifying gives us Our initial condition, tells us that and Thus, when the tank is full, and the amount of salt in the tank is pounds. We can use MATLAB to easily check the solution of our initial value problem.   "
+},
+{
+  "id": "subsec-app-mixing-probs-4",
+  "level": "2",
+  "url": "sec-linear-eq.html#subsec-app-mixing-probs-4",
+  "type": "Activity",
+  "number": "1.5.14",
+  "title": "A Mixing Problem.",
+  "body": " A Mixing Problem   Suppose that a tank contains 1000 gallons of a solution consisting of 200 pounds of salt dissolved in water. Pure water is pumped into the tank at a rate of 6 gallons per minute. At the same time, the tank is drained at the same rate. Assume that the brine mixture is kept well stirred.     Set up an initial value problem to model the amount of salt in the tank at time .      How long will it take until there is only 20 pounds of salt left in the tank?    "
+},
+{
+  "id": "subsec-financial-models-4",
+  "level": "2",
+  "url": "sec-linear-eq.html#subsec-financial-models-4",
+  "type": "Example",
+  "number": "1.5.15",
+  "title": "",
+  "body": " Suppose that your parents have established a money market account with a balance of $50,000 that they will use to help you pay for your college education. The account receives an average annual interest of 4%. You estimate that your tuition, room and board, and other college expenses to be $20,000 per year.  We model this financial situation with the differential equation Rewriting the differential equation as , our integrating factor becomes , and Thus, The solution to this initial value problem is  Your parents have been quite generous but have told you that you must be responsible for the balance of the cost of your education.  "
+},
+{
+  "id": "subsec-financial-models-5",
+  "level": "2",
+  "url": "sec-linear-eq.html#subsec-financial-models-5",
+  "type": "Activity",
+  "number": "1.5.16",
+  "title": "Paying for College.",
+  "body": " Paying for College   Suppose that new parents want to start a college fund for their child. They are willing to invest $2000 per year at a rate of 4%.     Find an initial value problem that models the parents' investment.      How much will be in the college fund when their child turns 18?      What would they need to invest per year to have $80,000 in the college fund when their child turns 18?    "
+},
+{
+  "id": "ex-group-find-gen-solns-3",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-3",
+  "type": "Exercise",
+  "number": "1.5.5.1",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-4",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-4",
+  "type": "Exercise",
+  "number": "1.5.5.2",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-5",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-5",
+  "type": "Exercise",
+  "number": "1.5.5.3",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-6",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-6",
+  "type": "Exercise",
+  "number": "1.5.5.4",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-7",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-7",
+  "type": "Exercise",
+  "number": "1.5.5.5",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-8",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-8",
+  "type": "Exercise",
+  "number": "1.5.5.6",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-9",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-9",
+  "type": "Exercise",
+  "number": "1.5.5.7",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-10",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-10",
+  "type": "Exercise",
+  "number": "1.5.5.8",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-11",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-11",
+  "type": "Exercise",
+  "number": "1.5.5.9",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-find-gen-solns-12",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-find-gen-solns-12",
+  "type": "Exercise",
+  "number": "1.5.5.10",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "ex-group-solve-lin-ivps-3",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-3",
+  "type": "Exercise",
+  "number": "1.5.5.11",
+  "title": "",
+  "body": "   ,    "
+},
+{
+  "id": "ex-group-solve-lin-ivps-4",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-4",
+  "type": "Exercise",
+  "number": "1.5.5.12",
+  "title": "",
+  "body": "   ,    "
+},
+{
+  "id": "ex-group-solve-lin-ivps-5",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-5",
+  "type": "Exercise",
+  "number": "1.5.5.13",
+  "title": "",
+  "body": "   ,    "
+},
+{
+  "id": "ex-group-solve-lin-ivps-6",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-6",
+  "type": "Exercise",
+  "number": "1.5.5.14",
+  "title": "",
+  "body": "   ,    "
+},
+{
+  "id": "ex-group-solve-lin-ivps-7",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-7",
+  "type": "Exercise",
+  "number": "1.5.5.15",
+  "title": "",
+  "body": "   ,    "
+},
+{
+  "id": "ex-group-solve-lin-ivps-8",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-8",
+  "type": "Exercise",
+  "number": "1.5.5.16",
+  "title": "",
+  "body": "   ,         "
+},
+{
+  "id": "ex-group-solve-lin-ivps-9",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-9",
+  "type": "Exercise",
+  "number": "1.5.5.17",
+  "title": "",
+  "body": "   ,       "
+},
+{
+  "id": "ex-group-solve-lin-ivps-10",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-10",
+  "type": "Exercise",
+  "number": "1.5.5.18",
+  "title": "",
+  "body": "   ,    "
+},
+{
+  "id": "ex-group-solve-lin-ivps-11",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-11",
+  "type": "Exercise",
+  "number": "1.5.5.19",
+  "title": "",
+  "body": "   ,       "
+},
+{
+  "id": "ex-group-solve-lin-ivps-12",
+  "level": "2",
+  "url": "sec-linear-eq.html#ex-group-solve-lin-ivps-12",
+  "type": "Exercise",
+  "number": "1.5.5.20",
+  "title": "",
+  "body": "   ,       "
+},
+{
+  "id": "exercises-lin-eqs-3",
+  "level": "2",
+  "url": "sec-linear-eq.html#exercises-lin-eqs-3",
+  "type": "Exercise",
+  "number": "1.5.5.21",
+  "title": "",
+  "body": "  A 600-liter tank initially contains 200 liters of water containing 10 kilograms of salt. Supposed that water containing 0.1 kilograms of salt per liter flows into the top of the tank at a rate of 10 liters per minute. The water in the tank is kept well mixed, and 5 liters per minute are removed from the bottom of the tank. How much salt is in the tank when the tank is full?    If is the amount of salt in the tank at time , we know that . The volume of the tank is . We can model the amount of salt in the tank at time with a differential equation, The resulting equation is a first order linear differential equation. An integrating factor for this equation is given by Multiplying both sides of the differential equation by , we have Integrating both sides of this equation, we obtain Using the initial condition , we can determine that or The tank is full at time , and the tank contains kilograms of salt when the tank is full.   "
+},
+{
+  "id": "exercises-lin-eqs-4",
+  "level": "2",
+  "url": "sec-linear-eq.html#exercises-lin-eqs-4",
+  "type": "Exercise",
+  "number": "1.5.5.22",
+  "title": "",
+  "body": "  A manager in a communications company contributes $2400 per year into her retirement fund by making many small deposits throughout the year. The fund grows at a rate of 3.5% per year compounded continuously. After 35 years, she retires and begins withdrawing from the retirement fund at a rate of $3500 per month. If she does not make any deposits after she retires, how long will her retirement fund last?    Divide the problem into two smaller problems one that deals with the situation before retirement and one that deals with the problem after retirement.   "
+},
+{
+  "id": "exercises-lin-eqs-5",
+  "level": "2",
+  "url": "sec-linear-eq.html#exercises-lin-eqs-5",
+  "type": "Exercise",
+  "number": "1.5.5.23",
+  "title": "Exact Differential Equations.",
+  "body": " Exact Differential Equations   A first-order differential equation, , is exact if there exists a function such that   If and and have continuous first-order partial derivatives on some rectangle in the -plane, then prove that is exact if and only if  Show that the differential equation is exact.  Solve the differential equation .  In general, the differential equation is not exact. However, we can sometimes transform this equation into an exact equation by multiplying the equation by an integrating factor   Show that is integrating factor for .  Show that is integrating factor for .  Show that is integrating factor for .  Show that is integrating factor for .   Solve the differential equation .     For (e), rewrite the equation as and consider the integrating factor .   "
 }
 ]
 

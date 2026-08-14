@@ -215,19 +215,57 @@ sagecell.makeSagecell({
 </li>
 <li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-linear-eq.html" class="internal"><span class="codenumber">1.5</span> <span class="title">First-Order Linear Equations</span></a></div>
-<ul class="structural toc-item-list active" id="ptx-toc-group-sec-linear-eq"><li class="toc-item toc-subsection">
+<ul class="structural toc-item-list active" id="ptx-toc-group-sec-linear-eq">
+<li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec-linear-eq.html#subsec-solve-linear-1" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Solving First-Order Linear Differential Equations</span></a></div>
 <ul id="ptx-toc-group-subsec-solve-linear-1" class="structural toc-item-list">
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-linear-eq.html#subsubsec-homogeneous-linear-1" class="internal"><span class="codenumber">1.5.1.1</span> <span class="title">The Homogeneous Case</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-linear-eq.html#subsubsec-nonhomogeneous-linear-1" class="internal"><span class="codenumber">1.5.1.2</span> <span class="title">The Non-homogeneous Case</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-linear-eq.html#subsubsec-gen-formula" class="internal"><span class="codenumber">1.5.1.3</span> <span class="title">A General Formula</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-linear-eq.html#ws-linear-eqs" class="internal"><span class="codenumber">1.5.2</span> <span class="title">In-Class Work:  Practice with Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linear-eq.html#subsec-app-mixing-probs" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Application: Mixing Problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linear-eq.html#subsec-financial-models" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Financial Models</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-linear-eq.html#exercises-lin-eqs" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<div class="print-preview-header">
+<h2 class="print-preview">Print preview</h2>
+<div class="print-controls">
+<div class="print-controls-toggles">
+<form class="papersize-select" id="papersize-select">
+<span class="name">Paper size</span><label><input type="radio" name="papersize" value="a4">A4
+        </label><label><input type="radio" name="papersize" value="letter">Letter
+        </label>
+</form>
+<details class="print-options"><summary>Additional printing options</summary><div class="hide-solutions-options">
+<div class="hide-option">
+<label for="hide-hint-checkbox">Hide hints</label><input type="checkbox" id="hide-hint-checkbox">
+</div>
+<div class="hide-option">
+<label for="hide-solution-checkbox">Hide solutions</label><input type="checkbox" id="hide-solution-checkbox">
+</div>
+</div>
+<div class="header-footer-options">
+<div class="header-option">
+<span class="title">Print headers</span><label>First page<input type="checkbox" id="print-first-page-header-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-header-checkbox" checked></label>
+</div>
+<div class="footer-option">
+<span class="title">Print footers</span><label>First page<input type="checkbox" id="print-first-page-footer-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-footer-checkbox" checked></label>
+</div>
+</div>
+<div class="highlight-workspace-option">
+<label for="highlight-workspace-checkbox">Highlight workspace</label><input type="checkbox" id="highlight-workspace-checkbox">
+</div></details>
+</div>
+<button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
+</div>
+</div>
 <section class="section" id="sec-linear-eq">
 <h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">First-Order Linear Equations</span>
@@ -277,39 +315,35 @@ a_1(x)y'(x) + a_0(x) y(x) = b(x)\tag{1.5.1}
 </div>
 <div class="para" id="sec-linear-eq-3-2">We call the equation <dfn class="terminology">homogeneous</dfn> if the function on the right-hand side <span class="process-math">\(f(x)=0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-linear-eq-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sec-linear-eq-3-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
+<article class="example example-like" id="sec-linear-eq-3-3"><h2 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Is it linear?</span>
-</h2></summary>
-<article class="example example-like knowl__content">
+</h2>
 <div class="para" id="sec-linear-eq-3-3-2-1">The equation <span class="process-math">\(y'=-3y+\sin x\)</span> is linear. We can reorganize the equation into the standard form <span class="process-math">\(y'+3y=\sin x\)</span> and then we can see that <span class="process-math">\(p(x) = 3\)</span> and <span class="process-math">\(f(x) = \sin x\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-linear-eq-3-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.1: Is it linear?"><a tabindex="-1" href="#sec-linear-eq-3-3" title="Copy heading and permalink for Example 1.5.1: Is it linear?" aria-label="Copy heading and permalink for Example 1.5.1: Is it linear?">🔗</a></div>
-</article></details>
-<details id="sec-linear-eq-3-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
+</article>
+<article class="example example-like" id="sec-linear-eq-3-4"><h2 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Is it linear?</span>
-</h2></summary>
-<article class="example example-like knowl__content">
+</h2>
 <div class="para" id="sec-linear-eq-3-4-2-1">The equation <span class="process-math">\(y'=y\sin x + x^3\)</span> is linear. We can reorganize the equation into standard form and obtain <span class="process-math">\(y'-(\sin x)y = x^3\text{.}\)</span> We then have that <span class="process-math">\(p(x) = 
 -\sin y\)</span> and <span class="process-math">\(f(x) = x^3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-linear-eq-3-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.2: Is it linear?"><a tabindex="-1" href="#sec-linear-eq-3-4" title="Copy heading and permalink for Example 1.5.2: Is it linear?" aria-label="Copy heading and permalink for Example 1.5.2: Is it linear?">🔗</a></div>
-</article></details>
-<details id="sec-linear-eq-3-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
+</article>
+<article class="example example-like" id="sec-linear-eq-3-5"><h2 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Is it linear?</span>
-</h2></summary>
-<article class="example example-like knowl__content">
+</h2>
 <div class="para" id="sec-linear-eq-3-5-2-1">The equation <span class="process-math">\(4y'+e^y x = 0\)</span> is <em class="emphasis">not linear</em>. Although we can rewrite the equation in the form <span class="process-math">\(y' + \frac{x}4 e^y = 0\text{,}\)</span> the dependent variable <span class="process-math">\(y\)</span> is bound up in an exponential (<span class="process-math">\(e^y\)</span>).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-linear-eq-3-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.3: Is it linear?"><a tabindex="-1" href="#sec-linear-eq-3-5" title="Copy heading and permalink for Example 1.5.3: Is it linear?" aria-label="Copy heading and permalink for Example 1.5.3: Is it linear?">🔗</a></div>
-</article></details>
-<details id="sec-linear-eq-3-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
+</article>
+<article class="example example-like" id="sec-linear-eq-3-6"><h2 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Is it linear?</span>
-</h2></summary>
-<article class="example example-like knowl__content">
+</h2>
 <div class="para" id="sec-linear-eq-3-6-2-1">The equation <span class="process-math">\(yy'=2x\)</span> is <em class="emphasis">not linear</em> because the dependent variable <span class="process-math">\(y\)</span> and its derivative <span class="process-math">\(y'\)</span> are multiplied together.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-linear-eq-3-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.4: Is it linear?"><a tabindex="-1" href="#sec-linear-eq-3-6" title="Copy heading and permalink for Example 1.5.4: Is it linear?" aria-label="Copy heading and permalink for Example 1.5.4: Is it linear?">🔗</a></div>
-</article></details></section>
+</article></section>
 <section class="subsection" id="subsec-solve-linear-1">
 <h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving First-Order Linear Differential Equations</span>
@@ -361,10 +395,9 @@ y = e^{-\int p(x)\,dx}\tag{1.5.3}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsec-homogeneous-linear-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="subsubsec-homogeneous-linear-1-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<article class="example example-like" id="subsubsec-homogeneous-linear-1-5"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4></summary>
-<article class="example example-like knowl__content">
+</h4>
 <div class="para logical" id="subsubsec-homogeneous-linear-1-5-1">
 <div class="para">Suppose we wish to solve the homogeneous first-order linear differential equation (that’s a mouthful!)</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-lin-homogeneous-sol.html" id="subsubsec-homogeneous-linear-1-5-1-1">
@@ -406,7 +439,7 @@ y' + (\cos x)y = -A\cos x\, e^{-\sin x} + (\cos x)Ae^{-\sin x} \equiv 0,
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsec-homogeneous-linear-1-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.6"><a tabindex="-1" href="#subsubsec-homogeneous-linear-1-5" title="Copy heading and permalink for Example 1.5.6" aria-label="Copy heading and permalink for Example 1.5.6">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Subsubsection 1.5.1.1: The Homogeneous Case"><a tabindex="-1" href="#subsubsec-homogeneous-linear-1" title="Copy heading and permalink for Subsubsection 1.5.1.1: The Homogeneous Case" aria-label="Copy heading and permalink for Subsubsection 1.5.1.1: The Homogeneous Case">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection 1.5.1.1: The Homogeneous Case"><a tabindex="-1" href="#subsubsec-homogeneous-linear-1" title="Copy heading and permalink for Subsubsection 1.5.1.1: The Homogeneous Case" aria-label="Copy heading and permalink for Subsubsection 1.5.1.1: The Homogeneous Case">🔗</a></div>
 </section>
 <section class="subsubsection" id="subsubsec-nonhomogeneous-linear-1">
 <h3 class="heading hide-type">
@@ -428,10 +461,9 @@ y' + (\cos x)y = -A\cos x\, e^{-\sin x} + (\cos x)Ae^{-\sin x} \equiv 0,
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Remark 1.5.7: Product Rule"><a tabindex="-1" href="#subsubsec-nonhomogeneous-linear-1-3" title="Copy heading and permalink for Remark 1.5.7: Product Rule" aria-label="Copy heading and permalink for Remark 1.5.7: Product Rule">🔗</a></div>
 </article>
-<details id="example-linear-1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<article class="example example-like" id="example-linear-1"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What we’re trying to do here.</span>
-</h4></summary>
-<article class="example example-like knowl__content">
+</h4>
 <div class="para" id="example-linear-1-2">Let us walk through an example to illustrate the technique that we’re going to use here.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-linear-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="example-linear-1-3">
@@ -471,7 +503,7 @@ e^{2x} y = \frac{x^2}{2} + C,
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-linear-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.8: What we’re trying to do here"><a tabindex="-1" href="#example-linear-1" title="Copy heading and permalink for Example 1.5.8: What we’re trying to do here" aria-label="Copy heading and permalink for Example 1.5.8: What we’re trying to do here">🔗</a></div>
-</article></details>
+</article>
 <div class="para" id="subsubsec-nonhomogeneous-linear-1-5">The example showed the technique we will use to solve non-homogeneous first-order linear equations, but left one burning question: <em class="emphasis">How did we pick the function <span class="process-math">\(\mu(x)\)</span> that we multiplied the entire equation by?</em>. The function <span class="process-math">\(\mu\)</span> is called an <dfn class="terminology">integrating factor</dfn>. The idea is that multiplying the entire equation through by <span class="process-math">\(\mu\)</span> should give us a perfect product rule derivative on the left-hand side.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsec-nonhomogeneous-linear-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsubsec-nonhomogeneous-linear-1-6">
@@ -507,10 +539,9 @@ e^{2x} y = \frac{x^2}{2} + C,
 </article>
 <div class="para" id="subsubsec-nonhomogeneous-linear-1-8">In particular, multiplying through by the integrating factor <span class="process-math">\(\mu\)</span> should make the left-hand side of the differential equation into the derivative of the product <span class="process-math">\(\mu\,y\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsec-nonhomogeneous-linear-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="subsubsec-nonhomogeneous-linear-1-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<article class="example example-like" id="subsubsec-nonhomogeneous-linear-1-9"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4></summary>
-<article class="example example-like knowl__content">
+</h4>
 <div class="para logical" id="subsubsec-nonhomogeneous-linear-1-9-1-1">
 <div class="para">Consider the differential equation</div>
 <div class="displaymath process-math" id="subsubsec-nonhomogeneous-linear-1-9-1-1-1">
@@ -565,7 +596,7 @@ ySol(x) = dsolve(de);
 disp(ySol(x))
 </script></div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.10"><a tabindex="-1" href="#subsubsec-nonhomogeneous-linear-1-9" title="Copy heading and permalink for Example 1.5.10" aria-label="Copy heading and permalink for Example 1.5.10">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Subsubsection 1.5.1.2: The Non-homogeneous Case"><a tabindex="-1" href="#subsubsec-nonhomogeneous-linear-1" title="Copy heading and permalink for Subsubsection 1.5.1.2: The Non-homogeneous Case" aria-label="Copy heading and permalink for Subsubsection 1.5.1.2: The Non-homogeneous Case">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection 1.5.1.2: The Non-homogeneous Case"><a tabindex="-1" href="#subsubsec-nonhomogeneous-linear-1" title="Copy heading and permalink for Subsubsection 1.5.1.2: The Non-homogeneous Case" aria-label="Copy heading and permalink for Subsubsection 1.5.1.2: The Non-homogeneous Case">🔗</a></div>
 </section>
 <section class="subsubsection" id="subsubsec-gen-formula">
 <h3 class="heading hide-type">
@@ -574,21 +605,21 @@ disp(ySol(x))
 <div class="para logical" id="subsubsec-gen-formula-2">
 <div class="para">We can actually derive a formula for solving the first-order linear differential equation <a href="sec-linear-eq.html#eq-first-linear-2" class="xref" data-knowl="./knowl/xref/eq-first-linear-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.2">(1.5.2)</a>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-linear-solution.html" id="subsubsec-gen-formula-2-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html" id="subsubsec-gen-formula-2-2">
 \begin{equation*}
 y'+p(x)y=f(x).
 \end{equation*}
 </div>
 <div class="para">Suppose we have found our integrating factor <span class="process-math">\(\mu(x)=\int p(x)\,dx\text{.}\)</span> As before, we multiply <a href="sec-linear-eq.html#eq-first-linear-2" class="xref" data-knowl="./knowl/xref/eq-first-linear-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.2">(1.5.2)</a> by <span class="process-math">\(\mu(x)\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-linear-solution.html" id="subsubsec-gen-formula-2-6">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html" id="subsubsec-gen-formula-2-6">
 \begin{equation*}
 \mu(x)\left(y'+p(x)y\right) = \mu(x)f(x).
 \end{equation*}
 </div>
 <div class="para">We can now solve the equation by integrating both sides with respect to <span class="process-math">\(x\text{.}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-linear-solution.html" id="subsubsec-gen-formula-2-8">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html" id="subsubsec-gen-formula-2-8">
 \begin{gather*}
 \frac{d}{dx}(\mu(x)y) = \mu(x)f(x)\\
 \int \frac{d}{dx}(\mu(x) y)\,dx = \int \mu(x) f(x)\,dx\\
@@ -596,23 +627,25 @@ y'+p(x)y=f(x).
 \end{gather*}
 </div>
 <div class="para">Dividing the final expression by <span class="process-math">\(\mu(x)\)</span> gives the explicit solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-linear-solution.html" id="eq-linear-solution">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-first-linear-2.html ./knowl/xref/eq-first-linear-2.html" id="eq-linear-solution">
 \begin{equation}
 \boxed{y=\frac1{\mu(x)}\left[\int \mu(x) f(x)\,dx + C\right]}.\tag{1.5.4}
 \end{equation}
 </div>
-<div class="para">The equation <a href="sec-linear-eq.html#eq-linear-solution" class="xref" data-knowl="./knowl/xref/eq-linear-solution.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.4">(1.5.4)</a> is important theoretically as the <dfn class="terminology">general solution of the first-order linear differential equation</dfn>, we in no way are telling you to memorize it. Just follow the steps from the examples in this section.</div>
+<div class="para">A comforting aspect of this is that if we have an initial value problem of this type -- in other words, if we are also given an initial condition <span class="process-math">\(y(x_0)=y_0\)</span> -- a unique solution (with <span class="process-math">\(C\)</span> uniquely determined, that is) exists in a rectangle containing the point <span class="process-math">\((x_0, y_0)\text{.}\)</span>
+</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsec-gen-formula-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsubsec-gen-formula-3">Though <a href="sec-linear-eq.html#eq-linear-solution" class="xref" data-knowl="./knowl/xref/eq-linear-solution.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.4">(1.5.4)</a> is important theoretically as the <dfn class="terminology">general solution of the first-order linear differential equation</dfn>, we in no way are telling you to memorize it. Just follow the steps from the examples in this section.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsec-gen-formula-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsubsection 1.5.1.3: A General Formula"><a tabindex="-1" href="#subsubsec-gen-formula" title="Copy heading and permalink for Subsubsection 1.5.1.3: A General Formula" aria-label="Copy heading and permalink for Subsubsection 1.5.1.3: A General Formula">🔗</a></div>
 </section>
 <section class="conclusion" id="subsec-solve-linear-1-6">
 <div class="para" id="subsec-solve-linear-1-6-1">Let us now solve an initial value problem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-solve-linear-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="subsec-solve-linear-1-6-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<article class="example example-like" id="subsec-solve-linear-1-6-2"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving an Initial Value Problem.</span>
-</h3></summary>
-<article class="example example-like knowl__content">
+</h3>
 <div class="para logical" id="subsec-solve-linear-1-6-2-2-1">
 <div class="para">Solve the initial value problem</div>
 <div class="displaymath process-math" id="eq-linear-ivp">
@@ -732,7 +765,672 @@ hold off;
 </div></details>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.5.11: Solving an Initial Value Problem"><a tabindex="-1" href="#subsec-solve-linear-1-6-2" title="Copy heading and permalink for Example 1.5.11: Solving an Initial Value Problem" aria-label="Copy heading and permalink for Example 1.5.11: Solving an Initial Value Problem">🔗</a></div>
-</article></details></section><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.1: Solving First-Order Linear Differential Equations"><a tabindex="-1" href="#subsec-solve-linear-1" title="Copy heading and permalink for Subsection 1.5.1: Solving First-Order Linear Differential Equations" aria-label="Copy heading and permalink for Subsection 1.5.1: Solving First-Order Linear Differential Equations">🔗</a></div>
+</article></section><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.1: Solving First-Order Linear Differential Equations"><a tabindex="-1" href="#subsec-solve-linear-1" title="Copy heading and permalink for Subsection 1.5.1: Solving First-Order Linear Differential Equations" aria-label="Copy heading and permalink for Subsection 1.5.1: Solving First-Order Linear Differential Equations">🔗</a></div>
+</section>
+<section class="worksheet" id="ws-linear-eqs" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h2 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">In-Class Work:  Practice with Linear Equations</span><div class="print-links"><a href="?printpreview=ws-linear-eqs" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h2>
+<article class="exercise exercise-like" id="ws-linear-eqs-2"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="ws-linear-eqs-2-1">
+<div class="para" id="ws-linear-eqs-2-1-1">State whether the given differential equation is linear, separable, both, or neither.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="ws-linear-eqs-2-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="ws-linear-eqs-2-2-1-1">
+<span class="process-math">\(y'=xy\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.2.1.a"><a tabindex="-1" href="#ws-linear-eqs-2-2" title="Copy heading and permalink for Task 1.5.2.1.a" aria-label="Copy heading and permalink for Task 1.5.2.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="ws-linear-eqs-2-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="ws-linear-eqs-2-3-1-1">
+<span class="process-math">\(y'=(\cos x)y\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.2.1.b"><a tabindex="-1" href="#ws-linear-eqs-2-3" title="Copy heading and permalink for Task 1.5.2.1.b" aria-label="Copy heading and permalink for Task 1.5.2.1.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="ws-linear-eqs-2-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="ws-linear-eqs-2-4-1-1">
+<span class="process-math">\(y'=x^2\sin y\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.2.1.c"><a tabindex="-1" href="#ws-linear-eqs-2-4" title="Copy heading and permalink for Task 1.5.2.1.c" aria-label="Copy heading and permalink for Task 1.5.2.1.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="ws-linear-eqs-2-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="ws-linear-eqs-2-5-1-1">
+<span class="process-math">\(y'=x+y\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.2.1.d"><a tabindex="-1" href="#ws-linear-eqs-2-5" title="Copy heading and permalink for Task 1.5.2.1.d" aria-label="Copy heading and permalink for Task 1.5.2.1.d">🔗</a></div>
+</article>
+<article class="task exercise-like" id="ws-linear-eqs-2-6"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="ws-linear-eqs-2-6-1-1">
+<span class="process-math">\(y'=\dfrac{1}{1+e^{-y}}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.2.1.e"><a tabindex="-1" href="#ws-linear-eqs-2-6" title="Copy heading and permalink for Task 1.5.2.1.e" aria-label="Copy heading and permalink for Task 1.5.2.1.e">🔗</a></div>
+</article>
+<article class="task exercise-like" id="ws-linear-eqs-2-7"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<div class="para" id="ws-linear-eqs-2-7-1-1">
+<span class="process-math">\(y' = e^x y + e^x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-2-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.2.1.f"><a tabindex="-1" href="#ws-linear-eqs-2-7" title="Copy heading and permalink for Task 1.5.2.1.f" aria-label="Copy heading and permalink for Task 1.5.2.1.f">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.1"><a tabindex="-1" href="#ws-linear-eqs-2" title="Copy heading and permalink for Worksheet Exercise 1.5.2.1" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.1">🔗</a></div>
+</article>
+<div class="para" id="ws-linear-eqs-3">In the following exercises, use the method for linear equations to find an explicit solution to the equation and describe what happens to the solution as <span class="process-math">\(x\to\infty\text{.}\)</span> (Use MATLAB to draw slope fields as necessary.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ws-linear-eqs-4"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ws-linear-eqs-4-1">
+<span class="process-math">\(y' + 2y = e^{-2x}\sin x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.2"><a tabindex="-1" href="#ws-linear-eqs-4" title="Copy heading and permalink for Worksheet Exercise 1.5.2.2" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-linear-eqs-5"><h3 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ws-linear-eqs-5-1">
+<span class="process-math">\(y' = 2y + 1 \quad\)</span><em class="emphasis">This equation is also separable.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.3"><a tabindex="-1" href="#ws-linear-eqs-5" title="Copy heading and permalink for Worksheet Exercise 1.5.2.3" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-linear-eqs-6"><h3 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ws-linear-eqs-6-1">
+<span class="process-math">\(xy' - 2y = 1+x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.4"><a tabindex="-1" href="#ws-linear-eqs-6" title="Copy heading and permalink for Worksheet Exercise 1.5.2.4" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-linear-eqs-7"><h3 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ws-linear-eqs-7-1">
+<span class="process-math">\(xy' = 2y + x^2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.5"><a tabindex="-1" href="#ws-linear-eqs-7" title="Copy heading and permalink for Worksheet Exercise 1.5.2.5" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.5">🔗</a></div>
+</article>
+<div class="para" id="ws-linear-eqs-8">Solve the initial value problems:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ws-linear-eqs-9"><h3 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ws-linear-eqs-9-1">
+<span class="process-math">\(y' = y + 2e^{2x}, \quad y(0)=1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.6"><a tabindex="-1" href="#ws-linear-eqs-9" title="Copy heading and permalink for Worksheet Exercise 1.5.2.6" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-linear-eqs-10"><h3 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="ws-linear-eqs-10-1">
+<span class="process-math">\(xy' + y = 3x^2 - x, \quad y(1) = 0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-linear-eqs-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.5.2.7"><a tabindex="-1" href="#ws-linear-eqs-10" title="Copy heading and permalink for Worksheet Exercise 1.5.2.7" aria-label="Copy heading and permalink for Worksheet Exercise 1.5.2.7">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Worksheet 1.5.2: In-Class Work:  Practice with Linear Equations"><a tabindex="-1" href="#ws-linear-eqs" title="Copy heading and permalink for Worksheet 1.5.2: In-Class Work:  Practice with Linear Equations" aria-label="Copy heading and permalink for Worksheet 1.5.2: In-Class Work:  Practice with Linear Equations">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-app-mixing-probs">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Application: Mixing Problems</span>
+</h2>
+<div class="para" id="subsec-app-mixing-probs-2">Many applications involve the mixing of two or more substances together. We can model, for instance, how petroleum products are mixed together in a refinery, how various ingredients are mixed together in a brewery, or how greenhouse gases move across various layers of the earth’s atmosphere.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-app-mixing-probs-3"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="subsec-app-mixing-probs-3-1">Suppose that a 100-gallon tank initially contains 50 gallons of salt water containing five pounds of salt. A brine mixture containing one pound of salt per gallon flows into the top of the tank at a rate of 5 gallons per minute. A well mixed solution leaves the tank at rate of 4 gallons per minute. We wish to know how much salt is in the tank, when the tank is full.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-app-mixing-probs-3-2">
+<div class="para">To construct our model, we will let <span class="process-math">\(t\)</span> be the time (measured in minutes) and set up a differential equation that will measure how fast the amount of salt at time <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(x(t)\text{,}\)</span> is changing. We have the initial condition <span class="process-math">\(x(0) = 5\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="subsec-app-mixing-probs-3-2-5">
+\begin{align*}
+\frac{dx}{dt} &amp; = \text{rate of salt flowing in} - \text{rate of salt flowing out}\\
+&amp; = \underbrace{\left(5\, \frac{\text{gal}}{\text{min}}\right)\left(1\,\frac{\text{lb}}{\text{gal}}\right) }_{\text{in flow}} - \underbrace{\left(4 \,\frac{\text{gal}}{\text{min}}\right) \left( \frac{x\,\text{lb}}{V(t)\,\text{gal}}\right)}_{\text{out flow}},
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(V(t)\)</span> is the volume at time <span class="process-math">\(t\text{.}\)</span> The expression <span class="process-math">\(x/V(t)\)</span> is the amount of salt in one gallon (the <dfn class="terminology">concentration</dfn> of salt) at time <span class="process-math">\(t\text{.}\)</span> We have <span class="process-math">\(V(t) = 50 + t\text{,}\)</span> since the tank starts with 50 gallons and five gallons are pumped into the tank per minute while four gallons leave the tank during the same time interval. (In other words, the liquid in the tank increases by one gallon every minute.) Thus, our differential equation becomes</div>
+<div class="displaymath process-math" id="subsec-app-mixing-probs-3-2-12">
+\begin{equation*}
+\frac{dx}{dt} = 5 - \frac{4}{50 + t}x.
+\end{equation*}
+</div>
+<div class="para">Our equation is linear since we can rewrite it as</div>
+<div class="displaymath process-math" id="firstlook05-equation-mixing">
+\begin{equation}
+\frac{dx}{dt} + \frac{4}{50 + t} x = 5.\tag{1.5.6}
+\end{equation}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-app-mixing-probs-3-3">
+<div class="para">An integrating factor for this differential equation is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook05-equation-mixing.html" id="subsec-app-mixing-probs-3-3-1">
+\begin{equation*}
+\mu(t) = \exp\left(  \int \frac{4}{50 + t} \, dt \right) = e^{4 \ln(50 + t)} = (50 + t)^4.
+\end{equation*}
+</div>
+<div class="para">Therefore, if we multiply both sides of equation <a href="sec-linear-eq.html#firstlook05-equation-mixing" class="xref" data-knowl="./knowl/xref/firstlook05-equation-mixing.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.6">(1.5.6)</a> by <span class="process-math">\(\mu(t)\text{,}\)</span> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook05-equation-mixing.html" id="subsec-app-mixing-probs-3-3-5">
+\begin{equation*}
+(50 + t)^4\frac{dx}{dt} + 4(t + 50)^3 x = 5(50 + t)^4.
+\end{equation*}
+</div>
+<div class="para">We can now apply the product rule to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook05-equation-mixing.html" id="subsec-app-mixing-probs-3-3-6">
+\begin{equation*}
+\frac{d}{dt}[ (50 + t)^4 x] = 5(50 + t)^4.
+\end{equation*}
+</div>
+<div class="para">Integrating both sides and simplifying gives us</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook05-equation-mixing.html" id="subsec-app-mixing-probs-3-3-7">
+\begin{equation*}
+x = t + 50 + \frac{C}{(t + 50)^4}.
+\end{equation*}
+</div>
+<div class="para">Our initial condition, <span class="process-math">\(x(0) = 5\)</span> tells us that <span class="process-math">\(C = -281{,}250{,}000\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstlook05-equation-mixing.html" id="subsec-app-mixing-probs-3-3-10">
+\begin{equation*}
+x(t) = t + 50 - \frac{281250000}{(t + 50)^4}.
+\end{equation*}
+</div>
+<div class="para">Thus, when the tank is full, <span class="process-math">\(t = 50\)</span> and the amount of salt in the tank is <span class="process-math">\(x(50) = 97.188\)</span> pounds. We can use MATLAB to easily check the solution of our initial value problem.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="subsec-app-mixing-probs-3-4" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">% Comment out this first command if 
+% pasting this code into MATLAB
+pkg load symbolic
+
+syms x(t)
+
+de = diff(x,t) + 4*x/(50+t) == 5;
+cond = x(0) == 5;
+xSol(t) = dsolve(de, cond);
+double(xSol(50)) % gives decimal version
+</script></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.5.13"><a tabindex="-1" href="#subsec-app-mixing-probs-3" title="Copy heading and permalink for Example 1.5.13" aria-label="Copy heading and permalink for Example 1.5.13">🔗</a></div>
+</article>
+<article class="activity project-like" id="subsec-app-mixing-probs-4"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Mixing Problem.</span>
+</h3>
+<div class="introduction" id="subsec-app-mixing-probs-4-2">
+<div class="para" id="subsec-app-mixing-probs-4-2-1">Suppose that a tank contains 1000 gallons of a solution consisting of 200 pounds of salt dissolved in water. Pure water is pumped into the tank at a rate of 6 gallons per minute. At the same time, the tank is drained at the same rate.  Assume that the brine mixture is kept well stirred.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="subsec-app-mixing-probs-4-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="subsec-app-mixing-probs-4-3-1-1">Set up an initial value problem to model the amount of salt in the tank at time <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.14.a"><a tabindex="-1" href="#subsec-app-mixing-probs-4-3" title="Copy heading and permalink for Task 1.5.14.a" aria-label="Copy heading and permalink for Task 1.5.14.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-app-mixing-probs-4-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="subsec-app-mixing-probs-4-4-1-1">How long will it take until there is only 20 pounds of salt left in the tank?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-app-mixing-probs-4-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.14.b"><a tabindex="-1" href="#subsec-app-mixing-probs-4-4" title="Copy heading and permalink for Task 1.5.14.b" aria-label="Copy heading and permalink for Task 1.5.14.b">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 1.5.14: A Mixing Problem"><a tabindex="-1" href="#subsec-app-mixing-probs-4" title="Copy heading and permalink for Activity 1.5.14: A Mixing Problem" aria-label="Copy heading and permalink for Activity 1.5.14: A Mixing Problem">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.3: Application: Mixing Problems"><a tabindex="-1" href="#subsec-app-mixing-probs" title="Copy heading and permalink for Subsection 1.5.3: Application: Mixing Problems" aria-label="Copy heading and permalink for Subsection 1.5.3: Application: Mixing Problems">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-financial-models">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Financial Models</span>
+</h2>
+<div class="para logical" id="subsec-financial-models-2">
+<div class="para">There are a number of problems in finance that can be modeled using differential equations. Let <span class="process-math">\(P(t)\)</span> be the balance of an account at time <span class="process-math">\(t\)</span> and suppose that the account pays interest at a rate of <span class="process-math">\(r\)</span> percent per year compounded continuously. Suppose that we also allow withdrawals of <span class="process-math">\(W\)</span> dollars per year. The net increase in the balance between times <span class="process-math">\(t\)</span> and <span class="process-math">\(t + \Delta t\)</span> can now be described as</div>
+<div class="displaymath process-math" id="subsec-financial-models-2-7">
+\begin{equation*}
+P(t + \Delta t) - P(t) \approx r P \Delta t - W \Delta t
+\end{equation*}
+</div>
+<div class="para">Thus,</div>
+<div class="displaymath process-math" id="subsec-financial-models-2-8">
+\begin{equation*}
+P'(t) = \lim_{\Delta t \rightarrow 0} \frac{P(t + \Delta t) - P(t) }{\Delta t} = rP - W.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-financial-models-3">
+<div class="para">We can solve the equation</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-1">
+\begin{equation*}
+P' = rP - W
+\end{equation*}
+</div>
+<div class="para">by multiplying both sides of the equation by the integrating factor</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-2">
+\begin{equation*}
+\mu(t) = \exp\left(- \int r \, dt\right) = e^{-rt}.
+\end{equation*}
+</div>
+<div class="para">to obtain</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-3">
+\begin{equation*}
+\frac{d}{dt} [e^{-rt} P] = -We^{-rt}.
+\end{equation*}
+</div>
+<div class="para">Integrating both sides of this equation, we have</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-4">
+\begin{equation*}
+e^{-rt} P = \frac{W}{r} e^{-rt} + C
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-5">
+\begin{equation*}
+P = \frac{W}{r} + Ce^{rt}.
+\end{equation*}
+</div>
+<div class="para">If we know the initial balance in the account, say <span class="process-math">\(P(0) = P_0\text{,}\)</span> we can determine <span class="process-math">\(C\text{.}\)</span> That is,</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-8">
+\begin{equation*}
+P_0 = \frac{W}{r} + C
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-9">
+\begin{equation*}
+C = P_0 - \frac{W}{r}.
+\end{equation*}
+</div>
+<div class="para">Thus, the solution to our initial value problem is</div>
+<div class="displaymath process-math" id="subsec-financial-models-3-10">
+\begin{equation*}
+P = \frac{W}{r} + \left( P_0 - \frac{W}{r} \right) e^{rt}.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-financial-models-4"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="subsec-financial-models-4-1">Suppose that your parents have established a money market account with a balance of $50,000 that they will use to help you pay for your college education.  The account receives an average annual interest of 4%. You estimate that your tuition, room and board, and other college expenses to be $20,000 per year.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-financial-models-4-2">
+<div class="para">We model this financial situation with the differential equation</div>
+<div class="displaymath process-math" id="subsec-financial-models-4-2-1">
+\begin{align*}
+\frac{dP}{dt} \amp = 0.04P - 20000\\
+P(0) \amp = 50000.
+\end{align*}
+</div>
+<div class="para">Rewriting the differential equation as <span class="process-math">\(dP/dt - 0.04P = -20000\text{,}\)</span> our integrating factor becomes <span class="process-math">\(\mu(t) = e^{-0.04t}\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="subsec-financial-models-4-2-4">
+\begin{equation*}
+e^{-0.04t} \frac{dP}{dt} -0.04 e^{-0.04t} P= \frac{d}{dt} [e^{-0.04t} P] = -20000e^{-0.04t}.
+\end{equation*}
+</div>
+<div class="para">Thus,</div>
+<div class="displaymath process-math" id="subsec-financial-models-4-2-5">
+\begin{equation*}
+e^{-0.04t} P = \frac{20000}{0.04}e^{-0.04t} + C = 500000e^{-0.04t} + C.
+\end{equation*}
+</div>
+<div class="para">The solution to this initial value problem is</div>
+<div class="displaymath process-math" id="subsec-financial-models-4-2-6">
+\begin{equation*}
+P(t) = \frac{20000}{0.04} + \left( 50000 - \frac{20000}{0.04} \right) e^{0.04t} = 500000 - 450000e^{0.04t}.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-financial-models-4-3">Your parents have been quite generous but have told you that you must be responsible for the balance of the cost of your education.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.5.15"><a tabindex="-1" href="#subsec-financial-models-4" title="Copy heading and permalink for Example 1.5.15" aria-label="Copy heading and permalink for Example 1.5.15">🔗</a></div>
+</article>
+<article class="activity project-like" id="subsec-financial-models-5"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Paying for College.</span>
+</h3>
+<div class="introduction" id="subsec-financial-models-5-2">
+<div class="para" id="subsec-financial-models-5-2-1">Suppose that new parents want to start a college fund for their child.  They are willing to invest $2000 per year at a rate of 4%.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="subsec-financial-models-5-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="subsec-financial-models-5-3-1-1">Find an initial value problem that models the parents’ investment.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.16.a"><a tabindex="-1" href="#subsec-financial-models-5-3" title="Copy heading and permalink for Task 1.5.16.a" aria-label="Copy heading and permalink for Task 1.5.16.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-financial-models-5-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="subsec-financial-models-5-4-1-1">How much will be in the college fund when their child turns 18?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.16.b"><a tabindex="-1" href="#subsec-financial-models-5-4" title="Copy heading and permalink for Task 1.5.16.b" aria-label="Copy heading and permalink for Task 1.5.16.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="subsec-financial-models-5-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="subsec-financial-models-5-5-1-1">What would they need to invest per year to have $80,000 in the college fund when their child turns 18?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-financial-models-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.5.16.c"><a tabindex="-1" href="#subsec-financial-models-5-5" title="Copy heading and permalink for Task 1.5.16.c" aria-label="Copy heading and permalink for Task 1.5.16.c">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 1.5.16: Paying for College"><a tabindex="-1" href="#subsec-financial-models-5" title="Copy heading and permalink for Activity 1.5.16: Paying for College" aria-label="Copy heading and permalink for Activity 1.5.16: Paying for College">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.4: Financial Models"><a tabindex="-1" href="#subsec-financial-models" title="Copy heading and permalink for Subsection 1.5.4: Financial Models" aria-label="Copy heading and permalink for Subsection 1.5.4: Financial Models">🔗</a></div>
+</section>
+<section class="exercises" id="exercises-lin-eqs">
+<h2 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h2>
+<div class="exercisegroup" id="ex-group-find-gen-solns">
+<h3 class="heading"><span class="title">Finding General Solutions.</span></h3>
+<div class="introduction" id="ex-group-find-gen-solns-2">
+<div class="para" id="ex-group-find-gen-solns-2-1">Find the general solution for each equation in <a href="sec-linear-eq.html#ex-group-find-gen-solns" class="xref" data-knowl="./knowl/xref/ex-group-find-gen-solns.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise Group 1.5.5.1–10: Finding General Solutions">Exercise Group 1.5.5.1–10</a>. <em class="emphasis">Some of the equations may be separable.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="exercisegroup-exercises cols2 multicolumn">
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-3"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-3-1-1">
+<span class="process-math">\(\dfrac{dy}{dx} + 5y=0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.1"><a tabindex="-1" href="#ex-group-find-gen-solns-3" title="Copy heading and permalink for Exercise 1.5.5.1" aria-label="Copy heading and permalink for Exercise 1.5.5.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-4"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-4-1-1">
+<span class="process-math">\(y'-7y=0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.2"><a tabindex="-1" href="#ex-group-find-gen-solns-4" title="Copy heading and permalink for Exercise 1.5.5.2" aria-label="Copy heading and permalink for Exercise 1.5.5.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-5"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-5-1-1">
+<span class="process-math">\(y'+2xy=0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.3"><a tabindex="-1" href="#ex-group-find-gen-solns-5" title="Copy heading and permalink for Exercise 1.5.5.3" aria-label="Copy heading and permalink for Exercise 1.5.5.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-6"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-6-1-1">
+<span class="process-math">\(\dfrac{dx}{dt} - t^2 x = 0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.4"><a tabindex="-1" href="#ex-group-find-gen-solns-6" title="Copy heading and permalink for Exercise 1.5.5.4" aria-label="Copy heading and permalink for Exercise 1.5.5.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-7"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-7-1-1">
+<span class="process-math">\(y'+\dfrac2{x}\,y = 0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.5"><a tabindex="-1" href="#ex-group-find-gen-solns-7" title="Copy heading and permalink for Exercise 1.5.5.5" aria-label="Copy heading and permalink for Exercise 1.5.5.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-8"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-8-1-1">
+<span class="process-math">\(\dfrac{dy}{dx}-5y=e^x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.6"><a tabindex="-1" href="#ex-group-find-gen-solns-8" title="Copy heading and permalink for Exercise 1.5.5.6" aria-label="Copy heading and permalink for Exercise 1.5.5.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-9"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-9-1-1">
+<span class="process-math">\(y'-5y=10x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.7"><a tabindex="-1" href="#ex-group-find-gen-solns-9" title="Copy heading and permalink for Exercise 1.5.5.7" aria-label="Copy heading and permalink for Exercise 1.5.5.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-10"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-10-1-1">
+<span class="process-math">\(\dfrac{dx}{dt}-5x=\sin 2t\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.8"><a tabindex="-1" href="#ex-group-find-gen-solns-10" title="Copy heading and permalink for Exercise 1.5.5.8" aria-label="Copy heading and permalink for Exercise 1.5.5.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-11"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-11-1-1">
+<span class="process-math">\(y'-\dfrac3{x^2}\,y=\dfrac1{x^2}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.9"><a tabindex="-1" href="#ex-group-find-gen-solns-11" title="Copy heading and permalink for Exercise 1.5.5.9" aria-label="Copy heading and permalink for Exercise 1.5.5.9">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-find-gen-solns-12"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-find-gen-solns-12-1-1">
+<span class="process-math">\(\dfrac{dy}{dx}+\dfrac2{x}\,y = \dfrac{\sin x}{x^2}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-find-gen-solns-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.10"><a tabindex="-1" href="#ex-group-find-gen-solns-12" title="Copy heading and permalink for Exercise 1.5.5.10" aria-label="Copy heading and permalink for Exercise 1.5.5.10">🔗</a></div>
+</article>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise Group 1.5.5.1–10: Finding General Solutions"><a tabindex="-1" href="#ex-group-find-gen-solns" title="Copy heading and permalink for Exercise Group 1.5.5.1–10: Finding General Solutions" aria-label="Copy heading and permalink for Exercise Group 1.5.5.1–10: Finding General Solutions">🔗</a></div>
+</div>
+<div class="exercisegroup" id="ex-group-solve-lin-ivps">
+<h3 class="heading"><span class="title">Solving Initial Value Problems.</span></h3>
+<div class="introduction" id="ex-group-solve-lin-ivps-2">
+<div class="para" id="ex-group-solve-lin-ivps-2-1">Solve the initial value problems in <a href="sec-linear-eq.html#ex-group-solve-lin-ivps" class="xref" data-knowl="./knowl/xref/ex-group-solve-lin-ivps.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise Group 1.5.5.11–20: Solving Initial Value Problems">Exercise Group 1.5.5.11–20</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="exercisegroup-exercises cols2 multicolumn">
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-3"><h4 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-3-1-1">
+<span class="process-math">\(\dfrac{dy}{dx} + 5y=0\text{,}\)</span> <span class="process-math">\(y(0)=2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.11"><a tabindex="-1" href="#ex-group-solve-lin-ivps-3" title="Copy heading and permalink for Exercise 1.5.5.11" aria-label="Copy heading and permalink for Exercise 1.5.5.11">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-4"><h4 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-4-1-1">
+<span class="process-math">\(y'-7y=0\text{,}\)</span> <span class="process-math">\(y(0)=1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.12"><a tabindex="-1" href="#ex-group-solve-lin-ivps-4" title="Copy heading and permalink for Exercise 1.5.5.12" aria-label="Copy heading and permalink for Exercise 1.5.5.12">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-5"><h4 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-5-1-1">
+<span class="process-math">\(y'+2xy=0\text{,}\)</span> <span class="process-math">\(y(0)=3\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.13"><a tabindex="-1" href="#ex-group-solve-lin-ivps-5" title="Copy heading and permalink for Exercise 1.5.5.13" aria-label="Copy heading and permalink for Exercise 1.5.5.13">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-6"><h4 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-6-1-1">
+<span class="process-math">\(\dfrac{dx}{dt} - t^2 x = 0\text{,}\)</span> <span class="process-math">\(x(0) = -1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.14"><a tabindex="-1" href="#ex-group-solve-lin-ivps-6" title="Copy heading and permalink for Exercise 1.5.5.14" aria-label="Copy heading and permalink for Exercise 1.5.5.14">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-7"><h4 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-7-1-1">
+<span class="process-math">\(y'+\dfrac2{x}\,y = 0\text{,}\)</span> <span class="process-math">\(y(1) = -3\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.15"><a tabindex="-1" href="#ex-group-solve-lin-ivps-7" title="Copy heading and permalink for Exercise 1.5.5.15" aria-label="Copy heading and permalink for Exercise 1.5.5.15">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-8"><h4 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-8-1-1">
+<span class="process-math">\(y' = - \dfrac{2y}{x + 1} + 2x\text{,}\)</span> <span class="process-math">\(y(0) = 2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-group-solve-lin-ivps-8-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="ex-group-solve-lin-ivps-8-2-1">
+<span class="process-math">\(y = \dfrac{3 x^{4} + 8 x^{3} + 6 x^{2} + 12}{6 (x + 1)^2}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.16.1"><a tabindex="-1" href="#ex-group-solve-lin-ivps-8-2" title="Copy heading and permalink for Hint 1.5.5.16.1" aria-label="Copy heading and permalink for Hint 1.5.5.16.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.16"><a tabindex="-1" href="#ex-group-solve-lin-ivps-8" title="Copy heading and permalink for Exercise 1.5.5.16" aria-label="Copy heading and permalink for Exercise 1.5.5.16">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-9"><h4 class="heading"><span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-9-1-1">
+<span class="process-math">\(y' = - \dfrac{2y}{1 + x} + e^x\text{,}\)</span> <span class="process-math">\(y(0) = 1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-group-solve-lin-ivps-9-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="ex-group-solve-lin-ivps-9-2-1">
+<span class="process-math">\(y = (e^x + 1)/(x+1)^2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.17.1"><a tabindex="-1" href="#ex-group-solve-lin-ivps-9-2" title="Copy heading and permalink for Hint 1.5.5.17.1" aria-label="Copy heading and permalink for Hint 1.5.5.17.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.17"><a tabindex="-1" href="#ex-group-solve-lin-ivps-9" title="Copy heading and permalink for Exercise 1.5.5.17" aria-label="Copy heading and permalink for Exercise 1.5.5.17">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-10"><h4 class="heading"><span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-10-1-1">
+<span class="process-math">\(\dfrac{dx}{dt} - 5x = \sin 2t\text{,}\)</span> <span class="process-math">\(x(0) = \pi\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.18"><a tabindex="-1" href="#ex-group-solve-lin-ivps-10" title="Copy heading and permalink for Exercise 1.5.5.18" aria-label="Copy heading and permalink for Exercise 1.5.5.18">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-11"><h4 class="heading"><span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-11-1-1">
+<span class="process-math">\(y' = y \tan x + \dfrac{e^x}{\cos x}\text{,}\)</span> <span class="process-math">\(y(0) = 1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-group-solve-lin-ivps-11-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="ex-group-solve-lin-ivps-11-2-1">
+<span class="process-math">\(y = e^x \sec x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.19.1"><a tabindex="-1" href="#ex-group-solve-lin-ivps-11-2" title="Copy heading and permalink for Hint 1.5.5.19.1" aria-label="Copy heading and permalink for Hint 1.5.5.19.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.19"><a tabindex="-1" href="#ex-group-solve-lin-ivps-11" title="Copy heading and permalink for Exercise 1.5.5.19" aria-label="Copy heading and permalink for Exercise 1.5.5.19">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ex-group-solve-lin-ivps-12"><h4 class="heading"><span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-group-solve-lin-ivps-12-1-1">
+<span class="process-math">\(y' = - \dfrac{y}{x + 2} + \dfrac{\cos x}{x + 2}\text{,}\)</span> <span class="process-math">\(y(0) = 1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-group-solve-lin-ivps-12-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="ex-group-solve-lin-ivps-12-2-1">
+<span class="process-math">\(y = \sin x / (x + 2)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-group-solve-lin-ivps-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.20.1"><a tabindex="-1" href="#ex-group-solve-lin-ivps-12-2" title="Copy heading and permalink for Hint 1.5.5.20.1" aria-label="Copy heading and permalink for Hint 1.5.5.20.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.20"><a tabindex="-1" href="#ex-group-solve-lin-ivps-12" title="Copy heading and permalink for Exercise 1.5.5.20" aria-label="Copy heading and permalink for Exercise 1.5.5.20">🔗</a></div>
+</article>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise Group 1.5.5.11–20: Solving Initial Value Problems"><a tabindex="-1" href="#ex-group-solve-lin-ivps" title="Copy heading and permalink for Exercise Group 1.5.5.11–20: Solving Initial Value Problems" aria-label="Copy heading and permalink for Exercise Group 1.5.5.11–20: Solving Initial Value Problems">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="exercises-lin-eqs-3"><h3 class="heading"><span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="exercises-lin-eqs-3-1-1">A 600-liter tank initially contains 200 liters of water containing 10 kilograms of salt. Supposed that water containing 0.1 kilograms of salt per liter flows into the top of the tank at a rate of 10 liters per minute. The water in the tank is kept well mixed, and 5 liters per minute are removed from the bottom of the tank.  How much salt is in the tank when the tank is full?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-lin-eqs-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para logical" id="exercises-lin-eqs-3-2-1">
+<div class="para">If <span class="process-math">\(x(t)\)</span> is the amount of salt in the tank at time <span class="process-math">\(t\text{,}\)</span> we know that <span class="process-math">\(x(0) = 10\text{.}\)</span> The volume of the tank is <span class="process-math">\(V = 200 + 5t\text{.}\)</span>  We can model the amount of salt in the tank at time <span class="process-math">\(t\)</span> with a differential equation,</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-3-2-1-6">
+\begin{align*}
+\frac{dx}{dt} &amp; = \text{rate in} - \text{rate out}\\
+&amp; = 10(0.1) - 5 \frac{x}{V}\\
+&amp; = 1 - 5\frac{x}{200+ 5t}\\
+&amp; = 1 - \frac{x}{40 + t}.
+\end{align*}
+</div>
+<div class="para">The resulting equation</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-3-2-1-7">
+\begin{equation*}
+\frac{dx}{dt} + \frac{1}{40 + t}x = 1
+\end{equation*}
+</div>
+<div class="para">is a first order linear differential equation.  An integrating factor for this equation is given by</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-3-2-1-8">
+\begin{equation*}
+\mu(t) = \exp\left(\int \frac{1}{40 + t} \, dt\right) = 40 + t.
+\end{equation*}
+</div>
+<div class="para">Multiplying both sides of the differential equation by <span class="process-math">\(\mu(t)\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-3-2-1-10">
+\begin{equation*}
+\frac{d}{dt} [(40 + t)x] = (40 + t) \frac{dx}{dt} + x = (40 + t)\left( \frac{dx}{dt} + \frac{1}{40 + t}x \right) = 40 + t.
+\end{equation*}
+</div>
+<div class="para">Integrating both sides of this equation, we obtain</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-3-2-1-11">
+\begin{equation*}
+(40 + t)x = 40t + \frac{t^2}{2} + C.
+\end{equation*}
+</div>
+<div class="para">Using the initial condition <span class="process-math">\(x(0) = 10\text{,}\)</span> we can determine that <span class="process-math">\(C = 400\)</span> or</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-3-2-1-14">
+\begin{equation*}
+x(t) = \frac{t^2 + 80t + 800}{2t + 80}.
+\end{equation*}
+</div>
+<div class="para">The tank is full at time <span class="process-math">\(t = 400/5 = 80\text{,}\)</span> and the tank contains <span class="process-math">\(x(80) = 170/3 \approx 56.67\)</span> kilograms of salt when the tank is full.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.21.1"><a tabindex="-1" href="#exercises-lin-eqs-3-2" title="Copy heading and permalink for Hint 1.5.5.21.1" aria-label="Copy heading and permalink for Hint 1.5.5.21.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.21"><a tabindex="-1" href="#exercises-lin-eqs-3" title="Copy heading and permalink for Exercise 1.5.5.21" aria-label="Copy heading and permalink for Exercise 1.5.5.21">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-lin-eqs-4"><h3 class="heading"><span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="exercises-lin-eqs-4-1-1">A manager in a communications company contributes $2400 per year into her retirement fund by making many small deposits throughout the year.  The fund grows at a rate of 3.5% per year compounded continuously.  After 35 years, she retires and begins withdrawing from the retirement fund at a rate of $3500 per month.  If she does not make any deposits after she retires, how long will her retirement fund last?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-lin-eqs-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="exercises-lin-eqs-4-2-1">Divide the problem into two smaller problems—one that deals with the situation before retirement and one that deals with the problem after retirement.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.22.1"><a tabindex="-1" href="#exercises-lin-eqs-4-2" title="Copy heading and permalink for Hint 1.5.5.22.1" aria-label="Copy heading and permalink for Hint 1.5.5.22.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.22"><a tabindex="-1" href="#exercises-lin-eqs-4" title="Copy heading and permalink for Exercise 1.5.5.22" aria-label="Copy heading and permalink for Exercise 1.5.5.22">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-lin-eqs-5"><h3 class="heading">
+<span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exact Differential Equations.</span>
+</h3>
+<div class="para logical" id="exercises-lin-eqs-5-2-1">
+<div class="para">A first-order differential equation, <span class="process-math">\(M(x,y) \, dx + N(x,y) \, dy = 0\text{,}\)</span> is <em class="emphasis">exact</em> if there exists a function <span class="process-math">\(g(x,y)\)</span> such that</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-5-2-1-4">
+\begin{equation*}
+dg(x, y) = M(x,y) \, dx + N(x,y) \, dy.
+\end{equation*}
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="exercises-lin-eqs-5-2-1-5">
+<li id="exercises-lin-eqs-5-2-1-5-1">
+<div class="para logical" id="exercises-lin-eqs-5-2-1-5-1-1">
+<div class="para">If <span class="process-math">\(M(x, y)\)</span> and <span class="process-math">\(N(x,y)\)</span> and have continuous first-order partial derivatives on some rectangle in the <span class="process-math">\(xy\)</span>-plane, then prove that</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-5-2-1-5-1-1-4">
+\begin{equation*}
+M(x,y) \, dx + N(x,y) \, dy = 0
+\end{equation*}
+</div>
+<div class="para">is exact if and only if</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-5-2-1-5-1-1-5">
+\begin{equation*}
+\frac{\partial M(x,y)}{\partial y} = \frac{\partial N(x,y)}{\partial x}.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.a"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-1" title="Copy heading and permalink for Item 1.5.5.23.a" aria-label="Copy heading and permalink for Item 1.5.5.23.a">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-2">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-2-1">Show that the differential equation <span class="process-math">\(2xy \, dx + (1 + x^2) \, dy = 0\)</span> is exact.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.b"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-2" title="Copy heading and permalink for Item 1.5.5.23.b" aria-label="Copy heading and permalink for Item 1.5.5.23.b">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-3">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-3-1">Solve the differential equation <span class="process-math">\(2xy \, dx + (1 + x^2) \, dy = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.c"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-3" title="Copy heading and permalink for Item 1.5.5.23.c" aria-label="Copy heading and permalink for Item 1.5.5.23.c">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-4">
+<div class="para logical" id="exercises-lin-eqs-5-2-1-5-4-1">
+<div class="para">In general, the differential equation <span class="process-math">\(M(x,y) \, dx + N(x,y) \, dy = 0\)</span> is not exact.  However, we can sometimes transform this equation into an exact equation by multiplying the equation by an integrating factor</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-5-2-1-5-4-1-2">
+\begin{equation*}
+\mu(x,y)[M(x,y) \, dx + N(x,y) \, dy] = 0.
+\end{equation*}
+</div>
+<ol class="lower-roman" id="exercises-lin-eqs-5-2-1-5-4-1-3">
+<li id="exercises-lin-eqs-5-2-1-5-4-1-3-1">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-1-1">Show that <span class="process-math">\(-1/x^2\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.d.i"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-1" title="Copy heading and permalink for Item 1.5.5.23.d.i" aria-label="Copy heading and permalink for Item 1.5.5.23.d.i">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-4-1-3-2">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-2-1">Show that <span class="process-math">\(1/y^2\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.d.ii"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-2" title="Copy heading and permalink for Item 1.5.5.23.d.ii" aria-label="Copy heading and permalink for Item 1.5.5.23.d.ii">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-4-1-3-3">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-3-1">Show that <span class="process-math">\(-1/(xy)\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.d.iii"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-3" title="Copy heading and permalink for Item 1.5.5.23.d.iii" aria-label="Copy heading and permalink for Item 1.5.5.23.d.iii">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-4-1-3-4">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-4-1">Show that <span class="process-math">\(-1/(x^2 + y^2)\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.d.iv"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-4" title="Copy heading and permalink for Item 1.5.5.23.d.iv" aria-label="Copy heading and permalink for Item 1.5.5.23.d.iv">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.d"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4" title="Copy heading and permalink for Item 1.5.5.23.d" aria-label="Copy heading and permalink for Item 1.5.5.23.d">🔗</a></div>
+</li>
+<li id="exercises-lin-eqs-5-2-1-5-5">
+<div class="para" id="exercises-lin-eqs-5-2-1-5-5-1">Solve the differential equation <span class="process-math">\((y^2 - xy^2) \, dx + (x + x^2y^2) \, dy = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.e"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-5" title="Copy heading and permalink for Item 1.5.5.23.e" aria-label="Copy heading and permalink for Item 1.5.5.23.e">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-lin-eqs-5-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para logical" id="exercises-lin-eqs-5-3-1">
+<div class="para">For (e), rewrite the equation as</div>
+<div class="displaymath process-math" id="exercises-lin-eqs-5-3-1-1">
+\begin{equation*}
+(y \, dx + x \, dy) + (-xy^2 \, dx + x^2 y^2 \, dy) = 0
+\end{equation*}
+</div>
+<div class="para">and consider the integrating factor <span class="process-math">\(\mu(x, y) = 1/(xy)^2\text{.}\)</span>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 1.5.5.23.1"><a tabindex="-1" href="#exercises-lin-eqs-5-3" title="Copy heading and permalink for Hint 1.5.5.23.1" aria-label="Copy heading and permalink for Hint 1.5.5.23.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 1.5.5.23: Exact Differential Equations"><a tabindex="-1" href="#exercises-lin-eqs-5" title="Copy heading and permalink for Exercise 1.5.5.23: Exact Differential Equations" aria-label="Copy heading and permalink for Exercise 1.5.5.23: Exact Differential Equations">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercises 1.5.5"><a tabindex="-1" href="#exercises-lin-eqs" title="Copy heading and permalink for Exercises 1.5.5" aria-label="Copy heading and permalink for Exercises 1.5.5">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 1.5: First-Order Linear Equations"><a tabindex="-1" href="#sec-linear-eq" title="Copy heading and permalink for Section 1.5: First-Order Linear Equations" aria-label="Copy heading and permalink for Section 1.5: First-Order Linear Equations">🔗</a></div>
 </section>
 </div>
