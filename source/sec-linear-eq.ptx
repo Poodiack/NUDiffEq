@@ -365,7 +365,12 @@
                 <md number="yes" xml:id="eq-linear-solution">
                     \boxed{y=\frac1{\mu(x)}\left[\int \mu(x) f(x)\,dx + C\right]}.
                 </md>
-                The equation <xref ref="eq-linear-solution" /> is important 
+                A comforting aspect of this is that if we have an initial 
+                value problem of this type -- in other words, if we are also 
+                given an initial condition <m>y(x_0)=y_0</m> -- a unique 
+                solution (with <m>C</m> uniquely determined, that is) exists 
+                in a rectangle containing the point <m>(x_0, y_0)</m>.</p>
+                <p>Though <xref ref="eq-linear-solution" /> is important 
                 theoretically as the <term>general solution of the first-order 
                 linear differential equation</term>, we in no way are telling 
                 you to memorize it. Just follow the steps from the examples 
@@ -486,4 +491,534 @@
         </example>
         </conclusion>
     </subsection>
+    <worksheet xml:id="ws-linear-eqs">
+        <title>In-Class Work:  Practice with Linear Equations</title>
+        <exercise>
+            <introduction>
+                <p>
+                    State whether the given differential equation is linear, 
+                    separable, both, or neither.
+                </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>
+                        <m>y'=xy</m>
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>
+                        <m>y'=(\cos x)y</m>
+                    </p>
+                </statement>
+            </task>
+
+            <task>
+                <statement>
+                    <p>
+                        <m>y'=x^2\sin y</m>
+                    </p>
+                </statement>
+            </task>
+
+            <task>
+                <statement>
+                    <p>
+                        <m>y'=x+y</m>
+                    </p>
+                </statement>
+            </task>
+
+            <task>
+                <statement>
+                    <p>
+                        <m>y'=\dfrac{1}{1+e^{-y}}</m>
+                    </p>
+                </statement>
+            </task>
+
+            <task>
+                <statement>
+                    <p>
+                        <m>y' = e^x y + e^x</m>
+                    </p>
+                </statement>
+            </task>
+        </exercise>
+
+        <p>
+            In the following exercises, use the method for linear equations 
+            to find an explicit solution to the equation and describe what 
+            happens to the solution as <m>x\to\infty</m>. (Use MATLAB to draw 
+            slope fields as necessary.)
+        </p>
+        <exercise>
+            <p><m>y' + 2y = e^{-2x}\sin x</m></p>
+        </exercise>
+        <exercise>
+            <p><m>y' = 2y + 1 \quad</m><em>This equation is also separable.</em></p>
+        </exercise>
+        <exercise>
+            <p><m>xy' - 2y = 1+x</m></p>
+        </exercise>
+        <exercise>
+            <p><m>xy' = 2y + x^2</m></p>
+        </exercise>
+        <p>
+            Solve the initial value problems:
+        </p>
+        <exercise>
+            <p><m>y' = y + 2e^{2x}, \quad y(0)=1</m></p>
+        </exercise>
+        <exercise>
+            <p><m>xy' + y = 3x^2 - x, \quad y(1) = 0</m></p>
+        </exercise>
+    </worksheet>
+    <subsection xml:id="subsec-app-mixing-probs">
+        <title>Application: Mixing Problems</title>
+        <p>
+            Many applications involve the mixing of two or more substances 
+            together. We can model, for instance, how petroleum 
+            products are mixed together in a refinery, how various 
+            ingredients are mixed together in a brewery, or how greenhouse 
+            gases move across various layers of the earth's atmosphere.
+        </p>
+        <example>
+            <p>
+                Suppose that a 100-gallon tank initially contains 50 gallons 
+                of salt water containing five pounds of salt. A brine mixture 
+                containing one pound of salt per gallon flows into the top of 
+                the tank at a rate of 5 gallons per minute. A well mixed 
+                solution leaves the tank at rate of 4 gallons per minute. We 
+                wish to know how much salt is in the tank, when the tank is 
+                full.
+            </p>
+
+            <p>To construct our model, we will let <m>t</m> be the time (measured in minutes) and set up a differential equation that will measure how fast the amount of salt at time <m>t</m>, <m>x(t)</m>, is changing. We have the initial condition <m>x(0) = 5</m>, and 
+                <md>
+                    <mrow>\frac{dx}{dt} &amp; = \text{rate of salt flowing in} - \text{rate of salt flowing out}</mrow>
+                    <mrow>&amp; = \underbrace{\left(5\, \frac{\text{gal}}{\text{min}}\right)\left(1\,\frac{\text{lb}}{\text{gal}}\right) }_{\text{in flow}} - \underbrace{\left(4 \,\frac{\text{gal}}{\text{min}}\right) \left( \frac{x\,\text{lb}}{V(t)\,\text{gal}}\right)}_{\text{out flow}},</mrow>
+                </md>
+            where <m>V(t)</m> is the volume at time <m>t</m>. The expression 
+            <m>x/V(t)</m> is the amount of salt in one gallon (the 
+            <term>concentration</term> of salt) at time <m>t</m>. We have 
+            <m>V(t) = 50 + t</m>, since the tank starts with 50 gallons and 
+            five gallons are pumped into the tank per minute while four 
+            gallons leave the tank during the same time interval. (In other words, the 
+            liquid in the tank increases by one gallon every minute.) Thus, our 
+            differential equation becomes
+                <md>\frac{dx}{dt} = 5 - \frac{4}{50 + t}x.</md>
+            Our equation is linear since we can rewrite it as
+                <md number="yes" xml:id="firstlook05-equation-mixing">\frac{dx}{dt} + \frac{4}{50 + t} x = 5.</md></p>
+
+            <p>An integrating factor for this differential equation is 
+                <md>\mu(t) = \exp\left(  \int \frac{4}{50 + t} \, dt \right) = e^{4 \ln(50 + t)} = (50 + t)^4.</md>
+            Therefore, if we multiply both sides of equation<nbsp /><xref ref="firstlook05-equation-mixing" /> by <m>\mu(t)</m>, we get
+                <md>(50 + t)^4\frac{dx}{dt} + 4(t + 50)^3 x = 5(50 + t)^4.</md>
+            We can now apply the product rule to obtain
+                <md>\frac{d}{dt}[ (50 + t)^4 x] = 5(50 + t)^4.</md>
+            Integrating both sides and simplifying gives us
+                <md>x = t + 50 + \frac{C}{(t + 50)^4}.</md>
+            Our initial condition, <m>x(0) = 5</m> tells us that <m>C = -281{,}250{,}000</m> and
+                <md>x(t) = t + 50 - \frac{281250000}{(t + 50)^4}.</md>
+            Thus, when the tank is full, <m>t = 50</m> and the amount of 
+            salt in the tank is <m>x(50) = 97.188</m> pounds. We can use 
+            MATLAB to easily check the solution of our initial value 
+            problem.
+            </p>
+            <sage language="octave">
+                <input>
+                    % Comment out this first command if 
+                    % pasting this code into MATLAB
+                    pkg load symbolic
+
+                    syms x(t)
+
+                    de = diff(x,t) + 4*x/(50+t) == 5;
+                    cond = x(0) == 5;
+                    xSol(t) = dsolve(de, cond);
+                    double(xSol(50)) % gives decimal version
+                </input>
+            </sage>
+        </example>
+
+        <activity>
+            <title>A Mixing Problem</title>
+
+            <introduction>
+                <p>
+                    Suppose that a tank contains 1000 gallons of a solution 
+                    consisting of 200 pounds of salt dissolved in water. 
+                    Pure water is pumped into the tank at a rate of 6 
+                    gallons per minute. At the same time, the tank is 
+                    drained at the same rate.  Assume that the brine mixture 
+                    is kept well stirred.</p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>Set up an initial value problem to model the amount 
+                    of salt in the tank at time <m>t</m>.</p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>How long will it take until there is only 20 pounds 
+                    of salt left in the tank?</p>
+                </statement>
+            </task>
+        </activity>
+    </subsection>
+    <subsection xml:id="subsec-financial-models">
+        <title>Financial Models</title>
+        <p>There are a number of problems in finance that can be modeled using differential equations. Let <m>P(t)</m> be the balance of an account at time <m>t</m> and suppose that the account pays interest at a rate of <m>r</m> percent per year compounded continuously. Suppose that we also allow withdrawals of <m>W</m> dollars per year. The net increase in the balance between times <m>t</m> and <m>t + \Delta t</m> can now be described as
+            <md>P(t + \Delta t) - P(t) \approx r P \Delta t - W \Delta t</md>
+        Thus,
+            <md>P'(t) = \lim_{\Delta t \rightarrow 0} \frac{P(t + \Delta t) - P(t) }{\Delta t} = rP - W.</md></p>
+
+        <p>We can solve the equation
+            <md>P' = rP - W</md>
+        by multiplying both sides of the equation by the integrating factor
+            <md>\mu(t) = \exp\left(- \int r \, dt\right) = e^{-rt}.</md>
+        to obtain
+            <md>\frac{d}{dt} [e^{-rt} P] = -We^{-rt}.</md>
+        Integrating both sides of this equation, we have
+            <md>e^{-rt} P = \frac{W}{r} e^{-rt} + C</md>
+        or
+            <md>P = \frac{W}{r} + Ce^{rt}.</md>
+        If we know the initial balance in the account, say <m>P(0) = P_0</m>, we can determine <m>C</m>. That is,
+            <md>P_0 = \frac{W}{r} + C</md>
+        or 
+            <md>C = P_0 - \frac{W}{r}.</md>
+        Thus, the solution to our initial value problem is
+            <md>P = \frac{W}{r} + \left( P_0 - \frac{W}{r} \right) e^{rt}.</md></p>
+
+        <example>
+            <p>Suppose that your parents have established a money market account with a balance of $50,000 that they will use to help you pay for your college education.  The account receives an average annual interest of 4%. You estimate that your tuition, room and board, and other college expenses to be $20,000 per year.</p>
+
+            <p>We model this financial situation with the differential equation
+                <md>
+                    <mrow>\frac{dP}{dt} \amp = 0.04P - 20000</mrow>
+                    <mrow>P(0) \amp = 50000.</mrow>
+                </md>
+            Rewriting the differential equation as <m>dP/dt - 0.04P = -20000</m>, our integrating factor becomes <m>\mu(t) = e^{-0.04t}</m>, and
+                <md>e^{-0.04t} \frac{dP}{dt} -0.04 e^{-0.04t} P= \frac{d}{dt} [e^{-0.04t} P] = -20000e^{-0.04t}.</md>
+            Thus, 
+                <md>e^{-0.04t} P = \frac{20000}{0.04}e^{-0.04t} + C = 500000e^{-0.04t} + C.</md>
+            The solution to this initial value problem is
+                <md>P(t) = \frac{20000}{0.04} + \left( 50000 - \frac{20000}{0.04} \right) e^{0.04t} = 500000 - 450000e^{0.04t}.</md></p>
+
+            <p>Your parents have been quite generous but have told you that you must be responsible for the balance of the cost of your education.</p>
+
+
+        </example>
+
+        <activity>
+            <title>Paying for College</title>
+
+            <introduction>
+                <p>Suppose that new parents want to start a college fund for their child.  They are willing to invest $2000 per year at a rate of 4%.</p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>Find an initial value problem that models the parents' investment.</p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>How much will be in the college fund when their child turns 18?</p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>What would they need to invest per year to have $80,000 in the college fund when their child turns 18?</p>
+                </statement>
+            </task>
+        </activity>
+    </subsection>
+    <exercises xml:id="exercises-lin-eqs">
+        <exercisegroup cols="2" xml:id="ex-group-find-gen-solns">
+            <title>Finding General Solutions</title>
+            
+            <introduction>
+                <p>
+                    Find the general solution for each equation in 
+                    <xref ref="ex-group-find-gen-solns" />. <em>Some 
+                    of the equations may be separable.</em>
+                </p>
+            </introduction>
+        
+            <exercise>
+                <statement>
+                    <p>
+                       <m>\dfrac{dy}{dx} + 5y=0</m> 
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'-7y=0</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'+2xy=0</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dx}{dt} - t^2 x = 0</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'+\dfrac2{x}\,y = 0</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dy}{dx}-5y=e^x</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'-5y=10x</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dx}{dt}-5x=\sin 2t</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'-\dfrac3{x^2}\,y=\dfrac1{x^2}</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dy}{dx}+\dfrac2{x}\,y = \dfrac{\sin x}{x^2}</m>
+                    </p>
+                </statement>
+            </exercise>
+        
+        </exercisegroup>
+
+        <exercisegroup cols="2" xml:id="ex-group-solve-lin-ivps">
+            <title>Solving Initial Value Problems</title>
+            <introduction>
+                <p>
+                    Solve the initial value problems in 
+                    <xref ref="ex-group-solve-lin-ivps" />.
+                </p>
+            </introduction>
+
+            <exercise>
+                <statement>
+                    <p>
+                       <m>\dfrac{dy}{dx} + 5y=0</m>, <m>y(0)=2</m> 
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'-7y=0</m>, <m>y(0)=1</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'+2xy=0</m>, <m>y(0)=3</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dx}{dt} - t^2 x = 0</m>, <m>x(0) = -1</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'+\dfrac2{x}\,y = 0</m>, <m>y(1) = -3</m>
+                    </p>
+                </statement>
+            </exercise>
+        
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y' = - \dfrac{2y}{x + 1} + 2x</m>, <m>y(0) = 2</m>
+                    </p>
+                </statement>
+                <hint>
+                    <p>
+                        <m>y = \dfrac{3 x^{4} + 8 x^{3} + 6 x^{2} + 12}{6 (x + 1)^2}</m>
+                    </p>
+                </hint>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y' = - \dfrac{2y}{1 + x} + e^x</m>, <m>y(0) = 1</m>
+                    </p>
+                </statement>
+                <hint>
+                    <p><m>y = (e^x + 1)/(x+1)^2</m></p>
+                </hint>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>\dfrac{dx}{dt} - 5x = \sin 2t</m>, <m>x(0) = \pi</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y' = y \tan x + \dfrac{e^x}{\cos x}</m>, <m>y(0) = 1</m>
+                    </p>
+                </statement>
+                <hint>
+                    <p><m>y = e^x \sec x</m></p>
+                </hint>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y' = - \dfrac{y}{x + 2} + \dfrac{\cos x}{x + 2}</m>, <m>y(0) = 1</m>
+                    </p>
+                </statement>
+                <hint>
+                    <p><m>y = \sin x / (x + 2)</m></p>
+                </hint>
+            </exercise>
+        
+        </exercisegroup>
+        <exercise>
+            <statement>
+                <p>A 600-liter tank initially contains 200 liters of water containing 10 kilograms of salt. Supposed that water containing 0.1 kilograms of salt per liter flows into the top of the tank at a rate of 10 liters per minute. The water in the tank is kept well mixed, and 5 liters per minute are removed from the bottom of the tank.  How much salt is in the tank when the tank is full?</p>
+            </statement>
+            <hint>
+                <p>If <m>x(t)</m> is the amount of salt in the tank at time <m>t</m>, we know that <m>x(0) = 10</m>. The volume of the tank is <m>V = 200 + 5t</m>.  We can model the amount of salt in the tank at time <m>t</m> with a differential equation,
+                    <md>
+                        <mrow>\frac{dx}{dt} &amp; = \text{rate in} - \text{rate out}</mrow>
+                        <mrow>&amp; = 10(0.1) - 5 \frac{x}{V}</mrow>
+                        <mrow>&amp; = 1 - 5\frac{x}{200+ 5t}</mrow>
+                        <mrow>&amp; = 1 - \frac{x}{40 + t}.</mrow>
+                    </md>
+                The resulting equation
+                    <md>\frac{dx}{dt} + \frac{1}{40 + t}x = 1</md>
+                is a first order linear differential equation.  An integrating factor for this equation is given by
+                    <md>\mu(t) = \exp\left(\int \frac{1}{40 + t} \, dt\right) = 40 + t.</md>
+                Multiplying both sides of the differential equation by <m>\mu(t)</m>, we have
+                    <md>\frac{d}{dt} [(40 + t)x] = (40 + t) \frac{dx}{dt} + x = (40 + t)\left( \frac{dx}{dt} + \frac{1}{40 + t}x \right) = 40 + t.</md>
+                Integrating both sides of this equation, we obtain
+                    <md>(40 + t)x = 40t + \frac{t^2}{2} + C.</md>
+                Using the initial condition <m>x(0) = 10</m>, we can determine that <m>C = 400</m> or
+                    <md>x(t) = \frac{t^2 + 80t + 800}{2t + 80}.</md>
+                The tank is full at time <m>t = 400/5 = 80</m>, and the tank contains <m>x(80) = 170/3 \approx 56.67</m> kilograms of salt when the tank is full.</p>
+            </hint>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>A manager in a communications company contributes $2400 
+                per year into her retirement fund by making many small 
+                deposits throughout the year.  The fund grows at a rate of 
+                3.5% per year compounded continuously.  After 35 years, she 
+                retires and begins withdrawing from the retirement fund at a 
+                rate of $3500 per month.  If she does not make any deposits 
+                after she retires, how long will her retirement fund last?</p>
+            </statement>
+            <hint>
+                <p>
+                    Divide the problem into two smaller problems<mdash />one 
+                    that deals with the situation before retirement and one 
+                    that deals with the problem after retirement.
+                </p>
+            </hint>
+        </exercise>
+
+        <exercise>
+            <title>Exact Differential Equations</title>
+            <statement>
+                <p>A first-order differential equation, <m>M(x,y) \, dx + N(x,y) \, dy = 0</m>, is <em>exact</em> if there exists a function <m>g(x,y)</m> such that
+                    <md>dg(x, y) = M(x,y) \, dx + N(x,y) \, dy.</md>
+                    <ol>
+
+                        <li><p>If <m>M(x, y)</m> and <m>N(x,y)</m> and have continuous first-order partial derivatives on some rectangle in the <m>xy</m>-plane, then prove that 
+                            <md>M(x,y) \, dx + N(x,y) \, dy = 0</md>
+                        is exact if and only if 
+                            <md>\frac{\partial M(x,y)}{\partial y} = \frac{\partial N(x,y)}{\partial x}.</md></p></li>
+
+                        <li><p>Show that the differential equation <m>2xy \, dx + (1 + x^2) \, dy = 0</m> is exact.</p></li>
+
+                        <li><p>Solve the differential equation <m>2xy \, dx + (1 + x^2) \, dy = 0</m>.</p></li>
+
+                        <li><p>In general, the differential equation <m>M(x,y) \, dx + N(x,y) \, dy = 0</m> is not exact.  However, we can sometimes transform this equation into an exact equation by multiplying the equation by an integrating factor
+                            <md>\mu(x,y)[M(x,y) \, dx + N(x,y) \, dy] = 0.</md>
+                            <ol>
+
+                                <li><p>Show that <m>-1/x^2</m> is integrating factor for <m>y \, dx - x \, dy</m>.</p></li>
+
+                                <li><p>Show that <m>1/y^2</m> is integrating factor for <m>y \, dx - x \, dy</m>.</p></li>
+
+                                <li><p>Show that <m>-1/(xy)</m> is integrating factor for <m>y \, dx - x \, dy</m>.</p></li>
+
+                                <li><p>Show that <m>-1/(x^2 + y^2)</m> is integrating factor for <m>y \, dx - x \, dy</m>.</p></li>
+
+                            </ol></p></li>
+
+                        <li><p>Solve the differential equation <m>(y^2 - xy^2) \, dx + (x + x^2y^2) \, dy = 0</m>.</p></li>
+
+                    </ol></p>
+            </statement>
+            <hint>
+                <p>For (e), rewrite the equation as 
+                    <md>(y \, dx + x \, dy) + (-xy^2 \, dx + x^2 y^2 \, dy) = 0</md>
+                and consider the integrating factor <m>\mu(x, y) = 1/(xy)^2</m>.</p>
+            </hint>            
+        </exercise>
+    </exercises>
 </section>
