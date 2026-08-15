@@ -14,5 +14,6 @@
   <xi:include href="sec-geom-analysis.ptx" />
   <xi:include href="sec-separable-eq.ptx" />
   <xi:include href="sec-linear-eq.ptx" />
+  <xi:include href="sec-num-analysis.ptx" />
 
 </chapter>

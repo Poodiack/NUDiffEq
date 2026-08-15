@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-num-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Analyzing Equations Numerically</title>
+    <objectives> 
+        <ul>
+        
+            <li><p>To understand that numerical algorithms such as <term>Euler's method</term> allow the approximation of solutions to the initial value problems and that there are more efficient algorithms than Euler's method such as those algorithms that use the <term>Runge-Kutta methods</term>.</p></li>
+
+            <li><p>To understand that <term>Taylor's Theorem</term> is a very useful tool for studying differential equations.</p></li>
+
+            <li><p>To understand that error analysis of the rate of convergence is very important for any numerical algorithm.</p></li>
+
+        </ul>
+    </objectives>
+
+    <introduction>
+        <p>
+            As we've already seen, we can't always find a solution to a 
+            first-order initial value problem
+            <md number="yes" xml:id="eq-eulers-init-value">
+                y'=f(x,y), \qquad y(x_0)=y_0
+            </md>
+            analytically. It could be the case that we cannot integrate a 
+            function in terms of elementary functions, for instance. (It's 
+            not you, it's the integral!) However, we may still need a 
+            reasonable approximation of the solution curve to make estimates. 
+            We will explore some methods in this section on 
+            numerically approximating solutions to these problems.
+        </p>
+        <p>
+            Our initial value problem provides us with one point on the desired 
+            solution curve, namely <m>(x_0, y_0)</m>. Our goal is to produce a 
+            set of discrete points
+            <md>
+                (x_0, y_0), (x_1,y_1), (x_2, y_2), \dots, (x_N, y_N)
+            </md>
+            that can approximate points on the solution curve. For this purpose, 
+            we will insist that the <m>x</m>-coordinates be equally spaced. That 
+            is,
+            <md>
+                x_j = x_0 + j\Delta x, \quad j = 1, 2, \dots, N
+            </md>
+            and the corresponding <m>y_j</m> is an approximation of the solution 
+            at <m>x_j</m>; that is, <m>y_j\approx y(x_j)</m>. Once this list of points is 
+            obtained, it is usually plotted by connecting the points by 
+            straight-line segments; or, if you are using a sophisticated 
+            computer package, a curve fitting routine may be used to fit a 
+            smooth curve through the points.
+        </p>
+        <p>
+            The presence of a <m>\Delta x</m> term may put us in mind of our 
+            previous work on defining definite integrals in terms of Riemann 
+            sums. As with that situation, our approximations improve as the step 
+            size <m>\Delta x</m> shrinks, but the calculations become difficult, 
+            especially because we humans are prone to rounding off answers, leading 
+            to error accumulating as we perform more calculations. Using computers 
+            can fend this off for awhile, but even computers have a maximum word size and 
+            run into this issue after several steps. Also, different methods have 
+            different error estimates based on the size of <m>\Delta x</m>. 
+        </p>
+    </introduction>
+    <subsection xml:id="subsec-eulers-method">
+        <title>Euler's method</title>
+        <p>
+            We have already seen the usefulness of slope (or direction) 
+            fields in visualizing solution curves. If we consider the initial 
+            value problem <xref ref="eq-eulers-init-value" />, we recall 
+            that we would draw a short line segment of slope <m>m_0 = f(x_0, y_0)</m> 
+            through the point <m>(x_0, y_0)</m>. This line segment is part of 
+            the tangent line to the solution curve at <m>(x_0, y_0)</m>.
+        </p>
+        <p>
+            <term>Euler's method</term> is one of the oldest and simplest 
+            numerical methods for obtaining approximate solutions to the 
+            initial value problem <xref ref="eq-eulers-init-value" />. 
+            Visually, the method says that we would start at our initial 
+            point <m>(x_0, y_0)</m> and follow the tangent line of slope 
+            <m>f(x_0, y_0)</m> until we arrive at a point 
+            <m>\Delta x</m> units to the right. This will bring us to the point 
+            <m>(x_1,y_1)</m>. We recompute our slope as <m>f(x_1,y_1)</m> and 
+            follow a line segment of this slope from <m>(x_1,y_1)</m> until we 
+            arrive at a point <m>\Delta x</m> units further to the right. This 
+            will bring us to the point <m>(x_2,y_2)</m>. We then adjust our slope 
+            to be <m>f(x_2,y_2)</m> and follow the line segment of that slope from 
+            <m>(x_2,y_2)</m> to <m>(x_3,y_3)</m>. We continue in this manner until 
+            we reach the point <m>(x_N, y_N)</m>. (See <xref ref="fig-eulers-method" />.)
+        </p>
+        <figure xml:id="fig-eulers-method">
+            <caption>Euler's method</caption>
+            <image xml:id="img-euler-method" width="80%">
+                <latex-image>
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        axis x line=middle,
+                        xmin=-1.5, xmax=5.5,
+                        ymin=-0.2, ymax=5.5,
+                        xtick={0, 1, 2, 3, 4},
+                        xticklabels={$x_0$, $x_1$, $x_2$, $x_3$, $x_4$},
+                        ytick={0},
+                        xlabel={$x$},
+                        ylabel={$y$},
+                        samples=100
+                    ]
+
+                    % True solution curve 
+                    \addplot[thick, blue, domain=0:4] {exp(0.4*x) + 0.5};
+
+                    % Euler approximation segments
+                    \addplot[dashed, red, thick, domain=0:1] {1.5 + 0.4*(x-0)};
+                    \addplot[dashed, red, thick, domain=1:2] {1.9 + 0.5967*(x-1)};
+                    \addplot[dashed, red, thick, domain=2:3] {2.4967 + 0.8902*(x-2)};
+                    \addplot[dashed, red, thick, domain=3:4] {1.328*(x-3) + 3.3869}; 
+
+                    % Points on the polygon approximation path
+                    \fill[black] (axis cs:0,1.5) circle (2pt) node[left] {$(x_0, y_0)$};
+                    \fill[black] (axis cs:1,1.9) circle (2pt) node[below right] {$(x_1, y_1)$};
+                    \fill[black] (axis cs:2,2.49) circle (2pt) node[below right] {$(x_2, y_2)$};
+                    \fill[black] (axis cs:3,3.39) circle (2pt) node[below right] {$(x_3, y_3)$};
+                    \fill[black] (axis cs:4,4.7) circle (2pt) node[below right] {$(x_4, y_4)$};
+
+                    % Delta annotations
+                    \draw[dotted] (axis cs:0,0) -- (axis cs:0,1.5);
+                    \draw[dotted] (axis cs:1,0) -- (axis cs:1,1.9);
+                    \draw[dotted] (axis cs:2,0) -- (axis cs:2,2.49);
+                    \draw[dotted] (axis cs:3,0) -- (axis cs:3,3.39);
+                    \draw[dotted] (axis cs:4,0) -- (axis cs:4,4.7);
+
+                    % Delta x arrows
+                    \draw[&lt;-&gt;] (axis cs:0,0.5) -- (axis cs:1,0.5) node[midway, above] {$\Delta x$};
+                    \draw[&lt;-&gt;] (axis cs:1,0.5) -- (axis cs:2,0.5) node[midway, above] {$\Delta x$};
+                    \draw[&lt;-&gt;] (axis cs:2,0.5) -- (axis cs:3,0.5) node[midway, above] {$\Delta x$};
+                    \draw[&lt;-&gt;] (axis cs:3,0.5) -- (axis cs:4,0.5) node[midway, above] {$\Delta x$};
+ 
+                    \end{axis}
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </subsection>
+</section>
