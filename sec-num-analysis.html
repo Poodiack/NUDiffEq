@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>Analyzing Equations Numerically</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -113,7 +113,7 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch-introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-basic-terminology.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="sec-linear-eq.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -130,7 +130,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Differential Equations</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-introduction">
-<li class="toc-item toc-introduction active"><div class="toc-title-box"><a href="ch-introduction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-introduction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-basic-terminology.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic Terminology and Concepts</span></a></div>
 <ul id="ptx-toc-group-sec-basic-terminology" class="structural toc-item-list">
@@ -218,20 +218,84 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-linear-eq.html#exercises-lin-eqs" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-num-analysis.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Analyzing Equations Numerically</span></a></div>
-<ul id="ptx-toc-group-sec-num-analysis" class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-eulers-method" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Euler’s method</span></a></div></li></ul>
+<ul class="structural toc-item-list active" id="ptx-toc-group-sec-num-analysis"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-eulers-method" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Euler’s method</span></a></div></li></ul>
 </li>
 </ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
-<section class="introduction" id="ch-introduction-2"><h1 class="heading">Introduction</h1>
-<div class="para" id="ch-introduction-2-1">Here, we introduce the notion of what a differential equation is and give some examples of how to model phenomena with differential equations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch-introduction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="section" id="sec-num-analysis">
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analyzing Equations Numerically</span>
+</h1>
+<article class="objectives goal-like" id="sec-num-analysis-2"><h2 class="heading"><span class="type">Objectives</span></h2>
+<ul class="disc" id="sec-num-analysis-2-1">
+<li id="sec-num-analysis-2-1-1">
+<div class="para" id="sec-num-analysis-2-1-1-1">To understand that numerical algorithms such as <dfn class="terminology">Euler’s method</dfn> allow the approximation of solutions to the initial value problems and that there are more efficient algorithms than Euler’s method such as those algorithms that use the <dfn class="terminology">Runge-Kutta methods</dfn>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-num-analysis-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-num-analysis-2-1-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec-num-analysis-2-1-2">
+<div class="para" id="sec-num-analysis-2-1-2-1">To understand that <dfn class="terminology">Taylor’s Theorem</dfn> is a very useful tool for studying differential equations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-num-analysis-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-num-analysis-2-1-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec-num-analysis-2-1-3">
+<div class="para" id="sec-num-analysis-2-1-3-1">To understand that error analysis of the rate of convergence is very important for any numerical algorithm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-num-analysis-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-num-analysis-2-1-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Objectives 1.6"><a tabindex="-1" href="#sec-num-analysis-2" title="Copy heading and permalink for Objectives 1.6" aria-label="Copy heading and permalink for Objectives 1.6">🔗</a></div>
+</article>
+<section class="introduction" id="sec-num-analysis-3">
+<div class="para logical" id="sec-num-analysis-3-1">
+<div class="para">As we’ve already seen, we can’t always find a solution to a first-order initial value problem</div>
+<div class="displaymath process-math" id="eq-eulers-init-value">
+\begin{equation}
+y'=f(x,y), \qquad y(x_0)=y_0\tag{1.6.1}
+\end{equation}
+</div>
+<div class="para">analytically. It could be the case that we cannot integrate a function in terms of elementary functions, for instance. (It’s not you, it’s the integral!) However, we may still need a reasonable approximation of the solution curve to make estimates. We will explore some methods in this section on numerically approximating solutions to these problems.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-num-analysis-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-num-analysis-3-2">
+<div class="para">Our initial value problem provides us with one point on the desired solution curve, namely <span class="process-math">\((x_0, y_0)\text{.}\)</span> Our goal is to produce a set of discrete points</div>
+<div class="displaymath process-math" id="sec-num-analysis-3-2-2">
+\begin{equation*}
+(x_0, y_0), (x_1,y_1), (x_2, y_2), \dots, (x_N, y_N)
+\end{equation*}
+</div>
+<div class="para">that can approximate points on the solution curve. For this purpose, we will insist that the <span class="process-math">\(x\)</span>-coordinates be equally spaced. That is,</div>
+<div class="displaymath process-math" id="sec-num-analysis-3-2-4">
+\begin{equation*}
+x_j = x_0 + j\Delta x, \quad j = 1, 2, \dots, N
+\end{equation*}
+</div>
+<div class="para">and the corresponding <span class="process-math">\(y_j\)</span> is an approximation of the solution at <span class="process-math">\(x_j\text{;}\)</span> that is, <span class="process-math">\(y_j\approx y(x_j)\text{.}\)</span> Once this list of points is obtained, it is usually plotted by connecting the points by straight-line segments; or, if you are using a sophisticated computer package, a curve fitting routine may be used to fit a smooth curve through the points.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-num-analysis-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-num-analysis-3-3">The presence of a <span class="process-math">\(\Delta x\)</span> term may put us in mind of our previous work on defining definite integrals in terms of Riemann sums. As with that situation, our approximations improve as the step size <span class="process-math">\(\Delta x\)</span> shrinks, but the calculations become difficult, especially because we humans are prone to rounding off answers, leading to error accumulating as we perform more calculations. Using computers can fend this off for awhile, but even computers have a maximum word size and run into this issue after several steps. Also, different methods have different error estimates based on the size of <span class="process-math">\(\Delta x\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-num-analysis-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
+<section class="subsection" id="subsec-eulers-method">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Euler’s method</span>
+</h2>
+<div class="para" id="subsec-eulers-method-2">We have already seen the usefulness of slope (or direction) fields in visualizing solution curves. If we consider the initial value problem <a href="sec-num-analysis.html#eq-eulers-init-value" class="xref" data-knowl="./knowl/xref/eq-eulers-init-value.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.6.1">(1.6.1)</a>, we recall that we would draw a short line segment of slope <span class="process-math">\(m_0 = f(x_0, y_0)\)</span> through the point <span class="process-math">\((x_0, y_0)\text{.}\)</span> This line segment is part of the tangent line to the solution curve at <span class="process-math">\((x_0, y_0)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-eulers-method-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-eulers-method-3">
+<dfn class="terminology">Euler’s method</dfn> is one of the oldest and simplest numerical methods for obtaining approximate solutions to the initial value problem <a href="sec-num-analysis.html#eq-eulers-init-value" class="xref" data-knowl="./knowl/xref/eq-eulers-init-value.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.6.1">(1.6.1)</a>. Visually, the method says that we would start at our initial point <span class="process-math">\((x_0, y_0)\)</span> and follow the tangent line of slope <span class="process-math">\(f(x_0, y_0)\)</span> until we arrive at a point <span class="process-math">\(\Delta x\)</span> units to the right. This will bring us to the point <span class="process-math">\((x_1,y_1)\text{.}\)</span> We recompute our slope as <span class="process-math">\(f(x_1,y_1)\)</span> and follow a line segment of this slope from <span class="process-math">\((x_1,y_1)\)</span> until we arrive at a point <span class="process-math">\(\Delta x\)</span> units further to the right. This will bring us to the point <span class="process-math">\((x_2,y_2)\text{.}\)</span> We then adjust our slope to be <span class="process-math">\(f(x_2,y_2)\)</span> and follow the line segment of that slope from <span class="process-math">\((x_2,y_2)\)</span> to <span class="process-math">\((x_3,y_3)\text{.}\)</span> We continue in this manner until we reach the point <span class="process-math">\((x_N, y_N)\text{.}\)</span> (See <a href="sec-num-analysis.html#fig-eulers-method" class="xref" data-knowl="./knowl/xref/fig-eulers-method.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.1">Figure 1.6.1</a>.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-eulers-method-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-eulers-method"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-euler-method.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Euler’s method<div class="autopermalink" aria-hidden="true" data-description="Figure 1.6.1"><a tabindex="-1" href="#fig-eulers-method" title="Copy heading and permalink for Figure 1.6.1" aria-label="Copy heading and permalink for Figure 1.6.1">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.1: Euler’s method"><a tabindex="-1" href="#subsec-eulers-method" title="Copy heading and permalink for Subsection 1.6.1: Euler’s method" aria-label="Copy heading and permalink for Subsection 1.6.1: Euler’s method">🔗</a></div>
+</section><div class="autopermalink" aria-hidden="true" data-description="Section 1.6: Analyzing Equations Numerically"><a tabindex="-1" href="#sec-num-analysis" title="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically" aria-label="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically">🔗</a></div>
+</section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="ch-introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-basic-terminology.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-linear-eq.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

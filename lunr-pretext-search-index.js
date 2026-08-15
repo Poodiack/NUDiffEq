@@ -1934,6 +1934,42 @@ var ptx_lunr_docs = [
   "number": "1.5.5.23",
   "title": "Exact Differential Equations.",
   "body": " Exact Differential Equations   A first-order differential equation, , is exact if there exists a function such that   If and and have continuous first-order partial derivatives on some rectangle in the -plane, then prove that is exact if and only if  Show that the differential equation is exact.  Solve the differential equation .  In general, the differential equation is not exact. However, we can sometimes transform this equation into an exact equation by multiplying the equation by an integrating factor   Show that is integrating factor for .  Show that is integrating factor for .  Show that is integrating factor for .  Show that is integrating factor for .   Solve the differential equation .     For (e), rewrite the equation as and consider the integrating factor .   "
+},
+{
+  "id": "sec-num-analysis",
+  "level": "1",
+  "url": "sec-num-analysis.html",
+  "type": "Section",
+  "number": "1.6",
+  "title": "Analyzing Equations Numerically",
+  "body": " Analyzing Equations Numerically    To understand that numerical algorithms such as Euler's method allow the approximation of solutions to the initial value problems and that there are more efficient algorithms than Euler's method such as those algorithms that use the Runge-Kutta methods .  To understand that Taylor's Theorem is a very useful tool for studying differential equations.  To understand that error analysis of the rate of convergence is very important for any numerical algorithm.     As we've already seen, we can't always find a solution to a first-order initial value problem analytically. It could be the case that we cannot integrate a function in terms of elementary functions, for instance. (It's not you, it's the integral!) However, we may still need a reasonable approximation of the solution curve to make estimates. We will explore some methods in this section on numerically approximating solutions to these problems.  Our initial value problem provides us with one point on the desired solution curve, namely . Our goal is to produce a set of discrete points that can approximate points on the solution curve. For this purpose, we will insist that the -coordinates be equally spaced. That is, and the corresponding is an approximation of the solution at ; that is, . Once this list of points is obtained, it is usually plotted by connecting the points by straight-line segments; or, if you are using a sophisticated computer package, a curve fitting routine may be used to fit a smooth curve through the points.  The presence of a term may put us in mind of our previous work on defining definite integrals in terms of Riemann sums. As with that situation, our approximations improve as the step size shrinks, but the calculations become difficult, especially because we humans are prone to rounding off answers, leading to error accumulating as we perform more calculations. Using computers can fend this off for awhile, but even computers have a maximum word size and run into this issue after several steps. Also, different methods have different error estimates based on the size of .    Euler's method  We have already seen the usefulness of slope (or direction) fields in visualizing solution curves. If we consider the initial value problem , we recall that we would draw a short line segment of slope through the point . This line segment is part of the tangent line to the solution curve at .   Euler's method is one of the oldest and simplest numerical methods for obtaining approximate solutions to the initial value problem . Visually, the method says that we would start at our initial point and follow the tangent line of slope until we arrive at a point units to the right. This will bring us to the point . We recompute our slope as and follow a line segment of this slope from until we arrive at a point units further to the right. This will bring us to the point . We then adjust our slope to be and follow the line segment of that slope from to . We continue in this manner until we reach the point . (See .)   Euler's method       "
+},
+{
+  "id": "sec-num-analysis-2",
+  "level": "2",
+  "url": "sec-num-analysis.html#sec-num-analysis-2",
+  "type": "Objectives",
+  "number": "1.6",
+  "title": "",
+  "body": "  To understand that numerical algorithms such as Euler's method allow the approximation of solutions to the initial value problems and that there are more efficient algorithms than Euler's method such as those algorithms that use the Runge-Kutta methods .  To understand that Taylor's Theorem is a very useful tool for studying differential equations.  To understand that error analysis of the rate of convergence is very important for any numerical algorithm.   "
+},
+{
+  "id": "subsec-eulers-method-3",
+  "level": "2",
+  "url": "sec-num-analysis.html#subsec-eulers-method-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Euler's method "
+},
+{
+  "id": "fig-eulers-method",
+  "level": "2",
+  "url": "sec-num-analysis.html#fig-eulers-method",
+  "type": "Figure",
+  "number": "1.6.1",
+  "title": "",
+  "body": " Euler's method     "
 }
 ]
 
