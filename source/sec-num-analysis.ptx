@@ -258,6 +258,54 @@
                                 equation we're given.
                             </p>
                         </li>
+                        <li>
+                            <p>
+                                We can use MATLAB to produce a table:
+                            </p>
+                            <program language="octave">
+                                % Define the differential equation y' = f(x, y)
+                                f = @(x, y) x - y;
+
+                                % Initial conditions
+                                x0 = 0;
+                                y0 = 1;
+                                xmax = 2;
+
+                                % Configuration
+                                num_steps = 4;      % Number of steps to generate 4 points after the initial condition
+                                h = (xmax - x0)/num_steps;
+
+                                % Initialize arrays to hold the values
+                                x = zeros(num_steps + 1, 1);
+                                y = zeros(num_steps + 1, 1);
+                                f_val = zeros(num_steps + 1, 1);
+
+                                % Set the initial point
+                                x(1) = x0;
+                                y(1) = y0;
+                                f_val(1) = f(x(1), y(1));
+
+                                % Euler's Method loop
+                                for n = 1:num_steps
+                                    % Calculate next y value: y_next = y_curr + h * f(x_curr, y_curr)
+                                    y(n+1) = y(n) + h * f_val(n);
+
+                                    % Advance x
+                                    x(n+1) = x(n) + h;
+
+                                    % Calculate f(x, y) at the new point (except for the last point, where it's optional)
+                                    if n &lt; num_steps + 1
+                                        f_val(n+1) = f(x(n+1), y(n+1));
+                                    end
+                                end
+
+                                % Create and display the table
+                                Step = (0:num_steps)';
+                                EulerTable = table(Step, x, y, f_val, 'VariableNames', {'n', 'x_n', 'y_n', 'f(x_n,y_n)'});
+                                disp(EulerTable);
+
+                            </program>
+                        </li>
                     </ul>
                 </p>
                 <p>
@@ -273,9 +321,109 @@
                     <md>
                         |1.27067 - 1.125| \approx 0.14567.
                     </md>
-                    
+                    If the calculations are redone with <m>N=8</m>, that is 
+                    with <m>\Delta x = 0.25</m>, the corresponding table is
                 </p>
+                <table>
+                    <title>Euler's method table</title>
+                    <tabular halign="center">
+                        <row header="yes" bottom="major">
+                            <cell><m>n</m></cell>
+                            <cell><m>x_n</m></cell>
+                            <cell><m>y_n</m></cell>
+                            <cell><m>f(x_n,y_n) = x_n-y_n</m></cell>
+                            <cell><m>y_{n+1} = y_n + f(x_n,y_n)\cdot h</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>0</m></cell>
+                            <cell><m>0</m></cell>
+                            <cell><m>1</m></cell>
+                            <cell><m>-1</m></cell>
+                            <cell><m>0.75</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>1</m></cell>
+                            <cell><m>0.25</m></cell>
+                            <cell><m>0.75</m></cell>
+                            <cell><m>-0.50</m></cell>
+                            <cell><m>0.625</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>2</m></cell>
+                            <cell><m>0.50</m></cell>
+                            <cell><m>0.625</m></cell>
+                            <cell><m>-0.125</m></cell>
+                            <cell><m>0.59375</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>3</m></cell>
+                            <cell><m>0.75</m></cell>
+                            <cell><m>0.59375</m></cell>
+                            <cell><m>0.15625</m></cell>
+                            <cell><m>0.6328125</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>4</m></cell>
+                            <cell><m>1.00</m></cell>
+                            <cell><m>0.6328125</m></cell>
+                            <cell><m>0.3671875</m></cell>
+                            <cell><m>0.72460938</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>5</m></cell>
+                            <cell><m>1.25</m></cell>
+                            <cell><m>0.72460938</m></cell>
+                            <cell><m>0.52539063</m></cell>
+                            <cell><m>0.85595703</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>6</m></cell>
+                            <cell><m>1.50</m></cell>
+                            <cell><m>0.85595703</m></cell>
+                            <cell><m>0.64404297</m></cell>
+                            <cell><m>1.01696777</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>7</m></cell>
+                            <cell><m>1.75</m></cell>
+                            <cell><m>1.01696777</m></cell>
+                            <cell><m>0.73303223</m></cell>
+                            <cell><m>1.20022583</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>8</m></cell>
+                            <cell><m>2.00</m></cell>
+                            <cell><m>1.20022583</m></cell>
+                            <cell></cell>
+                            <cell></cell>
+                        </row>
+                    </tabular>
+                </table>
+                <p>
+                    The error in the approximate value of <m>y(2)</m> is now
+                    <md>
+                        |1.27067 - 1.200226|\approx 0.0704.
+                    </md>
+                    By cutting the step size <m>\Delta x</m> in half the 
+                    error has been cut approximately in half, from 0.146 to 
+                    0.070. <xref ref="fig-euler-graph" /> shows the two 
+                    approximate solutions together plotted with the exact 
+                    solution.
+                </p>
+                <figure xml:id="fig-euler-graph">
+                    <caption>Euler's method approximations to <m>y'=x-y</m> 
+                    with <m>N=4, 8</m></caption>
+                    <image source="./images/eulergraph.png" width="80%" />
+                </figure>
             </solution>
         </example>
+        <exercise>
+            <statement>
+                <p>
+                    Use MATLAB to generate a table for the 
+                    <m>N=8</m> case from the example.
+                </p>
+            </statement>
+        </exercise>
     </subsection>
 </section>
