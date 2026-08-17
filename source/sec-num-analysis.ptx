@@ -137,5 +137,145 @@
                 </latex-image>
             </image>
         </figure>
+        <p>
+            Notice that no <em>derivatives</em> of <m>f</m> have to be evaluated, 
+            just <m>f</m> itself.
+        </p>
+        <note>
+            <title>Algorithm for Euler's Method</title>
+            <p>Given <m>y'=f(x,y)</m>, <m>y(x_0)=y_0</m>, our goal is to find 
+            approximate values of <m>y(x)</m> on the interval <m>x_0\le x\le 
+            x_{\text{max}}</m>.</p>
+            <p><ol>
+                <li>
+                    <p>
+                        Choose a small step size <m>h=\Delta x = \frac{x_{\text{max}}-x_0}{N}</m>, 
+                        with <m>N</m> a positive integer.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        For <m>n=0, 1, 2, \dots, N-1</m>, compute
+                        <md>
+                            <mrow>x_{n+1} \amp = x_n + h </mrow>
+                            <mrow>y_{n+1} \amp = y_n + f(x_n,y_n)\,h.</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Plot the points <m>(x_0, y_0), (x_1, y_1), \dots 
+                        (x_N, y_N)</m> and connect them by drawing straight 
+                        lines. This results in a piecewise linear approximation 
+                        to <m>y(x)</m> on the interval <m>[x_0, x_\text{max}]</m>.
+                    </p>
+                </li>
+            </ol></p>
+        </note>
+        <example>
+            <statement>
+                <p>
+                    Approximate the solution of <m>y'=x-y</m>, <m>y(0)=1</m> 
+                    on the interval <m>[0,2]</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>We first note that <m>f(x,y)=x-y</m>.</p> 
+                <p>
+                    Let's first try this with <m>N=4</m> points. Then we have 
+                    that <m>h = (2-0)/4 = 0.5</m>. It is helpful to make a 
+                    table. The values <m>x_n = x_0 + n\cdot h</m> are all 
+                    determined once <m>h</m> is chosen.
+                </p>
+                <table>
+                    <title>Euler's method table</title>
+                    <tabular halign="center">
+                        <row header="yes" bottom="major">
+                            <cell><m>n</m></cell>
+                            <cell><m>x_n</m></cell>
+                            <cell><m>y_n</m></cell>
+                            <cell><m>f(x_n,y_n) = x_n-y_n</m></cell>
+                            <cell><m>y_{n+1} = y_n + f(x_n,y_n)\cdot h</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>0</m></cell>
+                            <cell><m>0</m></cell>
+                            <cell><m>1</m></cell>
+                            <cell><m>-1</m></cell>
+                            <cell><m>1+(-1)(0.5) = 0.5</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>1</m></cell>
+                            <cell><m>0.5</m></cell>
+                            <cell><m>0.5</m></cell>
+                            <cell><m>0</m></cell>
+                            <cell><m>0.5+(0)(0.5) = 0.5</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>2</m></cell>
+                            <cell><m>1</m></cell>
+                            <cell><m>0.5</m></cell>
+                            <cell><m>0.5</m></cell>
+                            <cell><m>0.5+(0.5)(0.5) = 0.75</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>3</m></cell>
+                            <cell><m>1.5</m></cell>
+                            <cell><m>0.75</m></cell>
+                            <cell><m>0.75</m></cell>
+                            <cell><m>0.75+(0.75)(0.5) = 1.125</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>4</m></cell>
+                            <cell><m>2</m></cell>
+                            <cell><m>1.125</m></cell>
+                            <cell></cell>
+                            <cell></cell>
+                        </row>
+                    </tabular>
+                </table>
+                <p>
+                Thus <m>\boxed{y(2)\approx 1.125}</m>.
+                </p>
+                <p>
+                    A couple of comments:
+                </p>
+                <p>
+                    <ul>
+                        <li>
+                            <p>
+                                The value of <m>y_{n+1}</m> at the end of 
+                                each row is used as the value of <m>y_n</m> 
+                                in the following row. The values of 
+                                <m>x_0</m> and <m>y_0</m> come from the 
+                                initial condition we're given.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                The function <m>f(x_n,y_n)</m> is the slope 
+                                function and depends on the differential 
+                                equation we're given.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    The differential equation in this example is linear: 
+                    <m>y'=x+y\Longrightarrow y'-y=x</m>. Using the method from 
+                    <xref ref="sec-linear-eq" />, we get that <m>y=x-1+2e^{-x}</m>. 
+                    (Check this!) This gives the exact value of
+                    <md>
+                        y(2) = 2-1+2e^{-2} \approx 1.27067.
+                    </md>
+                    The absolute error in our numerically computed value of 
+                    <m>y(2)</m> in the above table is
+                    <md>
+                        |1.27067 - 1.125| \approx 0.14567.
+                    </md>
+                    
+                </p>
+            </solution>
+        </example>
     </subsection>
 </section>
