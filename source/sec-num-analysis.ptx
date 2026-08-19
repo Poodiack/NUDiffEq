@@ -305,6 +305,7 @@
                                 disp(EulerTable);
 
                             </program>
+                            <image source="./images/eulertable.png" width="60%"/>
                         </li>
                     </ul>
                 </p>
@@ -400,6 +401,9 @@
                     </tabular>
                 </table>
                 <p>
+                    Thus <m>\boxed{y(2)\approx 1.200226}</m>.
+                </p>
+                <p>
                     The error in the approximate value of <m>y(2)</m> is now
                     <md>
                         |1.27067 - 1.200226|\approx 0.0704.
@@ -425,5 +429,39 @@
                 </p>
             </statement>
         </exercise>
+        <worksheet xml:id="ws-eulers-method">
+            <title>In-Class Work on Euler's Method</title>
+            <exercise workspace="2in">
+                <p>
+                    Use Euler's method to find an approximate value for 
+                    <m>y(0.2)</m> to four decimal places, given that <m>y(x)</m> 
+                    is the solution to the IVP
+                    <md>
+                        y' = x + y^2, \quad y(0) = 0
+                    </md>
+                    using first <m>h=0.1</m>, then <m>h=0.05</m>. Feel free 
+                    to use your calculator or MATLAB to do the calculations.
+                </p>
+            </exercise>
+            <exercise workspace="2in">
+                <p>
+                    Unlike the previous problem, the initial value problem 
+                    <md>
+                        y'=2xy, \quad y(1) = 1
+                    </md>
+                    can be solved by us by hand. (The equation is separable.)
+                </p>
+                <p>
+                    Solve the equation by hand and determine the values of 
+                    <m>y(1.1)</m>, <m>y(1.2), \dots</m> up to <m>y(1.5)</m>.
+                </p>
+                <p>
+                    <em>Then</em> use Euler's method with <m>h=0.1</m> and 
+                    compare the values you get for <m>y(1.1)</m>, <m>y(1.2), \dots</m> up to <m>y(1.5)</m>. 
+                    Feel free to use your calculator or MATLAB to do the 
+                    calculations.
+                </p>
+            </exercise>
+        </worksheet>
     </subsection>
 </section>
