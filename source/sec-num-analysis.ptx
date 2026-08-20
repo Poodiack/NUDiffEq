@@ -506,7 +506,7 @@
             </md>
             where the error <m>E_N(h)</m> is known by <term>Taylor's theorem</term> to be
             <md number="yes" xml:id="eq-Taylor-error">
-                E_N(h) = \frac{x^{(N+1)}(\xi) h^{N+1}}{(N+1)!}
+                E_N(h) = \frac{y^{(N+1)}(\xi) h^{N+1}}{(N+1)!}
             </md>
             for <m>\xi</m> some value of <m>x</m> between <m>x_0</m> and 
             <m>x_0+h</m>.
