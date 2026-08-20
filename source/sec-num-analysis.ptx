@@ -464,4 +464,52 @@
             </exercise>
         </worksheet>
     </subsection>
+    <subsection xml:id="subsec-error-Euler">
+        <title>Error and the Order of a Numerical Method</title>
+        <p>
+            We demonstrated Euler's method above on a differential equation we 
+            knew how to solve; we would never use this method on such an equation. 
+            (Why approximate when we can get an exact answer, and then express that 
+            as a decimal?) This was done to convince you that such a method can 
+            get results.
+        </p>
+        <p>
+            We would use a numerical method in the case where we <em>can't</em> 
+            get a solution analytically. Because of this, we are duty bound to 
+            estimate the error in using the numerical method.
+        </p>
+        <p>
+            There are two different types of error that can occur when solving a 
+            differential equation numerically. The first is called <term>round-off 
+            error</term> and is due to rounding off or chopping the result after 
+            each step of the procedure, in order to store it on a computer with 
+            fixed word size. For example, if <m>y(0) = \frac13</m>, and the computer 
+            has a word size of 4 decimal digits, then it would probably store 
+            <m>y(0)</m> as 0.3333, already introducing an error greater than 
+            0.00003 into the calculation. Fortunately, modern computers can 
+            store a lot more digits than this so it is usually not a problem, 
+            unless the procedure requires a huge number of steps.
+        </p>
+        <p>
+            The type of error you really need to be concerned about is 
+            caused by the approximations made by whatever method you are 
+            using. This is called <term>truncation error</term>.
+        </p>
+        <p>
+            Suppose we're trying to solve the initial value problem <m>y'=f(x,y)</m>, <m>y(x_0) = y_0</m> for 
+            <m>y</m>. If the slope function <m>f</m> can be differentiated 
+            enough times, <m>y(x)</m> could be approximated by the first <m>N+1</m> 
+            terms of its Taylor series about <m>x=x_0</m>:
+            <md number="yes" xml:id="eq-Taylor-series">
+                y(x_0+h) = y(x_0) + y'(x_0)h + \frac{y''(x_0)h^2}{2!} + \cdots + 
+                \frac{y^{(N)}(x_0)h^N}{N!} + E_N(h)
+            </md>
+            where the error <m>E_N(h)</m> is known by <term>Taylor's theorem</term> to be
+            <md number="yes" xml:id="eq-Taylor-error">
+                E_N(h) = \frac{x^{(N+1)}(\xi) h^{N+1}}{(N+1)!}
+            </md>
+            for <m>\xi</m> some value of <m>x</m> between <m>x_0</m> and 
+            <m>x_0+h</m>.
+        </p>
+    </subsection>
 </section>
