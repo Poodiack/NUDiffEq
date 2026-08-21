@@ -511,5 +511,32 @@
             for <m>\xi</m> some value of <m>x</m> between <m>x_0</m> and 
             <m>x_0+h</m>.
         </p>
+        <p>
+            In particular, the truncation error in Euler's method is 
+            caused by dropping all but the first two terms in the 
+            Taylor series for <m>y(x+h)</m>. From <xref ref="eq-Taylor-series" />, 
+            we see that the maximum error made by using the approximation
+            <md>
+                y(x+h) \approx y(x) + y'(x)h = y(x) + f(x,y(x))h
+            </md>
+            is given by <m>E_1(h) = y''(\xi)h^2/2!</m> where 
+            <m>\xi</m> is some value between <m>x</m> and <m>x+h</m>. 
+            If we know that <m>|y''(x)|\le M</m> for <m>x_0\le x\le x_0+h</m>, then we can
+            say that the truncation error in a single step (the <term>local truncation error</term>) is bounded by
+            <md>
+                |E_1(h)| \le \frac{M h^2}{2}.
+            </md>
+            Numerical analysts refer to this as a method of <term>first order</term> because the error is proportional to <m>h^2</m>. 
+            If we halve the step size, the error is reduced by a factor of 4. If we reduce the step size by a factor of 10, the error is reduced by a factor of 100. 
+            On the other hand, if we double the step size, the error is increased by a factor of 4. If we increase the step size by a factor of 10, the error is increased by a factor of 100. 
+            This means that Euler's method is not very efficient, and we will see that there are methods of higher order that are more efficient. It's an easy method to 
+            understand, but should only be used over a short interval.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec-fourth-order-RK">
+        <title>Fourth-Order Runge-Kutta Method</title>
+        <p>
+            Much work was done in the 
+        </p>
     </subsection>
 </section>
