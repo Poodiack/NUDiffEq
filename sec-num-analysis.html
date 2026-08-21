@@ -58,15 +58,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.6';
+eBookConfig.runestone_version = '8.2.7';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.86d8a68ed7481f7e.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bb5ac777721d4056.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
+<script src="_static/prefix-runtime.7d3f08d51c2b60f8.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bb5ac777721d4056.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -226,6 +226,7 @@ eBookConfig.enable_chatcodes =  false;
 <ul id="ptx-toc-group-subsec-eulers-method" class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-num-analysis.html#ws-eulers-method" class="internal"><span class="codenumber">1.6.1</span> <span class="title">In-Class Work on Euler’s Method</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-error-Euler" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Error and the Order of a Numerical Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-fourth-order-RK" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Fourth-Order Runge-Kutta Method</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -672,7 +673,31 @@ E_N(h) = \frac{y^{(N+1)}(\xi) h^{N+1}}{(N+1)!}\tag{1.6.3}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-error-Euler-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
+<div class="para logical" id="subsec-error-Euler-7">
+<div class="para">In particular, the truncation error in Euler’s method is caused by dropping all but the first two terms in the Taylor series for <span class="process-math">\(y(x+h)\text{.}\)</span> From <a href="sec-num-analysis.html#eq-Taylor-series" class="xref" data-knowl="./knowl/xref/eq-Taylor-series.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.6.2">(1.6.2)</a>, we see that the maximum error made by using the approximation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-Taylor-series.html" id="subsec-error-Euler-7-3">
+\begin{equation*}
+y(x+h) \approx y(x) + y'(x)h = y(x) + f(x,y(x))h
+\end{equation*}
+</div>
+<div class="para">is given by <span class="process-math">\(E_1(h) = y''(\xi)h^2/2!\)</span> where <span class="process-math">\(\xi\)</span> is some value between <span class="process-math">\(x\)</span> and <span class="process-math">\(x+h\text{.}\)</span> If we know that <span class="process-math">\(|y''(x)|\le M\)</span> for <span class="process-math">\(x_0\le x\le x_0+h\text{,}\)</span> then we can say that the truncation error in a single step (the <dfn class="terminology">local truncation error</dfn>) is bounded by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-Taylor-series.html" id="subsec-error-Euler-7-11">
+\begin{equation*}
+|E_1(h)| \le \frac{M h^2}{2}.
+\end{equation*}
+</div>
+<div class="para">Numerical analysts refer to this as a method of <dfn class="terminology">first order</dfn> because the error is proportional to <span class="process-math">\(h^2\text{.}\)</span> If we halve the step size, the error is reduced by a factor of 4. If we reduce the step size by a factor of 10, the error is reduced by a factor of 100. On the other hand, if we double the step size, the error is increased by a factor of 4. If we increase the step size by a factor of 10, the error is increased by a factor of 100. This means that Euler’s method is not very efficient, and we will see that there are methods of higher order that are more efficient. It’s an easy method to understand, but should only be used over a short interval.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-error-Euler-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.2: Error and the Order of a Numerical Method"><a tabindex="-1" href="#subsec-error-Euler" title="Copy heading and permalink for Subsection 1.6.2: Error and the Order of a Numerical Method" aria-label="Copy heading and permalink for Subsection 1.6.2: Error and the Order of a Numerical Method">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-fourth-order-RK">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fourth-Order Runge-Kutta Method</span>
+</h2>
+<div class="para" id="subsec-fourth-order-RK-2">Much work was done in the<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.3: Fourth-Order Runge-Kutta Method"><a tabindex="-1" href="#subsec-fourth-order-RK" title="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method" aria-label="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 1.6: Analyzing Equations Numerically"><a tabindex="-1" href="#sec-num-analysis" title="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically" aria-label="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically">🔗</a></div>
 </section>
 </div>
