@@ -536,7 +536,142 @@
     <subsection xml:id="subsec-fourth-order-RK">
         <title>Fourth-Order Runge-Kutta Method</title>
         <p>
-            Much work was done in the 
+            A lot of work was done in the first half of the twentieth century to 
+            develop methods that are far more accurate. Most computer
+            algebra systems use what are called Runge-Kutta Methods, developed by two 
+            German mathematicians. One of the major motivations behind these methods was 
+            to find a way to avoid having to differentiate the slope function. The 
+            fourth-order Runge-Kutta Method, for example, uses four evaluations of the 
+            slope function on each <m>x</m>-interval to produce an approximation that is 
+            accurate to the fourth order. That is, the error in each step is proportional to <m>h^5</m>. 
+            If we halve the step size, the error is reduced by a factor of 32. If we reduce the 
+            step size by a factor of 10, the error is reduced by a factor of 100,000.
         </p>
+        <p>
+            There are many different Runge-Kutta formulas for any given order, but the 
+            algorithm given below is the one that has gained acceptance because of its 
+            simplicity. Although it is tedious to compute by hand, it is easy to program 
+            for a calculator or computer. 
+        </p>
+        <note>
+            <title>Algorithm for the Fourth-Order Runge-Kutta Method</title>
+            <p>Given <m>y'=f(x,y)</m>, <m>y(x_0)=y_0</m>, our goal is to find 
+            approximate values of <m>y(x)</m> on the interval <m>x_0\le x\le 
+            x_{\text{max}}</m>.</p>
+            <p><ol>
+                <li>
+                    <p>
+                        Choose a small step size <m>h=\Delta x = \frac{x_{\text{max}}-x_0}{N}</m>, 
+                        with <m>N</m> a positive integer.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        For <m>n=0, 1, 2, \dots, N-1</m>, compute
+                        <md>
+                            <mrow>x_{n+1} \amp = x_n + h </mrow>
+                            <mrow>k_1 \amp = f(x_n,y_n) </mrow>
+                            <mrow>k_2 \amp = f(x_n+\frac{h}{2}, y_n+\frac{h}{2}k_1) </mrow>
+                            <mrow>k_3 \amp = f(x_n+\frac{h}{2}, y_n+\frac{h}{2}k_2) </mrow>
+                            <mrow>k_4 \amp = f(x_n+h, y_n+hk_3) </mrow>
+                            <mrow>y_{n+1} \amp = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4).</mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Plot the points <m>(x_0, y_0), (x_1, y_1), \dots 
+                        (x_N, y_N)</m> and connect them by drawing straight 
+                        lines. This results in a piecewise linear approximation 
+                        to <m>y(x)</m> on the interval <m>[x_0, x_\text{max}]</m>.
+                    </p>
+                </li>
+            </ol></p>
+        </note>
+        <p>
+            The fourth-order Runge-Kutta method is a very popular method for 
+            numerically solving differential equations. It is more accurate than 
+            Euler's method and is still relatively easy to implement. However, it 
+            does require four evaluations of the slope function for each step, which 
+            can be computationally expensive for complex functions.
+        </p>
+        <p>
+            Let's apply the fourth-order Runge-Kutta method to the same initial value 
+            problem we solved using Euler's method: <m>y'=x-y</m>, <m>y(0)=1</m> on 
+            the interval <m>[0,2]</m>. We will use <m>N=4</m> steps, which gives us a 
+            step size of <m>h=0.5</m>.
+        </p>
+        <program language="octave">
+            % Define the differential equation function
+            f = @(x, y) x - y;
+
+            % Initial conditions and parameters
+            x0 = 0;
+            y0 = 1;
+            xf = 2;
+            steps = 4;
+            h = (xf - x0) / steps; % Step size = 0.5
+
+            % Initialize variables
+            x = x0;
+            y = y0;
+
+            % Display headers
+            fprintf('%5s %10s\n', 'x', 'y');
+            fprintf('%5.2f %10.6f\n', x, y);
+
+            % Runge-Kutta 4th Order Loop
+            for i = 1:steps
+                k1 = f(x, y);
+                k2 = f(x + h/2, y + h*k1/2);
+                k3 = f(x + h/2, y + h*k2/2);
+                k4 = f(x + h, y + h*k3);
+
+                y = y + (h/6) * (k1 + 2*k2 + 2*k3 + k4);
+                x = x + h;
+
+                fprintf('%5.2f %10.6f\n', x, y);
+            end
+
+            % Final result
+            fprintf('\nThe approximate value of y(2) is: %.6f\n', y);
+        </program>
+        <image source="./images/RKOutput.png" width="60%"/>
+        <aside>
+            <p>
+                The <c>fprintf</c> statements in the code above are used to display the 
+                values of <m>x</m> and <m>y</m> at each step of the Runge-Kutta method. 
+                The final result is printed after the loop, showing the approximate 
+                value of <m>y(2)</m>. The command <c>fprintf('%5.2f %10.6f\n', x, y)</c> 
+                prints the value of <m>x</m> using a total width of 5 spaces, with 2 digits 
+                after the decimal point, followed by the value of <m>y</m> using a total width 
+                of 10 spaces, with 6 digits.
+            </p>
+        </aside>
+        <p>
+            Thus four steps of the fourth-order Runge-Kutta method give us <m>y(2)\approx 1.27110</m>, 
+            which is very close to the exact value of <m>y(2) = 1.27067</m>. The absolute error 
+            is approximately 0.00043, which is significantly smaller than the error we obtained 
+            using Euler's method with the same number of steps.
+        </p>
+        <p>
+            If <m>h</m> is halved to 0.25 (i.e., <m>N=8</m>), the fourth-order 
+            Runge-Kutta method would yield an even more accurate approximation of 
+            <m>y(2)</m>, demonstrating the efficiency and accuracy of this method 
+            compared to Euler's method. Every time we halve the step size, the error is 
+            reduced by a factor of 32 per step, which is a significant improvement over 
+            the first-order accuracy of Euler's method. If we keep the overall interval 
+            size small, the fourth-order Runge-Kutta method can provide highly accurate 
+            results with relatively few steps.
+        </p>
+        <table xml:id="tbl-RK">
+            <title>Runge-Kutta Table</title>
+            <tabular>
+                <row header="yes" bottom="major">
+                    <cell><m>h=\Delta x</m></cell>
+                    <cell><m>y(2)</m></cell>
+                </row>
+            </tabular>
+        </table>
     </subsection>
 </section>
