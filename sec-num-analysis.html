@@ -786,15 +786,43 @@ fprintf('\nThe approximate value of y(2) is: %.6f\n', y);
 </aside></details>
 <div class="para" id="subsec-fourth-order-RK-10">Thus four steps of the fourth-order Runge-Kutta method give us <span class="process-math">\(y(2)\approx 1.27110\text{,}\)</span> which is very close to the exact value of <span class="process-math">\(y(2) = 1.27067\text{.}\)</span> The absolute error is approximately 0.00043, which is significantly smaller than the error we obtained using Euler’s method with the same number of steps.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-fourth-order-RK-11">If <span class="process-math">\(h\)</span> is halved to 0.25 (i.e., <span class="process-math">\(N=8\)</span>), the fourth-order Runge-Kutta method would yield an even more accurate approximation of <span class="process-math">\(y(2)\text{,}\)</span> demonstrating the efficiency and accuracy of this method compared to Euler’s method. Every time we halve the step size, the error is reduced by a factor of 32 per step, which is a significant improvement over the first-order accuracy of Euler’s method. If we keep the overall interval size small, the fourth-order Runge-Kutta method can provide highly accurate results with relatively few steps.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-fourth-order-RK-11">If <span class="process-math">\(h\)</span> is halved to 0.25 (i.e., <span class="process-math">\(N=8\)</span>), the fourth-order Runge-Kutta method would yield an even more accurate approximation of <span class="process-math">\(y(2)\text{,}\)</span> demonstrating the efficiency and accuracy of this method compared to Euler’s method. Every time we halve the step size, the error is reduced by a factor of 32 per step, which is a significant improvement over the first-order accuracy of Euler’s method. If we keep the overall interval size small, the fourth-order Runge-Kutta method can provide highly accurate results with relatively few steps. (See <a href="sec-num-analysis.html#tbl-RK" class="xref" data-knowl="./knowl/xref/tbl-RK.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.6.9: Runge-Kutta Table">Table 1.6.9</a>.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="table table-like" id="tbl-RK"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Runge-Kutta Table<div class="autopermalink" aria-hidden="true" data-description="Table 1.6.9: Runge-Kutta Table"><a tabindex="-1" href="#tbl-RK" title="Copy heading and permalink for Table 1.6.9: Runge-Kutta Table" aria-label="Copy heading and permalink for Table 1.6.9: Runge-Kutta Table">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b3 r0 l0 t0 lines"><span class="process-math">\(h=\Delta x\)</span></th>
 <th scope="col" class="l m b3 r0 l0 t0 lines"><span class="process-math">\(y(2)\)</span></th>
 </tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.25\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.27069228\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.125\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.27067178\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0625\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.27067063\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.03125\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.27067057\)</span></td>
+</tr>
 </table></div>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.3: Fourth-Order Runge-Kutta Method"><a tabindex="-1" href="#subsec-fourth-order-RK" title="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method" aria-label="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method">🔗</a></div>
+</figure>
+<article class="example example-like" id="subsec-fourth-order-RK-13"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="subsec-fourth-order-RK-13-1">We previously plotted the slope field for the differential equation <span class="process-math">\(y'=y^2-x\)</span> and we noted that no analytical solution could be found. The slope field and four solutions are plotted in <a href="sec-num-analysis.html#fig-slope-field-13" class="xref" data-knowl="./knowl/xref/fig-slope-field-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.11">Figure 1.6.11</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-slope-field-13"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/./images/RKtrajectories.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Solutions of <span class="process-math">\(y'=y^2-x\text{,}\)</span> <span class="process-math">\(y(0)=0.2, 0.7, 0.72901, 0.8\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 1.6.11"><a tabindex="-1" href="#fig-slope-field-13" title="Copy heading and permalink for Figure 1.6.11" aria-label="Copy heading and permalink for Figure 1.6.11">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-fourth-order-RK-13-3">It appears that there is a solution that separates solutions that blow up to infinity from those that pass through the parabola <span class="process-math">\(x=y^2\)</span> and then tend asymptotically to <span class="process-math">\(y=-\sqrt{x}\)</span> as <span class="process-math">\(x\to\infty\text{.}\)</span> We can use the fourth-order Runge-Kutta method to approximate.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.6.10"><a tabindex="-1" href="#subsec-fourth-order-RK-13" title="Copy heading and permalink for Example 1.6.10" aria-label="Copy heading and permalink for Example 1.6.10">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.3: Fourth-Order Runge-Kutta Method"><a tabindex="-1" href="#subsec-fourth-order-RK" title="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method" aria-label="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 1.6: Analyzing Equations Numerically"><a tabindex="-1" href="#sec-num-analysis" title="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically" aria-label="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically">🔗</a></div>
 </section>
 </div>
