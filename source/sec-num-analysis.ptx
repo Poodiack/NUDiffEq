@@ -662,7 +662,7 @@
             reduced by a factor of 32 per step, which is a significant improvement over 
             the first-order accuracy of Euler's method. If we keep the overall interval 
             size small, the fourth-order Runge-Kutta method can provide highly accurate 
-            results with relatively few steps.
+            results with relatively few steps. (See <xref ref="tbl-RK" />.)
         </p>
         <table xml:id="tbl-RK">
             <title>Runge-Kutta Table</title>
@@ -671,7 +671,40 @@
                     <cell><m>h=\Delta x</m></cell>
                     <cell><m>y(2)</m></cell>
                 </row>
+                <row>
+                    <cell><m>0.25</m></cell>
+                    <cell><m>1.27069228</m></cell>
+                </row>
+                <row>
+                    <cell><m>0.125</m></cell>
+                    <cell><m>1.27067178</m></cell>
+                </row>
+                <row>
+                    <cell><m>0.0625</m></cell>
+                    <cell><m>1.27067063</m></cell>
+                </row>
+                <row>
+                    <cell><m>0.03125</m></cell>
+                    <cell><m>1.27067057</m></cell>
+                </row>
             </tabular>
         </table>
+        <example>
+            <p>
+                We previously plotted the slope field for the differential equation
+                <m>y'=y^2-x</m> and we noted that no analytical solution could be found. 
+                The slope field and four solutions are plotted in <xref ref="fig-slope-field-13" />.
+            </p>
+            <figure xml:id="fig-slope-field-13">
+                <caption>Solutions of <m>y'=y^2-x</m>, <m>y(0)=0.2, 0.7, 0.72901, 0.8</m></caption>
+                <image source="./images/RKtrajectories.png" width="80%" />
+            </figure>
+            <p>
+                It appears that there is a solution that separates solutions that blow up to infinity 
+                from those that pass through the parabola <m>x=y^2</m> and then tend 
+                asymptotically to <m>y=-\sqrt{x}</m> as <m>x\to\infty</m>. We can use 
+                the fourth-order Runge-Kutta method to approximate.
+            </p>
+        </example>
     </subsection>
 </section>
