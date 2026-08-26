@@ -526,13 +526,67 @@
             <md>
                 |E_1(h)| \le \frac{M h^2}{2}.
             </md>
-            Numerical analysts refer to this as a method of <term>first order</term> because the error is proportional to <m>h^2</m>. 
-            If we halve the step size, the error is reduced by a factor of 4. If we reduce the step size by a factor of 10, the error is reduced by a factor of 100. 
-            On the other hand, if we double the step size, the error is increased by a factor of 4. If we increase the step size by a factor of 10, the error is increased by a factor of 100. 
-            This means that Euler's method is not very efficient, and we will see that there are methods of higher order that are more efficient. It's an easy method to 
+            Numerical analysts refer to this as an <term>error of order 2</term> because 
+            the error is proportional to <m>h^2</m>.
+        </p>
+        <p>
+            Since Euler's method requires <m>N</m> steps to go from <m>x_0</m> to <m>x_\text{max}</m>, 
+            it may seem that the total error (the <term>global truncation error</term>) is bounded by 
+            <m>N</m> times the local truncation error. However, this is not the case. The error 
+            in each step is carried over to the next step, and so the global truncation error actually 
+            grows <em>exponentially</em> with <m>N</m>. For a fixed interval length, the global 
+            truncation error is still essentially a constant times <m>h</m>, but if the interval of integration 
+            is increased, the global truncation error increases exponentially. This should 
+            warn you that Euler's method over very long time intervals may produce large 
+            errors even if <m>h</m> is small.
+        </p>
+        <p>    
+            Numerical analysts refer to this as a method of <term>first order</term> . 
+            If we halve the step size, the error is reduced by a factor of 2. 
+            This means that Euler's method is not very efficient, and we will see that there are methods of 
+            higher order that are more efficient. It's an easy method to 
             understand, but should only be used over a short interval.
         </p>
     </subsection>
+    <worksheet xml:id="ws-Euler-method">
+        <title>In-Class Work on Euler's Method</title>
+        <page>
+        <exercise>
+            <p>
+                Use Euler's method to find an approximate value for <m>y(0.2)</m>
+                to four decimal places, given that <m>y(x)</m> is the solution to the 
+                initial value problem
+                <md>
+                    y' = x + y^2, \quad y(0) = 0
+                </md>
+                using first <m>h=0.1</m>, then <m>h=0.05</m>. Feel free to use your 
+                calculator or the MATLAB code provided in the example to do the calculations.
+            </p>
+        </exercise>
+        </page>
+        <page>
+            <exercise>
+                <p>
+                    Unlike the previous problem, the initial-value problem
+                    <md>
+                        y' = 2xy, \quad y(1) = 1
+                    </md>
+                    can be solved by us by hand. (The equation is separable.)
+                </p>
+                <p>
+                    Solve the equation by hand and determine the values <m>y(1.1)</m>, 
+                    <m>y(1.2)</m>, <m>\dots</m> up to <m>y(1.5)</m>.
+                </p>
+                <p>
+                    <em>Then</em> use Euler's method with <m>h=0.1</m> and compare the 
+                    values you get for <m>y(1.1)</m>, <m>y(1.2)</m>, <m>\dots</m> up to <m>y(1.5)</m>. 
+                    Feel free to use your calculator or the MATLAB code posted above to do the 
+                    calculations.
+                </p>
+            </exercise>
+        </page>
+
+    </worksheet>
     <subsection xml:id="subsec-fourth-order-RK">
         <title>Fourth-Order Runge-Kutta Method</title>
         <p>
