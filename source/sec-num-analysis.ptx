@@ -700,10 +700,16 @@
                 <image source="./images/RKtrajectories.png" width="80%" />
             </figure>
             <p>
-                It appears that there is a solution that separates solutions that blow up to infinity 
+                It appears that there is a initial condition <m>y(0) = y_0</m> 
+                that separates solutions that blow up to infinity 
                 from those that pass through the parabola <m>x=y^2</m> and then tend 
                 asymptotically to <m>y=-\sqrt{x}</m> as <m>x\to\infty</m>. We can use 
-                the fourth-order Runge-Kutta method to approximate.
+                the fourth-order Runge-Kutta method to help us locate this critical value.
+            </p>
+            <p>
+                We could figure this out by using initial conditions of the form 
+                <m>y(K) = \sqrt{K}</m> for some large <m>K</m> and then integrating 
+                backwards to <m>x=0</m>.
             </p>
         </example>
     </subsection>
