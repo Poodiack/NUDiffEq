@@ -19,6 +19,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -36,7 +39,7 @@ lang: "en-US",
 <meta name="twitter:description" content="Differential Equations">
 <meta property="og:description" content="Differential Equations">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.48"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.48"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.50"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.50"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -226,7 +229,8 @@ eBookConfig.enable_chatcodes =  false;
 <ul id="ptx-toc-group-subsec-eulers-method" class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-num-analysis.html#ws-eulers-method" class="internal"><span class="codenumber">1.6.1</span> <span class="title">In-Class Work on Euler’s Method</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-error-Euler" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Error and the Order of a Numerical Method</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-fourth-order-RK" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Fourth-Order Runge-Kutta Method</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-num-analysis.html#ws-Euler-method" class="internal"><span class="codenumber">1.6.3</span> <span class="title">In-Class Work on Euler’s Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-fourth-order-RK" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Fourth-Order Runge-Kutta Method</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -686,14 +690,56 @@ y(x+h) \approx y(x) + y'(x)h = y(x) + f(x,y(x))h
 |E_1(h)| \le \frac{M h^2}{2}.
 \end{equation*}
 </div>
-<div class="para">Numerical analysts refer to this as a method of <dfn class="terminology">first order</dfn> because the error is proportional to <span class="process-math">\(h^2\text{.}\)</span> If we halve the step size, the error is reduced by a factor of 4. If we reduce the step size by a factor of 10, the error is reduced by a factor of 100. On the other hand, if we double the step size, the error is increased by a factor of 4. If we increase the step size by a factor of 10, the error is increased by a factor of 100. This means that Euler’s method is not very efficient, and we will see that there are methods of higher order that are more efficient. It’s an easy method to understand, but should only be used over a short interval.</div>
+<div class="para">Numerical analysts refer to this as an <dfn class="terminology">error of order 2</dfn> because the error is proportional to <span class="process-math">\(h^2\text{.}\)</span>
+</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-error-Euler-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-error-Euler-8">Since Euler’s method requires <span class="process-math">\(N\)</span> steps to go from <span class="process-math">\(x_0\)</span> to <span class="process-math">\(x_\text{max}\text{,}\)</span> it may seem that the total error (the <dfn class="terminology">global truncation error</dfn>) is bounded by <span class="process-math">\(N\)</span> times the local truncation error. However, this is not the case. The error in each step is carried over to the next step, and so the global truncation error actually grows <em class="emphasis">exponentially</em> with <span class="process-math">\(N\text{.}\)</span> For a fixed interval length, the global truncation error is still essentially a constant times <span class="process-math">\(h\text{,}\)</span> but if the interval of integration is increased, the global truncation error increases exponentially. This should warn you that Euler’s method over very long time intervals may produce large errors even if <span class="process-math">\(h\)</span> is small.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-error-Euler-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-error-Euler-9">Numerical analysts refer to this as a method of <dfn class="terminology">first order</dfn> . If we halve the step size, the error is reduced by a factor of 2. This means that Euler’s method is not very efficient, and we will see that there are methods of higher order that are more efficient. It’s an easy method to understand, but should only be used over a short interval.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-error-Euler-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.2: Error and the Order of a Numerical Method"><a tabindex="-1" href="#subsec-error-Euler" title="Copy heading and permalink for Subsection 1.6.2: Error and the Order of a Numerical Method" aria-label="Copy heading and permalink for Subsection 1.6.2: Error and the Order of a Numerical Method">🔗</a></div>
 </section>
+<section class="worksheet" id="ws-Euler-method" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h2 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">In-Class Work on Euler’s Method</span><div class="print-links"><a href="?printpreview=ws-Euler-method" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h2>
+<section class="onepage" id="ws-Euler-method-2">
+<article class="exercise exercise-like" id="ws-Euler-method-2-1"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ws-Euler-method-2-1-1">
+<div class="para">Use Euler’s method to find an approximate value for <span class="process-math">\(y(0.2)\)</span> to four decimal places, given that <span class="process-math">\(y(x)\)</span> is the solution to the initial value problem</div>
+<div class="displaymath process-math" id="ws-Euler-method-2-1-1-3">
+\begin{equation*}
+y' = x + y^2, \quad y(0) = 0
+\end{equation*}
+</div>
+<div class="para">using first <span class="process-math">\(h=0.1\text{,}\)</span> then <span class="process-math">\(h=0.05\text{.}\)</span> Feel free to use your calculator or the MATLAB code provided in the example to do the calculations.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-Euler-method-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.6.3.1"><a tabindex="-1" href="#ws-Euler-method-2-1" title="Copy heading and permalink for Worksheet Exercise 1.6.3.1" aria-label="Copy heading and permalink for Worksheet Exercise 1.6.3.1">🔗</a></div>
+</article></section><section class="onepage" id="ws-Euler-method-3">
+<article class="exercise exercise-like" id="ws-Euler-method-3-1"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="ws-Euler-method-3-1-1">
+<div class="para">Unlike the previous problem, the initial-value problem</div>
+<div class="displaymath process-math" id="ws-Euler-method-3-1-1-1">
+\begin{equation*}
+y' = 2xy, \quad y(1) = 1
+\end{equation*}
+</div>
+<div class="para">can be solved by us by hand. (The equation is separable.)</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-Euler-method-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-Euler-method-3-1-2">Solve the equation by hand and determine the values <span class="process-math">\(y(1.1)\text{,}\)</span> <span class="process-math">\(y(1.2)\text{,}\)</span> <span class="process-math">\(\dots\)</span> up to <span class="process-math">\(y(1.5)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-Euler-method-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-Euler-method-3-1-3">
+<em class="emphasis">Then</em> use Euler’s method with <span class="process-math">\(h=0.1\)</span> and compare the values you get for <span class="process-math">\(y(1.1)\text{,}\)</span> <span class="process-math">\(y(1.2)\text{,}\)</span> <span class="process-math">\(\dots\)</span> up to <span class="process-math">\(y(1.5)\text{.}\)</span> Feel free to use your calculator or the MATLAB code posted above to do the calculations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ws-Euler-method-3-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1.6.3.2"><a tabindex="-1" href="#ws-Euler-method-3-1" title="Copy heading and permalink for Worksheet Exercise 1.6.3.2" aria-label="Copy heading and permalink for Worksheet Exercise 1.6.3.2">🔗</a></div>
+</article></section><div class="autopermalink" aria-hidden="true" data-description="Worksheet 1.6.3: In-Class Work on Euler’s Method"><a tabindex="-1" href="#ws-Euler-method" title="Copy heading and permalink for Worksheet 1.6.3: In-Class Work on Euler’s Method" aria-label="Copy heading and permalink for Worksheet 1.6.3: In-Class Work on Euler’s Method">🔗</a></div>
+</section>
 <section class="subsection" id="subsec-fourth-order-RK">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fourth-Order Runge-Kutta Method</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fourth-Order Runge-Kutta Method</span>
 </h2>
 <div class="para" id="subsec-fourth-order-RK-2">A lot of work was done in the first half of the twentieth century to develop methods that are far more accurate. Most computer algebra systems use what are called Runge-Kutta Methods, developed by two German mathematicians. One of the major motivations behind these methods was to find a way to avoid having to differentiate the slope function. The fourth-order Runge-Kutta Method, for example, uses four evaluations of the slope function on each <span class="process-math">\(x\)</span>-interval to produce an approximation that is accurate to the fourth order. That is, the error in each step is proportional to <span class="process-math">\(h^5\text{.}\)</span> If we halve the step size, the error is reduced by a factor of 32. If we reduce the step size by a factor of 10, the error is reduced by a factor of 100,000.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -931,7 +977,7 @@ end
 <div class="para" id="subsec-fourth-order-RK-13-13">What you need to realize is that if you are working on a machine that keeps only a small number of significant digits in its calculations, then if <span class="process-math">\(\Delta x\)</span> is very small, or a huge number of steps are needed, bad things can happen.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.6.10"><a tabindex="-1" href="#subsec-fourth-order-RK-13" title="Copy heading and permalink for Example 1.6.10" aria-label="Copy heading and permalink for Example 1.6.10">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.3: Fourth-Order Runge-Kutta Method"><a tabindex="-1" href="#subsec-fourth-order-RK" title="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method" aria-label="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.4: Fourth-Order Runge-Kutta Method"><a tabindex="-1" href="#subsec-fourth-order-RK" title="Copy heading and permalink for Subsection 1.6.4: Fourth-Order Runge-Kutta Method" aria-label="Copy heading and permalink for Subsection 1.6.4: Fourth-Order Runge-Kutta Method">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 1.6: Analyzing Equations Numerically"><a tabindex="-1" href="#sec-num-analysis" title="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically" aria-label="Copy heading and permalink for Section 1.6: Analyzing Equations Numerically">🔗</a></div>
 </section>
 </div>

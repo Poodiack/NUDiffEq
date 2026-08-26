@@ -19,6 +19,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -36,7 +39,7 @@ lang: "en-US",
 <meta name="twitter:description" content="Differential Equations">
 <meta property="og:description" content="Differential Equations">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.48"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.48"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.50"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.50"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -238,7 +241,8 @@ sagecell.makeSagecell({
 <ul id="ptx-toc-group-subsec-eulers-method" class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-num-analysis.html#ws-eulers-method" class="internal"><span class="codenumber">1.6.1</span> <span class="title">In-Class Work on Euler’s Method</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-error-Euler" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Error and the Order of a Numerical Method</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-fourth-order-RK" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Fourth-Order Runge-Kutta Method</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-num-analysis.html#ws-Euler-method" class="internal"><span class="codenumber">1.6.3</span> <span class="title">In-Class Work on Euler’s Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-num-analysis.html#subsec-fourth-order-RK" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Fourth-Order Runge-Kutta Method</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1622,7 +1626,7 @@ y = - \frac{1}{x + 1},
 <div class="para logical" id="exercises-separable-eqns-5-2-1">
 <div class="para">A first-order differential equation, <span class="process-math">\(y' = f(x, y)\text{,}\)</span> is <em class="emphasis">homogeneous</em> if <span class="process-math">\(f(x, y) = f(tx, ty)\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exercises-separable-eqns-5-2-1-4">
+<ol class="decimal" id="exercises-separable-eqns-5-2-1-4">
 <li id="exercises-separable-eqns-5-2-1-4-1">
 <div class="para logical" id="exercises-separable-eqns-5-2-1-4-1-1">
 <div class="para">Show that the equation</div>
@@ -1634,7 +1638,7 @@ y = - \frac{1}{x + 1},
 <div class="para">is homogeneous.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.a"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-1" title="Copy heading and permalink for Item 1.4.8.22.a" aria-label="Copy heading and permalink for Item 1.4.8.22.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.1"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-1" title="Copy heading and permalink for Item 1.4.8.22.1" aria-label="Copy heading and permalink for Item 1.4.8.22.1">🔗</a></div>
 </li>
 <li id="exercises-separable-eqns-5-2-1-4-2">
 <div class="para logical" id="exercises-separable-eqns-5-2-1-4-2-1">
@@ -1648,12 +1652,12 @@ v + x\frac{dv}{dx} = \frac{x^2 + v^2 x^2}{2v x^2}.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.b"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-2" title="Copy heading and permalink for Item 1.4.8.22.b" aria-label="Copy heading and permalink for Item 1.4.8.22.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.2"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-2" title="Copy heading and permalink for Item 1.4.8.22.2" aria-label="Copy heading and permalink for Item 1.4.8.22.2">🔗</a></div>
 </li>
 <li id="exercises-separable-eqns-5-2-1-4-3">
 <div class="para" id="exercises-separable-eqns-5-2-1-4-3-1">Show that any homogeneous equation <span class="process-math">\(y' = f(x, y)\)</span> can be transformed into a separable differential equation by making the substitution <span class="process-math">\(y = vx\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.c"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-3" title="Copy heading and permalink for Item 1.4.8.22.c" aria-label="Copy heading and permalink for Item 1.4.8.22.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.3"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-3" title="Copy heading and permalink for Item 1.4.8.22.3" aria-label="Copy heading and permalink for Item 1.4.8.22.3">🔗</a></div>
 </li>
 <li id="exercises-separable-eqns-5-2-1-4-4">
 <div class="para logical" id="exercises-separable-eqns-5-2-1-4-4-1">
@@ -1667,7 +1671,7 @@ P(x, y)\,dx + Q(x, y) \,dy = 0,
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.d"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-4" title="Copy heading and permalink for Item 1.4.8.22.d" aria-label="Copy heading and permalink for Item 1.4.8.22.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.4"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-4" title="Copy heading and permalink for Item 1.4.8.22.4" aria-label="Copy heading and permalink for Item 1.4.8.22.4">🔗</a></div>
 </li>
 <li id="exercises-separable-eqns-5-2-1-4-5">
 <div class="para logical" id="exercises-separable-eqns-5-2-1-4-5-1">
@@ -1679,7 +1683,7 @@ x^2 y' = 2 y^2 - x^2.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.e"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-5" title="Copy heading and permalink for Item 1.4.8.22.e" aria-label="Copy heading and permalink for Item 1.4.8.22.e">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.5"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-5" title="Copy heading and permalink for Item 1.4.8.22.5" aria-label="Copy heading and permalink for Item 1.4.8.22.5">🔗</a></div>
 </li>
 <li id="exercises-separable-eqns-5-2-1-4-6">
 <div class="para logical" id="exercises-separable-eqns-5-2-1-4-6-1">
@@ -1691,7 +1695,7 @@ y' = \frac{2y^4 + x^4}{xy^3}.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.f"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-6" title="Copy heading and permalink for Item 1.4.8.22.f" aria-label="Copy heading and permalink for Item 1.4.8.22.f">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.22.6"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1-4-6" title="Copy heading and permalink for Item 1.4.8.22.6" aria-label="Copy heading and permalink for Item 1.4.8.22.6">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1706,16 +1710,16 @@ y' = \frac{2y^4 + x^4}{xy^3}.
 <article class="exercise exercise-like" id="exercises-separable-eqns-7"><h3 class="heading"><span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="exercises-separable-eqns-7-1-1">
 <div class="para">You are starting a new position, and your employer has a generous retirement plan.  If you put $500 a month into a 401(k) plan, your employer will match your contributions.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exercises-separable-eqns-7-1-1-1">
+<ol class="decimal" id="exercises-separable-eqns-7-1-1-1">
 <li id="exercises-separable-eqns-7-1-1-1-1">
 <div class="para" id="exercises-separable-eqns-7-1-1-1-1-1">Assuming that you are 25 years old and plan to retire at age 65, how large can you expect your 401(k) pension to be when you retire?  Assume that your 401(k) plan will collect interest at a rate of 5%.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.24.a"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1-1-1" title="Copy heading and permalink for Item 1.4.8.24.a" aria-label="Copy heading and permalink for Item 1.4.8.24.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.24.1"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1-1-1" title="Copy heading and permalink for Item 1.4.8.24.1" aria-label="Copy heading and permalink for Item 1.4.8.24.1">🔗</a></div>
 </li>
 <li id="exercises-separable-eqns-7-1-1-1-2">
 <div class="para" id="exercises-separable-eqns-7-1-1-1-2-1">If you begin withdrawing $60,000 every year at age 65, how long will your retirement fund last?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.24.b"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1-1-2" title="Copy heading and permalink for Item 1.4.8.24.b" aria-label="Copy heading and permalink for Item 1.4.8.24.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.4.8.24.2"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1-1-2" title="Copy heading and permalink for Item 1.4.8.24.2" aria-label="Copy heading and permalink for Item 1.4.8.24.2">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-separable-eqns-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
