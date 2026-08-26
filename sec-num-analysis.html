@@ -814,12 +814,121 @@ fprintf('\nThe approximate value of y(2) is: %.6f\n', y);
 <article class="example example-like" id="subsec-fourth-order-RK-13"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
-<div class="para" id="subsec-fourth-order-RK-13-1">We previously plotted the slope field for the differential equation <span class="process-math">\(y'=y^2-x\)</span> and we noted that no analytical solution could be found. The slope field and four solutions are plotted in <a href="sec-num-analysis.html#fig-slope-field-13" class="xref" data-knowl="./knowl/xref/fig-slope-field-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.11">Figure 1.6.11</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-fourth-order-RK-13-1">Not all solutions to differential equations behave the same. A solution curve may behave one way with a given initial condition, and a completely different way with a slightly different initial condition. It is often to our benefit to figure out what initial conditions lead to what behavior. This is especially true when we are unable to find an analytical solution to the differential equation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-fourth-order-RK-13-2">We previously plotted the slope field for the differential equation <span class="process-math">\(y'=y^2-x\)</span> and we noted that no analytical solution could be found. The slope field and four solutions are plotted in <a href="sec-num-analysis.html#fig-slope-field-13" class="xref" data-knowl="./knowl/xref/fig-slope-field-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.11">Figure 1.6.11</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-slope-field-13"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/./images/RKtrajectories.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Solutions of <span class="process-math">\(y'=y^2-x\text{,}\)</span> <span class="process-math">\(y(0)=0.2, 0.7, 0.72901, 0.8\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 1.6.11"><a tabindex="-1" href="#fig-slope-field-13" title="Copy heading and permalink for Figure 1.6.11" aria-label="Copy heading and permalink for Figure 1.6.11">🔗</a></div></figcaption>
 </figure>
-<div class="para" id="subsec-fourth-order-RK-13-3">It appears that there is a solution that separates solutions that blow up to infinity from those that pass through the parabola <span class="process-math">\(x=y^2\)</span> and then tend asymptotically to <span class="process-math">\(y=-\sqrt{x}\)</span> as <span class="process-math">\(x\to\infty\text{.}\)</span> We can use the fourth-order Runge-Kutta method to approximate.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-fourth-order-RK-13-4">It appears that there is a initial condition <span class="process-math">\(y(0) = y_0\)</span> that separates solutions that blow up to infinity from those that pass through the parabola <span class="process-math">\(x=y^2\)</span> and then tend asymptotically to <span class="process-math">\(y=-\sqrt{x}\)</span> as <span class="process-math">\(x\to\infty\text{.}\)</span> To be able to make accurate predictions about the behavior of the system, it is important to find this critical value of <span class="process-math">\(y_0\text{.}\)</span> We can use the fourth-order Runge-Kutta method to help us locate this critical value.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-fourth-order-RK-13-5">We could figure this out by using initial conditions of the form <span class="process-math">\(y(K) = \sqrt{K}\)</span> for some large <span class="process-math">\(K\)</span> (that is, assume the solution curve hits the parabola far out) and then integrating backwards to <span class="process-math">\(x=0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-fourth-order-RK-13-6">We can use the MATLAB code below to find the critical value of <span class="process-math">\(y_0\)</span> by integrating backwards from <span class="process-math">\(x=K\)</span> to <span class="process-math">\(x=0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code class="language-matlab">% Define the constant K
+K = 4; % You can change this to any positive value
+
+% Define the differential equation: dy/dx = y^2 - x
+odefun = @(x, y) y^2 - x;
+
+% Set the integration interval [start_x, end_x] for backward integration
+xspan = [K, 0];
+
+% Define the initial condition: y(K) = sqrt(K)
+y0 = sqrt(K);
+
+% Solve the IVP using ode45
+[x, y] = ode45(odefun, xspan, y0);
+
+% Extract and print the final value at x = 0
+y_at_zero = y(end);
+fprintf('The value of y(0) is: %8.8f\n', y_at_zero);
+</code></pre></div>
+<div class="para" id="subsec-fourth-order-RK-13-8">We consistently find that the critical value of <span class="process-math">\(y_0\)</span> is approximately 0.72901. So, for instance, we could check that if we take <span class="process-math">\(y(0) = 0.72901 \pm \varepsilon\)</span> and integrate forward, the solutions should ultimately go in different directions. We can see this by using our previous Runge-Kutta code to integrate forward from <span class="process-math">\(x=0\)</span> with initial condition <span class="process-math">\(y(0) = 0.72901\)</span> and see what we get for, say, the value of <span class="process-math">\(y(4)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code class="language-matlab">% Define our function
+f = @(x, y) y^2 - x;
+
+% Initial conditions and parameters
+x0 = 0;
+y0 = 0.72901;
+xf = 4;
+steps = 32; % reflects initial h = 0.125
+h = (xf - x0) / steps;
+
+% Initialize variables
+x = x0;
+y = y0;
+
+for k = 1:6
+% Runge-Kutta 4th Order Loop
+    for i = 1:steps
+        k1 = f(x, y);
+        k2 = f(x + h/2, y + h*k1/2);
+        k3 = f(x + h/2, y + h*k2/2);
+        k4 = f(x + h, y + h*k3);
+    
+        y = y + (h/6) * (k1 + 2*k2 + 2*k3 + k4);
+        x = x + h;
+    
+    end;
+
+    % Final result
+    fprintf('\nThe approximate value of y(4) is: %.8f\n', y);
+
+    % Set new number of steps, value of h, reset initial x and y
+    steps = 2*steps;
+    h = (xf - x0) / steps;
+    x = x0;
+    y = y0;
+
+end
+</code></pre></div>
+<div class="para" id="subsec-fourth-order-RK-13-10">We get the following results for <span class="process-math">\(y(4)\)</span> with different step sizes:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="subsec-fourth-order-RK-13-11"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Runge-Kutta Table<div class="autopermalink" aria-hidden="true" data-description="Table 1.6.12: Runge-Kutta Table"><a tabindex="-1" href="#subsec-fourth-order-RK-13-11" title="Copy heading and permalink for Table 1.6.12: Runge-Kutta Table" aria-label="Copy heading and permalink for Table 1.6.12: Runge-Kutta Table">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b3 r0 l0 t0 lines">Number of steps</th>
+<th scope="col" class="l m b3 r0 l0 t0 lines"><span class="process-math">\(\Delta x\)</span></th>
+<th scope="col" class="l m b3 r0 l0 t0 lines"><span class="process-math">\(y(4)\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">32</td>
+<td class="l m b0 r0 l0 t0 lines">0.125</td>
+<td class="l m b0 r0 l0 t0 lines">2.06498090</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">64</td>
+<td class="l m b0 r0 l0 t0 lines">0.0625</td>
+<td class="l m b0 r0 l0 t0 lines">1.91640489</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">128</td>
+<td class="l m b0 r0 l0 t0 lines">0.03125</td>
+<td class="l m b0 r0 l0 t0 lines">1.90724317</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">256</td>
+<td class="l m b0 r0 l0 t0 lines">0.015625</td>
+<td class="l m b0 r0 l0 t0 lines">1.90666497</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">512</td>
+<td class="l m b0 r0 l0 t0 lines">0.0078125</td>
+<td class="l m b0 r0 l0 t0 lines">1.90662862</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1024</td>
+<td class="l m b0 r0 l0 t0 lines">0.00390625</td>
+<td class="l m b0 r0 l0 t0 lines">1.90662634</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="subsec-fourth-order-RK-13-12">As we go, the value of <span class="process-math">\(y(4)\)</span> gains one significant digit with each doubling of the number of steps. We can say that <span class="process-math">\(y(4)\approx 1.9066\)</span> to five significant digits. As <span class="process-math">\(1.9066 \lt 2 = \sqrt{4}\text{,}\)</span> we can conclude that the solution curve with initial condition <span class="process-math">\(y(0) = 0.72901\)</span> tends asymptotically to <span class="process-math">\(y=-\sqrt{x}\)</span> as <span class="process-math">\(x\to\infty\text{.}\)</span> However, try changing the value of <code class="code-inline tex2jax_ignore">y0</code> in the MATLAB code to <span class="process-math">\(0.72902\)</span> or <span class="process-math">\(0.729\)</span>and see what happens to the value of <span class="process-math">\(y(4)\text{.}\)</span> A small error in the initial condition can lead to a large error in the final result. This is an example of a sensitive dependence on initial conditions, which is a hallmark of chaotic systems.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-fourth-order-RK-13-13">What you need to realize is that if you are working on a machine that keeps only a small number of significant digits in its calculations, then if <span class="process-math">\(\Delta x\)</span> is very small, or a huge number of steps are needed, bad things can happen.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-fourth-order-RK-13-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Example 1.6.10"><a tabindex="-1" href="#subsec-fourth-order-RK-13" title="Copy heading and permalink for Example 1.6.10" aria-label="Copy heading and permalink for Example 1.6.10">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.6.3: Fourth-Order Runge-Kutta Method"><a tabindex="-1" href="#subsec-fourth-order-RK" title="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method" aria-label="Copy heading and permalink for Subsection 1.6.3: Fourth-Order Runge-Kutta Method">🔗</a></div>
