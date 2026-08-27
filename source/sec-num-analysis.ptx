@@ -909,4 +909,96 @@
             </p>
         </example>
     </subsection>
+    <exercises xml:id="exercises-num-method">
+        <exercisegroup xml:id="exercises-num-method-1">
+            <title>Euler's method by hand</title>
+            
+            
+            <introduction>
+                <p>
+                    In <xref ref="exercises-num-method-1"/>, use Euler's method 
+                    to approximate to four decimals the solution of the given initial value problem. 
+                    Carry out the calculations <em>by hand</em>, first using 
+                    <m>h=0.1</m> and then using <m>h=0.05</m>. Compare the results.
+                </p>
+            </introduction>
+        
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'=2x-3y+1</m>, <m>y(1)=5</m>, <m>y(1.2)=?</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'=x+y^2</m>, <m>y(0)=0</m>, <m>y(0.2)=?</m>
+                    </p>
+                </statement>
+            </exercise>
+        
+        </exercisegroup>
+        <exercisegroup xml:id="exercises-num-method-2">
+            <title>Euler's method error</title>
+            
+            
+            <introduction>
+                <p>
+                    In <xref ref="exercises-num-method-2"/>, use Euler's method to 
+                    approximate the indicated value to four decimals. First use <m>h=0.1</m> and then use <m>h=0.05</m>. 
+                    <em>Then</em> find an analytical solution to each initial value 
+                    problem and compare the results.
+                </p>
+            </introduction>
+        
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'=y</m>, <m>y(0)=1</m>, <m>y(1.0)</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'=2xy</m>, <m>y(1)=1</m>, <m>y(1.5)</m>
+                    </p>
+                </statement>
+            </exercise>
+        
+        </exercisegroup>
+        <exercisegroup xml:id="exercises-num-method-3">
+            <title>Euler vs. Runge-Kutta</title>
+            
+            
+            <introduction>
+                <p>
+                    In <xref ref="exercises-num-method-3"/>, use MATLAB to obtain a 
+                    four-decimal approximation to the of the indicated value of the 
+                    solution to the given initial value problem, first using Euler's method and then using the fourth-order Runge-Kutta method 
+                    and then the Runge-Kutta method, each with <m>h=0.25</m>. Compare the results.
+                </p>
+            </introduction>
+        
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'=e^{-y}</m>, <m>y(0)=0</m>, <m>y(0.5)</m>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>
+                        <m>y'=x^2+y^2</m>, <m>y(0)=1</m>, <m>y(0.5)</m>
+                    </p>
+                </statement>
+            </exercise>
+        
+        </exercisegroup>
+    </exercises>
 </section>
