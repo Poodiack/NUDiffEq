@@ -829,6 +829,45 @@ exists.</p>
               Plot both the function and its derivative on the same graph for <m>x \in [-3, 3]</m>.
             </p>
           </statement>
+          <solution component="instructors">
+            <p>
+              We can define the function and compute its derivative using symbolic variables 
+              in MATLAB or Octave. Then, we can create a range of <m>x</m>-values and evaluate 
+              both the function and its derivative at those points. Finally, we can plot them on the same graph. 
+              Here is an possible code snippet:
+            </p>
+              <program language="octave"> 
+                % Define the symbolic variable
+                syms x
+
+                % Define the function
+                f = x^3 - 2*x + 1;
+
+                % Calculate the derivative
+                df = diff(f, x);
+
+                % Create a range of x values for plotting
+                x_vals = linspace(-3, 3, 100);
+
+                % Evaluate the function and its derivative at the x values
+                f_vals = double(subs(f, x, x_vals));
+                df_vals = double(subs(df, x, x_vals));
+
+                % Plot the function and its derivative
+                figure;
+                plot(x_vals, f_vals, 'b', 'LineWidth', 2); % Function in blue
+                hold on;
+                plot(x_vals, df_vals, 'r', 'LineWidth', 2); % Derivative in red
+                hold off;
+
+                % Add labels and legend
+                xlabel('x');
+                ylabel('Function values');
+                title('Function and its Derivative');
+                legend('f(x) = x^3 - 2x + 1', 'f''(x) = 3x^2 - 2');
+              </program>
+              <image source="images/exintrotomatlab01.png" width="80%"/>
+          </solution>
         </task>
         <task>
           <statement>
