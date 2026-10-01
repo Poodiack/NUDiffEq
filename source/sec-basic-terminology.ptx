@@ -601,6 +601,12 @@ solution of the equation for all values of the constants.
             Equation: <m>x'=x-2</m>, Function: <m>x=2+Ce^t</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            We have <m>x' = Ce^t</m> and <m>x-2 = Ce^t</m>. 
+            Therefore, <m>x' = x-2</m> for all values of <m>C</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -608,6 +614,12 @@ solution of the equation for all values of the constants.
             Equation: <m>\frac{dy}{dx} = 4(x+1)y</m>, Function: <m>y=Ce^{2x^2+4x}</m> 
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            We have <m>\frac{dy}{dx} = 4(x+1)Ce^{2x^2+4x}</m> and <m>4(x+1)y = 4(x+1)Ce^{2x^2+4x}</m>. 
+            Therefore, <m>\frac{dy}{dx} = 4(x+1)y</m> for all values of <m>C</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -615,6 +627,12 @@ solution of the equation for all values of the constants.
             Equation: <m>\frac{dy}{dt} = y + t</m>, Function: <m>y = Ce^t-1-t</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            We have <m>\frac{dy}{dt} = Ce^t-1</m> and <m>y + t = Ce^t-1-t + t = Ce^t-1</m>. 
+            Therefore, <m>\frac{dy}{dt} = y + t</m> for all values of <m>C</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -622,6 +640,14 @@ solution of the equation for all values of the constants.
             Equation: <m>x''+x'=2e^t</m>, Function: <m>x = C_1 \sin(t) + C_2 \cos(t) + e^t</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            We have <m>x' = C_1 \cos(t) - C_2 \sin(t) + e^t</m> and <m>x'' = -C_1 \sin(t) - C_2 \cos(t) + e^t</m>. 
+            Substituting into the differential equation:
+            <m>x''+x' = (-C_1 \sin(t) - C_2 \cos(t) + e^t) + (C_1 \cos(t) - C_2 \sin(t) + e^t) = 2e^t</m>.
+            Therefore, <m>x''+x' = 2e^t</m> for all values of <m>C_1</m> and <m>C_2</m>.
+          </p>
+        </solution>
       </task>
   </exercise>
   <exercise>
@@ -641,6 +667,12 @@ exists.</p>
             <m>x' = 2x</m>, <m>x(0) = -1</m>, Family of solutions: <m>x = Ce^{2t}</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            Substituting the initial condition <m>x(0) = -1</m> into the family of solutions:
+            <m>-1 = Ce^{2(0)} = C</m>. Therefore, <m>C = -1</m> and the particular solution is <m>x = -e^{2t}</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -648,6 +680,12 @@ exists.</p>
             <m>y' = 3y\sin(t)</m>, <m>y(0) = 2</m>, Family of solutions: <m>y = Ce^{-3\cos(t)}</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            Substituting the initial condition <m>y(0) = 2</m> into the family of solutions:
+            <m>2 = Ce^{-3\cos(0)} = Ce^{-3}</m>. Therefore, <m>C = 2e^3</m> and the particular solution is <m>y = 2e^3 e^{-3\cos(t)} = 2e^{3-3\cos(t)}</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -655,6 +693,12 @@ exists.</p>
             <m>y' = 2y + 1</m>, <m>y(0) = 0</m>, Family of solutions: <m>y = Ce^{2t} - \frac12</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            Substituting the initial condition <m>y(0) = 0</m> into the family of solutions:
+            <m>0 = Ce^{2(0)} - \frac12 = C - \frac12</m>. Therefore, <m>C = \frac12</m> and the particular solution is <m>y = \frac12e^{2t} - \frac12</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -662,6 +706,12 @@ exists.</p>
             <m>y'=1+y^2</m>, <m>y(0) = 1</m>, Family of solutions: <m>y = \tan(t+C)</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            Substituting the initial condition <m>y(0) = 1</m> into the family of solutions:
+            <m>1 = \tan(0+C) = \tan(C)</m>. Therefore, <m>C = \frac{\pi}{4}</m> and the particular solution is <m>y = \tan(t + \frac{\pi}{4})</m>.
+          </p>
+        </solution>
       </task>
       <task>
         <statement>
@@ -670,6 +720,14 @@ exists.</p>
             <m>y = (C_1 + C_2 t)e^{-2t}</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            We have <m>y = (C_1 + C_2 t)e^{-2t}</m> and <m>y' = (C_2 - 2C_1 - 2C_2 t)e^{-2t}</m>. 
+            Substituting the initial conditions:
+            <m>y(0) = C_1 = 2</m> and <m>y'(0) = C_2 - 2C_1 = -1</m>. 
+            Therefore, <m>C_1 = 2</m> and <m>C_2 = 3</m>, and the particular solution is <m>y = (2 + 3t)e^{-2t}</m>.
+          </p>
+        </solution>
       </task>
       <task workspace="true">
         <statement>
@@ -678,6 +736,14 @@ exists.</p>
             <m>y(1) = 1, y'(1) = 0</m>, Family of solutions: <m>y = C_1 t^2 + C_2 t^2 \ln(t) + \frac{t^2}{4}</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            Substituting the initial conditions:
+            <m>y(1) = C_1 + C_2 = 1</m> and <m>y'(1) = 2C_1 + 2C_2 + C_2 = 0</m>. 
+            Solving this system of equations, we get <m>C_1 = 1</m> and <m>C_2 = 0</m>. 
+            Therefore, the particular solution is <m>y = t^2</m>.
+          </p>
+        </solution>
       </task>
   </exercise>
 </exercises>
@@ -876,6 +942,30 @@ exists.</p>
               MATLAB's symbolic solver. Display the general solution.
             </p>
           </statement>
+          <solution component="instructors">
+              <p>
+                We can use the <c>dsolve</c> function in MATLAB or Octave to solve the differential equation symbolically. 
+                Here is a possible code snippet:
+              </p>
+              <program language="octave">
+                % Define the symbolic variable and function
+                syms y(t)
+
+                % Define the differential equation
+                ode = diff(y, t) == y^2 - t;
+
+                % Solve the differential equation
+                general_solution = dsolve(ode);
+
+                % Display the general solution
+                disp('The general solution is:');
+                disp(general_solution);
+              </program>
+              <p>
+                The output will display the general solution of the differential equation. 
+                (Brace yourself, as the solution is expressed in terms of <term>special functions</term>.)
+              </p>
+            </solution>
         </task>
         <task workspace="true">
           <statement>
@@ -884,6 +974,37 @@ exists.</p>
               <m>y' = 2y, \quad y(0) = 1</m> over the interval <m>t \in [0, 5]</m>.
             </p>
           </statement>
+          <solution component="instructors">
+              <p>
+                We can solve the initial value problem using <c>dsolve</c> and then plot the solution. 
+                Here is a possible code snippet:
+              </p>
+              <program language="octave">
+                % Define the symbolic variable and function
+                syms y(t)
+
+                % Define the differential equation and initial condition
+                ode = diff(y, t) == 2*y;
+                cond = y(0) == 1;
+
+                % Solve the differential equation with the initial condition
+                particular_solution = dsolve(ode, cond);
+
+                % Create a range of t values for plotting
+                t_vals = linspace(0, 5, 100);
+
+                % Evaluate the particular solution at the t values
+                y_vals = double(subs(particular_solution, t, t_vals));
+
+                % Plot the solution
+                figure;
+                plot(t_vals, y_vals, 'b', 'LineWidth', 2);
+                xlabel('t');
+                ylabel('y(t)');
+                title('Solution of the IVP: y'' = 2y, y(0) = 1');
+              </program>
+              <image source="images/exintrotomatlab02.png" width="80%"/>
+          </solution>
         </task>
       </exercise>
     </exercises>
