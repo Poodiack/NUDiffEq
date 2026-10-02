@@ -584,6 +584,44 @@ time increases.
             condition <m>v(0)=0</m> to find the value of the constant <m>C</m>).
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            Using the initial condition <m>v(0)=0</m>, we can find the value of the constant <m>C</m> in the solution 
+            <m>v(t) = \frac{mg}{k} + Ce^{-\frac{k}{m} t}</m>. Substituting <m>t=0</m> and <m>v(0)=0</m> gives:
+          </p>
+          <p>
+            <md>
+              0 = \frac{mg}{k} + C e^{0} \implies C = -\frac{mg}{k}.
+            </md>
+          </p>
+          <p>
+            Now, substituting <m>C</m> back into the solution, we have:
+          </p>
+          <p>
+            <md>
+              v(t) = \frac{mg}{k} - \frac{mg}{k} e^{-\frac{k}{m} t} = \frac{mg}{k}(1 - e^{-\frac{k}{m} t}).
+            </md>
+          </p>
+          <p>
+            Given that <m>\frac{k}{m} = 1</m> sec<m>{}^{-1}</m>, we can find the velocity at <m>t=5</m> seconds:
+          </p>
+          <p>
+            <md>
+              v(5) = \frac{mg}{k}(1 - e^{-5}) \approx \frac{9.8}{1}(1 - e^{-5}) \approx 9.8(1 - 0.0067) \approx 9.8(0.9933) \approx 9.73 \text{ m/s}.
+            </md>
+          </p>
+          <p>
+            Converting this to mph using the conversion factor <m>1 \text{ m/s} \approx 2.237 \text{ mph}</m>:
+          </p>
+          <p>
+            <md>
+              v(5) \approx 9.73 \times 2.237 \approx 21.77 \text{ mph}.
+            </md>
+          </p>
+          <p>
+            Therefore, the man's velocity when he opens his parachute is approximately 21.77 mph.
+          </p>
+        </solution>
       </task>
       <task workspace="2in">
         <statement>
@@ -593,6 +631,43 @@ time increases.
             Assume he has a very long way to fall.
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            To find the value of <m>\frac{k}{m}</m> that results in a terminal velocity of 5 mph, we first convert 5 mph to m/s:
+          </p>
+          <p>
+            <md>
+              5 \text{ mph} \approx \frac{5}{2.237} \text{ m/s} \approx 2.236 \text{ m/s}.
+            </md>
+          </p>
+          <p>
+            The terminal velocity <m>v_{\text{terminal}}</m> is given by the formula:
+          </p>
+          <p>
+            <md>
+              v_{\text{terminal}} = \frac{mg}{k}.
+            </md>
+          </p>
+          <p>
+            Rearranging this equation to solve for <m>\frac{k}{m}</m> gives:
+          </p>
+          <p>
+            <md>
+              \frac{k}{m} = \frac{g}{v_{\text{terminal}}}.
+            </md>
+          </p>
+          <p>
+            Substituting the values for <m>g</m> and <m>v_{\text{terminal}}</m>:
+          </p>
+          <p>
+            <md>
+              \frac{k}{m} = \frac{9.8}{2.236} \approx 4.38 \text{ sec}^{-1}.
+            </md>
+          </p>
+          <p>
+            Therefore, to achieve a terminal velocity of 5 mph, the value of <m>\frac{k}{m}</m> must be approximately 4.38 sec<m>{}^{-1}</m>.
+          </p>
+        </solution>
       </task>
     </exercise>
     <exercise>
