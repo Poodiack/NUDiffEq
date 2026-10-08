@@ -387,8 +387,11 @@ time increases.
     the solution is given by:</p>
     <p>
       <md>
-        P(t) = \frac{N}{1 - Ce^{-rt}},
+        P(t) = \frac{N}{1 + \left(\frac{N - P_0}{P_0}\right)e^{-rt}},
       </md>
+    </p>
+    <p>
+      where <m>P_0</m> is the initial population size at time <m>t = 0</m>.
     </p>
     <p>
       This solution 
@@ -689,6 +692,38 @@ time increases.
             satisfying the differential equation <m>y' = -\frac{x}{3y}</m> in part (a).
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            To show that the set of curves <m>x^2 + 3y^2 = C</m> satisfies the differential equation <m>y' = -\frac{x}{3y}</m>, we can differentiate both sides of the equation with respect to <m>x</m>.
+          </p>
+          <p>
+            Starting with the equation:
+          </p>
+          <p>
+            <md>
+              x^2 + 3y^2 = C
+            </md>
+          </p>
+          <p>
+            Differentiating both sides with respect to <m>x</m> gives:
+          </p>
+          <p>
+            <md>
+              2x + 6yy' = 0
+            </md>
+          </p>
+          <p>
+            Solving for <m>y'</m>:
+          </p>
+          <p>
+            <md>
+              6yy' = -2x \implies y' = -\frac{2x}{6y} = -\frac{x}{3y}
+            </md>
+          </p>
+          <p>
+            This shows that the set of curves <m>x^2 + 3y^2 = C</m> indeed satisfies the differential equation <m>y' = -\frac{x}{3y}</m>.
+          </p>
+        </solution>
       </task>
       <task workspace="2in">
         <statement>
@@ -699,6 +734,50 @@ time increases.
             urves should intersect at right angles.
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            To sketch the curves <m>y = cx^3</m> for <m>c = \pm 1</m>, <m>c = \pm 2</m> and the curves <m>x^2 + 3y^2 = C</m> for <m>C = 1, 2, 3</m>, we can use MATLAB. Below is a sample code to generate the plots:
+          </p>
+          <program language="octave">
+            % Define the x range
+            x = linspace(-3, 3, 400);
+
+            % Define the values of c for y = cx^3
+            c_values = [-2, -1, 1, 2];
+
+            % Create a new figure
+            figure;
+            hold on;
+
+            % Plot y = cx^3 for each value of c
+            for c = c_values
+                y = c * x.^3;
+                plot(x, y, 'LineWidth', 1.5);
+            end
+
+            % Define the values of C for x^2 + 3y^2 = C
+            C_values = [1, 2, 3];
+
+            % Plot x^2 + 3y^2 = C for each value of C
+            for C = C_values
+                fimplicit(@(x,y) x.^2 + 3*y.^2 - C, [-3, 3, -3, 3], 'LineWidth', 1.5);
+            end
+
+            % Set axis limits and equal axis scaling
+            xlim([-3 3]);
+            ylim([-3 3]);
+            axis equal;
+
+            % Add labels and title
+            xlabel('x');
+            ylabel('y');
+            title('Curves y = cx^3 and x^2 + 3y^2 = C');
+            legend('y=-2x^3', 'y=-x^3', 'y=x^3', 'y=2x^3', 'C=1', 'C=2', 'C=3');
+            grid on;
+            hold off;
+          </program>
+          <image source="./images/orthotrajectories2.png" width="80%" />
+        </solution>
       </task>
     </exercise>
     <exercise>
@@ -740,6 +819,16 @@ time increases.
             <m>t\to\infty</m>.  Give the equation for the steady state curve.
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The steady state solution is the part of the solution that remains after the transient term <m>Ce^{-3t}</m> decays to zero as <m>t \to \infty</m>. Therefore, the steady state solution is given by:
+          </p>
+          <p>
+            <md>
+              i_{\text{steady}}(t) = 3\sin t - \cos t
+            </md>
+          </p>
+        </solution>
       </task>
       <task workspace="1in">
         <statement>
@@ -748,6 +837,25 @@ time increases.
             the solution to the IVP for this DE?
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            To produce the steady state curve as the solution to the IVP, we need to choose the initial value <m>i(0)</m> such that the transient term <m>Ce^{-3t}</m> is zero at <m>t = 0</m>. The transient term is <m>Ce^{-3t}</m>, and at <m>t = 0</m>, it becomes <m>C</m>. To eliminate the transient term, we set <m>C = 0</m>.
+          </p>
+          <p>
+            The general solution is:
+            <md>
+              i(t) = Ce^{-3t} + (3\sin t - \cos t)
+            </md>
+            Setting <m>C = 0</m> gives:
+            <md>
+              i(t) = 3\sin t - \cos t
+            </md>
+            Therefore, the initial value should be:
+            <md>
+              i(0) = 3\sin 0 - \cos 0 = -1
+            </md>
+          </p>
+        </solution>
       </task>
     </exercise>
     <exercise>
@@ -769,6 +877,63 @@ time increases.
             ants will there be one week later?
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            To find the number of ants after one week (7 days), we can use the logistic growth model solution:
+          </p>
+          <p>
+            <md>
+              P(t) = \frac{N}{1 + \left(\frac{N - P_0}{P_0}\right)e^{-rt}}
+            </md>
+          </p>
+          <p>
+            where <m>N</m> is the carrying capacity, <m>P_0</m> is the initial population, and <m>r</m> is the intrinsic growth rate.
+          </p>
+          <p>
+            Given:
+            <ul>
+              <li><m>N = 1000</m></li>
+              <li><m>P_0 = 20</m></li>
+              <li><m>r = 0.5</m></li>
+              <li><m>t = 7</m> days</li>
+            </ul>
+          </p>
+          <p>
+            Substituting these values into the formula:
+          </p>
+          <p>
+            <md>
+              P(7) = \frac{1000}{1 + \left(\frac{1000 - 20}{20}\right)e^{-0.5 \cdot 7}}
+            </md>
+          </p>
+          <p>
+            First, calculate the term inside the parentheses:
+          </p>
+          <p>
+            <md>
+              \frac{1000 - 20}{20} = \frac{980}{20} = 49
+            </md>
+          </p>
+          <p>
+            Now calculate the exponential term:
+          </p>
+          <p>
+            <md>
+              e^{-0.5 \cdot 7} = e^{-3.5} \approx 0.030197
+            </md>
+          </p>
+          <p>
+            Now substitute back into the equation:
+          </p>
+          <p>
+            <md>
+              P(7) = \frac{1000}{1 + 49 \cdot 0.030197} = \frac{1000}{1 + 1.479653} = \frac{1000}{2.479653} \approx 403.3
+            </md>
+          </p>
+          <p>
+            Therefore, after one week, there will be approximately 403 ants.
+          </p>
+        </solution>
       </task>
       <task workspace="2in">
         <statement>
@@ -778,6 +943,60 @@ time increases.
             Assume the carrying capacity remains unchanged at 1000 ants.
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            To find the number of ants after one week with the reduced growth rate, we use the same logistic growth model solution:
+          </p>
+          <p>
+            <md>
+              P(t) = \frac{N}{1 + \left(\frac{N - P_0}{P_0}\right)e^{-rt}}
+            </md>
+          </p>
+          <p>
+            Given:
+            <ul>
+              <li><m>N = 1000</m></li>
+              <li><m>P_0 = 20</m></li>
+              <li><m>r = 0.1</m></li>
+              <li><m>t = 7</m> days</li>
+            </ul>
+          </p>
+          <p>
+            Substituting these values into the formula:
+          </p>
+          <p>
+            <md>
+              P(7) = \frac{1000}{1 + \left(\frac{1000 - 20}{20}\right)e^{-0.1 \cdot 7}}
+            </md>
+          </p>
+          <p>
+            First, calculate the term inside the parentheses:
+          </p>
+          <p>
+            <md>
+              \frac{1000 - 20}{20} = \frac{980}{20} = 49
+            </md>
+          </p>
+          <p>
+            Now calculate the exponential term:
+          </p>
+          <p>
+            <md>
+              e^{-0.1 \cdot 7} = e^{-0.7} \approx 0.496585
+            </md>
+          </p>
+          <p>
+            Now substitute back into the equation:
+          </p>
+          <p>
+            <md>
+              P(7) = \frac{1000}{1 + 49 \cdot 0.496585} = \frac{1000}{1 + 24.336665} = \frac{1000}{25.336665} \approx 39.5
+            </md>
+          </p>
+          <p>
+            Therefore, after one week with the bug spray, there will be approximately 40 ants.
+          </p>
+        </solution>
       </task>
     </exercise>
   </exercises>

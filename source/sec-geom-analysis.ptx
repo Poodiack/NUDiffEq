@@ -325,7 +325,7 @@
       </p>
       <figure xml:id="fig-phase-line-1">
       <caption>Phase Line for <m>y'=0.5(y-1)(y+2)</m></caption>
-      <image width="60%">
+      <image width="20%">
         <latex-image>
           \begin{tikzpicture}[scale=0.5]
             % Draw the main vertical phase line
@@ -412,7 +412,7 @@
         <p>
           The final product should resemble the following:
         </p>
-        <image width="60%">
+        <image width="20%">
           <latex-image>
             \begin{tikzpicture}[scale=0.5]
               % Draw the main vertical phase line
@@ -557,6 +557,15 @@
               <m>y'=y(y-2)(y+3)</m>
             </p>
           </statement>
+          <solution component="instructors">
+            <p>
+              The equilibrium points are found by setting <m>y'=0</m>:
+              <md>
+                y(y-2)(y+3) = 0
+              </md>
+              Therefore, the equilibrium points are <m>y = 0, 2, -3</m>.
+            </p>
+          </solution>
         </task>
         <task>
           <statement>
