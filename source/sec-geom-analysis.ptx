@@ -485,7 +485,7 @@
           The equilibrium solutions are the zeros of <m>F(y)</m>, namely 
           0, -1, and 3. These are plotted out in the phase line below.
         </p>
-        <image width="60%">
+        <image width="30%">
           <latex-image>
             \begin{tikzpicture}[scale=0.5]
               % Draw the main vertical phase line
@@ -565,6 +565,40 @@
               </md>
               Therefore, the equilibrium points are <m>y = 0, 2, -3</m>.
             </p>
+            <image width="20%">
+          <latex-image>          
+            \begin{tikzpicture}[scale=1.2, thick]
+
+              % Draw the vertical phase line (y-axis representation)
+              \draw[->] (0,-4.5) -- (0,3.5) node[above] {$y$};
+
+              % Equilibrium points (-3, 0, 2)
+              % Filled circle = stable, Unfilled circle = unstable
+              % y = -3 (unstable)
+              \filldraw[fill=white, draw=black] (0,-3) circle (2.5pt) node[right=6pt] {$-3$ (source)};
+              
+              % y = 0 (stable)
+              \filldraw[fill=black, draw=black] (0,0) circle (2.5pt) node[right=6pt] {$0$ (sink)};
+              
+              % y = 2 (unstable)
+              \filldraw[fill=white, draw=black] (0,2) circle (2.5pt) node[right=6pt] {$2$ (source)};
+
+              % Directional arrows along the phase line
+              % Region y &lt; -3: decreasing (down arrow)
+              \draw[->] (0,-3.7) -- (0,-3.8);
+              
+              % Region -3 &lt; y &lt; 0: increasing (up arrow)
+              \draw[->] (0,-1.5) -- (0,-1.4);
+              
+              % Region 0 &lt; y &lt; 2: decreasing (down arrow)
+              \draw[->] (0,1.1) -- (0,1.0);
+              
+              % Region y &gt; 2: increasing (up arrow)
+              \draw[->] (0,2.7) -- (0,2.8);
+
+            \end{tikzpicture}
+          </latex-image>        
+        </image>
           </solution>
         </task>
         <task>
