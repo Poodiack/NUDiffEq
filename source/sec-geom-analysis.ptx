@@ -566,39 +566,39 @@
               Therefore, the equilibrium points are <m>y = 0, 2, -3</m>.
             </p>
             <image width="20%">
-          <latex-image>          
-            \begin{tikzpicture}[scale=1.2, thick]
+              <latex-image>          
+                \begin{tikzpicture}[scale=1.2, thick]
 
-              % Draw the vertical phase line (y-axis representation)
-              \draw[->] (0,-4.5) -- (0,3.5) node[above] {$y$};
+                  % Draw the vertical phase line (y-axis representation)
+                  \draw[->] (0,-4.5) -- (0,3.5) node[above] {$y$};
 
-              % Equilibrium points (-3, 0, 2)
-              % Filled circle = stable, Unfilled circle = unstable
-              % y = -3 (unstable)
-              \filldraw[fill=white, draw=black] (0,-3) circle (2.5pt) node[right=6pt] {$-3$ (source)};
-              
-              % y = 0 (stable)
-              \filldraw[fill=black, draw=black] (0,0) circle (2.5pt) node[right=6pt] {$0$ (sink)};
-              
-              % y = 2 (unstable)
-              \filldraw[fill=white, draw=black] (0,2) circle (2.5pt) node[right=6pt] {$2$ (source)};
+                  % Equilibrium points (-3, 0, 2)
+                  % Filled circle = stable, Unfilled circle = unstable
+                  % y = -3 (unstable)
+                  \filldraw[fill=white, draw=black] (0,-3) circle (2.5pt) node[right=6pt] {$-3$ (source)};
+                  
+                  % y = 0 (stable)
+                  \filldraw[fill=black, draw=black] (0,0) circle (2.5pt) node[right=6pt] {$0$ (sink)};
+                  
+                  % y = 2 (unstable)
+                  \filldraw[fill=white, draw=black] (0,2) circle (2.5pt) node[right=6pt] {$2$ (source)};
 
-              % Directional arrows along the phase line
-              % Region y &lt; -3: decreasing (down arrow)
-              \draw[->] (0,-3.7) -- (0,-3.8);
-              
-              % Region -3 &lt; y &lt; 0: increasing (up arrow)
-              \draw[->] (0,-1.5) -- (0,-1.4);
-              
-              % Region 0 &lt; y &lt; 2: decreasing (down arrow)
-              \draw[->] (0,1.1) -- (0,1.0);
-              
-              % Region y &gt; 2: increasing (up arrow)
-              \draw[->] (0,2.7) -- (0,2.8);
+                  % Directional arrows along the phase line
+                  % Region y &lt; -3: decreasing (down arrow)
+                  \draw[->] (0,-3.7) -- (0,-3.8);
+                  
+                  % Region -3 &lt; y &lt; 0: increasing (up arrow)
+                  \draw[->] (0,-1.5) -- (0,-1.4);
+                  
+                  % Region 0 &lt; y &lt; 2: decreasing (down arrow)
+                  \draw[->] (0,1.1) -- (0,1.0);
+                  
+                  % Region y &gt; 2: increasing (up arrow)
+                  \draw[->] (0,2.7) -- (0,2.8);
 
-            \end{tikzpicture}
-          </latex-image>        
-        </image>
+                \end{tikzpicture}
+              </latex-image>        
+            </image>
           </solution>
         </task>
         <task>
@@ -607,6 +607,53 @@
               <m>y'=y^2(y-2)(y+3)</m>
             </p>
           </statement>
+          <solution component="instructors">
+            <p>
+              The equilibrium points are found by setting <m>y'=0</m>:
+              <md>
+                y^2(y-2)(y+3) = 0
+              </md>
+              Therefore, the equilibrium points are <m>y = 0, 2, -3</m>.
+            </p>
+            <image width="30%">
+              <latex-image>          
+                \begin{tikzpicture}[>=Stealth, thick]
+
+                  % 1. Draw the main phase line (y-axis)
+                  \draw[->] (0,-4.5) -- (0,4) node[above] {$y$};
+                  
+                  % 2. Directional Arrows (Flow)
+                  % Region: y &gt; 2 (y' &gt; 0 -> Up)
+                  \draw[->, blue, line width=1.2pt] (0, 2.6) -- (0, 3.2);
+                  
+                  % Region: 0 &lt; y &lt; 2 (y' &lt; 0 -> Down)
+                  \draw[->, blue, line width=1.2pt] (0, 1.4) -- (0, 0.6);
+                  
+                  % Region: -3 &lt; y &lt; 0 (y' &lt; 0 -> Down)
+                  \draw[->, blue, line width=1.2pt] (0, -1.1) -- (0, -1.9);
+                  
+                  % Region: y &lt; -3 (y' &gt; 0 -> Up)
+                  \draw[->, blue, line width=1.2pt] (0, -4.1) -- (0, -3.5);
+
+                  % 3. Equilibrium Points (Markers)
+                  
+                  % y = 2 : Unstable / Source (Open Circle)
+                  \fill[white] (0,2) circle (3pt);
+                  \draw (0,2) circle (3pt) node[right=6pt] {$y = 2$ (Unstable / Source)};
+                  
+                  % y = 0 : Semi-stable / Node (Half-Filled Circle)
+                  \begin{scope}
+                      \fill (0,0) + (0,3pt) arc (90:270:3pt) -- cycle; % Fills left half
+                  \end{scope}
+                  \draw (0,0) circle (3pt) node[right=6pt] {$y = 0$ (Semi-stable / Node)};
+                  
+                  % y = -3 : Stable / Sink (Solid Circle)
+                  \fill (0,-3) circle (3pt) node[right=6pt] {$y = -3$ (Stable / Sink)};
+
+              \end{tikzpicture}
+              </latex-image>        
+            </image>
+          </solution>
         </task>
         <task>
           <statement>
@@ -614,6 +661,53 @@
               <m>y'=\cos y</m>
             </p>
           </statement>
+          <solution component="instructors">
+            <p>
+              The equilibrium points are found by setting <m>y'=0</m>:
+              <md>
+                \cos y = 0
+              </md>
+              Therefore, the equilibrium points are <m>y = \frac{\pi}{2} + n\pi</m>, 
+              where <m>n \in \mathbb{Z}</m>.
+            </p>
+            <image width="20%">
+              <latex-image>          
+                \begin{tikzpicture}[scale=1.2, thick]
+
+                  % Draw the vertical phase line (y-axis representation)
+                  \draw[->] (0,-4.5) -- (0,4.5) node[above] {$y$};
+
+                  % Equilibrium points (y = pi/2 + n*pi)
+                  % Filled circle = stable, Unfilled circle = unstable
+                  % y = pi/2 + n*pi (alternating stability)
+                  \foreach \n in {-2,-1,0,1,2} {
+                    \pgfmathsetmacro{\y}{pi/2 + \n*pi}
+                    \ifnum\n=0
+                      \filldraw[fill=black, draw=black] (0,\y) circle (2.5pt) node[right=6pt] {$\frac{\pi}{2}$ (sink)};
+                    \else
+                      \filldraw[fill=white, draw=black] (0,\y) circle (2.5pt) node[right=6pt] {$\frac{\pi}{2} + \n\pi$ (source)};
+                    \fi
+                  }
+
+                  % Directional arrows along the phase line
+                  % Region between equilibrium points: alternating up and down arrows
+                  % For y &lt; -3*pi/2: increasing (up arrow)
+                  \draw[->] (0,-4.0) -- (0,-3.9);
+                  
+                  % For -3*pi/2 &lt; y &lt; -pi/2: decreasing (down arrow)
+                  \draw[->] (0,-2.5) -- (0,-2.4);
+                  
+                  % For -pi/2 &lt; y &lt; pi/2: increasing (up arrow)
+                  \draw[->] (0,-0.5) -- (0,-0.4);
+
+                  % For pi/2 &lt; y &lt; 3*pi/2: decreasing (down arrow)
+                  \draw[->] (0,1.5) -- (0,1.6);
+                  % For 3*pi/2 &lt; y &lt; 5*pi/2: increasing (up arrow)
+                  \draw[->] (0,3.5) -- (0,3.6);
+                \end{tikzpicture}
+              </latex-image>        
+            </image>
+          </solution>
         </task>
         <task>
           <statement>
