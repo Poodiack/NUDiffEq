@@ -331,9 +331,9 @@
             % Draw the main vertical phase line
             \draw[thick, ->] (0,-3.5) -- (0,2.5) node[above] {$y$};
 
-            % Equilibrium points (y = 1 is stable/filled, y = -2 is unstable/unfilled)
+            % Equilibrium points (y = 1 is stable, y = -2 is unstable)
             \filldraw[fill=black] (0,1) circle (2.5pt) node[right=4pt] {$1$};
-            \filldraw[fill=white, thick] (0,-2) circle (2.5pt) node[right=4pt] {$-2$};
+            \filldraw[fill=black] (0,-2) circle (2.5pt) node[right=4pt] {$-2$};
 
             % Direction arrows based on the sign of y' = 0.5(y-1)(y+2)
             % For y &gt; 1 (e.g., y=2): y' &gt; 0 (pointing up)
@@ -418,9 +418,9 @@
               % Draw the main vertical phase line
               \draw[thick, ->] (0,-1.5) -- (0,2.5) node[above] {$y$};
 
-              % Equilibrium points (y = 0 is unstable/unfilled, y = 1 is stable/filled)
+              % Equilibrium points (y = 0 is unstable, y = 1 is stable)
               \filldraw[fill=black] (0,1) circle (2.5pt) node[right=4pt] {$1$};
-              \filldraw[fill=white, thick] (0,0) circle (2.5pt) node[right=4pt] {$0$};
+              \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {$0$};
 
               % Direction arrows based on the sign of y' = 2y(1-y)
               % For y &gt; 1 (e.g., y=2): y' &lt; 0 (pointing down)
@@ -491,11 +491,11 @@
               % Draw the main vertical phase line
               \draw[thick, ->] (0,-2.5) -- (0,4.5) node[above] {$y$};
 
-              % Equilibrium points (y = 0 is stable/filled, y = -1 is semi-stable/gray)
-              % (y = 3 is unstable/unfilled)
+              % Equilibrium points (y = 0 is stable, y = -1 is semi-stable)
+              % (y = 3 is unstable)
               \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {\small $0$ (sink)};
-              \filldraw[fill=white, thick] (0,3) circle (2.5pt) node[right=4pt] {\small $3$ (source)};
-              \filldraw[fill=gray, thick] (0,-1) circle (2.5pt) node[right=4pt] {\small $-1$ (node)};
+              \filldraw[fill=black] (0,3) circle (2.5pt) node[right=4pt] {\small $3$ (source)};
+              \filldraw[fill=black] (0,-1) circle (2.5pt) node[right=4pt] {\small $-1$ (node)};
 
               % Direction arrows based on the sign of y' = y(y+1)^2(y-3)
               % For y &lt; -1 (e.g., y=-2): y' &gt; 0 (pointing up)
@@ -565,17 +565,17 @@
               </md>
               Therefore, the equilibrium points are <m>y = 0, 2, -3</m>.
             </p>
-            <image width="20%">
+            <image width="30%">
               <latex-image>          
                 \begin{tikzpicture}[scale=0.5]
               % Draw the main vertical phase line
               \draw[thick, ->] (0,-4.5) -- (0,3.5) node[above] {$y$};
 
-              % Equilibrium points (y = -3 is source/unfilled, y = 0 is sink/filled)
-              % (y = 2 is source/unfilled)
-              \filldraw[fill=white,thick] (0,-3) circle (2.5pt) node[right=4pt] {\small $-3$ (source)};
+              % Equilibrium points (y = -3 is source, y = 0 is sink)
+              % (y = 2 is source)
+              \filldraw[fill=black] (0,-3) circle (2.5pt) node[right=4pt] {\small $-3$ (source)};
               \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {\small $0$ (sink)};
-              \filldraw[fill=white, thick] (0,2) circle (2.5pt) node[right=4pt] {\small $2$ (source)};
+              \filldraw[fill=black] (0,2) circle (2.5pt) node[right=4pt] {\small $2$ (source)};
 
               % Direction arrows based on the sign of y' = y(y-2)(y+3)
               % For y &lt; -3 (e.g., y=-4): y' &lt; 0 (pointing down)
@@ -610,40 +610,28 @@
             </p>
             <image width="30%">
               <latex-image>          
-                \begin{tikzpicture}[>=Stealth, thick]
+                \begin{tikzpicture}[scale=0.5]
+                  % Draw the main vertical phase line
+                  \draw[thick, ->] (0,-4.5) -- (0,3.5) node[above] {$y$};
 
-                  % 1. Draw the main phase line (y-axis)
-                  \draw[->] (0,-4.5) -- (0,4) node[above] {$y$};
-                  
-                  % 2. Directional Arrows (Flow)
-                  % Region: y &gt; 2 (y' &gt; 0 -> Up)
-                  \draw[->, blue, line width=1.2pt] (0, 2.6) -- (0, 3.2);
-                  
-                  % Region: 0 &lt; y &lt; 2 (y' &lt; 0 -> Down)
-                  \draw[->, blue, line width=1.2pt] (0, 1.4) -- (0, 0.6);
-                  
-                  % Region: -3 &lt; y &lt; 0 (y' &lt; 0 -> Down)
-                  \draw[->, blue, line width=1.2pt] (0, -1.1) -- (0, -1.9);
-                  
-                  % Region: y &lt; -3 (y' &gt; 0 -> Up)
-                  \draw[->, blue, line width=1.2pt] (0, -4.1) -- (0, -3.5);
+                  % Equilibrium points (y = -3 is sink, y = 0 is node, y = 2 is source)
+                  \filldraw[fill=black] (0,-3) circle (2.5pt) node[right=4pt] {\small $-3$ (sink)};
+                  \filldraw[fill=black] (0,0) circle (2.5pt) node[right=4pt] {\small $0$ (node)};
+                  \filldraw[fill=black] (0,2) circle (2.5pt) node[right=4pt] {\small $2$ (source)};
 
-                  % 3. Equilibrium Points (Markers)
+                  % Direction arrows based on the sign of y' = y^2(y-2)(y+3)
+                  % For y &lt; -3 (e.g., y=-4): y' &gt; 0 (pointing up)
+                  \draw[very thick, ->] (0,-4) -- (0,-3.9);
                   
-                  % y = 2 : Unstable / Source (Open Circle)
-                  \fill[white] (0,2) circle (3pt);
-                  \draw (0,2) circle (3pt) node[right=6pt] {$y = 2$ (Unstable / Source)};
+                  % For -3 &lt; y &lt; 0 (e.g., y=-1): y' &lt; 0 (pointing down)
+                  \draw[very thick, ->] (0,-1.5) -- (0, -1.6);
                   
-                  % y = 0 : Semi-stable / Node (Half-Filled Circle)
-                  \begin{scope}
-                      \fill (0,0) + (0,3pt) arc (90:270:3pt) -- cycle; % Fills left half
-                  \end{scope}
-                  \draw (0,0) circle (3pt) node[right=6pt] {$y = 0$ (Semi-stable / Node)};
+                  % For 0 &lt; y &lt; 2 (e.g., y=1): y' &lt; 0 (pointing down)
+                  \draw[very thick, ->] (0,1) -- (0, 0.9);
                   
-                  % y = -3 : Stable / Sink (Solid Circle)
-                  \fill (0,-3) circle (3pt) node[right=6pt] {$y = -3$ (Stable / Sink)};
-
-              \end{tikzpicture}
+                  % For y &gt; 2 (e.g., y=3): y' &gt; 0 (pointing up)
+                  \draw[very thick, ->] (0,3) -- (0,3.1);
+                \end{tikzpicture}
               </latex-image>        
             </image>
           </solution>
@@ -661,43 +649,42 @@
                 \cos y = 0
               </md>
               Therefore, the equilibrium points are <m>y = \frac{\pi}{2} + n\pi</m>, 
-              where <m>n \in \mathbb{Z}</m>.
+              where <m>n \in \mathbb{Z}</m>. The phase line is periodic with period <m>\pi</m> and the equilibrium points 
+              alternate between sinks and sources.
             </p>
-            <image width="20%">
+            <image width="30%">
               <latex-image>          
-                \begin{tikzpicture}[scale=1.2, thick]
+                \begin{tikzpicture}[scale=0.5]
+            % Draw the main vertical phase line
+            \draw[thick, ->] (0,-5.5) -- (0,6) node[above] {$y$};
 
-                  % Draw the vertical phase line (y-axis representation)
-                  \draw[->] (0,-4.5) -- (0,4.5) node[above] {$y$};
+            % Equilibrium points (... y = -3pi/2 stable, y = -pi/2 unstable, y = pi/2 stable, y = 3pi/2 unstable ... )
+            \filldraw[fill=black] (0,-4.71) circle (2.5pt) node[right=4pt] {$-3\pi/2$ (sink)};
+            \filldraw[fill=black] (0,-1.57) circle (2.5pt) node[right=4pt] {$-\pi/2$ (source)};
+            \filldraw[fill=black] (0,1.57) circle (2.5pt) node[right=4pt] {$\pi/2$ (sink)};
+            \filldraw[fill=black] (0,4.71) circle (2.5pt) node[right=4pt] {$3\pi/2$ (source)};
 
-                  % Equilibrium points (y = pi/2 + n*pi)
-                  % Filled circle = stable, Unfilled circle = unstable
-                  % y = pi/2 + n*pi (alternating stability)
-                  \foreach \n in {-2,-1,0,1,2} {
-                    \pgfmathsetmacro{\y}{pi/2 + \n*pi}
-                    \ifnum\n=0
-                      \filldraw[fill=black, draw=black] (0,\y) circle (2.5pt) node[right=6pt] {$\frac{\pi}{2}$ (sink)};
-                    \else
-                      \filldraw[fill=white, draw=black] (0,\y) circle (2.5pt) node[right=6pt] {$\frac{\pi}{2} + \n\pi$ (source)};
-                    \fi
-                  }
+            % Direction arrows based on the sign of y' = cos y
+            % For y &lt; -3\pi/2 (e.g., y=-4): y' &gt; 0 (pointing up)
+            \draw[very thick, ->] (0,-5.2) -- (0,-5.1);
 
-                  % Directional arrows along the phase line
-                  % Region between equilibrium points: alternating up and down arrows
-                  % For y &lt; -3*pi/2: increasing (up arrow)
-                  \draw[->] (0,-4.0) -- (0,-3.9);
-                  
-                  % For -3*pi/2 &lt; y &lt; -pi/2: decreasing (down arrow)
-                  \draw[->] (0,-2.5) -- (0,-2.4);
-                  
-                  % For -pi/2 &lt; y &lt; pi/2: increasing (up arrow)
-                  \draw[->] (0,-0.5) -- (0,-0.4);
+            % For -3\pi/2 &lt; y &lt; -\pi/2 (e.g., y=-2): y' &gt; 0 (pointing down)
+            \draw[very thick, ->] (0,-3.1) -- (0,-3.2);
+            
+            % For -\pi/2 &lt; y &lt; \pi/2 (e.g., y=0): y' &lt; 0 (pointing up)
+            \draw[very thick, ->] (0,0) -- (0,0.1);
+            
+            % For \pi/2 &lt; y &lt; 3\pi/2  (e.g., y=2): y' &lt; 0 (pointing down)
+            \draw[very thick, ->] (0,3.2) -- (0,3.1);
 
-                  % For pi/2 &lt; y &lt; 3*pi/2: decreasing (down arrow)
-                  \draw[->] (0,1.5) -- (0,1.6);
-                  % For 3*pi/2 &lt; y &lt; 5*pi/2: increasing (up arrow)
-                  \draw[->] (0,3.5) -- (0,3.6);
-                \end{tikzpicture}
+            % For y &gt; 3\pi/2 (e.g., y=4): y' &gt; 0 (pointing up)
+            \draw[very thick, ->] (0,5.2) -- (0,5.3);
+            
+           	% Draw dots to indicate pattern goes on forever
+	    \node at (0.5, 5.7) {$\vdots$};
+	    \node at (0.5, -5.1) {$\vdots$};
+
+          \end{tikzpicture}
               </latex-image>        
             </image>
           </solution>
@@ -708,6 +695,45 @@
               <m>y'=\cos^2 y</m>
             </p>
           </statement>
+          <solution component="instructors">
+            <p>
+              The equilibrium points are found by setting <m>y'=0</m>:
+              <md>
+                \cos^2 y = 0
+              </md>
+              Therefore, the equilibrium points are <m>y = \frac{\pi}{2} + n\pi</m>, 
+              where <m>n \in \mathbb{Z}</m>. The phase line is periodic with period 
+              <m>\pi</m> and all equilibrium points are nodes.
+            </p>
+            <image width="30%">
+              <latex-image>          
+                \begin{tikzpicture}[scale=0.5]
+                  % Draw the main vertical phase line
+                  \draw[thick, ->] (0,-5.5) -- (0,6) node[above] {$y$};
+
+                  % Equilibrium points (... y = -3pi/2 stable, y = -pi/2 stable, y = pi/2 stable, y = 3pi/2 stable ... )
+                  \filldraw[fill=black] (0,-4.71) circle (2.5pt) node[right=4pt] {$-3\pi/2$ (node)};
+                  \filldraw[fill=black] (0,-1.57) circle (2.5pt) node[right=4pt] {$-\pi/2$ (node)};
+                  \filldraw[fill=black] (0,1.57) circle (2.5pt) node[right=4pt] {$\pi/2$ (node)};
+                  \filldraw[fill=black] (0,4.71) circle (2.5pt) node[right=4pt] {$3\pi/2$ (node)};
+
+                  % Direction arrows based on the sign of y' = cos^2 y
+                  % For all intervals between equilibrium points, y' &gt; 0 (pointing up)
+                  \draw[very thick, ->] (0,-5.2) -- (0,-5.1);
+                  \draw[very thick, ->] (0,-3.1) -- (0,-3);
+                  \draw[very thick, ->] (0,-0.6) -- (0,-0.5);
+                  \draw[very thick, ->] (0,1) -- (0,1.1);
+                  \draw[very thick, ->] (0,3.2) -- (0,3.3);
+                  \draw[very thick, ->] (0,5.2) -- (0,5.3); 
+
+                  % Draw dots to indicate pattern goes on forever
+	    \node at (0.5, 5.7) {$\vdots$};
+	    \node at (0.5, -5.1) {$\vdots$};
+                \end{tikzpicture}
+              </latex-image>        
+            </image>
+          </solution>
+
         </task>
       <conclusion>
         <p>
@@ -737,6 +763,15 @@
             <m>y'=x+y</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The slope at each point is given by the sum of the x- and y-coordinates. 
+            For example, at the point (1,1), the slope is 2; at the point (-1,1), 
+            the slope is 0; and at the point (0,-2), the slope is -2. The following 
+            figure shows the direction field for this differential equation.
+          </p>
+          <image width="80%" source="./images/exslopefield1.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -745,6 +780,15 @@
             <m>y'=xy</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The slope at each point is given by the product of the x- and y-coordinates. 
+            For example, at the point (1,1), the slope is 1; at the point (-1,1), 
+            the slope is -1; and at the point (0,-2), the slope is 0. The following 
+            figure shows the direction field for this differential equation.
+          </p>
+          <image width="80%" source="./images/exslopefield2.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -753,6 +797,15 @@
             <m>y'=x^2+y^2</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The slope at each point is given by the sum of the squares of the x- and y-coordinates. 
+            For example, at the point (1,1), the slope is 2; at the point (-1,1), 
+            the slope is 2; and at the point (0,-2), the slope is 4. The following 
+            figure shows the direction field for this differential equation.
+          </p>
+          <image width="80%" source="./images/exslopefield3.png" />
+        </solution>
       </exercise>
 
       <exercise>

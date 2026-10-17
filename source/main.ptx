@@ -5,8 +5,8 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="diff-eqs">
-    <title>MA224 Norwich University</title>
-    <subtitle>Differential Equations</subtitle>
+    <title>MA224 Norwich University: Differential Equations</title>
+    <subtitle component="instructors">Instructor's Version</subtitle>
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
