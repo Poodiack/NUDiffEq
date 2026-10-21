@@ -765,7 +765,7 @@
         </statement>
         <solution component="instructors">
           <p>
-            The slope at each point is given by the sum of the x- and y-coordinates. 
+            The slope at each point is given by the sum of the <m>x</m>- and <m>y</m>-coordinates. 
             For example, at the point (1,1), the slope is 2; at the point (-1,1), 
             the slope is 0; and at the point (0,-2), the slope is -2. The following 
             figure shows the direction field for this differential equation.
@@ -782,7 +782,7 @@
         </statement>
         <solution component="instructors">
           <p>
-            The slope at each point is given by the product of the x- and y-coordinates. 
+            The slope at each point is given by the product of the <m>x</m>- and <m>y</m>-coordinates. 
             For example, at the point (1,1), the slope is 1; at the point (-1,1), 
             the slope is -1; and at the point (0,-2), the slope is 0. The following 
             figure shows the direction field for this differential equation.
@@ -799,7 +799,8 @@
         </statement>
         <solution component="instructors">
           <p>
-            The slope at each point is given by the sum of the squares of the x- and y-coordinates. 
+            The slope at each point is given by the sum of the squares of the <m>x</m>- and 
+            <m>y</m>-coordinates. 
             For example, at the point (1,1), the slope is 2; at the point (-1,1), 
             the slope is 2; and at the point (0,-2), the slope is 4. The following 
             figure shows the direction field for this differential equation.
@@ -814,6 +815,15 @@
             <m>y'=x+\tan y</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The slope at each point is given by the sum of the <m>x</m>-coordinate and the tangent of the <m>y</m>-coordinate. 
+            For example, at the point (1,0), the slope is 1; at the point (-1,1), 
+            the slope is -1 + tan(1); and at the point (0,-2), the slope is -2 + tan(-2). The following 
+            figure shows the direction field for this differential equation.
+          </p>
+          <image width="80%" source="./images/exslopefield4.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -822,6 +832,16 @@
             <m>y'=(x+y)/(x^2+y^2)</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The slope at each point is given by the ratio of the sum of the <m>x</m>- and <m>y</m>-coordinates to the sum of their squares. 
+            For example, at the point (1,1), the slope is <m>2/2 = 1</m>; at the point (-1,1), 
+            the slope is <m>0/2 = 0</m>; and at the point (0,-2), the slope is <m>-2/4 = -1/2</m>. The following 
+            figure shows the direction field for this differential equation. (Note that we have not drawn the slope at the 
+            origin, since it is undefined.)
+          </p>
+          <image width="80%" source="./images/exslopefield5.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -830,6 +850,15 @@
             <m>y'=y-x+1</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The slope at each point is given by the difference between the <m>y</m>-coordinate and the <m>x</m>-coordinate, plus 1. 
+            For example, at the point (1,1), the slope is 1; at the point (-1,1), 
+            the slope is 3; and at the point (0,-2), the slope is -1. The following 
+            figure shows the direction field for this differential equation.
+          </p>
+          <image width="80%" source="./images/exslopefield6.png" />
+        </solution>
       </exercise>
     
     </exercisegroup>
