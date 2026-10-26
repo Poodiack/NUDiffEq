@@ -955,6 +955,40 @@
             <m>y'=2y-5</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The equilibrium solution is found by setting <m>y'=0</m>:
+            <md>
+              2y - 5 = 0 \implies y = \frac{5}{2}
+            </md>
+            Therefore, the equilibrium solution is <m>y = \frac{5}{2}</m>. 
+            The phase line has a single point at <m>y = \frac{5}{2}</m>, and since 
+            the slope is positive for <m>y &gt; \frac{5}{2}</m> and negative for 
+            <m>y &lt; \frac{5}{2}</m>, this equilibrium solution is a source.
+          </p>
+          <image width="50%">
+            <caption>
+              Phase line for <m>y'=2y-5</m>
+            </caption>
+            <latex-image>
+              \begin{tikzpicture}
+                % Draw the vertical axis / phase line
+                \draw (0, 1) -- (0, 4);
+                \node[right] at (0, 4.2) {$y$};
+
+                % Equilibrium points (solid dots / circles)
+                \filldraw[black] (0, 2.5) circle (2.5pt) node[right, xshift=3pt] {$\frac52$ (source)};
+
+                % Direction arrows in the intervals
+                % Interval y &lt; 2.5 (e.g., around y = 2)
+                \draw[->] (0, 2) -- (0, 1.6);
+
+                % Interval y &gt; 2.5 (e.g., around y = 3)
+                \draw[->] (0, 3) -- (0, 3.4);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </solution>
       </exercise>
 
       <exercise>
@@ -963,6 +997,46 @@
             <m>\dfrac{dy}{dt} = (y-1)(y+2)</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The equilibrium solutions are found by setting <m>y'=0</m>:
+            <md>
+              (y-1)(y+2) = 0 \implies y = 1, -2
+            </md>
+            Therefore, the equilibrium solutions are <m>y = 1</m> and <m>y = -2</m>. 
+            The phase line has points at <m>y = 1</m> and <m>y = -2</m>. Since the 
+            slope is positive for <m>-2 &lt; y &lt; 1</m> and negative for 
+            <m>y &lt; -2</m> and <m>y &gt; 1</m>, the equilibrium solution at 
+            <m>y = -2</m> is a source and the equilibrium solution at 
+            <m>y = 1</m> is a sink.
+          </p>
+          <image width="50%">
+            <caption>
+              Phase line for <m>\dfrac{dy}{dt} = (y-1)(y+2)</m>
+            </caption>
+            <latex-image>
+              \begin{tikzpicture}
+                % Draw the vertical axis / phase line
+                \draw (0, -3) -- (0, 2);
+                \node[right] at (0, 2.2) {$y$};
+
+                % Equilibrium points (solid dots / circles)
+                \filldraw[black] (0, -2) circle (2.5pt) node[right, xshift=3pt] {$-2$ (source)};
+                \filldraw[black] (0, 1) circle (2.5pt) node[right, xshift=3pt] {$1$ (sink)};
+
+                % Direction arrows in the intervals
+                % Interval y &lt; -2 (e.g., around y = -3)
+                \draw[->] (0, -2.5) -- (0, -2.9);
+
+                % Interval -2 &lt; y &lt; 1 (e.g., around y = 0)
+                \draw[->] (0, -0.5) -- (0, -0.1);
+
+                % Interval y &gt; 1 (e.g., around y = 2)
+                \draw[->] (0, 2) -- (0, 1.6);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </solution>
       </exercise>
 
       <exercise>
@@ -971,6 +1045,49 @@
             <m>\dfrac{dy}{dx} = (y^2-1)(y-2)</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The equilibrium solutions are found by setting <m>y'=0</m>:
+            <md>
+              (y^2-1)(y-2) = 0 \implies (y-1)(y+1)(y-2) = 0 \implies y = -1, 1, 2
+            </md>
+            Therefore, the equilibrium solutions are <m>y = -1</m>, <m>y = 1</m>, and 
+            <m>y = 2</m>. The phase line has points at <m>y = -1</m>, <m>y = 1</m>, 
+            and <m>y = 2</m>. Since the slope is positive for <m>-1 &lt; y &lt; 1</m> 
+            and negative for <m>y &lt; -1</m>, and positive for <m>1 &lt; y &lt; 2</m>, 
+            and negative for <m>y &gt; 2</m>, the equilibrium solution at 
+            <m>y = -1</m> is a source, the equilibrium solution at 
+            <m>y = 1</m> is a sink, and the equilibrium solution at 
+            <m>y = 2</m> is a source.
+          </p>
+          <image width="40%">
+            <caption>
+              Phase line for <m>\dfrac{dy}{dx} = (y^2-1)(y-2)</m>
+            </caption>
+            <latex-image>
+              \begin{tikzpicture}
+                % Draw the vertical axis / phase line
+                \draw (0, -3) -- (0, 3);
+                \node[right] at (0, 3.2) {$y$};
+
+                % Equilibrium points (solid dots / circles)
+                \filldraw[black] (0, -1) circle (2.5pt) node[right, xshift=3pt] {$-1$ (source)};
+                \filldraw[black] (0, 1) circle (2.5pt) node[right, xshift=3pt] {$1$ (sink)};
+                \filldraw[black] (0, 2) circle (2.5pt) node[right, xshift=3pt] {$2$ (source)};
+
+                % Direction arrows in the intervals
+                % Interval y &lt; -1 (e.g., around y = -2)
+                \draw[->] (0, -2) -- (0, -2.4);
+                % Interval -1 &lt; y &lt; 1 (e.g., around y = 0)
+                \draw[->] (0, -0.5) -- (0, -0.1);
+                % Interval 1 &lt; y &lt; 2 (e.g., around y = 1.5)
+                \draw[->] (0, 1.7) -- (0, 1.3);
+                % Interval y &gt; 2 (e.g., around y = 2.5)
+                \draw[->] (0, 2.5) -- (0, 2.9);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </solution>
       </exercise>
 
       <exercise>
@@ -979,6 +1096,49 @@
             <m>\dfrac{dy}{dx} = \sin 2y</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The equilibrium solutions are found by setting <m>y'=0</m>:
+            <md>
+              \sin 2y = 0 \implies 2y = n\pi \implies y = \frac{n\pi}{2}, n \in \mathbb{Z}
+            </md>
+            Therefore, the equilibrium solutions are <m>y = \frac{n\pi}{2}</m> for 
+            all integers <m>n</m>. The phase line has points at these values, and 
+            the stability alternates between sinks and sources as <m>n</m> increases.
+          </p>
+          <image width="30%">
+            <caption>
+              Phase line for <m>\dfrac{dy}{dx} = \sin 2y</m>
+            </caption>
+            <latex-image>
+              \begin{tikzpicture}
+                % Draw the vertical axis / phase line
+                \draw (0, -4) -- (0, 4);
+                \node[right] at (0, 4.2) {$y$};
+
+                % Equilibrium points (solid dots / circles)
+                \foreach \n in {-2,-1,0,1,2} {
+                  \filldraw[black] (0, {(\n*pi)/2}) circle (2.5pt) node[right, xshift=3pt] {$\frac{\n\pi}{2}$};
+                }
+
+                % Direction arrows in the intervals
+                % For each interval between equilibrium points, determine the sign of sin(2y)
+                % For example, between -pi/2 and 0: sin(2y) &lt; 0 (pointing down)
+                % Between 0 and pi/2: sin(2y) &gt; 0 (pointing up)
+                % Between pi/2 and pi: sin(2y) &lt; 0 (pointing down)
+                % Continue this pattern...
+                
+                % Arrows for intervals
+                \draw[->] (0, -3.5) -- (0, -3.9); % between -3pi/2 and -pi
+                \draw[->] (0, -2.5) -- (0, -2.1); % between -pi and -pi/2
+                \draw[->] (0, -0.75) -- (0, -1.15); % between -pi/2 and 0
+                \draw[->] (0, 0.5) -- (0, 0.9); % between 0 and pi/2
+                \draw[->] (0, 2.5) -- (0, 2.1); % between pi/2 and pi
+                \draw[->] (0, 3.5) -- (0, 3.9); % between pi and 3pi/2
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </solution>
       </exercise>
 
       <exercise>
@@ -987,6 +1147,40 @@
             <m>y'=(y^2+1)(y-1)</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The equilibrium solution is found by setting <m>y'=0</m>:
+            <md>
+              (y^2+1)(y-1) = 0 \implies y = 1
+            </md>
+            Therefore, the equilibrium solution is <m>y = 1</m>. The phase line has 
+            a single point at <m>y = 1</m>, and since the slope is positive for 
+            <m>y &gt; 1</m> and negative for <m>y &lt; 1</m>, this equilibrium solution 
+            is a source.
+          </p>
+          <image width="50%">
+            <caption>
+              Phase line for <m>y'=(y^2+1)(y-1)</m>
+            </caption>
+            <latex-image>
+              \begin{tikzpicture}
+                % Draw the vertical axis / phase line
+                \draw (0, 0) -- (0, 2);
+                \node[right] at (0, 2.2) {$y$};
+
+                % Equilibrium point (solid dot / circle)
+                \filldraw[black] (0, 1) circle (2.5pt) node[right, xshift=3pt] {$1$ (source)};
+
+                % Direction arrows in the intervals
+                % Interval y &lt; 1 (e.g., around y = 0)
+                \draw[->] (0, 0.5) -- (0, 0.1);
+
+                % Interval y &gt; 1 (e.g., around y = 2)
+                \draw[->] (0, 1.5) -- (0, 1.9);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </solution>
       </exercise>
 
       <exercise>
