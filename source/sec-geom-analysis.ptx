@@ -1226,6 +1226,30 @@
             <m>y'=2y-5, y(0)=4, y(0)=2, y(0)=0</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The differential equation is linear and can be solved using an integrating 
+            factor or by recognizing it as a first-order linear ODE. The general 
+            solution is:
+            <md>
+              y(t) = \frac{5}{2} + Ce^{2t}
+            </md>
+            where <m>C</m> is a constant determined by the initial condition. 
+            For the given initial conditions:
+            <ul>
+              <li>For <m>y(0)=4</m>: <m>C = 4 - \frac{5}{2} = \frac{3}{2}</m></li>
+              <li>For <m>y(0)=2</m>: <m>C = 2 - \frac{5}{2} = -\frac{1}{2}</m></li>
+              <li>For <m>y(0)=0</m>: <m>C = 0 - \frac{5}{2} = -\frac{5}{2}</m></li>
+            </ul>
+            Therefore, the specific solutions are:
+            <ul>
+              <li><m>y(t) = \frac{5}{2} + \frac{3}{2}e^{2t}</m></li>
+              <li><m>y(t) = \frac{5}{2} - \frac{1}{2}e^{2t}</m></li>
+              <li><m>y(t) = \frac{5}{2} - \frac{5}{2}e^{2t}</m></li>
+            </ul>
+          </p>
+          <image width="80%" source="./images/exgroup134_14.png" />
+        </solution>
       </exercise>
 
       <exercise>
