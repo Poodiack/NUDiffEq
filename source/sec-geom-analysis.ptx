@@ -967,10 +967,7 @@
             <m>y &lt; \frac{5}{2}</m>, this equilibrium solution is a source.
           </p>
           <image width="50%">
-            <caption>
-              Phase line for <m>y'=2y-5</m>
-            </caption>
-            <latex-image>
+           <latex-image>
               \begin{tikzpicture}
                 % Draw the vertical axis / phase line
                 \draw (0, 1) -- (0, 4);
@@ -1011,9 +1008,6 @@
             <m>y = 1</m> is a sink.
           </p>
           <image width="50%">
-            <caption>
-              Phase line for <m>\dfrac{dy}{dt} = (y-1)(y+2)</m>
-            </caption>
             <latex-image>
               \begin{tikzpicture}
                 % Draw the vertical axis / phase line
@@ -1061,10 +1055,7 @@
             <m>y = 2</m> is a source.
           </p>
           <image width="40%">
-            <caption>
-              Phase line for <m>\dfrac{dy}{dx} = (y^2-1)(y-2)</m>
-            </caption>
-            <latex-image>
+             <latex-image>
               \begin{tikzpicture}
                 % Draw the vertical axis / phase line
                 \draw (0, -3) -- (0, 3);
@@ -1107,9 +1098,6 @@
             the stability alternates between sinks and sources as <m>n</m> increases.
           </p>
           <image width="30%">
-            <caption>
-              Phase line for <m>\dfrac{dy}{dx} = \sin 2y</m>
-            </caption>
             <latex-image>
               \begin{tikzpicture}
                 % Draw the vertical axis / phase line
@@ -1159,9 +1147,6 @@
             is a source.
           </p>
           <image width="50%">
-            <caption>
-              Phase line for <m>y'=(y^2+1)(y-1)</m>
-            </caption>
             <latex-image>
               \begin{tikzpicture}
                 % Draw the vertical axis / phase line
@@ -1189,6 +1174,35 @@
             <m>y'=y^2+y+1</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <p>
+            The equilibrium solutions are found by setting <m>y'=0</m>:
+            <md>
+              y^2 + y + 1 = 0
+            </md>
+            The discriminant of this quadratic is <m>b^2 - 4ac = 1 - 4 = -3</m>, 
+            which is negative. Therefore, there are no real equilibrium solutions 
+            for this differential equation. The phase line has no points, and the 
+            slope is always positive for all real values of <m>y</m>, indicating 
+            that the solution curves will always be increasing.
+          </p>
+          <image width="30%">
+            <latex-image>
+              \begin{tikzpicture}
+                % Draw the vertical axis / phase line
+                \draw (0, -1) -- (0, 1);
+                \node[right] at (0, 1.2) {$y$};
+
+                % No equilibrium points
+
+                % Direction arrows in the intervals
+                % Since y' &gt; 0 for all y, arrows point up
+                \draw[->] (0, -0.5) -- (0, -0.1);
+                \draw[->] (0, 0.5) -- (0, 0.9);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </solution>
       </exercise>
     
     </exercisegroup>
