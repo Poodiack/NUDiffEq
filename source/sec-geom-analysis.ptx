@@ -1237,6 +1237,9 @@
             <m>\dfrac{dy}{dt} = (y-1)(y+2), y(0)=2, y(0)=1, y(0)=0</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <image width="80%" source="./images/exgroup134_15.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -1245,6 +1248,9 @@
             <m>\dfrac{dy}{dx} = (y^2-1)(y-2), y(0)=1, y(0)=0, y(0)=-1</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <image width="80%" source="./images/exgroup134_16.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -1253,6 +1259,9 @@
             <m>\dfrac{dy}{dx} = \sin 2y, y(0)=2, y(0)=1, y(0)=0</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <image width="80%" source="./images/exgroup134_17.png" />
+        </solution>
       </exercise>
 
       <exercise>
