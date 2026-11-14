@@ -1270,6 +1270,9 @@
             <m>y'=(y^2+1)(y-1), y(0)=2, y(0)=1, y(0)=0</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <image width="80%" source="./images/exgroup134_18.png" />
+        </solution>
       </exercise>
 
       <exercise>
@@ -1278,6 +1281,9 @@
             <m>y'=y^2+y+1, y(0)=1, y(0)=0, y(0)=-1</m>
           </p>
         </statement>
+        <solution component="instructors">
+          <image width="80%" source="./images/exgroup134_19.png" />
+        </solution>
       </exercise>
     
     </exercisegroup>
@@ -1299,12 +1305,18 @@
         <statement>
             <image source="./images/derivgraph2.png" width="80%" />
         </statement>
+        <solution component="instructors">
+            <image source="./images/phaseline9.png" width="80%" />
+        </solution>
       </exercise>
 
       <exercise>
         <statement>
             <image source="./images/derivgraph3.png" width="80%" />
         </statement>
+        <solution component="instructors">
+            <image source="./images/phaseline10.png" width="80%" />
+        </solution>
       </exercise>
     
     </exercisegroup>
