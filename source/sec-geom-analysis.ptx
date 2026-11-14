@@ -1643,6 +1643,9 @@
         </task>
       </exercise>
       <image source="./images/slopefield10.png" width="80%" />
+        <solution component="instructors">
+          <image source="./images/slopefield10soln.png" width="80%" />
+        </solution>
     </page>
     <page>
       <exercise>
