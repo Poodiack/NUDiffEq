@@ -1507,6 +1507,59 @@
                 to this equation on the direction field.
               </p>
             </statement>
+            <solution component="instructors">
+            <p>
+              Some MATLAB code to plot the slope field and solutions is as follows:
+            </p>
+            <program language="octave">
+              % Define the differential equation: dp/dt = f(t, p)
+              f = @(t, p) 0.4 * p .* (1 - p / 500);
+
+              % Create a grid for the slope field
+              t_vals = linspace(0, 15, 16);   % Time range from 0 to 15
+              p_vals = linspace(0, 700, 24);  % Population range from 0 to 700
+              [T, P] = meshgrid(t_vals, p_vals);
+
+              % Calculate slopes at each grid point
+              dT = ones(size(T));
+              dP = f(T, P);
+
+              % Normalize vectors so all slope arrows have the same visual length
+              L = sqrt(dT.^2 + dP.^2);
+              dT_norm = dT ./ L;
+              dP_norm = dP ./ L;
+
+              % Initialize the figure and plot the slope field
+              figure;
+              quiver(T, P, dT_norm, dP_norm, 0.6, 'Color', [0.6 0.6 0.6], 'HandleVisibility','off');
+              hold on;
+
+              % Solve and plot solution curves for the initial conditions
+              tspan = [0 15];
+              initial_conditions =[100,250,600];
+              colors = {'b', 'g', 'r'};
+
+              for i = 1:length(initial_conditions)
+                  p0 = initial_conditions(i);
+                  [t_sol, p_sol] = ode45(f, tspan, p0);
+                  plot(t_sol, p_sol, colors{i}, 'LineWidth', 2, 'DisplayName', sprintf('p(0) = %d', p0));
+              end
+
+              % Plot the carrying capacity line (p = 500) for reference
+              yline(500, '--k', 'LineWidth', 1.2, 'DisplayName', 'Carrying Capacity (p = 500)');
+
+              % Format the plot
+              title('Slope Field and Solutions for dp/dt = 0.4p(1 - p/500)');
+              xlabel('Time (t)');
+              ylabel('Population (p)');
+              xlim([0 15]);
+              ylim([0 700]);
+              legend('Location', 'best');
+              grid on;
+              hold off;
+            </program>
+            <image source="./images/slopefield13.png" width="80%" />
+          </solution>
           </task>
         </exercise>
       </exercises>
