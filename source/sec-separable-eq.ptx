@@ -431,11 +431,77 @@
                 <p>
                     <m>y'=\frac{y}{x}</m>
                 </p>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable. We can rewrite it as
+                    </p>
+                    <md>
+                        \frac{dy}{dx} = \left(\frac1{x}\right)y
+                    </md>
+                    <p>
+                        We then separate the variables and integrate both sides:
+                    </p>
+                    <md>
+                        \int \frac1{y}\,dy = \int \frac1{x}\,dx
+                    </md>
+                    <p>
+                        which gives us
+                    </p>
+                    <md>
+                        \ln|y| = \ln|x| + C
+                    </md>
+                    <p>
+                        or
+                    </p>
+                    <md>
+                        |y| = e^{\ln|x|+C} = e^{\ln|x|}e^C = K|x|
+                    </md>
+                    <p>
+                        where <m>K=e^C</m> is a constant. Thus the general solution 
+                        is
+                    </p>
+                    <md>
+                        y=Kx.
+                    </md>
+                </solution>
             </exercise>
             <exercise workspace="2in">
                 <p>
                     <m>yy'=1+2x+3x^2</m>
                 </p>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable. We can rewrite it as
+                    </p>
+                    <md>
+                        \frac{dy}{dx} = \frac{1+2x+3x^2}{y}
+                    </md>
+                    <p>
+                        We then separate the variables and integrate both sides:
+                    </p>
+                    <md>
+                        \int y\,dy = \int (1+2x+3x^2)\,dx
+                    </md>
+                    <p>
+                        which gives us
+                    </p>
+                    <md>
+                        \frac{y^2}{2} = x+x^2+x^3 + C
+                    </md>
+                    <p>
+                        or
+                    </p>
+                    <md>
+                        y^2 = 2x + 2x^2 + 2x^3 + K
+                    </md>
+                    <p>
+                        where <m>K=2C</m> is a constant. Thus the general solution 
+                        is
+                    </p>
+                    <md>
+                        y = \pm\sqrt{2x + 2x^2 + 2x^3 + K}.
+                    </md>
+                </solution>
             </exercise>
         </page>
     </worksheet>
@@ -1145,6 +1211,11 @@
                         <m>x\,dx - y^2\,dy = 0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>\dfrac{1}{3}y^3 + \dfrac{1}{2}x^2 = C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1153,6 +1224,11 @@
                         <m>\dfrac{dy}{dx} = \dfrac{y}{x}</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>y = Kx</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1161,6 +1237,11 @@
                         <m>(x^2+1)\,dx + (y^2+y)\,dy = 0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>\dfrac{1}{2}y^2 + \dfrac{1}{3}y^3 + \dfrac{1}{2}x^2 = C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1169,42 +1250,105 @@
                         <m>\dfrac{dy}{dx} = y^2-6y+14</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable. We can rewrite it as
+                    </p>
+                    <md>
+                        \frac{dy}{dx} = y^2-6y+14
+                    </md>
+                    <p>
+                        We then separate the variables and integrate both sides:
+                    </p>
+                    <md>
+                        \int \frac{1}{y^2-6y+14}\,dy = \int 1\,dx
+                    </md>
+                    <p>
+                        which gives us
+                    </p>
+                    <md>
+                        \frac{1}{\sqrt{5}}\arctan\left(\frac{y-3}{\sqrt{5}}\right) = x + C
+                    </md>
+                    <p>
+                        or
+                    </p>
+                    <md>
+                        y = 3 + \sqrt{5}\tan(\sqrt{5}(x + C))
+                    </md>
+                    <p>
+                        where <m>C</m> is a constant. Thus the general solution 
+                        is
+                    </p>
+                    <md>
+                        y = 3 + \sqrt{5}\tan(\sqrt{5}(x + C)).
+                    </md>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>y' = \dfrac{x^2}{y(2 + x^3)}</m></p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>y^2 = \dfrac{2}{3}\ln|2 + x^3| + C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>\dfrac{dy}{dx} = \dfrac{\sin x}{y}</m></p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>\dfrac{1}{2}y^2 = -\cos x + C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>xy' = \sqrt{1 - y^2}</m></p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>\dfrac{1}{2}x^2 = \sin^{-1}(y) + C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>\dfrac{dy}{dt} = \dfrac{4t - t^3}{4 + y^3}</m></p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>\dfrac{1}{4}y^4 + y = 2t^2 - \dfrac{1}{4}t^4 + C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>y' = \dfrac{1}{xy + 2x + y + 2}</m></p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>\ln|xy + 2x + y + 2| = x + C</m>
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>\dfrac{dx}{dt} = xe^t + 3e^t + x + 3</m></p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        <m>x = Ce^t - 3</m>
+                    </p>
+                </solution>
             </exercise>
         
         </exercisegroup>
