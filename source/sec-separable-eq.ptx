@@ -371,17 +371,51 @@
             </p>
             <exercise>
                 <p><m>y'+2y=e^{-x}</m></p>
+                    <solution component="instructors">
+                        <p>
+                            This equation is not separable. 
+                        </p>
+                    </solution>
             </exercise>
             <exercise>
                 <p><m>y'+2y=1</m></p>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable. We can rewrite it as
+                    </p>
+                    <md>
+                        \frac{dy}{dx} = 1-2y
+                    </md>
+                </solution>
             </exercise>
             <exercise>
                 <p><m>y'=\frac{y+1}{x+1}</m></p>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable. We can rewrite it as
+                    </p>
+                    <md>
+                        \frac{dy}{dx} = \left(\frac1{x+1}\right)(y+1)
+                    </md>
+                    <p>
+                        which is in the form of a product of a function of 
+                        <m>x</m> and a function of <m>y</m>.
+                    </p>
+                </solution>
             </exercise>
             <exercise>
                 <p>
                     <m>y'=\frac{\sin x}{\cos y}</m>
                 </p>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable. We can rewrite it as
+                        
+                    </p>
+                    <md>
+                        \frac{dy}{dx} = (\sin x)(\sec y)
+                    </md>
+                </solution>
             </exercise>
             <p>
                 Rewrite the following separable equations in the form
