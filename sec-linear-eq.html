@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="_static/pretext/fonts/material-symbols-outlined.css">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <style>
-@counter-style ptx-marker-0 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+@counter-style ptx-marker-1 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
 </style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
@@ -37,7 +37,7 @@ lang: "en-US",
 <meta property="og:title" content="MA224 Norwich University: Differential Equations">
 <meta property="book:title" content="MA224 Norwich University: Differential Equations">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.55"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.55"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.56"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.56"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -59,15 +59,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.3.6';
+eBookConfig.runestone_version = '8.4.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/prefix-runtime.124380009849b47e.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.1f0ec0deacd7bb16.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.52ceae47a9e6e8ed.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-octave' an executable Sage cell
 // Their results will be linked, only within language type
@@ -1398,17 +1397,17 @@ M(x,y) \, dx + N(x,y) \, dy = 0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.1"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-1" title="Copy heading and permalink for Item 1.5.5.23.1" aria-label="Copy heading and permalink for Item 1.5.5.23.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-2">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-2-1">Show that the differential equation <span class="process-math">\(2xy \, dx + (1 + x^2) \, dy = 0\)</span> is exact.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.2"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-2" title="Copy heading and permalink for Item 1.5.5.23.2" aria-label="Copy heading and permalink for Item 1.5.5.23.2">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-3">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-3-1">Solve the differential equation <span class="process-math">\(2xy \, dx + (1 + x^2) \, dy = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.3"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-3" title="Copy heading and permalink for Item 1.5.5.23.3" aria-label="Copy heading and permalink for Item 1.5.5.23.3">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-4">
 <div class="para logical" id="exercises-lin-eqs-5-2-1-5-4-1">
@@ -1418,36 +1417,36 @@ M(x,y) \, dx + N(x,y) \, dy = 0
 \mu(x,y)[M(x,y) \, dx + N(x,y) \, dy] = 0.
 \end{equation*}
 </div>
-<ol class="lower-alpha" style="list-style: ptx-marker-0;" id="exercises-lin-eqs-5-2-1-5-4-1-3">
+<ol class="lower-alpha" style="list-style: ptx-marker-1;" id="exercises-lin-eqs-5-2-1-5-4-1-3">
 <li id="exercises-lin-eqs-5-2-1-5-4-1-3-1">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-1-1">Show that <span class="process-math">\(-1/x^2\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.4.a"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-1" title="Copy heading and permalink for Item 1.5.5.23.4.a" aria-label="Copy heading and permalink for Item 1.5.5.23.4.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4.a"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-1" title="Copy heading and permalink for Item 4.a" aria-label="Copy heading and permalink for Item 4.a">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-4-1-3-2">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-2-1">Show that <span class="process-math">\(1/y^2\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.4.b"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-2" title="Copy heading and permalink for Item 1.5.5.23.4.b" aria-label="Copy heading and permalink for Item 1.5.5.23.4.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4.b"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-2" title="Copy heading and permalink for Item 4.b" aria-label="Copy heading and permalink for Item 4.b">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-4-1-3-3">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-3-1">Show that <span class="process-math">\(-1/(xy)\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.4.c"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-3" title="Copy heading and permalink for Item 1.5.5.23.4.c" aria-label="Copy heading and permalink for Item 1.5.5.23.4.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4.c"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-3" title="Copy heading and permalink for Item 4.c" aria-label="Copy heading and permalink for Item 4.c">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-4-1-3-4">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-4-1-3-4-1">Show that <span class="process-math">\(-1/(x^2 + y^2)\)</span> is integrating factor for <span class="process-math">\(y \, dx - x \, dy\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.4.d"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-4" title="Copy heading and permalink for Item 1.5.5.23.4.d" aria-label="Copy heading and permalink for Item 1.5.5.23.4.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4.d"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1-3-4" title="Copy heading and permalink for Item 4.d" aria-label="Copy heading and permalink for Item 4.d">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.4"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4" title="Copy heading and permalink for Item 1.5.5.23.4" aria-label="Copy heading and permalink for Item 1.5.5.23.4">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
 </li>
 <li id="exercises-lin-eqs-5-2-1-5-5">
 <div class="para" id="exercises-lin-eqs-5-2-1-5-5-1">Solve the differential equation <span class="process-math">\((y^2 - xy^2) \, dx + (x + x^2y^2) \, dy = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1.5.5.23.5"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-5" title="Copy heading and permalink for Item 1.5.5.23.5" aria-label="Copy heading and permalink for Item 1.5.5.23.5">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 5"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1-5-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-lin-eqs-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
