@@ -1212,9 +1212,27 @@
                     </p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>\dfrac{1}{3}y^3 + \dfrac{1}{2}x^2 = C</m>
-                    </p>
+                <p>
+                    Consider the differential equation
+                    <m>x\,dx - y^2\,dy = 0</m>.
+                    Rewrite the equation:
+                <md>
+                    x\,dx = y^2\,dy.
+                </md>
+                    Integrate both sides:
+                <md>
+                    \int x\,dx = \int y^2\,dy.
+                </md>
+                    Compute the integrals:
+                <md>
+                    \frac{x^2}{2} = \frac{y^3}{3} + C.
+                </md>
+                    Rearranging gives the general solution in implicit form:
+                <md>
+                    \frac{x^2}{2} - \frac{y^3}{3} = C.
+                </md>
+                    This is the general solution.
+                </p>
                 </solution>
             </exercise>
 
@@ -1225,9 +1243,38 @@
                     </p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>y = Kx</m>
-                    </p>
+                <p>
+                    Consider the differential equation
+                    <md>\dfrac{dy}{dx} = \dfrac{y}{x}</md>.
+                    This is separable.  Rewrite the equation:
+                <md>
+                    \frac{1}{y}\,dy = \frac{1}{x}\,dx.
+                </md>
+                    Integrate both sides:
+                <md>
+                    \int \frac{1}{y}\,dy = \int \frac{1}{x}\,dx.
+                </md>
+                    Compute the integrals:
+                <md>
+                    \ln |y| = \ln |x| + C.
+                </md>
+                    Combine logarithms:
+                <md>
+                    \ln\!\left|\frac{y}{x}\right| = C.
+                </md>
+                    Exponentiate:
+                <md>
+                    \left|\frac{y}{x}\right| = e^C = C_1.
+                </md>
+                    Letting <m>C</m> denote an arbitrary nonzero constant,
+                    we obtain
+                <md>
+                    \frac{y}{x} = C.
+                </md>
+                    Hence the general solution is
+                <md>
+                    y = Cx.
+                </md></p>
                 </solution>
             </exercise>
 
@@ -1238,9 +1285,13 @@
                     </p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>\dfrac{1}{2}y^2 + \dfrac{1}{3}y^3 + \dfrac{1}{2}x^2 = C</m>
-                    </p>
+                <p>The differential equation
+                <md>(x^2+1)\,dx+(y^2+y)\,dy=0</md>
+                is already written in separated differential form. Integrating both terms gives
+                <md>\int (x^2+1)\,dx+\int (y^2+y)\,dy=C.</md>
+                Evaluating the integrals, we obtain
+                <md>\frac{x^3}{3}+x+\frac{y^3}{3}+\frac{y^2}{2}=C,</md>
+                which is the general (implicit) solution.</p>
                 </solution>
             </exercise>
 
@@ -1290,9 +1341,16 @@
                     <p><m>y' = \dfrac{x^2}{y(2 + x^3)}</m></p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>y^2 = \dfrac{2}{3}\ln|2 + x^3| + C</m>
-                    </p>
+                <p>We separate variables:
+                <md>y\,dy=\frac{x^2}{2+x^3}\,dx.</md>
+                Integrate both sides:
+                <md>\int y\,dy=\int \frac{x^2}{2+x^3}\,dx.</md>
+                For the right-hand side, let <m>u=2+x^3</m>, so <m>du=3x^2\,dx</m> and <m>x^2\,dx=\frac{1}{3}\,du</m>. Then
+                <md>\int \frac{x^2}{2+x^3}\,dx=\frac{1}{3}\int \frac{1}{u}\,du=\frac{1}{3}\ln|u|+C.</md>
+                Thus
+                <md>\frac{y^2}{2}=\frac{1}{3}\ln|2+x^3|+C.</md>
+                Equivalently, multiplying by <m>2</m>, the general (implicit) solution is
+                <md>y^2=\frac{2}{3}\ln|2+x^3|+C.</md></p>
                 </solution>
             </exercise>
 
@@ -1301,9 +1359,14 @@
                     <p><m>\dfrac{dy}{dx} = \dfrac{\sin x}{y}</m></p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>\dfrac{1}{2}y^2 = -\cos x + C</m>
-                    </p>
+                <p>We separate variables:
+                <md>y\,dy=\sin(x)\,dx.</md>
+                Integrate both sides:
+                <md>\int y\,dy=\int \sin(x)\,dx.</md>
+                This yields
+                <md>\frac{y^2}{2}=-\cos(x)+C.</md>
+                Equivalently, multiplying by <m>2</m>, the general solution can be written as
+                <md>y^2=-2\cos(x)+C.</md></p>
                 </solution>
             </exercise>
 
@@ -1312,9 +1375,14 @@
                     <p><m>xy' = \sqrt{1 - y^2}</m></p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>\dfrac{1}{2}x^2 = \sin^{-1}(y) + C</m>
-                    </p>
+                <p>We separate variables:
+                <md>\frac{dy}{\sqrt{1-y^2}}=\frac{dx}{x}.</md>
+                Integrate both sides:
+                <md>\int \frac{dy}{\sqrt{1-y^2}}=\int \frac{dx}{x}.</md>
+                Since <m>\int \frac{dy}{\sqrt{1-y^2}}=\arcsin(y)</m>, we obtain
+                <md>\arcsin(y)=\ln|x|+C.</md>
+                Equivalently, solving for <m>y</m>,
+                <md>y=\sin\!\bigl(\ln|x|+C\bigr).</md></p>
                 </solution>
             </exercise>
 
@@ -1323,9 +1391,14 @@
                     <p><m>\dfrac{dy}{dt} = \dfrac{4t - t^3}{4 + y^3}</m></p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>\dfrac{1}{4}y^4 + y = 2t^2 - \dfrac{1}{4}t^4 + C</m>
-                    </p>
+                <p>The differential equation is separable:
+                <md>(4+y^3)\,dy=(4t-t^3)\,dt.</md>
+                Integrate both sides:
+                <md>\int (4+y^3)\,dy=\int (4t-t^3)\,dt.</md>
+                Evaluating the integrals gives
+                <md>4y+\frac{y^4}{4}=2t^2-\frac{t^4}{4}+C.</md>
+                Equivalently, multiplying by <m>4</m>, an implicit form of the general solution is
+                <md>y^4+16y=-t^4+8t^2+C.</md></p>
                 </solution>
             </exercise>
 
@@ -1334,9 +1407,17 @@
                     <p><m>y' = \dfrac{1}{xy + 2x + y + 2}</m></p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>\ln|xy + 2x + y + 2| = x + C</m>
-                    </p>
+                <p>Factor the denominator:
+                <md>ty+2t+y+2=t(y+2)+(y+2)=(t+1)(y+2).</md>
+                Thus the differential equation is separable:
+                <md>\frac{dy}{dt}=\frac{1}{(t+1)(y+2)}
+                \quad\Longrightarrow\quad
+                (y+2)\,dy=\frac{dt}{t+1}.</md>
+                Integrating both sides gives
+                <md>\int (y+2)\,dy=\int \frac{dt}{t+1}.</md>
+                Therefore
+                <md>\frac{y^2}{2}+2y=\ln|t+1|+C,</md>
+                which is the general (implicit) solution.</p>
                 </solution>
             </exercise>
 
@@ -1345,9 +1426,18 @@
                     <p><m>\dfrac{dx}{dt} = xe^t + 3e^t + x + 3</m></p>
                 </statement>
                 <solution component="instructors">
-                    <p>
-                        <m>x = Ce^t - 3</m>
-                    </p>
+                <p>Factor the right-hand side:
+                <md>\frac{dx}{dt}=xe^t+3e^t+x+3=(x+3)(e^t+1).</md>
+                This is separable:
+                <md>\frac{dx}{x+3}=(e^t+1)\,dt.</md>
+                Integrate both sides:
+                <md>\int \frac{dx}{x+3}=\int (e^t+1)\,dt.</md>
+                Thus
+                <md>\ln|x+3|=e^t+t+C.</md>
+                Exponentiating, we obtain
+                <md>x+3=Ce^{e^t+t},</md>
+                so the general solution is
+                <md>x(t)=Ce^{e^t+t}-3.</md></p>
                 </solution>
             </exercise>
         
@@ -1370,6 +1460,21 @@
                         <m>x\,dx - y^2\,dy = 0</m>, <m>y(0)=1</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Separate variables:
+                <md>x\,dx = y^2\,dy.</md>
+                Integrate both sides:
+                <md>\int x\,dx = \int y^2\,dy</md>
+                which gives
+                <md>\frac{x^2}{2}=\frac{y^3}{3}+C.</md>
+                Use the initial condition <m>y(0)=1</m>. Substituting <m>x=0, y=1</m> yields
+                <md>0=\frac{1}{3}+C\quad\Rightarrow\quad C=-\frac{1}{3}.</md>
+                Thus
+                <md>\frac{x^2}{2}=\frac{y^3}{3}-\frac{1}{3}.</md>
+                Solving for <m>y</m> gives the explicit solution
+                <md>y(x)=\biggl(\frac{3}{2}x^2+1\biggr)^{1/3},</md>
+                where we take the real cube root (positive at <m>x=0</m> to match the initial condition).</p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1378,6 +1483,22 @@
                         <m>\dfrac{dy}{dx} = \dfrac{y}{x}</m>, <m>y(1)=-2</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>\frac{dy}{dx}=\frac{y}{x}\quad\Longrightarrow\quad \frac{1}{y}\,dy=\frac{1}{x}\,dx.</md>
+                Integrating both sides gives
+                <md>\int \frac{1}{y}\,dy=\int \frac{1}{x}\,dx
+                    \quad\Longrightarrow\quad
+                    \ln|y|=\ln|x|+C.</md>
+                Exponentiating,
+                <md>|y|=e^C|x|.</md>
+                Absorbing the sign into the constant, we may write
+                <md>y=Cx.</md>
+                Use the initial condition <m>y(1)=-2</m>:
+                <md>-2=C(1)\quad\Rightarrow\quad C=-2.</md>
+                Therefore the solution of the initial value problem is
+                <md>y(x)=-2x.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1386,6 +1507,22 @@
                         <m>(x^2+1)\,dx + (y^2+y)\,dy = 0</m>, <m>y(0)=-1</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Rewrite the differential equation
+                <md>(x^2+1)\,dx+(y^2+y)\,dy=0</md>
+                and integrate both sides
+                <md>\int (x^2+1)\,dx+\int (y^2+y)\,dy=C.</md>
+                Thus
+                <md>\frac{x^3}{3}+x+\frac{y^3}{3}+\frac{y^2}{2}=C.</md>
+                Use the initial condition <m>y(0)=-1</m>. Substituting <m>x=0</m> and <m>y=-1</m> gives
+                <md>
+                    C=\frac{(-1)^3}{3}+\frac{(-1)^2}{2}
+                    =-\frac{1}{3}+\frac{1}{2}
+                    =\frac{1}{6}.
+                </md>
+                Therefore the implicit solution of the initial value problem is
+                <md>\frac{x^3}{3}+x+\frac{y^3}{3}+\frac{y^2}{2}=\frac{1}{6}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1394,56 +1531,228 @@
                         <m>\dfrac{dy}{dx} = y^2-6y+14</m>, <m>y(0)=3</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Separate variables:
+                <md>\frac{dy}{y^2-6y+14}=dt.</md>
+                Complete the square:
+                <md>y^2-6y+14=(y-3)^2+5.</md>
+                Integrate:
+                <md>\int \frac{dy}{(y-3)^2+5}=\int dt.</md>
+                With <m>u=y-3</m> and <m>a=\sqrt{5}</m>,
+                <md>\frac{1}{\sqrt{5}}\arctan\!\left(\frac{y-3}{\sqrt{5}}\right)=t+C.</md>
+                Apply the initial condition <m>y(0)=3</m>:
+                <md>\frac{1}{\sqrt{5}}\arctan(0)=0+C\quad\Rightarrow\quad C=0.</md>
+                Hence
+                <md>\frac{1}{\sqrt{5}}\arctan\!\left(\frac{y-3}{\sqrt{5}}\right)=t,</md>
+                so
+                <md>\arctan\!\left(\frac{y-3}{\sqrt{5}}\right)=\sqrt{5}\,t.</md>
+                Taking tangent of both sides,
+                <md>\frac{y-3}{\sqrt{5}}=\tan(\sqrt{5}\,t),</md>
+                and therefore the solution is
+                <md>y(t)=3+\sqrt{5}\tan(\sqrt{5}\,t).</md></p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>y' = \dfrac{x^2}{y(2 + x^3)}</m>, <m>y(0)=-2</m></p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>y\,dy=\frac{x^2}{2+x^3}\,dx.</md>
+                Integrate both sides:
+                <md>\int y\,dy=\int \frac{x^2}{2+x^3}\,dx.</md>
+                For the right-hand side let <m>u=2+x^3</m>, so <m>du=3x^2\,dx</m> and <m>x^2\,dx=\frac{1}{3}\,du</m>. Then
+                <md>\int \frac{x^2}{2+x^3}\,dx=\frac{1}{3}\int \frac{1}{u}\,du=\frac{1}{3}\ln|2+x^3|+C.</md>
+                Thus
+                <md>\frac{y^2}{2}=\frac{1}{3}\ln|2+x^3|+C.</md>
+                Apply the initial condition <m>y(0)=-2</m>:
+                <md>\frac{(-2)^2}{2}=\frac{1}{3}\ln|2|+C
+                    \quad\Longrightarrow\quad
+                    2=\frac{1}{3}\ln 2 + C,</md>
+                so
+                <md>C=2-\frac{1}{3}\ln 2.</md>
+                Therefore the implicit solution is
+                <md>
+                    \frac{y^2}{2}=\frac{1}{3}\ln|2+x^3|+2-\frac{1}{3}\ln 2.
+                </md>
+                Equivalently,
+                <md>
+                    y^2=4+\frac{2}{3}\ln\!\left(\frac{|2+x^3|}{2}\right).
+                </md>
+                To satisfy <m>y(0)=-2</m>, choose the negative branch:
+                <md>
+                    y(x)=-\sqrt{\,4+\frac{2}{3}\ln\!\left(\frac{|2+x^3|}{2}\right)}.
+                </md></p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>\dfrac{dy}{dx} = \dfrac{\sin x}{y}</m>, <m>y(0)=2</m></p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>y\,dy=\sin x\,dx.</md>
+                Integrate both sides:
+                <md>\int y\,dy=\int \sin x\,dx.</md>
+                This gives
+                <md>\frac{y^2}{2}=-\cos x+C.</md>
+                Apply the initial condition <m>y(0)=2</m>:
+                <md>\frac{4}{2}=-\cos 0+C\quad\Rightarrow\quad 2=-1+C\quad\Rightarrow\quad C=3.</md>
+                Therefore the implicit solution is
+                <md>\frac{y^2}{2}=-\cos x+3.</md>
+                Solving for <m>y</m>:
+                <md>y^2=6-2\cos x.</md>
+                To satisfy <m>y(0)=2</m>, choose the positive branch:
+                <md>y(x)=\sqrt{6-2\cos x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>xy' = \sqrt{1 - y^2}</m>, <m>y(1)=0</m></p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:</p>
+                <md>\frac{dy}{\sqrt{1-y^2}}=\frac{dx}{x}.</md>
+                Integrate both sides:
+                <md>\int \frac{dy}{\sqrt{1-y^2}}=\int \frac{dx}{x}.</md>
+                This gives
+                <md>\arcsin(y)=\ln|x|+C.</md>
+                Apply the initial condition <m>y(1)=0</m>:
+                <md>\arcsin(0)=\ln|1|+C\quad\Rightarrow\quad 0=0+C\quad\Rightarrow\quad C=0.</md>
+                Therefore the implicit solution is
+                <md>\arcsin(y)=\ln|x|.</md>
+                Solving for <m>y</m>:
+                <md>y=\sin(\ln|x|).</md>
+                </solution> 
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>\dfrac{dy}{dt} = \dfrac{4t - t^3}{4 + y^3}</m>, <m>y(0)=1</m></p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>(4+y^3)\,dy=(4t-t^3)\,dt.</md>
+                Integrate both sides:
+                <md>\int (4+y^3)\,dy=\int (4t-t^3)\,dt.</md>
+                Evaluating the integrals gives
+                <md>4y+\frac{y^4}{4}=2t^2-\frac{t^4}{4}+C.</md>
+                Apply the initial condition <m>y(0)=1</m>:
+                <md>4(1)+\frac{1^4}{4}=0-\frac{0^4}{4}+C\quad\Rightarrow\quad 4+\frac{1}{4}=C\quad\Rightarrow\quad C=\frac{17}{4}.</md>
+                Therefore the implicit solution is
+                <md>4y+\frac{y^4}{4}=2t^2-\frac{t^4}{4}+\frac{17}{4}.</md>
+                Equivalently, multiplying by <m>4</m>,
+                <md>y^4+16y=-t^4+8t^2+17.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>y' = \dfrac{1}{xy + 2x + y + 2}</m>, <m>y(0)=-3</m></p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>(xy + 2x + y + 2)\,dy=dx.</md>
+                This can be rewritten as
+                <md>(x+1)(y+2)\,dy=dx.</md>
+                Integrate both sides:
+                <md>\int \frac{dy}{y+2}=\int \frac{dx}{x+1}.</md>
+                This gives
+                <md>\ln|y+2|=\ln|x+1|+C.</md>
+                Apply the initial condition <m>y(0)=-3</m>:
+                <md>\ln|-3+2|=\ln|0+1|+C\quad\Rightarrow\quad \ln|−1|=\ln|1|+C\quad\Rightarrow\quad 0=0+C\quad\Rightarrow\quad C=0.</md>
+                Therefore the implicit solution is
+                <md>\ln|y+2|=\ln|x+1|.</md>
+                Solving for <m>y</m>:
+                <md>|y+2|=|x+1|.</md>
+                To satisfy <m>y(0)=-3</m>, choose the negative branch:
+                <md>y(x)=-2-(x+1)=-x-3.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p><m>\dfrac{dx}{dt} = xe^t + 3e^t + x + 3</m>, <m>x(0)=0</m></p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>(xe^t + 3e^t + x + 3)\,dx=dt.</md>
+                This can be rewritten as
+                <md>(x+3)(e^t+1)\,dx=dt.</md>
+                Integrate both sides:
+                <md>\int \frac{dx}{x+3}=\int \frac{dt}{e^t+1}.</md>
+                This gives
+                <md>\ln|x+3|=-\ln|e^t+1|+C.</md>
+                Apply the initial condition <m>x(0)=0</m>:
+                <md>\ln|0+3|=-\ln|e^0+1|+C\quad\Rightarrow\quad \ln|3|=-\ln|2|+C\quad\Rightarrow\quad C=\ln|3|+\ln|2|=\ln|6|.</md>
+                Therefore the implicit solution is
+                <md>\ln|x+3|=-\ln|e^t+1|+\ln|6|.</md>
+                Solving for <m>x</m>:
+                <md>|x+3|=\frac{6}{e^t+1}.</md>
+                To satisfy <m>x(0)=0</m>, choose the positive branch:
+                <md>x(t)=\frac{6}{e^t+1}-3.</md></p>
+                </solution>
             </exercise>
         
         </exercisegroup>
         <exercise>
-            <p>
+            <statement>
+                <p>
                 Use MATLAB to solve the initial value problems in 
                 <xref ref="exgroup-solving-ivps" />.
             </p>
+            </statement>
+            <solution>
+                <p>Here are two pieces of sample MATLAB code to solve the first initial value problem. One uses MATLAB to fully 
+                solve the problem; the other uses the built-in ODE solver `ode45`. (You will have to copy and paste the code into MATLAB.) 
+                You can modify the function definitions and initial conditions as needed for each specific problem.</p>
+                <sage language="octave">
+                    <input>
+                    % Comment this command out if using
+                    % MATLAB directly
+                    pkg load symbolic
+
+                    % Define the symbolic variable and differential equation
+                    syms y(x)
+                    ode = x - y^2 * diff(y, x) == 0;
+
+                    % Define the initial condition
+                    cond = y(0) == 1;
+
+                    % Solve the ODE
+                    ySol(x) = dsolve(ode, cond);
+                    ySol = simplify(ySol)
+                    </input>
+              </sage>
+              <program language="octave">
+                <input>
+                % Define the function for the ODE
+                f = @(x, y) x / (y^2);
+
+                % Solve the ODE using ode45 (one going forward and 
+                % one going backward from the initial condition)
+                [xf, yf] = ode45(f, [0, 2], 1);
+                [xb, yb] = ode45(f, [0, -2], 1);
+                xtotal = [flipud(xb); xf];
+                ytotal = [flipud(yb); yf];
+
+                % Plot the solution
+                plot(xtotal, ytotal, 'r-', 'LineWidth', 2)
+                xlabel('x')
+                ylabel('y(x)')
+                grid on
+                </input>
+              </program>
+            </solution>
         </exercise>
         <exercise>
             <title>Homogeneous Equations</title>
             <statement>
                 <p>A first-order differential equation, <m>y' = f(x, y)</m>, is <em>homogeneous</em> if <m>f(x, y) = f(tx, ty)</m>.
-                    <ol>
+                    <ol marker="(a)">
 
                         <li><p>Show that the equation
                             <md>\frac{dy}{dx} = \frac{x^2 + y^2}{2xy}</md>
@@ -1469,6 +1778,125 @@
 
                     </ol></p>
             </statement>
+            <solution component="instructors">
+            <ol marker="(a)">
+                <li>
+                <p>Let</p>
+                <md>f(x,y)=\frac{x^2+y^2}{2xy}.</md>
+                <p>Then for any nonzero constant <m>t</m>,</p>
+                <md>
+                    f(tx,ty)=\frac{(tx)^2+(ty)^2}{2(tx)(ty)}
+                    =\frac{t^2(x^2+y^2)}{2t^2xy}
+                    =\frac{x^2+y^2}{2xy}
+                    =f(x,y).
+                </md>
+                <p>Hence the differential equation is homogeneous.</p>
+                </li>
+
+                <li>
+                <p>With the substitution <m>y=xv</m>, we have <m>\dfrac{dy}{dx}=v+x\dfrac{dv}{dx}</m>. Substituting into the differential equation gives</p>
+                <md>
+                    v+x\frac{dv}{dx}
+                    =\frac{x^2+(vx)^2}{2x(vx)}
+                    =\frac{x^2+v^2x^2}{2vx^2}.
+                </md>
+                <p>Canceling <m>x^2</m> yields</p>
+                <md>v+x\frac{dv}{dx}=\frac{1+v^2}{2v},</md>
+                <p>so</p>
+                <md>
+                    x\frac{dv}{dx}=\frac{1+v^2}{2v}-v=\frac{1-v^2}{2v}.
+                </md>
+                <p>This is separable:</p>
+                <md>\frac{2v}{1-v^2}\,dv=\frac{dx}{x}.</md>
+                <p>Integrating, let <m>u=1-v^2</m>, <m>du=-2v\,dv</m>, to obtain</p>
+                <md>
+                    -\ln|1-v^2|=\ln|x|+C.
+                </md>
+                <p>Equivalently, <m>\ln|1-v^2|=-\ln|x|+C</m>, so <m>1-v^2=\dfrac{C}{x}</m>. Since <m>v=\dfrac{y}{x}</m>, we get</p>
+                <md>
+                    1-\left(\frac{y}{x}\right)^2=\frac{C}{x}
+                    \quad\Longrightarrow\quad
+                    y^2=x^2+Cx.
+                </md>
+                </li>
+
+                <li>
+                <p>If <m>y'=f(x,y)</m> is homogeneous, then for <m>x\neq 0</m> we may take <m>t=\dfrac{1}{x}</m> to get</p>
+                <md>
+                    f(x,y)=f\!\left(1,\frac{y}{x}\right).
+                </md>
+                <p>Thus there is a function <m>g</m> such that <m>f(x,y)=g\!\left(\dfrac{y}{x}\right)</m>. Now set <m>y=vx</m>, so <m>y'=v+x\dfrac{dv}{dx}</m>. Substitution gives</p>
+                <md>v+x\frac{dv}{dx}=g(v),</md>
+                <p>hence</p>
+                <md>x\frac{dv}{dx}=g(v)-v.</md>
+                <p>This is separable:</p>
+                <md>\frac{dv}{g(v)-v}=\frac{dx}{x}.</md>
+                </li>
+
+                <li>
+                <p>From <m>P(x,y)\,dx+Q(x,y)\,dy=0</m> we have</p>
+                <md>\frac{dy}{dx}=-\frac{P(x,y)}{Q(x,y)}.</md>
+                <p>If <m>P</m> and <m>Q</m> are both homogeneous of degree <m>n</m>, then</p>
+                <md>
+                    -\frac{P(tx,ty)}{Q(tx,ty)}
+                    =-\frac{t^nP(x,y)}{t^nQ(x,y)}
+                    =-\frac{P(x,y)}{Q(x,y)},
+                </md>
+                <p>so <m>-P/Q</m> is homogeneous of degree <m>0</m>, hence depends only on <m>y/x</m>. Therefore the equation is homogeneous in the sense of parts (a)–(c), and the substitution <m>y=vx</m> transforms it into a separable equation as in part (c).</p>
+                </li>
+
+                <li>
+                <p>Rewrite the equation as</p>
+                <md>y'=\frac{2y^2-x^2}{x^2}=2\left(\frac{y}{x}\right)^2-1,</md>
+                <p>which is homogeneous. Let <m>y=vx</m>, so <m>y'=v+x\dfrac{dv}{dx}</m>. Then</p>
+                <md>v+x\frac{dv}{dx}=2v^2-1,</md>
+                <p>so</p>
+                <md>x\frac{dv}{dx}=2v^2-v-1=(2v+1)(v-1).</md>
+                <p>Separate and integrate:</p>
+                <md>
+                    \int \frac{dv}{(2v+1)(v-1)}=\int \frac{dx}{x}.
+                </md>
+                <p>Using partial fractions,
+                    <m>\dfrac{1}{(2v+1)(v-1)}=\dfrac{1/3}{v-1}-\dfrac{2/3}{2v+1}</m>, so</p>
+                <md>
+                    \frac{1}{3}\ln|v-1|-\frac{1}{3}\ln|2v+1|=\ln|x|+C.
+                </md>
+                <p>Thus</p>
+                <md>\ln\left|\frac{v-1}{2v+1}\right|=3\ln|x|+C,</md>
+                <p>or <m>\dfrac{v-1}{2v+1}=Cx^3</m>. Solving for <m>v</m> and substituting <m>v=\dfrac{y}{x}</m> gives</p>
+                <md>
+                    y=x\frac{1+Cx^3}{1-2Cx^3}.
+                </md>
+                </li>
+
+                <li>
+                <p>First simplify:</p>
+                <md>
+                    y'=\frac{2y^4+x^4}{xy^3}=\frac{2y}{x}+\frac{x^3}{y^3},
+                </md>
+                <p>which is homogeneous. Let <m>y=vx</m>, so <m>y'=v+x\dfrac{dv}{dx}</m> and <m>\dfrac{x^3}{y^3}=\dfrac{1}{v^3}</m>. Then</p>
+                <md>
+                    v+x\frac{dv}{dx}=2v+\frac{1}{v^3},
+                </md>
+                <p>hence</p>
+                <md>x\frac{dv}{dx}=v+\frac{1}{v^3}=\frac{v^4+1}{v^3}.</md>
+                <p>Separate and integrate:</p>
+                <md>
+                    \int \frac{v^3}{v^4+1}\,dv=\int \frac{dx}{x}.
+                </md>
+                <p>Since <m>\dfrac{d}{dv}(v^4+1)=4v^3</m>, we obtain</p>
+                <md>
+                    \frac{1}{4}\ln|v^4+1|=\ln|x|+C.
+                </md>
+                <p>Therefore <m>v^4+1=Cx^4</m>. Substituting <m>v=\dfrac{y}{x}</m> yields the implicit general solution</p>
+                <md>
+                    \left(\frac{y}{x}\right)^4+1=Cx^4
+                    \quad\Longleftrightarrow\quad
+                    y^4+x^4=Cx^8.
+                </md>
+                </li>
+            </ol>
+</solution>
         </exercise>
         <exercise>
             <statement>
@@ -1483,13 +1911,26 @@
                 estimate the time of Ratchett's death using Newton's Law of 
                 Cooling.</p>
             </statement>
+            <solution component="instructors">
+            <p>By Newton’s Law of Cooling, the body temperature satisfies
+            <md>T(t)=T_a+(T(0)-T_a)e^{-kt},</md>
+            where <m>T_a=22</m> is the ambient (air) temperature and <m>k&gt;0</m> is a constant.  Let <m>t=0</m> correspond to 7 AM, when the body was discovered and <m>T(0)=28</m>.  One hour later <m>T(1)=27</m>, so
+            <md>27-22=(28-22)e^{-k}\quad\Rightarrow\quad 5=6e^{-k}\quad\Rightarrow\quad e^{-k}=\frac{5}{6},</md>
+            hence
+            <md>k=\ln\!\left(\frac{6}{5}\right).</md>
+            Let <m>t_d</m> be the number of hours between Ratchett’s death and 7 AM.  At death the body temperature was normal, <m>37</m>, so
+            <md>28-22=(37-22)e^{-kt_d}\quad\Rightarrow\quad 6=15e^{-kt_d}\quad\Rightarrow\quad e^{-kt_d}=\frac{2}{5}.</md>
+            Therefore
+            <md>t_d=\frac{\ln(5/2)}{\ln(6/5)}\approx 5.03\text{ hours}.</md>
+            So Ratchett died about <m>5</m> hours before 7 AM, i.e. at approximately 2:00 AM.</p>
+            </solution>
         </exercise>
         <exercise>
             <statement>
                 <p>You are starting a new position, and your employer has a 
                 generous retirement plan.  If you put $500 a month into a 
                 401(k) plan, your employer will match your contributions.  
-                    <ol>
+                    <ol marker="(a)">
                         <li><p>Assuming that you are 25 years old and plan to 
                         retire at age 65, how large can you expect your 
                         401(k) pension to be when you retire?  Assume that 
@@ -1502,6 +1943,30 @@
 
                     </p>
             </statement>
+            <solution component="instructors">
+            <p><b>(a)</b> Since you contribute $500 per month and your employer matches it, a total of $1000 per month is invested. 
+            Let <m>r=\frac{0.05}{12}</m> be the monthly interest rate and 
+            <m>n=40\cdot 12=480</m> the number of months from age 25 to 65. The future value of an ordinary annuity is
+            <md>
+                FV = P \frac{(1+r)^n-1}{r},
+            </md>
+            where <m>P=1000</m>. Thus
+            <md>
+                FV = 1000 \cdot \frac{(1+0.05/12)^{480}-1}{0.05/12}.
+            </md>
+            Since <m>(1+0.05/12)^{480}\approx 7.36</m>, we obtain
+            <md>
+                FV \approx 1000 \cdot \frac{7.36-1}{0.0041667}
+                \approx 1.53\times 10^6.
+            </md>
+            You can expect approximately $<m>1.5</m> million at retirement.</p>
+
+            <p><b>(b)</b> If you withdraw $60,000 per year and the fund continues earning 5% annually, then the annual interest earned on $1.53 million is
+            <md>
+                0.05(1.53\times 10^6)\approx 76,500.
+            </md>
+            Since the interest ($76,500) exceeds the withdrawal amount ($60,000), the principal will continue to grow rather than decrease. Therefore, at a 5% return, withdrawing $60,000 per year is sustainable indefinitely, and the retirement fund will not run out.</p>
+            </solution>
         </exercise>
     </exercises>
     <subsection xml:id="subsec-">
