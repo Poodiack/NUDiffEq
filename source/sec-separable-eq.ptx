@@ -474,7 +474,7 @@
                         This equation is separable. We can rewrite it as
                     </p>
                     <md>
-                        \frac{dy}{dx} = \frac{1+2x+3x^2}{y}
+                        y\,\frac{dy}{dx} = 1+2x+3x^2
                     </md>
                     <p>
                         We then separate the variables and integrate both sides:
@@ -1614,7 +1614,7 @@
                     <p><m>xy' = \sqrt{1 - y^2}</m>, <m>y(1)=0</m></p>
                 </statement>
                 <solution component="instructors">
-                <p>The differential equation is separable:</p>
+                <p>The differential equation is separable:
                 <md>\frac{dy}{\sqrt{1-y^2}}=\frac{dx}{x}.</md>
                 Integrate both sides:
                 <md>\int \frac{dy}{\sqrt{1-y^2}}=\int \frac{dx}{x}.</md>
@@ -1625,7 +1625,7 @@
                 Therefore the implicit solution is
                 <md>\arcsin(y)=\ln|x|.</md>
                 Solving for <m>y</m>:
-                <md>y=\sin(\ln|x|).</md>
+                <md>y=\sin(\ln|x|).</md></p>
                 </solution> 
             </exercise>
 
@@ -1969,7 +1969,7 @@
             </solution>
         </exercise>
     </exercises>
-    <subsection xml:id="subsec-">
+    <subsection xml:id="subsec-quick-start-guide-to-solving-odes">
         <title>MATLAB -- Quick Start Guide to Solving Ordinary Differential
         Equations</title>
         <p>
@@ -2040,20 +2040,6 @@
             equation. Finally, we use the MATLAB command <c>dsolve</c> to find 
             the actual solution.
         </p>
-        <sage language="octave">
-            <input>
-                % Comment this first line out if 
-                % using in MATLAB itself. (It *is*
-                % needed for Octave, though.)
-                pkg load symbolic
-
-                syms y(x)
-                eqn = diff(y,x) == x + y;
-                cond = y(0) == 1;
-                ySol(x) = dsolve(eqn, cond);
-                disp(ySol(x));  
-            </input>
-        </sage>
         <p>
             We can also specify an initial condition for our differential 
             equation, say, <m>y(0)=1</m>.
