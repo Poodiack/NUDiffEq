@@ -146,7 +146,7 @@
                                 <mrow> \amp =e^{-\sin x + C}</mrow>
                                 <mrow> \amp = e^C\cdot e^{-\sin x}.</mrow>
                             </md>
-                            Setting <m>A=e^C</m>m we see that the general 
+                            Setting <m>A=e^C</m>, we see that the general 
                             solution is
                             <md>
                                 y = Ae^{-\sin x},
@@ -506,6 +506,13 @@
                         <m>y'=xy</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is both linear and separable. It can be 
+                        rewritten in standard form as <m>y'-xy=0</m> and it can 
+                        be separated as <m>\frac{dy}{y}=x\,dx</m>.
+                    </p>
+                </solution>
             </task>
             <task>
                 <statement>
@@ -513,6 +520,13 @@
                         <m>y'=(\cos x)y</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is both linear and separable. It can be 
+                        rewritten in standard form as <m>y'-(\cos x)y=0</m> and 
+                        it can be separated as <m>\frac{dy}{y}=(\cos x)\,dx</m>.
+                    </p>
+                </solution>
             </task>
 
             <task>
@@ -521,6 +535,13 @@
                         <m>y'=x^2\sin y</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable but not linear. It can be 
+                        separated as <m>\frac{dy}{\sin y}=x^2\,dx</m> but it 
+                        cannot be rewritten in standard form.
+                    </p>
+                </solution>
             </task>
 
             <task>
@@ -529,6 +550,13 @@
                         <m>y'=x+y</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is linear but not separable. It can be 
+                        rewritten in standard form as <m>y'-y=x</m> but it 
+                        cannot be separated.
+                    </p>
+                </solution>
             </task>
 
             <task>
@@ -537,6 +565,12 @@
                         <m>y'=\dfrac{1}{1+e^{-y}}</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is separable but not linear. It can be separated 
+                        as <m>(1+e^{-y})\,dy=dx</m> but it cannot be written in standard form.
+                    </p>
+                </solution>
             </task>
 
             <task>
@@ -545,6 +579,13 @@
                         <m>y' = e^x y + e^x</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        This equation is both linear and separable. It can be 
+                        rewritten in standard form as <m>y' - e^x y = e^x</m> and 
+                        it can be separated as <m>\frac{dy}{y+1} = e^x dx</m>.
+                    </p>
+                </solution>
             </task>
         </exercise>
 
@@ -555,25 +596,200 @@
             slope fields as necessary.)
         </p>
         <exercise>
-            <p><m>y' + 2y = e^{-2x}\sin x</m></p>
+            <statement>
+                <p>
+                    <m>y' + 2y = e^{-2x}\sin x</m>
+                </p>
+            </statement>
+            <solution component="instructors">
+                <p>
+                    This equation is linear with <m>p(x) = 2</m> and 
+                    <m>f(x) = e^{-2x}\sin x</m>. The integrating factor is
+                    <md>
+                        \mu(x) = e^{\int p(x)\,dx} = e^{\int 2\,dx} = e^{2x}.
+                    </md>
+                    We multiply through by the integrating factor to get
+                    <md>
+                        e^{2x}y' + 2e^{2x}y = \sin x.
+                    </md>
+                    The left-hand side is the derivative of the product 
+                    <m>e^{2x}y</m>. We integrate both sides to get
+                    <md>
+                        \int \frac{d}{dx}(e^{2x}y)\,dx = \int \sin x\,dx
+                        \Longrightarrow e^{2x}y = -\cos x + C.
+                    </md>
+                    Solving for <m>y</m> gives us
+                    <md>
+                        y = -e^{-2x}\cos x + Ce^{-2x}.
+                    </md>
+                    As <m>x\to\infty</m>, we see that <m>y\to 0</m>.
+                </p>
+            </solution>
         </exercise>
         <exercise>
+            <statement>
             <p><m>y' = 2y + 1 \quad</m><em>This equation is also separable.</em></p>
+            </statement>
+            <solution component="instructors">
+                <p>
+                    This equation is linear with <m>p(x) = -2</m> and 
+                    <m>f(x) = 1</m>. The integrating factor is
+                    <md>
+                        \mu(x) = e^{\int p(x)\,dx} = e^{\int -2\,dx} = e^{-2x}.
+                    </md>
+                    We multiply through by the integrating factor to get
+                    <md>
+                        e^{-2x}y' - 2e^{-2x}y = e^{-2x}.
+                    </md>
+                    The left-hand side is the derivative of the product 
+                    <m>e^{-2x}y</m>. We integrate both sides to get
+                    <md>
+                        \int \frac{d}{dx}(e^{-2x}y)\,dx = \int e^{-2x}\,dx
+                        \Longrightarrow e^{-2x}y = -\frac12 e^{-2x} + C.
+                    </md>
+                    Solving for <m>y</m> gives us
+                    <md>
+                        y = -\frac12 + Ce^{2x}.
+                    </md>
+                    As <m>x\to\infty</m>, we see that <m>y\to\infty</m> if <m>C&gt;0</m>, 
+                    <m>y\to -\frac12</m> if <m>C=0</m>, <m>y\to -\infty</m> if <m>C&lt;0</m>.
+                </p>
+            </solution>
         </exercise>
         <exercise>
+            <statement>
             <p><m>xy' - 2y = 1+x</m></p>
+            </statement>
+            <solution component="instructors">
+                <p>
+                    We first put the equation in standard form by dividing through by <m>x</m> (assuming <m>x\ne 0</m>):
+                    <md>
+                        y' - \frac{2}{x}y = \frac1x+1.
+                    </md>
+                    This equation is linear with <m>p(x) = -2/x</m> and 
+                    <m>f(x) = \frac1x+1</m>. The integrating factor is
+                    <md>
+                        \mu(x) = e^{\int p(x)\,dx} = e^{\int -2/x\,dx} = e^{-2\ln x} = x^{-2}.
+                    </md>
+                    We multiply through by the integrating factor to get
+                    <md>
+                        x^{-2}y' - 2x^{-3}y = x^{-2}\left(\frac1x+1\right).
+                    </md>
+                    The left-hand side is the derivative of the product 
+                    <m>x^{-2}y</m>. We integrate both sides to get
+                    <md>
+                        \int \frac{d}{dx}(x^{-2}y)\,dx = \int x^{-2}\left(\frac1x+1\right)\,dx
+                        \Longrightarrow x^{-2}y = -\frac12 x^{-2} - x^{-1} + C.
+                    </md>
+                    Solving for <m>y</m> gives us
+                    <md>
+                        y = -\frac12 - x + Cx^2.
+                    </md>
+                </p>
+            </solution>
         </exercise>
         <exercise>
+            <statement>
             <p><m>xy' = 2y + x^2</m></p>
+            </statement>
+            <solution component="instructors">
+                <p>
+                    We first put the equation in standard form by dividing through by <m>x</m> (assuming <m>x\ne 0</m>):
+                    <md>
+                        y' - \frac{2y}{x} = x.
+                    </md>
+                    This equation is linear with <m>p(x) = -2/x</m> and 
+                    <m>f(x) = x</m>. The integrating factor is
+                    <md>
+                        \mu(x) = e^{\int p(x)\,dx} = e^{\int -\frac{2}{x}\,dx} = e^{-2\ln x} = x^{2}.
+                    </md>
+                    We multiply through by the integrating factor to get
+                    <md>
+                        x^{-2}y' - 2x^{-3}y = x^{-2}\cdot x = x^{-1}.
+                    </md>
+                    The left-hand side is the derivative of the product 
+                    <m>x^{-2}y</m>. We integrate both sides to get
+                    <md>
+                        \int \frac{d}{dx}(x^{-2}y)\,dx = \int x^{-1}\,dx
+                        \Longrightarrow x^{-2}y = \ln|x| + C.
+                    </md>
+                    Solving for <m>y</m> gives us
+                    <md>
+                        y = x^{2}\ln|x| + Cx^{2}.
+                    </md>
+                    As <m>x\to\infty</m>, we see that <m>y\to\infty</m>.
+                </p>
+            </solution>
         </exercise>
         <p>
             Solve the initial value problems:
         </p>
         <exercise>
             <p><m>y' = y + 2e^{2x}, \quad y(0)=1</m></p>
+            <solution component="instructors">
+                <p>
+                    This is a first-order linear differential equation. We can rewrite it as
+                    <md>
+                        y' - y = 2e^{2x}.
+                    </md>
+                    The integrating factor is
+                    <md>
+                        \mu(x) = e^{\int -1\,dx} = e^{-x}.
+                    </md>
+                    Multiplying through by the integrating factor gives
+                    <md>
+                        e^{-x}y' - e^{-x}y = 2e^{x}.
+                    </md>
+                    The left-hand side is the derivative of the product 
+                    <m>e^{-x}y</m>. We integrate both sides to get
+                    <md>
+                        \int \frac{d}{dx}(e^{-x}y)\,dx = \int 2e^{x}\,dx
+                        \Longrightarrow e^{-x}y = 2e^{x} + C.
+                    </md>
+                    Solving for <m>y</m> gives us
+                    <md>
+                        y = 2e^{2x} + Ce^{x}.
+                    </md>
+                    Using the initial condition <m>y(0)=1</m>, we find that <m>C=-1</m>, so
+                    <md>
+                        y = 2e^{2x} - e^{x}.
+                    </md>
+                </p>
+            </solution>
         </exercise>
         <exercise>
             <p><m>xy' + y = 3x^2 - x, \quad y(1) = 0</m></p>
+            <solution component="instructors">
+                <p>
+                    We first put the equation in standard form by dividing through by <m>x</m> (assuming <m>x\ne 0</m>):
+                    <md>
+                        y' + \frac{1}{x}y = 3x - 1.
+                    </md>
+                    This equation is linear with <m>p(x) = 1/x</m> and 
+                    <m>f(x) = 3x - 1</m>. The integrating factor is
+                    <md>
+                        \mu(x) = e^{\int p(x)\,dx} = e^{\int 1/x\,dx} = e^{\ln x} = x.
+                    </md>
+                    We multiply through by the integrating factor to get
+                    <md>
+                        xy' + y = 3x^2 - x.
+                    </md>
+                    The left-hand side is the derivative of the product 
+                    <m>xy</m>. We integrate both sides to get
+                    <md>
+                        \int \frac{d}{dx}(xy)\,dx = \int (3x^2 - x)\,dx
+                        \Longrightarrow xy = x^3 - \frac{x^2}{2} + C.
+                    </md>
+                    Solving for <m>y</m> gives us
+                    <md>
+                        y = x^2 - \frac{x}{2} + \frac{C}{x}.
+                    </md>
+                    Using the initial condition <m>y(1) = 0</m>, we find that <m>C=-\frac{1}{2}</m>, so
+                    <md>
+                        y = x^2 - \frac{x}{2} - \frac{1}{2x}.
+                    </md>
+                </p>
+            </solution>
         </exercise>
     </worksheet>
     <subsection xml:id="subsec-app-mixing-probs">
