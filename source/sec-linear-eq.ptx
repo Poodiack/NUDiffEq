@@ -971,6 +971,20 @@
                        <m>\dfrac{dy}{dx} + 5y=0</m> 
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>\frac{dy}{dx}=-5y
+                    \quad\Longrightarrow\quad
+                    \frac{1}{y}\,dy=-5\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int -5\,dx.</md>
+                This gives
+                <md>\ln|y|=-5x+C.</md>
+                Exponentiating,
+                <md>|y|=e^C e^{-5x}.</md>
+                Absorbing the constant, the general solution is
+                <md>y(x)=Ce^{-5x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -979,6 +993,20 @@
                         <m>y'-7y=0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>\frac{dy}{dx}=7y
+                    \quad\Longrightarrow\quad
+                    \frac{1}{y}\,dy=7\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int 7\,dx.</md>
+                This gives
+                <md>\ln|y|=7x+C.</md>
+                Exponentiating,
+                <md>|y|=e^C e^{7x}.</md>
+                Absorbing the constant, the general solution is
+                <md>y(x)=Ce^{7x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -987,6 +1015,20 @@
                         <m>y'+2xy=0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>\frac{dy}{dx}=-2xy
+                    \quad\Longrightarrow\quad
+                    \frac{1}{y}\,dy=-2x\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int -2x\,dx.</md>
+                This gives
+                <md>\ln|y|=-x^2+C.</md>
+                Exponentiating,
+                <md>|y|=e^C e^{-x^2}.</md>
+                Absorbing the constant, the general solution is
+                <md>y(x)=Ce^{-x^2}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -995,6 +1037,20 @@
                         <m>\dfrac{dx}{dt} - t^2 x = 0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>\frac{dx}{dt}=t^2 x
+                    \quad\Longrightarrow\quad
+                    \frac{1}{x}\,dx=t^2\,dt.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{x}\,dx=\int t^2\,dt.</md>
+                This gives
+                <md>\ln|x|=\frac{t^3}{3}+C.</md>
+                Exponentiating,
+                <md>|x|=e^C e^{\frac{t^3}{3}}.</md>
+                Absorbing the constant, the general solution is
+                <md>x(t)=Ce^{\frac{t^3}{3}}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1003,6 +1059,22 @@
                         <m>y'+\dfrac2{x}\,y = 0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is separable:
+                <md>\frac{dy}{dx}=-\dfrac2{x}\,y
+                    \quad\Longrightarrow\quad
+                    \frac{1}{y}\,dy=-\dfrac2{x}\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int -\dfrac2{x}\,dx.</md>
+                This gives
+                <md>\ln|y|=-2\ln|x|+C.</md>
+                Exponentiating,
+                <md>|y|=e^C e^{-2\ln|x|}.</md>
+                Simplifying,
+                <md>|y|=\dfrac{e^C}{x^2}.</md>
+                Absorbing the constant, the general solution is
+                <md>y(x)=\dfrac{C}{x^2}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1011,6 +1083,18 @@
                         <m>\dfrac{dy}{dx}-5y=e^x</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>This is a first-order linear differential equation. The integrating factor is
+                <md>\mu(x)=e^{\int -5\,dx}=e^{-5x}.</md>
+                Multiplying both sides by the integrating factor,
+                <md>e^{-5x}\frac{dy}{dx}-5e^{-5x}y=e^x e^{-5x}.</md>
+                The left side is the derivative of the product,
+                <md>\frac{d}{dx}(e^{-5x}y)=e^{-4x}.</md>
+                Integrate both sides,
+                <md>e^{-5x}y=\int e^{-4x}\,dx=-\frac{1}{4}e^{-4x}+C.</md>
+                Solve for <m>y</m>,
+                <md>y=-\frac{1}{4}e^x+C e^{5x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1019,6 +1103,20 @@
                         <m>y'-5y=10x</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>This is a first-order linear differential equation. The integrating factor is
+                <md>\mu(x)=e^{\int -5\,dx}=e^{-5x}.</md>
+                Multiplying both sides by the integrating factor,
+                <md>e^{-5x}\frac{dy}{dx}-5e^{-5x}y=10x e^{-5x}.</md>
+                The left side is the derivative of the product,
+                <md>\frac{d}{dx}(e^{-5x}y)=10x e^{-5x}.</md>
+                Integrate both sides,
+                <md>e^{-5x}y=\int 10x e^{-5x}\,dx.</md>
+                Using integration by parts,
+                <md>\int 10x e^{-5x}\,dx = -2x e^{-5x} - \frac{2}{5} e^{-5x} + C.</md>
+                Therefore,
+                <md>y=-2x - \frac{2}{5} + C e^{5x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1027,6 +1125,20 @@
                         <m>\dfrac{dx}{dt}-5x=\sin 2t</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>This is a first-order linear differential equation. The integrating factor is
+                <md>\mu(t)=e^{\int -5\,dt}=e^{-5t}.</md>
+                Multiplying both sides by the integrating factor,
+                <md>e^{-5t}\frac{dx}{dt}-5e^{-5t}x=e^{-5t}\sin 2t .</md>
+                The left side is the derivative of the product,
+                <md>\frac{d}{dt}(e^{-5t}x)=e^{-5t}\sin 2t.</md>
+                Integrate both sides,
+                <md>e^{-5t}x=\int e^{-5t}\sin 2t\,dt.</md>
+                Using integration by parts,
+                <md>\int e^{-5t}\sin 2t\,dt = -\frac{1}{29}(2e^{-5t}\cos 2t + 5e^{-5t}\sin 2t) + C.</md>
+                Therefore,
+                <md>x(t)=-\frac{1}{29}(2\cos 2t + 5\sin 2t) + C e^{5t}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1035,14 +1147,40 @@
                         <m>y'-\dfrac3{x^2}\,y=\dfrac1{x^2}</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>This is a first-order linear differential equation. The integrating factor is
+                <md>\mu(x)=e^{\int -\frac{3}{x^2}\,dx}=e^{\frac{3}{x}}.</md>
+                Multiplying both sides by the integrating factor,
+                <md>e^{\frac{3}{x}}\frac{dy}{dx}-\frac{3}{x^2}e^{\frac{3}{x}}y=\frac{1}{x^2}e^{\frac{3}{x}}.</md>
+                The left side is the derivative of the product,
+                <md>\frac{d}{dx}(e^{\frac{3}{x}}y)=\frac{1}{x^2}e^{\frac{3}{x}}.</md>
+                Integrate both sides,
+                <md>e^{\frac{3}{x}}y=\int \frac{1}{x^2}e^{\frac{3}{x}}\,dx.</md>
+                On the right-hand side, we can use the substitution <m>u=3/x</m>, <m>du=-3/x^2\,dx</m> to get
+                <md>\int \frac{1}{x^2}e^{\frac{3}{x}}\,dx=-\frac{1}{3}\int e^u\,du=-\frac{1}{3}e^u=-\frac{1}{3}e^{\frac{3}{x}}.</md>
+                Therefore,
+                <md>y=-\frac{1}{3} + C e^{-\frac{3}{x}}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
                 <statement>
                     <p>
-                        <m>\dfrac{dy}{dx}+\dfrac2{x}\,y = \dfrac{\sin x}{x^2}</m>
+                        <m>\dfrac{dy}{dx}+\dfrac2{x}\,y = \dfrac{\sin x}{x^2}, \quad x\ne 0</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>This is a first-order linear differential equation. The integrating factor is
+                <md>\mu(x)=e^{\int \frac{2}{x}\,dx}=e^{2\ln x}=x^2.</md>
+                Multiplying both sides by the integrating factor,
+                <md>x^2\frac{dy}{dx}+2xy=\sin x.</md>
+                The left side is the derivative of the product,
+                <md>\frac{d}{dx}(x^2y)=\sin x.</md>
+                Integrate both sides,
+                <md>x^2y=-\cos x + C.</md>
+                Therefore,
+                <md>y=-\frac{\cos x}{x^2} + \frac{C}{x^2}.</md></p>
+                </solution>
             </exercise>
         
         </exercisegroup>
@@ -1062,6 +1200,22 @@
                        <m>\dfrac{dy}{dx} + 5y=0</m>, <m>y(0)=2</m> 
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Rewrite the differential equation:
+                <md>\frac{dy}{dx}=-5y.</md>
+                This equation is separable:
+                <md>\frac{1}{y}\,dy=-5\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int -5\,dx.</md>
+                This gives
+                <md>\ln|y|=-5x+C.</md>
+                Exponentiating,
+                <md>y=Ce^{-5x}.</md>
+                Use the initial condition <m>y(0)=2</m>:
+                <md>2=Ce^{0}\quad\Longrightarrow\quad C=2.</md>
+                Therefore the solution to the initial value problem is
+                <md>y(x)=2e^{-5x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1070,6 +1224,22 @@
                         <m>y'-7y=0</m>, <m>y(0)=1</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Rewrite the differential equation:
+                <md>\frac{dy}{dx}=7y.</md>
+                This equation is separable:
+                <md>\frac{1}{y}\,dy=7\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int 7\,dx.</md>
+                This gives
+                <md>\ln|y|=7x+C.</md>
+                Exponentiating,
+                <md>y=Ce^{7x}.</md>
+                Use the initial condition <m>y(0)=1</m>:
+                <md>1=Ce^{0}\quad\Longrightarrow\quad C=1.</md>
+                Therefore the solution to the initial value problem is
+                <md>y(x)=e^{7x}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1078,6 +1248,22 @@
                         <m>y'+2xy=0</m>, <m>y(0)=3</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Rewrite the differential equation:
+                <md>\frac{dy}{dx}=-2xy.</md>
+                This equation is separable:
+                <md>\frac{1}{y}\,dy=-2x\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int -2x\,dx.</md>
+                This gives
+                <md>\ln|y|=-x^2+C.</md>
+                Exponentiating,
+                <md>y=Ce^{-x^2}.</md>
+                Use the initial condition <m>y(0)=3</m>:
+                <md>3=Ce^{0}\quad\Longrightarrow\quad C=3.</md>
+                Therefore the solution to the initial value problem is
+                <md>y(x)=3e^{-x^2}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1086,6 +1272,22 @@
                         <m>\dfrac{dx}{dt} - t^2 x = 0</m>, <m>x(0) = -1</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Rewrite the differential equation:
+                <md>\frac{dx}{dt}=t^2x.</md>
+                This equation is separable:
+                <md>\frac{1}{x}\,dx=t^2\,dt.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{x}\,dx=\int t^2\,dt.</md>
+                This gives
+                <md>\ln|x|=\frac{t^3}{3}+C.</md>
+                Exponentiating,
+                <md>x=Ce^{\frac{t^3}{3}}.</md>
+                Use the initial condition <m>x(0)=-1</m>:
+                <md>-1=Ce^{0}\quad\Longrightarrow\quad C=-1.</md>
+                Therefore the solution to the initial value problem is
+                <md>x(t)=-e^{\frac{t^3}{3}}.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1094,6 +1296,22 @@
                         <m>y'+\dfrac2{x}\,y = 0</m>, <m>y(1) = -3</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>Rewrite the differential equation:
+                <md>\frac{dy}{dx}=-\frac{2}{x}y.</md>
+                This equation is separable:
+                <md>\frac{1}{y}\,dy=-\frac{2}{x}\,dx.</md>
+                Integrate both sides:
+                <md>\int \frac{1}{y}\,dy=\int -\frac{2}{x}\,dx.</md>
+                This gives
+                <md>\ln|y|=-2\ln|x|+C.</md>
+                Exponentiating,
+                <md>y=Cx^{-2}.</md>
+                Use the initial condition <m>y(1)=-3</m>:
+                <md>-3=C(1)^{-2}\quad\Longrightarrow\quad C=-3.</md>
+                Therefore the solution to the initial value problem is
+                <md>y(x)=-3x^{-2}.</md></p>
+                </solution>
             </exercise>
         
             <exercise>
@@ -1107,6 +1325,24 @@
                         <m>y = \dfrac{3 x^{4} + 8 x^{3} + 6 x^{2} + 12}{6 (x + 1)^2}</m>
                     </p>
                 </hint>
+                <solution component="instructors">
+                <p>Rewrite the differential equation in linear form:
+                <md>y' + \frac{2}{x+1}y = 2x, \qquad x\neq -1.</md>
+                The integrating factor is
+                <md>\mu(x)=e^{\int \frac{2}{x+1}\,dx}=e^{2\ln|x+1|}=(x+1)^2.</md>
+                Multiply the equation by <m>(x+1)^2</m>:
+                <md>(x+1)^2y' + 2(x+1)y = 2x(x+1)^2.</md>
+                The left-hand side is the derivative of <m>(x+1)^2y</m>:
+                <md>\frac{d}{dx}\bigl((x+1)^2y\bigr)=2x(x+1)^2.</md>
+                Integrate both sides:
+                <md><mrow>(x+1)^2y \amp =\int 2x(x+1)^2\,dx</mrow>
+                    <mrow> \amp =\int (2x^3+4x^2+2x)\,dx</mrow>
+                    <mrow> \amp =\frac{1}{2}x^4+\frac{4}{3}x^3+x^2+C.</mrow></md>
+                Apply the initial condition <m>y(0)=2</m>:
+                <md>2=(0)+C \quad\Longrightarrow\quad C=2.</md>
+                Therefore the solution is
+                <md>y(x)=\frac{\frac{1}{2}x^4+\frac{4}{3}x^3+x^2+2}{(x+1)^2}, \qquad x\neq -1.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1118,6 +1354,24 @@
                 <hint>
                     <p><m>y = (e^x + 1)/(x+1)^2</m></p>
                 </hint>
+                <solution component="instructors">
+                <p>Rewrite the differential equation in linear form:
+                <md>y' + \frac{2}{1+x}y = e^x, \qquad x\neq -1.</md>
+                The integrating factor is
+                <md>\mu(x)=e^{\int \frac{2}{1+x}\,dx}=e^{2\ln|1+x|}=(1+x)^2.</md>
+                Multiply the equation by <m>(1+x)^2</m>:
+                <md>(1+x)^2y' + 2(1+x)y = e^x(1+x)^2.</md>
+                The left-hand side is the derivative of <m>(1+x)^2y</m>:
+                <md>\frac{d}{dx}\bigl((1+x)^2y\bigr)=e^x(1+x)^2.</md>
+                Integrate both sides:
+                <md><mrow>(1+x)^2y \amp =\int e^x(1+x)^2\,dx</mrow>
+                    <mrow> \amp =\int (e^x + 2e^x + e^x)\,dx</mrow>
+                    <mrow> \amp =e^x + 2e^x + e^x+C.</mrow></md>
+                Apply the initial condition <m>y(0)=1</m>:
+                <md>1=(1)+C \quad\Longrightarrow\quad C=0.</md>
+                Therefore the solution is
+                <md>y(x)=\frac{e^x + 2e^x + e^x}{(1+x)^2}, \qquad x\neq -1.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1126,6 +1380,23 @@
                         <m>\dfrac{dx}{dt} - 5x = \sin 2t</m>, <m>x(0) = \pi</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                <p>The differential equation is already in linear form:
+                <md>\frac{dx}{dt} - 5x = \sin 2t.</md>
+                The integrating factor is
+                <md>\mu(t)=e^{\int -5\,dt}=e^{-5t}.</md>
+                Multiply the equation by <m>e^{-5t}</m>:
+                <md>e^{-5t}\frac{dx}{dt} - 5e^{-5t}x = e^{-5t}\sin 2t.</md>
+                The left-hand side is the derivative of <m>e^{-5t}x</m>:
+                <md>\frac{d}{dt}\bigl(e^{-5t}x\bigr)=e^{-5t}\sin 2t.</md>
+                Integrate both sides:
+                <md><mrow>e^{-5t}x \amp =\int e^{-5t}\sin 2t\,dt</mrow>
+                    <mrow> \amp =\frac{1}{29}e^{-5t}(-5\sin 2t - 2\cos 2t)+C.</mrow></md>
+                Apply the initial condition <m>x(0) = \pi</m>:
+                <md>\pi=\frac{1}{29}(-5\sin 0 - 2\cos 0)+C \quad\Longrightarrow\quad C=\pi+\frac{2}{29}.</md>
+                Therefore the solution is
+                <md>x(t)=\frac{1}{29}(-5\sin 2t - 2\cos 2t)+(\pi+\frac{2}{29})e^{5t}, \qquad t\geq 0.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1137,6 +1408,25 @@
                 <hint>
                     <p><m>y = e^x \sec x</m></p>
                 </hint>
+                <solution component="instructors">
+                <p>Rewrite the differential equation in linear form:
+                <md>y' - (\tan x)\,y = \frac{e^x}{\cos x}.</md>
+                The integrating factor is
+                <md>\mu(x)=e^{\int -\tan x\,dx}=e^{\ln|\cos x|}=\cos x.</md>
+                Multiply the equation by <m>\cos x</m>:
+                <md>\cos x\,y'-(\sin x)\,y=e^x.</md>
+                The left-hand side is the derivative of <m>\cos x\,y</m> since
+                    <m>\dfrac{d}{dx}(\cos x)=-\sin x</m>. Thus
+                <md>\frac{d}{dx}\bigl(\cos x\,y\bigr)=e^x.</md>
+                Integrate both sides:
+                <md>\cos x\,y=\int e^x\,dx=e^x+C.</md>
+                Therefore
+                <md>y=\frac{e^x+C}{\cos x}.</md>
+                Apply the initial condition <m>y(0)=1</m>:
+                <md>1=\frac{e^0+C}{\cos 0}=1+C \quad\Longrightarrow\quad C=0.</md>
+                Hence the solution of the initial value problem is
+                <md>y(x)=\frac{e^x}{\cos x}=e^x\sec x.</md></p>
+                </solution>
             </exercise>
 
             <exercise>
