@@ -1436,8 +1436,26 @@
                     </p>
                 </statement>
                 <hint>
-                    <p><m>y = \sin x / (x + 2)</m></p>
+                    <p><m>y = (\sin x+2) / (x + 2)</m></p>
                 </hint>
+                <solution component="instructors">
+                <p>Rewrite the differential equation in linear form:
+                <md>y' + \frac{1}{x+2}y = \frac{\cos x}{x+2}, \qquad x\neq -2.</md>
+                The integrating factor is
+                <md>\mu(x)=e^{\int \frac{1}{x+2}\,dx}=e^{\ln|x+2|}=x+2.</md>
+                Multiply the equation by <m>x+2</m>:
+                <md>(x+2)y' + y = \cos x.</md>
+                The left-hand side is the derivative of <m>(x+2)y</m>:
+                <md>\frac{d}{dx}\bigl((x+2)y\bigr)=\cos x.</md>
+                Integrate both sides:
+                <md>(x+2)y=\int \cos x\,dx=\sin x+C.</md>
+                Therefore
+                <md>y=\frac{\sin x+C}{x+2}.</md>
+                Apply the initial condition <m>y(0)=1</m>:
+                <md>1=\frac{\sin 0+C}{0+2}=\frac{C}{2} \quad\Longrightarrow\quad C=2.</md>
+                Hence the solution of the initial value problem is
+                <md>y(x)=\frac{\sin x + 2}{x+2}, \qquad x\neq -2.</md></p>
+                </solution>
             </exercise>
         
         </exercisegroup>
@@ -1465,6 +1483,36 @@
                     <md>x(t) = \frac{t^2 + 80t + 800}{2t + 80}.</md>
                 The tank is full at time <m>t = 400/5 = 80</m>, and the tank contains <m>x(80) = 170/3 \approx 56.67</m> kilograms of salt when the tank is full.</p>
             </hint>
+            <solution component="instructors">
+            <p>Let <m>S(t)</m> be the amount of salt (kg) in the tank and <m>V(t)</m> the volume of solution (L) at time <m>t</m> minutes.  
+            Since 10 L/min flow in and 5 L/min flow out,
+            <md>V(t)=200+(10-5)t=200+5t.</md>
+            The tank is full when <m>V(t)=600</m>, so
+            <md>200+5t=600 \quad\Longrightarrow\quad t=80.</md>
+            Salt enters at concentration <m>0.1</m> kg/L and rate 10 L/min, so the inflow salt rate is
+            <md>(0.1)(10)=1 \text{ kg/min}.</md>
+            Salt leaves at rate 5 L/min with concentration <m>\dfrac{S(t)}{V(t)}</m>, so the outflow salt rate is
+            <md>5\frac{S(t)}{V(t)}=\frac{5S(t)}{200+5t}=\frac{S(t)}{40+t}.</md>
+            Therefore <m>S(t)</m> satisfies
+            <md>\frac{dS}{dt}=1-\frac{S}{40+t},</md>
+            or
+            <md>\frac{dS}{dt}+\frac{1}{40+t}S=1.</md>
+            An integrating factor is <m>\mu(t)=e^{\int \frac{1}{40+t}\,dt}=40+t</m>, so
+            <md>\frac{d}{dt}\bigl((40+t)S\bigr)=40+t.</md>
+            Integrating gives
+            <md>(40+t)S=40t+\frac{t^2}{2}+C.</md>
+            Using <m>S(0)=10</m>,
+            <md>40(10)=C \quad\Longrightarrow\quad C=400.</md>
+            Hence
+            <md>S(t)=\frac{40t+\frac{t^2}{2}+400}{40+t}.</md>
+            When the tank is full (<m>t=80</m>),
+            <md>
+                S(80)=\frac{40(80)+\frac{80^2}{2}+400}{40+80}
+                    =\frac{3200+3200+400}{120}
+                    =\frac{170}{3}\text{ kg}.
+            </md>
+            So the tank contains <m>\frac{170}{3}\approx 56.7</m> kilograms of salt when it becomes full.</p>
+            </solution>
         </exercise>
 
         <exercise>
@@ -1484,6 +1532,38 @@
                     that deals with the problem after retirement.
                 </p>
             </hint>
+            <solution component="instructors">
+            <p>Let <m>R(t)</m> be the balance (dollars) in the retirement fund, and let <m>r=0.035</m> (per year) be the continuous growth rate.
+            <b>Accumulation phase (first 35 years).</b> The manager deposits <m>2400</m> dollars per year continuously, so
+            <md>\frac{dR}{dt}=rR+2400,\qquad R(0)=0.</md>
+            Solving,
+            <md>
+                R(t)=\frac{2400}{r}\left(e^{rt}-1\right).
+            </md>
+            At retirement (<m>t=35</m>), the balance is
+            <md>
+                R_0=R(35)=\frac{2400}{0.035}\left(e^{0.035\cdot 35}-1\right)\approx 1.64857\times 10^5.
+            </md>
+            <b>Withdrawal phase.</b> She withdraws <m>3500</m> dollars per month, i.e. <m>42000</m> dollars per year, and makes no further deposits. Then
+            <md>\frac{dR}{dt}=rR-42000,\qquad R(0)=R_0.</md>
+            The solution is
+            <md>
+                R(t)=\left(R_0-\frac{42000}{r}\right)e^{rt}+\frac{42000}{r}.
+            </md>
+            The fund is exhausted when <m>R(T)=0</m>, so
+            <md>
+                0=\left(R_0-\frac{42000}{r}\right)e^{rT}+\frac{42000}{r}
+                \quad\Longrightarrow\quad
+                e^{rT}=\frac{\frac{42000}{r}}{\frac{42000}{r}-R_0}.
+            </md>
+            Hence
+            <md>
+                <mrow>T \amp =\frac{1}{r}\ln\!\left(\frac{\frac{42000}{r}}{\frac{42000}{r}-R_0}\right)</mrow>
+                <mrow> \amp \approx \frac{1}{0.035}\ln\!\left(\frac{1200000}{1200000-164857}\right)</mrow>
+                <mrow> \amp \approx 4.22\text{ years}.</mrow>
+            </md>
+            So her retirement fund lasts about <m>4.22</m> years (about <m>51</m> months) after she retires.</p>
+            </solution>
         </exercise>
 
         <exercise>
