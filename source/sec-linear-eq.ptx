@@ -1571,7 +1571,7 @@
             <statement>
                 <p>A first-order differential equation, <m>M(x,y) \, dx + N(x,y) \, dy = 0</m>, is <em>exact</em> if there exists a function <m>g(x,y)</m> such that
                     <md>dg(x, y) = M(x,y) \, dx + N(x,y) \, dy.</md>
-                    <ol>
+                    <ol marker="(a)">
 
                         <li><p>If <m>M(x, y)</m> and <m>N(x,y)</m> and have continuous first-order partial derivatives on some rectangle in the <m>xy</m>-plane, then prove that 
                             <md>M(x,y) \, dx + N(x,y) \, dy = 0</md>
@@ -1584,7 +1584,7 @@
 
                         <li><p>In general, the differential equation <m>M(x,y) \, dx + N(x,y) \, dy = 0</m> is not exact.  However, we can sometimes transform this equation into an exact equation by multiplying the equation by an integrating factor
                             <md>\mu(x,y)[M(x,y) \, dx + N(x,y) \, dy] = 0.</md>
-                            <ol>
+                            <ol marker="(i)">
 
                                 <li><p>Show that <m>-1/x^2</m> is integrating factor for <m>y \, dx - x \, dy</m>.</p></li>
 
@@ -1604,7 +1604,59 @@
                 <p>For (e), rewrite the equation as 
                     <md>(y \, dx + x \, dy) + (-xy^2 \, dx + x^2 y^2 \, dy) = 0</md>
                 and consider the integrating factor <m>\mu(x, y) = 1/(xy)^2</m>.</p>
-            </hint>            
+            </hint> 
+            <solution component="instructors">
+              <p><em>Part (a).</em>
+              <em>(<m>\Rightarrow</m>)</em> If the equation is exact, then <m>g_x = M</m>
+              and <m>g_y = N</m>, and equality of continuous mixed partials gives
+              <m>\partial M/\partial y = g_{xy} = g_{yx} = \partial N/\partial x</m>.
+              <em>(<m>\Leftarrow</m>)</em> If <m>\partial M/\partial y = \partial N/\partial x</m>,
+              define <m>g(x,y) = \int_{x_0}^x M(s,y)\,ds + h(y)</m> where
+              <m>h'(y) = N - \partial_y\int_{x_0}^x M\,ds</m>. This depends only on
+              <m>y</m> since <m>\partial/\partial x(N - \partial_y\int M\,ds)
+              = \partial N/\partial x - \partial M/\partial y = 0</m>, so <m>g</m>
+              exists with <m>g_x = M</m> and <m>g_y = N</m>. <m>\square</m>
+              </p>
+              <p><em>Part (b).</em>
+              Since <m>\partial(2xy)/\partial y = 2x = \partial(1+x^2)/\partial x</m>,
+              the equation is exact. <m>\square</m>
+              </p>
+              <p><em>Part (c).</em>
+              Integrating <m>g_x = 2xy</m> gives <m>g = x^2y + h(y)</m>.
+              Then <m>g_y = x^2 + h'(y) = 1 + x^2</m> implies <m>h(y) = y</m>,
+              giving the general solution <m>y(1+x^2) = C</m>.
+              </p>
+              <p><em>Part (d).</em>
+              For each integrating factor <m>\mu</m>, we multiply <m>y\,dx - x\,dy = 0</m>
+              and verify <m>\partial\tilde{M}/\partial y = \partial\tilde{N}/\partial x</m>.
+                <ol>
+                  <li><p><m>\mu = -1/x^2</m> gives <m>-(y/x^2)\,dx + (1/x)\,dy = 0</m>;
+                  both partials equal <m>-1/x^2</m>. Solution: <m>y/x = C</m>. <m>\square</m>
+                  </p></li>
+                  <li><p><m>\mu = 1/y^2</m> gives <m>(1/y)\,dx - (x/y^2)\,dy = 0</m>;
+                  both partials equal <m>-1/y^2</m>. Solution: <m>x/y = C</m>. <m>\square</m>
+                  </p></li>
+                  <li><p><m>\mu = -1/(xy)</m> gives <m>-(1/x)\,dx + (1/y)\,dy = 0</m>;
+                  both partials equal <m>0</m>. Solution: <m>\ln|y/x| = C</m>. <m>\square</m>
+                  </p></li>
+                  <li><p><m>\mu = -1/(x^2+y^2)</m> gives
+                  <m>-(y/(x^2+y^2))\,dx + (x/(x^2+y^2))\,dy = 0</m>;
+                  both partials equal <m>(y^2-x^2)/(x^2+y^2)^2</m>.
+                  Solution: <m>\arctan(x/y) = C</m>. <m>\square</m>
+                  </p></li>
+                </ol>
+              </p>
+              <p><em>Part (e).</em>
+              Multiplying <m>(y^2-xy^2)\,dx + (x+x^2y^2)\,dy = 0</m> by
+              <m>\mu = 1/(x^2y^2)</m> gives
+                <md>\left(\frac{1}{x^2}-\frac{1}{x}\right)dx
+                  + \left(\frac{1}{xy^2}+1\right)dy = 0.</md>
+              Integrating <m>g_x = 1/x^2 - 1/x</m> yields
+              <m>g = -1/x - \ln|x| + h(y)</m>, and <m>g_y = h'(y) = -1/y + 1</m>
+              gives <m>h(y) = -\ln|y| + y</m>. The general solution is
+                <md>-\frac{1}{x} - \ln|x| - \ln|y| + y = C.</md>
+              </p>
+            </solution>           
         </exercise>
     </exercises>
 </section>

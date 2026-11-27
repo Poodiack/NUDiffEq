@@ -432,6 +432,7 @@
         <worksheet xml:id="ws-eulers-method">
             <title>In-Class Work on Euler's Method</title>
             <exercise workspace="2in">
+                <statement>
                 <p>
                     Use Euler's method to find an approximate value for 
                     <m>y(0.2)</m> to four decimal places, given that <m>y(x)</m> 
@@ -442,8 +443,104 @@
                     using first <m>h=0.1</m>, then <m>h=0.05</m>. Feel free 
                     to use your calculator or MATLAB to do the calculations.
                 </p>
+                </statement>
+                <solution component="instructors">
+                    <p>
+                        Using <m>h=0.1</m>, we have the following calculations:
+                    </p>
+                    <table>
+                        <tabular>
+                            <row header="yes" bottom="major">
+                                <cell><m>n</m></cell>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>f(x_n,y_n)</m></cell>
+                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>0</m></cell>
+                                <cell><m>0.0</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1</m></cell>
+                                <cell><m>0.1</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.1000</m></cell>
+                                <cell><m>0.0100</m></cell>
+                            </row>
+                            <row bottom="major">
+                                <cell><m>2</m></cell>
+                                <cell><m>0.2</m></cell>
+                                <cell><m>0.0100</m></cell>
+                                <cell><m>0.2101</m></cell>
+                                <cell><m>0.0310</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+
+                    Thus, using a step size of 0.1, we find that 
+                    <md number="yes">
+                        y(0.2)\approx 0.031.
+                    </md>
+
+                    Using a step size of 0.05, we have the following calculations:
+                    <table>
+                        <tabular>
+                            <row header="yes" bottom="major">
+                                <cell><m>n</m></cell>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>f(x_n,y_n)</m></cell>
+                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>0</m></cell>
+                                <cell><m>0.00</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1</m></cell>
+                                <cell><m>0.05</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0500</m></cell>
+                                <cell><m>0.0025</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>2</m></cell>
+                                <cell><m>0.10</m></cell>
+                                <cell><m>0.0025</m></cell>
+                                <cell><m>0.1025</m></cell>
+                                <cell><m>0.0076</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>3</m></cell>
+                                <cell><m>0.15</m></cell>
+                                <cell><m>0.0076</m></cell>
+                                <cell><m>0.1106</m></cell>
+                                <cell><m>0.0131</m></cell>
+                            </row>
+                            <row bottom="major">
+                                <cell><m>4</m></cell>
+                                <cell><m>0.20</m></cell>
+                                <cell><m>0.0131</m></cell>
+                                <cell><m>0.1132</m></cell>
+                                <cell><m>0.0188</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+                    Thus, using a step size of 0.05, we find that
+                    <md number="yes">
+                        y(0.2)\approx 0.0188.
+                    </md>
+                </solution>
             </exercise>
             <exercise workspace="2in">
+                <statement>
                 <p>
                     Unlike the previous problem, the initial value problem 
                     <md>
@@ -461,6 +558,54 @@
                     Feel free to use your calculator or MATLAB to do the 
                     calculations.
                 </p>
+                </statement>
+                <solution component="instructors">
+                    <p>
+                        The solution to the IVP is <m>y=e^{x^2-1}</m>. Thus we 
+                        have the following table:
+                    </p>
+                    <table>
+                        <title>Exact and approximate values of <m>y(1.1), \dots, y(1.5)</m></title>
+                        <tabular halign="center">
+                            <row header="yes" bottom="major">
+                                <cell><m>x</m></cell>
+                                <cell><m>y(x)</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>|y(x)-y_n|</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1.10</m></cell>
+                                <cell><m>1.1052</m></cell>
+                                <cell><m>1.1000</m></cell>
+                                <cell><m>0.0052</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1.20</m></cell>
+                                <cell><m>1.2712</m></cell>
+                                <cell><m>1.2100</m></cell>
+                                <cell><m>0.0612</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1.30</m></cell>
+                                <cell><m>1.4918</m></cell>
+                                <cell><m>1.3310</m></cell>
+                                <cell><m>0.1608</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1.40</m></cell>
+                                <cell><m>1.7813</m></cell>
+                                <cell><m>1.4644</m></cell>
+                                <cell><m>0.3169</m></cell>
+                            </row>
+                            <row bottom="major">
+                                <cell><m>1.50</m></cell>
+                                <cell><m>2.1170</m></cell>
+                                <cell><m>1.6148</m></cell>
+                                <cell><m>0.5022</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+                </solution>
             </exercise>
         </worksheet>
     </subsection>
@@ -548,45 +693,6 @@
             understand, but should only be used over a short interval.
         </p>
     </subsection>
-    <worksheet xml:id="ws-Euler-method">
-        <title>In-Class Work on Euler's Method</title>
-        <page>
-        <exercise>
-            <p>
-                Use Euler's method to find an approximate value for <m>y(0.2)</m>
-                to four decimal places, given that <m>y(x)</m> is the solution to the 
-                initial value problem
-                <md>
-                    y' = x + y^2, \quad y(0) = 0
-                </md>
-                using first <m>h=0.1</m>, then <m>h=0.05</m>. Feel free to use your 
-                calculator or the MATLAB code provided in the example to do the calculations.
-            </p>
-        </exercise>
-        </page>
-        <page>
-            <exercise>
-                <p>
-                    Unlike the previous problem, the initial-value problem
-                    <md>
-                        y' = 2xy, \quad y(1) = 1
-                    </md>
-                    can be solved by us by hand. (The equation is separable.)
-                </p>
-                <p>
-                    Solve the equation by hand and determine the values <m>y(1.1)</m>, 
-                    <m>y(1.2)</m>, <m>\dots</m> up to <m>y(1.5)</m>.
-                </p>
-                <p>
-                    <em>Then</em> use Euler's method with <m>h=0.1</m> and compare the 
-                    values you get for <m>y(1.1)</m>, <m>y(1.2)</m>, <m>\dots</m> up to <m>y(1.5)</m>. 
-                    Feel free to use your calculator or the MATLAB code posted above to do the 
-                    calculations.
-                </p>
-            </exercise>
-        </page>
-
-    </worksheet>
     <subsection xml:id="subsec-fourth-order-RK">
         <title>Fourth-Order Runge-Kutta Method</title>
         <p>
@@ -929,6 +1035,101 @@
                         <m>y'=2x-3y+1</m>, <m>y(1)=5</m>, <m>y(1.2)=?</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        Using <m>h=0.1</m>, we have the following calculations:
+                    </p>
+                    <table>
+                        <tabular>
+                            <row header="yes" bottom="major">
+                                <cell><m>n</m></cell>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>f(x_n,y_n)</m></cell>
+                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>0</m></cell>
+                                <cell><m>1.0</m></cell>
+                                <cell><m>5.0000</m></cell>
+                                <cell><m>-7.0000</m></cell>
+                                <cell><m>4.3000</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1</m></cell>
+                                <cell><m>1.1</m></cell>
+                                <cell><m>4.3000</m></cell>
+                                <cell><m>-6.3700</m></cell>
+                                <cell><m>3.6630</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>2</m></cell>
+                                <cell><m>1.2</m></cell>
+                                <cell><m>3.6630</m></cell>
+                                <cell><m>-5.9269</m></cell>
+                                <cell><m>3.0703</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+
+                    Thus, using a step size of 0.1, we find that 
+                    <md number="yes">
+                        y(1.2)\approx 3.0703.
+                    </md>
+
+                    Using a step size of 0.05, we have the following calculations:
+                    <table>
+                        <tabular>
+                            <row header="yes" bottom="major">
+                                <cell><m>n</m></cell>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>f(x_n,y_n)</m></cell>
+                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>0</m></cell>
+                                <cell><m>1.00</m></cell>
+                                <cell><m>5.0000</m></cell>
+                                <cell><m>-7.0000</m></cell>
+                                <cell><m>4.6500</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1</m></cell>
+                                <cell><m>1.05</m></cell>
+                                <cell><m>4.6500</m></cell>
+                                <cell><m>-6.5500</m></cell>
+                                <cell><m>4.3225</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>2</m></cell>
+                                <cell><m>1.10</m></cell>
+                                <cell><m>4.3225</m></cell>
+                                <cell><m>-6.0450</m></cell>
+                                <cell><m>4.0203</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>3</m></cell>
+                                <cell><m>1.15</m></cell>
+                                <cell><m>4.0203</m></cell>
+                                <cell><m>-5.6394</m></cell>
+                                <cell><m>3.7013</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>4</m></cell>
+                                <cell><m>1.20</m></cell>
+                                <cell><m>3.7013</m></cell>
+                                <cell><m>-5.3026</m></cell>
+                                <cell><m>3.3548</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+                    Thus, using a step size of 0.05, we find that
+                    <md number="yes">
+                        y(1.2)\approx 3.3548.
+                    </md>
+                </solution>
+
             </exercise>
 
             <exercise>
@@ -937,6 +1138,100 @@
                         <m>y'=x+y^2</m>, <m>y(0)=0</m>, <m>y(0.2)=?</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        Using <m>h=0.1</m>, we have the following calculations:
+                    </p>
+                    <table>
+                        <tabular>
+                            <row header="yes" bottom="major">
+                                <cell><m>n</m></cell>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>f(x_n,y_n)</m></cell>
+                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>0</m></cell>
+                                <cell><m>0.0</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1</m></cell>
+                                <cell><m>0.1</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.1000</m></cell>
+                                <cell><m>0.0100</m></cell>
+                            </row>
+                            <row bottom="major">
+                                <cell><m>2</m></cell>
+                                <cell><m>0.2</m></cell>
+                                <cell><m>0.0100</m></cell>
+                                <cell><m>0.2101</m></cell>
+                                <cell><m>0.0310</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+
+                    Thus, using a step size of 0.1, we find that 
+                    <md number="yes">
+                        y(0.2)\approx 0.031.
+                    </md>
+
+                    Using a step size of 0.05, we have the following calculations:
+                    <table>
+                        <tabular>
+                            <row header="yes" bottom="major">
+                                <cell><m>n</m></cell>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>y_n</m></cell>
+                                <cell><m>f(x_n,y_n)</m></cell>
+                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>0</m></cell>
+                                <cell><m>0.00</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0000</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>1</m></cell>
+                                <cell><m>0.05</m></cell>
+                                <cell><m>0.0000</m></cell>
+                                <cell><m>0.0500</m></cell>
+                                <cell><m>0.0025</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>2</m></cell>
+                                <cell><m>0.10</m></cell>
+                                <cell><m>0.0025</m></cell>
+                                <cell><m>0.1025</m></cell>
+                                <cell><m>0.0076</m></cell>
+                            </row>
+                            <row>
+                                <cell><m>3</m></cell>
+                                <cell><m>0.15</m></cell>
+                                <cell><m>0.0076</m></cell>
+                                <cell><m>0.1106</m></cell>
+                                <cell><m>0.0131</m></cell>
+                            </row>
+                            <row bottom="major">
+                                <cell><m>4</m></cell>
+                                <cell><m>0.20</m></cell>
+                                <cell><m>0.0131</m></cell>
+                                <cell><m>0.1132</m></cell>
+                                <cell><m>0.0188</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+                    Thus, using a step size of 0.05, we find that
+                    <md number="yes">
+                        y(0.2)\approx 0.0188.
+                    </md>
+                </solution>
             </exercise>
         
         </exercisegroup>
