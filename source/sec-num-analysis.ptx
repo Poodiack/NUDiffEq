@@ -446,16 +446,17 @@
                 </statement>
                 <solution component="instructors">
                     <p>
-                        Using <m>h=0.1</m>, we have the following calculations:
+                        We identify <m>f(x,y) = x + y^2</m>. Using <m>h=0.1</m>, we have the following table:
                     </p>
                     <table>
-                        <tabular>
+                        <title>Euler's method table</title>
+                        <tabular halign="center">
                             <row header="yes" bottom="major">
                                 <cell><m>n</m></cell>
                                 <cell><m>x_n</m></cell>
                                 <cell><m>y_n</m></cell>
-                                <cell><m>f(x_n,y_n)</m></cell>
-                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                                <cell><m>f(x_n,y_n) = x_n+y_n^2</m></cell>
+                                <cell><m>y_{n+1} = y_n + f(x_n,y_n)\cdot h</m></cell>
                             </row>
                             <row>
                                 <cell><m>0</m></cell>
@@ -464,37 +465,30 @@
                                 <cell><m>0.0000</m></cell>
                                 <cell><m>0.0000</m></cell>
                             </row>
-                            <row>
+                            <row bottom="major">
                                 <cell><m>1</m></cell>
                                 <cell><m>0.1</m></cell>
                                 <cell><m>0.0000</m></cell>
                                 <cell><m>0.1000</m></cell>
                                 <cell><m>0.0100</m></cell>
                             </row>
-                            <row bottom="major">
-                                <cell><m>2</m></cell>
-                                <cell><m>0.2</m></cell>
-                                <cell><m>0.0100</m></cell>
-                                <cell><m>0.2101</m></cell>
-                                <cell><m>0.0310</m></cell>
-                            </row>
                         </tabular>
                     </table>
-
-                    Thus, using a step size of 0.1, we find that 
-                    <md number="yes">
-                        y(0.2)\approx 0.031.
-                    </md>
-
-                    Using a step size of 0.05, we have the following calculations:
+                    <p>
+                        Therefore, <m>y(0.2) \approx 0.0100</m>.
+                    </p>
+                    <p>
+                        Using <m>h=0.05</m>, we have the following table:
+                    </p>
                     <table>
-                        <tabular>
+                        <title>Euler's method table</title>
+                        <tabular halign="center">
                             <row header="yes" bottom="major">
                                 <cell><m>n</m></cell>
                                 <cell><m>x_n</m></cell>
                                 <cell><m>y_n</m></cell>
-                                <cell><m>f(x_n,y_n)</m></cell>
-                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                                <cell><m>f(x_n,y_n) = x_n+y_n^2</m></cell>
+                                <cell><m>y_{n+1} = y_n + f(x_n,y_n)\cdot h</m></cell>
                             </row>
                             <row>
                                 <cell><m>0</m></cell>
@@ -517,26 +511,18 @@
                                 <cell><m>0.1025</m></cell>
                                 <cell><m>0.0076</m></cell>
                             </row>
-                            <row>
+                            <row bottom="major">
                                 <cell><m>3</m></cell>
                                 <cell><m>0.15</m></cell>
                                 <cell><m>0.0076</m></cell>
-                                <cell><m>0.1106</m></cell>
-                                <cell><m>0.0131</m></cell>
-                            </row>
-                            <row bottom="major">
-                                <cell><m>4</m></cell>
-                                <cell><m>0.20</m></cell>
-                                <cell><m>0.0131</m></cell>
-                                <cell><m>0.1132</m></cell>
-                                <cell><m>0.0188</m></cell>
-                            </row>
+                                <cell><m>0.1602</m></cell>
+                                <cell><m>0.0156</m></cell>
+                            </row> 
                         </tabular>
                     </table>
-                    Thus, using a step size of 0.05, we find that
-                    <md number="yes">
-                        y(0.2)\approx 0.0188.
-                    </md>
+                    <p>
+                        Thus, <m>y(0.2) \approx 0.0156</m>.
+                    </p>
                 </solution>
             </exercise>
             <exercise workspace="2in">
@@ -1037,6 +1023,7 @@
                 </statement>
                 <solution component="instructors">
                     <p>
+                        We identify <m>f(x,y)=2x-3y+1</m> and <m>(x_0,y_0)=(1,5)</m>. 
                         Using <m>h=0.1</m>, we have the following calculations:
                     </p>
                     <table>
@@ -1052,29 +1039,22 @@
                                 <cell><m>0</m></cell>
                                 <cell><m>1.0</m></cell>
                                 <cell><m>5.0000</m></cell>
-                                <cell><m>-7.0000</m></cell>
-                                <cell><m>4.3000</m></cell>
+                                <cell><m>-12.0000</m></cell>
+                                <cell><m>3.8000</m></cell>
                             </row>
-                            <row>
+                            <row bottom="major">
                                 <cell><m>1</m></cell>
                                 <cell><m>1.1</m></cell>
-                                <cell><m>4.3000</m></cell>
-                                <cell><m>-6.3700</m></cell>
-                                <cell><m>3.6630</m></cell>
-                            </row>
-                            <row>
-                                <cell><m>2</m></cell>
-                                <cell><m>1.2</m></cell>
-                                <cell><m>3.6630</m></cell>
-                                <cell><m>-5.9269</m></cell>
-                                <cell><m>3.0703</m></cell>
+                                <cell><m>3.8000</m></cell>
+                                <cell><m>-10.000</m></cell>
+                                <cell><m>2.9800</m></cell>
                             </row>
                         </tabular>
                     </table>
 
                     Thus, using a step size of 0.1, we find that 
                     <md number="yes">
-                        y(1.2)\approx 3.0703.
+                        y(1.2)\approx 2.980.
                     </md>
 
                     Using a step size of 0.05, we have the following calculations:
@@ -1091,65 +1071,58 @@
                                 <cell><m>0</m></cell>
                                 <cell><m>1.00</m></cell>
                                 <cell><m>5.0000</m></cell>
-                                <cell><m>-7.0000</m></cell>
-                                <cell><m>4.6500</m></cell>
+                                <cell><m>-12.0000</m></cell>
+                                <cell><m>4.4000</m></cell>
                             </row>
                             <row>
                                 <cell><m>1</m></cell>
                                 <cell><m>1.05</m></cell>
-                                <cell><m>4.6500</m></cell>
-                                <cell><m>-6.5500</m></cell>
-                                <cell><m>4.3225</m></cell>
+                                <cell><m>4.4000</m></cell>
+                                <cell><m>-10.100</m></cell>
+                                <cell><m>3.8950</m></cell>
                             </row>
                             <row>
                                 <cell><m>2</m></cell>
                                 <cell><m>1.10</m></cell>
-                                <cell><m>4.3225</m></cell>
-                                <cell><m>-6.0450</m></cell>
-                                <cell><m>4.0203</m></cell>
+                                <cell><m>3.8950</m></cell>
+                                <cell><m>-8.4850</m></cell>
+                                <cell><m>3.4708</m></cell>
                             </row>
-                            <row>
+                            <row bottom="major">
                                 <cell><m>3</m></cell>
                                 <cell><m>1.15</m></cell>
-                                <cell><m>4.0203</m></cell>
-                                <cell><m>-5.6394</m></cell>
-                                <cell><m>3.7013</m></cell>
-                            </row>
-                            <row>
-                                <cell><m>4</m></cell>
-                                <cell><m>1.20</m></cell>
-                                <cell><m>3.7013</m></cell>
-                                <cell><m>-5.3026</m></cell>
-                                <cell><m>3.3548</m></cell>
+                                <cell><m>3.4708</m></cell>
+                                <cell><m>-7.11225</m></cell>
+                                <cell><m>3.11514</m></cell>
                             </row>
                         </tabular>
                     </table>
-                    Thus, using a step size of 0.05, we find that
+
+                    Thus, using a step size of 0.05, we find that 
                     <md number="yes">
-                        y(1.2)\approx 3.3548.
+                        y(1.2)\approx 3.11514.
                     </md>
-                </solution>
-
-            </exercise>
-
-            <exercise>
-                <statement>
+                    </solution>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>
+                            <m>y'=x+y^2</m>, <m>y(0)=0</m>, <m>y(0.2)=?</m>
+                        </p>
+                    </statement>
+                    <solution component="instructors">
                     <p>
-                        <m>y'=x+y^2</m>, <m>y(0)=0</m>, <m>y(0.2)=?</m>
-                    </p>
-                </statement>
-                <solution component="instructors">
-                    <p>
-                        Using <m>h=0.1</m>, we have the following calculations:
+                        We identify <m>f(x,y) = x + y^2</m>. Using <m>h=0.1</m>, we have the following table:
                     </p>
                     <table>
-                        <tabular>
+                        <title>Euler's method table</title>
+                        <tabular halign="center">
                             <row header="yes" bottom="major">
                                 <cell><m>n</m></cell>
                                 <cell><m>x_n</m></cell>
                                 <cell><m>y_n</m></cell>
-                                <cell><m>f(x_n,y_n)</m></cell>
-                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                                <cell><m>f(x_n,y_n) = x_n+y_n^2</m></cell>
+                                <cell><m>y_{n+1} = y_n + f(x_n,y_n)\cdot h</m></cell>
                             </row>
                             <row>
                                 <cell><m>0</m></cell>
@@ -1158,37 +1131,30 @@
                                 <cell><m>0.0000</m></cell>
                                 <cell><m>0.0000</m></cell>
                             </row>
-                            <row>
+                            <row bottom="major">
                                 <cell><m>1</m></cell>
                                 <cell><m>0.1</m></cell>
                                 <cell><m>0.0000</m></cell>
                                 <cell><m>0.1000</m></cell>
                                 <cell><m>0.0100</m></cell>
                             </row>
-                            <row bottom="major">
-                                <cell><m>2</m></cell>
-                                <cell><m>0.2</m></cell>
-                                <cell><m>0.0100</m></cell>
-                                <cell><m>0.2101</m></cell>
-                                <cell><m>0.0310</m></cell>
-                            </row>
                         </tabular>
                     </table>
-
-                    Thus, using a step size of 0.1, we find that 
-                    <md number="yes">
-                        y(0.2)\approx 0.031.
-                    </md>
-
-                    Using a step size of 0.05, we have the following calculations:
+                    <p>
+                        Therefore, <m>y(0.2) \approx 0.0100</m>.
+                    </p>
+                    <p>
+                        Using <m>h=0.05</m>, we have the following table:
+                    </p>
                     <table>
-                        <tabular>
+                        <title>Euler's method table</title>
+                        <tabular halign="center">
                             <row header="yes" bottom="major">
                                 <cell><m>n</m></cell>
                                 <cell><m>x_n</m></cell>
                                 <cell><m>y_n</m></cell>
-                                <cell><m>f(x_n,y_n)</m></cell>
-                                <cell><m>y_{n+1}\approx y_n + h f(x_n,y_n)</m></cell>
+                                <cell><m>f(x_n,y_n) = x_n+y_n^2</m></cell>
+                                <cell><m>y_{n+1} = y_n + f(x_n,y_n)\cdot h</m></cell>
                             </row>
                             <row>
                                 <cell><m>0</m></cell>
@@ -1211,29 +1177,20 @@
                                 <cell><m>0.1025</m></cell>
                                 <cell><m>0.0076</m></cell>
                             </row>
-                            <row>
+                            <row bottom="major">
                                 <cell><m>3</m></cell>
                                 <cell><m>0.15</m></cell>
                                 <cell><m>0.0076</m></cell>
-                                <cell><m>0.1106</m></cell>
-                                <cell><m>0.0131</m></cell>
-                            </row>
-                            <row bottom="major">
-                                <cell><m>4</m></cell>
-                                <cell><m>0.20</m></cell>
-                                <cell><m>0.0131</m></cell>
-                                <cell><m>0.1132</m></cell>
-                                <cell><m>0.0188</m></cell>
-                            </row>
+                                <cell><m>0.1602</m></cell>
+                                <cell><m>0.0156</m></cell>
+                            </row> 
                         </tabular>
                     </table>
-                    Thus, using a step size of 0.05, we find that
-                    <md number="yes">
-                        y(0.2)\approx 0.0188.
-                    </md>
+                    <p>
+                        Thus, <m>y(0.2) \approx 0.0156</m>.
+                    </p>
                 </solution>
             </exercise>
-        
         </exercisegroup>
         <exercisegroup xml:id="exercises-num-method-2">
             <title>Euler's method error</title>
@@ -1254,6 +1211,20 @@
                         <m>y'=y</m>, <m>y(0)=1</m>, <m>y(1.0)</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        The analytical solution to the initial value problem is 
+                        <m>y(x) = e^x</m>. Therefore, <m>y(1.0) = e \approx 2.7183</m>.
+                    </p>
+                    <p>
+                        Using Euler's method with <m>h=0.1</m>, we have the following calculations:
+                    </p>
+                    <image source="./images/eulersolution1.png" width="80%"/>
+                    <p>
+                        Using Euler's method with <m>h=0.05</m>, we have the following calculations:
+                    </p>
+                    <image source="./images/eulersolution2.png" width="80%"/>
+                </solution>
             </exercise>
 
             <exercise>
@@ -1262,6 +1233,20 @@
                         <m>y'=2xy</m>, <m>y(1)=1</m>, <m>y(1.5)</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        The analytical solution to the initial value problem is 
+                        <m>y(x) = e^{x^2-1}</m>. Therefore, <m>y(1.5) = e^{1.25} \approx 3.4903</m>.
+                    </p>
+                    <p>
+                        Using Euler's method with <m>h=0.1</m>, we have the following calculations:
+                    </p>
+                    <image source="./images/eulersolution3.png" width="80%"/>
+                    <p>
+                        Using Euler's method with <m>h=0.05</m>, we have the following calculations:
+                    </p>
+                    <image source="./images/eulersolution4.png" width="80%"/>
+                </solution>
             </exercise>
         
         </exercisegroup>
@@ -1273,8 +1258,9 @@
                 <p>
                     In <xref ref="exercises-num-method-3"/>, use MATLAB to obtain a 
                     four-decimal approximation to the of the indicated value of the 
-                    solution to the given initial value problem, first using Euler's method and then using the fourth-order Runge-Kutta method 
-                    and then the Runge-Kutta method, each with <m>h=0.25</m>. Compare the results.
+                    solution to the given initial value problem, first using Euler's 
+                    method and then using the fourth-order Runge-Kutta method, in each case 
+                    first with <m>h=0.1</m> and then with <m>h=0.05</m>.
                 </p>
             </introduction>
         
@@ -1284,6 +1270,60 @@
                         <m>y'=e^{-y}</m>, <m>y(0)=0</m>, <m>y(0.5)</m>
                     </p>
                 </statement>
+                <solution component="instructors">
+                    <p>
+                        Here is the MATLAB code to solve the initial value problem using Euler's method 
+                        with <m>h=0.1</m>. The code will generate a table of values for <m>x_n</m> and <m>y_n</m> at each step.:
+                    </p>
+                    <program language="octave">
+                        <code>
+                        % Define the differential equation y' = f(x, y)
+                        f = @(x, y) exp(-y);
+
+                        % Initial conditions
+                        x0 = 0;
+                        y0 = 0;
+                        xmax = 0.5;
+
+                        % Configuration
+                        num_steps = 5;      % Number of steps to generate 5 points after the initial condition
+                        h = (xmax - x0)/num_steps;
+
+                        % Initialize arrays to hold the values
+                        x = zeros(num_steps + 1, 1);
+                        y = zeros(num_steps + 1, 1);
+                        f_val = zeros(num_steps + 1, 1);
+
+                        % Set the initial point
+                        x(1) = x0;
+                        y(1) = y0;
+                        f_val(1) = f(x(1), y(1));
+
+                        % Euler's Method loop
+                        for n = 1:num_steps
+                            % Calculate next y value: y_next = y_curr + h * f(x_curr, y_curr)
+                            y(n+1) = y(n) + h * f_val(n);
+
+                            % Advance x
+                            x(n+1) = x(n) + h;
+
+                            % Calculate f(x, y) at the new point (except for the last point, where it's optional)
+                            if n &lt; num_steps + 1
+                                f_val(n+1) = f(x(n+1), y(n+1));
+                            end
+                        end
+
+                        % Create and display the table
+                        Step = (0:num_steps)';
+                        EulerTable = table(Step, x, y, 'VariableNames', {'n', 'x_n', 'y_n'});
+                        disp(EulerTable);
+                        </code>
+                    </program>
+                    <image source="./images/eulersolution6.png" width="50%"/>
+                    <p>
+                        Adjusting the code for <m>h=0.05</m> (i.e., <m>num_steps = 10</m>) will yield a more accurate approximation of <m>y(0.5)</m>.
+                    </p>
+                </solution>
             </exercise>
 
             <exercise>
